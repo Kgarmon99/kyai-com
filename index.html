@@ -27,6 +27,7 @@
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#workshops">Workshops</a>
         <a href="#tracker">Tracker</a>
+        <a href="#board">Board</a>
         <a href="#open-source">Open source</a>
         <a href="#join">Join</a>
       </nav>
@@ -115,6 +116,8 @@
             <button class="filter-button is-active" data-filter="all" type="button">All</button>
             <button class="filter-button" data-filter="education" type="button">Education</button>
             <button class="filter-button" data-filter="workforce" type="button">Workforce</button>
+            <button class="filter-button" data-filter="research" type="button">Research</button>
+            <button class="filter-button" data-filter="events" type="button">Events</button>
             <button class="filter-button" data-filter="policy" type="button">Policy</button>
           </div>
         </div>
@@ -128,6 +131,54 @@
             </div>
           </div>
           <div class="update-list" id="updateList" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section board-section" id="board" aria-labelledby="board-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Community board</p>
+            <h2 id="board-title">A place for Kentucky to talk about AI in public.</h2>
+          </div>
+          <a class="button board-button" href="#join">
+            <span data-lucide="message-square-plus" aria-hidden="true"></span>
+            Join the board
+          </a>
+        </div>
+        <div class="board-layout">
+          <div class="thread-list" id="threadList" aria-label="Discussion threads"></div>
+          <form class="thread-form" id="threadForm">
+            <h3>Start a local thread</h3>
+            <label>
+              Topic
+              <input name="topic" maxlength="90" required />
+            </label>
+            <label>
+              Type
+              <select name="type" required>
+                <option>News lead</option>
+                <option>Research note</option>
+                <option>Event</option>
+                <option>Policy question</option>
+                <option>Workshop request</option>
+              </select>
+            </label>
+            <label>
+              Context
+              <textarea
+                name="context"
+                maxlength="420"
+                rows="4"
+                placeholder="What happened, where in Kentucky, and why should people pay attention?"
+                required
+              ></textarea>
+            </label>
+            <button class="button primary form-button" type="submit">
+              <span data-lucide="plus" aria-hidden="true"></span>
+              Add thread locally
+            </button>
+            <p class="form-status" id="threadStatus" role="status"></p>
+          </form>
         </div>
       </section>
 

@@ -21,6 +21,20 @@ const updates = [
       "A community-maintained log of AI-related public meetings, procurement activity, school guidance, and statewide policy conversations.",
   },
   {
+    category: "research",
+    region: "Lexington",
+    title: "University and lab research watch",
+    body:
+      "A place to track Kentucky AI research, grants, papers, student projects, startup spinouts, and public datasets worth sharing.",
+  },
+  {
+    category: "events",
+    region: "Northern Kentucky",
+    title: "AI meetups, workshops, and public talks",
+    body:
+      "Community-submitted listings for free workshops, school events, library sessions, business clinics, and civic AI conversations.",
+  },
+  {
     category: "education",
     region: "Eastern Kentucky",
     title: "Rural access and digital readiness",
@@ -29,10 +43,37 @@ const updates = [
   },
 ];
 
+const seedThreads = [
+  {
+    type: "News lead",
+    place: "Statewide",
+    topic: "Where should KYAI track Kentucky AI news first?",
+    context:
+      "Suggested starting lanes: schools, universities, workforce boards, local government, health systems, startups, and public library programs.",
+  },
+  {
+    type: "Research note",
+    place: "Bluegrass",
+    topic: "Build a public Kentucky AI research index",
+    context:
+      "Collect university labs, faculty work, student projects, public datasets, grants, and applied AI pilots in one open directory.",
+  },
+  {
+    type: "Workshop request",
+    place: "Eastern Kentucky",
+    topic: "AI basics session for rural small businesses",
+    context:
+      "A practical workshop on using AI for quotes, inventory notes, customer messages, grant drafts, and fraud-aware research would be useful.",
+  },
+];
+
 const updateList = document.querySelector("#updateList");
 const filterButtons = document.querySelectorAll(".filter-button");
 const joinForm = document.querySelector("#joinForm");
 const formStatus = document.querySelector("#formStatus");
+const threadList = document.querySelector("#threadList");
+const threadForm = document.querySelector("#threadForm");
+const threadStatus = document.querySelector("#threadStatus");
 
 function iconize() {
   if (window.lucide) {
@@ -44,6 +85,15 @@ function iconize() {
   }
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
 function renderUpdates(filter = "all") {
   updateList.innerHTML = updates
     .map(
@@ -52,11 +102,32 @@ function renderUpdates(filter = "all") {
           filter !== "all" && update.category !== filter
         }">
           <div class="update-meta">
-            <span>${update.region}</span>
-            <span>${update.category}</span>
+            <span>${escapeHtml(update.region)}</span>
+            <span>${escapeHtml(update.category)}</span>
           </div>
-          <h3>${update.title}</h3>
-          <p>${update.body}</p>
+          <h3>${escapeHtml(update.title)}</h3>
+          <p>${escapeHtml(update.body)}</p>
+        </article>
+      `,
+    )
+    .join("");
+}
+
+function getThreads() {
+  return JSON.parse(localStorage.getItem("kyai-threads") || "null") || seedThreads;
+}
+
+function renderThreads() {
+  threadList.innerHTML = getThreads()
+    .map(
+      (thread) => `
+        <article class="thread-card">
+          <div class="thread-meta">
+            <span>${escapeHtml(thread.place || "Kentucky")}</span>
+            <span>${escapeHtml(thread.type)}</span>
+          </div>
+          <h3>${escapeHtml(thread.topic)}</h3>
+          <p>${escapeHtml(thread.context)}</p>
         </article>
       `,
     )
@@ -69,6 +140,22 @@ filterButtons.forEach((button) => {
     button.classList.add("is-active");
     renderUpdates(button.dataset.filter);
   });
+});
+
+threadForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(threadForm);
+  const threads = getThreads();
+  threads.unshift({
+    type: formData.get("type"),
+    place: "Community submitted",
+    topic: formData.get("topic"),
+    context: formData.get("context"),
+  });
+  localStorage.setItem("kyai-threads", JSON.stringify(threads));
+  threadStatus.textContent = "Thread saved locally. The next build can back this with accounts and moderation.";
+  threadForm.reset();
+  renderThreads();
 });
 
 joinForm.addEventListener("submit", (event) => {
@@ -90,4 +177,5 @@ joinForm.addEventListener("submit", (event) => {
 });
 
 renderUpdates();
+renderThreads();
 iconize();
