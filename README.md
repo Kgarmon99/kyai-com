@@ -16,6 +16,7 @@ The deployable static site is generated into `dist/client`.
 
 KYAI deploys on Vercel.
 
+- GitHub: `https://github.com/Kgarmon99/kyai-com`
 - Project: `kyai`
 - Production alias: `https://kyai-flax.vercel.app`
 - Custom domains: `kyai.com`, `www.kyai.com`
