@@ -26,6 +26,7 @@
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#workshops">Workshops</a>
+        <a href="#intelligence">Intelligence</a>
         <a href="#tracker">Tracker</a>
         <a href="#board">Board</a>
         <a href="#open-source">Open source</a>
@@ -118,8 +119,32 @@
             <button class="filter-button" data-filter="workforce" type="button">Workforce</button>
             <button class="filter-button" data-filter="research" type="button">Research</button>
             <button class="filter-button" data-filter="events" type="button">Events</button>
+            <button class="filter-button" data-filter="industry" type="button">Industry</button>
             <button class="filter-button" data-filter="policy" type="button">Policy</button>
           </div>
+        </div>
+        <div class="intelligence-panel" id="intelligence" aria-label="Latest Kentucky AI intelligence">
+          <div>
+            <p class="kicker">Latest Kentucky AI intelligence</p>
+            <h3>News, research, policy, workforce, events, and big-mover signals.</h3>
+            <p>
+              Auto-generated from public news and research indexes. Each item links back to the original source for review.
+            </p>
+          </div>
+          <dl class="intel-stats">
+            <div>
+              <dt>Last refresh</dt>
+              <dd id="intelUpdatedAt">Loading</dd>
+            </div>
+            <div>
+              <dt>Items tracked</dt>
+              <dd id="intelItemsCount">0</dd>
+            </div>
+            <div>
+              <dt>Source lanes</dt>
+              <dd id="intelSources">0</dd>
+            </div>
+          </dl>
         </div>
         <div class="tracker-layout">
           <div class="map-panel" aria-label="Kentucky regional focus areas">
@@ -131,6 +156,18 @@
             </div>
           </div>
           <div class="update-list" id="updateList" aria-live="polite"></div>
+        </div>
+        <div class="watchlist-panel" aria-label="KYAI watchlist">
+          <div class="digest-preview">
+            <p class="kicker">Daily brief</p>
+            <h3>Morning digest preview</h3>
+            <div id="digestPreview"></div>
+          </div>
+          <div>
+            <p class="kicker">Watchlist</p>
+            <h3>What the automation follows</h3>
+            <div class="watch-list" id="watchList"></div>
+          </div>
         </div>
       </section>
 

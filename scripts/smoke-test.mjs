@@ -11,6 +11,7 @@ const requiredFiles = [
   "dist/client/index.html",
   "dist/client/styles.css",
   "dist/client/app.js",
+  "dist/client/data/intelligence-feed.json",
 ];
 
 for (const file of requiredFiles) {
@@ -27,6 +28,7 @@ for (const phrase of [
   "KYAI | Open AI Education for Kentucky",
   "Kentucky AI Tracker",
   "Community board",
+  "Latest Kentucky AI intelligence",
   "A public commons for Kentucky AI knowledge",
 ]) {
   if (!html.includes(phrase)) {
@@ -34,7 +36,7 @@ for (const phrase of [
   }
 }
 
-for (const phrase of ["research", "events", "seedThreads", "kyai-threads"]) {
+for (const phrase of ["loadIntelligence", "research", "events", "seedThreads", "kyai-threads"]) {
   if (!js.includes(phrase)) {
     throw new Error(`Missing app capability: ${phrase}`);
   }

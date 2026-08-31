@@ -1,0 +1,111 @@
+{
+  "gdeltQueries": [
+    {
+      "label": "Kentucky AI news",
+      "category": "news",
+      "query": "(\"artificial intelligence\" OR \"machine learning\" OR AI) Kentucky"
+    },
+    {
+      "label": "Research and universities",
+      "category": "research",
+      "query": "(\"artificial intelligence\" OR \"machine learning\" OR AI) (\"University of Kentucky\" OR \"University of Louisville\" OR \"Western Kentucky University\" OR \"Northern Kentucky University\")"
+    },
+    {
+      "label": "Policy and public sector",
+      "category": "policy",
+      "query": "Kentucky (\"artificial intelligence\" OR AI) (policy OR law OR regulation OR government OR schools OR public)"
+    },
+    {
+      "label": "Workforce and business",
+      "category": "workforce",
+      "query": "Kentucky (\"artificial intelligence\" OR AI) (jobs OR workforce OR business OR training OR startup OR economic)"
+    },
+    {
+      "label": "Infrastructure and big movers",
+      "category": "industry",
+      "query": "Kentucky (\"AI data center\" OR \"artificial intelligence company\" OR Anthropic OR \"data center\")"
+    },
+    {
+      "label": "Events and workshops",
+      "category": "events",
+      "query": "Kentucky (\"artificial intelligence\" OR AI) (event OR workshop OR conference OR meetup OR training)"
+    }
+  ],
+  "openAlexInstitutions": [
+    {
+      "name": "University of Kentucky",
+      "id": "I143302722",
+      "region": "Lexington / Bluegrass"
+    },
+    {
+      "name": "University of Louisville",
+      "id": "I142740786",
+      "region": "Louisville / North Central"
+    },
+    {
+      "name": "Western Kentucky University",
+      "id": "I94339441",
+      "region": "South Central Kentucky"
+    },
+    {
+      "name": "Northern Kentucky University",
+      "id": "I168416876",
+      "region": "Northern Kentucky"
+    },
+    {
+      "name": "Murray State University",
+      "id": "I127362389",
+      "region": "Western Kentucky"
+    },
+    {
+      "name": "Eastern Kentucky University",
+      "id": "I110325482",
+      "region": "Eastern Kentucky / Appalachia"
+    },
+    {
+      "name": "Kentucky State University",
+      "id": "I88447708",
+      "region": "Frankfort / Bluegrass"
+    },
+    {
+      "name": "Morehead State University",
+      "id": "I44206873",
+      "region": "Eastern Kentucky / Appalachia"
+    }
+  ],
+  "openAlexSearches": [
+    "artificial intelligence",
+    "machine learning",
+    "deep learning",
+    "natural language processing",
+    "computer vision",
+    "data science"
+  ],
+  "watchlist": [
+    {
+      "name": "Kentucky university research",
+      "type": "Researchers",
+      "focus": "OpenAlex scans for AI-related papers connected to Kentucky institutions."
+    },
+    {
+      "name": "AI infrastructure and data centers",
+      "type": "Big movers",
+      "focus": "News scans watch for data centers, hyperscalers, energy, and economic development."
+    },
+    {
+      "name": "Schools, libraries, and workforce boards",
+      "type": "Training",
+      "focus": "Public workshops, degree launches, training programs, and digital readiness activity."
+    },
+    {
+      "name": "State and local policy",
+      "type": "Civic",
+      "focus": "Legislation, public agency guidance, procurement, lawsuits, and public meetings."
+    },
+    {
+      "name": "Kentucky founders and companies",
+      "type": "Industry",
+      "focus": "Startups, small-business adoption, local pilots, and AI-enabled services."
+    }
+  ]
+}

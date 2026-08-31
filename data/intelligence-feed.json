@@ -1,0 +1,601 @@
+{
+  "updatedAt": "2026-08-31T10:12:20.590Z",
+  "generatedBy": "KYAI intelligence automation",
+  "summary": {
+    "totalItems": 28,
+    "newsItems": 0,
+    "researchItems": 18,
+    "curatedItems": 10
+  },
+  "items": [
+    {
+      "id": "kyai-3e92mj",
+      "category": "research",
+      "region": "Arabian Gulf University",
+      "title": "Machine learning-integrated explainable artificial intelligence for survival prediction in urothelial carcinoma with enfortumab vedotin: an exploratory real-world analysis",
+      "body": "Research signal connected to Arabian Gulf University, Charles University, Arnold Ventures, Ochsner Medical Center.",
+      "source": "Expert Opinion on Biological Therapy",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1080/14712598.2026.2727098",
+      "publishedAt": "2026-08-29T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Zin W Myint"
+      ],
+      "institutions": [
+        "Arabian Gulf University",
+        "Charles University",
+        "Arnold Ventures",
+        "Ochsner Medical Center"
+      ]
+    },
+    {
+      "id": "kyai-4e9unw",
+      "category": "research",
+      "region": "Lexington",
+      "title": "TAFFAC: Threat assessment framework for frontier AI models for cybersecurity",
+      "body": "Research signal connected to Palo Alto Networks (United States), University of Kentucky, Kyung Hee University.",
+      "source": "Computers & Electrical Engineering",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.compeleceng.2026.111472",
+      "publishedAt": "2026-08-29T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Sherali Zeadally"
+      ],
+      "institutions": [
+        "Palo Alto Networks (United States)",
+        "University of Kentucky",
+        "Kyung Hee University"
+      ]
+    },
+    {
+      "id": "kyai-8herzc",
+      "category": "research",
+      "region": "Louisville",
+      "title": "Diagnostic Accuracy of Artificial Intelligence Models for Detecting Odontogenic Keratocytes on CBCT Imaging: A Systematic Review and Meta‐Analysis",
+      "body": "Research signal connected to Islamic Azad University Medical Branch of Tehran, University of Louisville.",
+      "source": "Health Science Reports",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1002/hsr2.73086",
+      "publishedAt": "2026-08-26T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Simin Lesan"
+      ],
+      "institutions": [
+        "Islamic Azad University Medical Branch of Tehran",
+        "University of Louisville"
+      ]
+    },
+    {
+      "id": "kyai-8p5xco",
+      "category": "research",
+      "region": "Louisville",
+      "title": "Machine Learning and Deep Learning for EEG-Based Dementia Prediction: A Comprehensive Survey",
+      "body": "Research signal connected to Bowie State University, Indiana University – Purdue University Indianapolis, University of Louisville.",
+      "source": "J — Multidisciplinary Scientific Journal",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3390/j9030025",
+      "publishedAt": "2026-08-24T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Long Nguyen"
+      ],
+      "institutions": [
+        "Bowie State University",
+        "Indiana University – Purdue University Indianapolis",
+        "University of Louisville"
+      ]
+    },
+    {
+      "id": "kyai-w982kl",
+      "category": "research",
+      "region": "Lexington",
+      "title": "Natural History of Fibrotic Interstitial Lung Disease using AI-driven Test-free Assessment of Routine EHR",
+      "body": "Research signal connected to University of Kentucky, University of Massachusetts Chan Medical School, Pulmonary and Allergy Associates.",
+      "source": "medRxiv",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.64898/2026.08.19.26360827",
+      "publishedAt": "2026-08-22T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Dmytro Onishchenko",
+        "Anthony N. Gerber",
+        "Edward Cantu",
+        "Girish Nair"
+      ],
+      "institutions": [
+        "University of Kentucky",
+        "University of Massachusetts Chan Medical School",
+        "Pulmonary and Allergy Associates"
+      ]
+    },
+    {
+      "id": "kyai-y9bxy5",
+      "category": "research",
+      "region": "Lexington",
+      "title": "See what you see, hear what you hear: Theorizing AI Device Embodiment (ADE) and its effects on well-being, perceived social support, and adoption",
+      "body": "Research signal connected to National Taiwan Normal University, University of Kentucky, National Chengchi University.",
+      "source": "Computers in Human Behavior",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.chb.2026.109161",
+      "publishedAt": "2026-08-22T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Jih‐Hsuan Tammy Lin"
+      ],
+      "institutions": [
+        "National Taiwan Normal University",
+        "University of Kentucky",
+        "National Chengchi University"
+      ]
+    },
+    {
+      "id": "kyai-if61cd",
+      "category": "research",
+      "region": "Western Kentucky",
+      "title": "Using Generative Artificial Intelligence to Advance Student Mastery of IEEE Format",
+      "body": "Research signal connected to Cleveland State University, Murray State University.",
+      "source": "OpenAlex",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.18260/1-2--61197",
+      "publishedAt": "2026-08-21T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Yuejin Xu"
+      ],
+      "institutions": [
+        "Cleveland State University",
+        "Murray State University"
+      ]
+    },
+    {
+      "id": "kyai-w5mdad",
+      "category": "research",
+      "region": "Zayed University",
+      "title": "Calibrated adaptive framework for trustworthy human and artificial intelligence decision systems",
+      "body": "Research signal connected to Zayed University, Higher Colleges of Technology, Higher Education Academy, Yanbu University College.",
+      "source": "Scientific Reports",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1038/s41598-026-65730-y",
+      "publishedAt": "2026-08-20T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Hossam Magdy Balaha"
+      ],
+      "institutions": [
+        "Zayed University",
+        "Higher Colleges of Technology",
+        "Higher Education Academy",
+        "Yanbu University College"
+      ]
+    },
+    {
+      "id": "kyai-7uzp6o",
+      "category": "research",
+      "region": "Lexington",
+      "title": "Readability of AI-Generated Patient Visit Summaries in Orthopedic Surgery: Retrospective Analysis",
+      "body": "Research signal connected to University of Kentucky, McLaren Regional Medical Center, Indiana University Health, Indiana University – Purdue University Indianapolis.",
+      "source": "Journal of Medical Internet Research",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.2196/87283",
+      "publishedAt": "2026-08-20T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Edward L. Major",
+        "Juergen Goetz",
+        "Chaitu Malempati",
+        "Sameer Badarudeen"
+      ],
+      "institutions": [
+        "University of Kentucky",
+        "McLaren Regional Medical Center",
+        "Indiana University Health",
+        "Indiana University – Purdue University Indianapolis"
+      ]
+    },
+    {
+      "id": "kyai-w9w39d",
+      "category": "research",
+      "region": "DCN (United States)",
+      "title": "Explainable Clinician-Supervised Artificial Intelligence as an Implementation Framework for Cardiovascular–Kidney–Metabolic Population Health: Synthetic Data Validation of the CHAPERONE-CKM Framework",
+      "body": "Research signal connected to DCN (United States), George Washington University, American Heart Association, Dignity Health.",
+      "source": "medRxiv",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.64898/2026.08.17.26360643",
+      "publishedAt": "2026-08-19T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "D. Kalra"
+      ],
+      "institutions": [
+        "DCN (United States)",
+        "George Washington University",
+        "American Heart Association",
+        "Dignity Health"
+      ]
+    },
+    {
+      "id": "kyai-oohbje",
+      "category": "research",
+      "region": "Louisville",
+      "title": "Energy pile thermal performance in saturated layered ground considering mixed convection: A numerical modeling and machine learning approach",
+      "body": "Research signal connected to Sharif University of Technology, University of Louisville, University of Louisville Hospital.",
+      "source": "Renewable Energy",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.renene.2026.126325",
+      "publishedAt": "2026-08-17T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Omid Ghasemi‐Fare"
+      ],
+      "institutions": [
+        "Sharif University of Technology",
+        "University of Louisville",
+        "University of Louisville Hospital"
+      ]
+    },
+    {
+      "id": "kyai-w3u2wk",
+      "category": "research",
+      "region": "Lexington",
+      "title": "Generative AI in African Higher Education: A Systematic Review of Opportunities, Ethical Challenges, and Institutional Readiness",
+      "body": "Research signal connected to Texas A&M University, Kent State University, University of Kentucky, Stanford University.",
+      "source": "Journal of University Teaching and Learning Practice",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.53761/c682ye61",
+      "publishedAt": "2026-08-15T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Segun Ajose"
+      ],
+      "institutions": [
+        "Texas A&M University",
+        "Kent State University",
+        "University of Kentucky",
+        "Stanford University"
+      ]
+    },
+    {
+      "id": "kyai-3p0407",
+      "category": "research",
+      "region": "Louisville",
+      "title": "Multi-view explainability and ensemble deep learning for prostate lesion classification: A comprehensive study",
+      "body": "Research signal connected to Hitit Üniversitesi, University of Louisville, University of Chicago, Quinnipiac University.",
+      "source": "Computer Methods and Programs in Biomedicine",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.cmpb.2026.109607",
+      "publishedAt": "2026-08-15T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Mehmed Kantardzic",
+        "Jason Turner"
+      ],
+      "institutions": [
+        "Hitit Üniversitesi",
+        "University of Louisville",
+        "University of Chicago",
+        "Quinnipiac University"
+      ]
+    },
+    {
+      "id": "kyai-urv8ur",
+      "category": "education",
+      "region": "Statewide",
+      "title": "Two public Kentucky universities launch AI degrees",
+      "body": "Public radio coverage tracks new artificial intelligence degree activity at Kentucky universities.",
+      "source": "WEKU",
+      "url": "https://www.weku.org/the-commonwealth/2026-08-11/two-public-kentucky-universities-launch-artificial-intelligence-degrees-this-fall",
+      "publishedAt": "2026-08-11T12:00:00.000Z",
+      "kind": "curated",
+      "lane": "Education and workforce"
+    },
+    {
+      "id": "kyai-yk1zp2",
+      "category": "research",
+      "region": "Louisville",
+      "title": "Can an experienced qualitative researcher distinguish AI from human qualitative content analysis?",
+      "body": "Research signal connected to Massachusetts General Hospital, MGH Institute of Health Professions, University of Louisville, Old Dominion University.",
+      "source": "Journal of Healthcare Simulation",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.54531/fcqk4553",
+      "publishedAt": "2026-08-10T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Aaron Calhoun"
+      ],
+      "institutions": [
+        "Massachusetts General Hospital",
+        "MGH Institute of Health Professions",
+        "University of Louisville",
+        "Old Dominion University"
+      ]
+    },
+    {
+      "id": "kyai-5z2qym",
+      "category": "industry",
+      "region": "Western Kentucky",
+      "title": "Data centers eye Kentucky idle industrial sites for power access",
+      "body": "Kentucky Lantern coverage follows hyperscale data center interest in industrial sites, power access, and community impacts.",
+      "source": "Kentucky Lantern",
+      "url": "https://kentuckylantern.com/2026/08/03/data-centers-need-massive-power-theyre-eyeing-kentuckys-idle-industrial-sites-to-get-it/",
+      "publishedAt": "2026-08-03T12:00:00.000Z",
+      "kind": "curated",
+      "lane": "Infrastructure and big movers"
+    },
+    {
+      "id": "kyai-nqcbhd",
+      "category": "education",
+      "region": "Statewide",
+      "title": "Kentucky Department of Education publishes AI in Kentucky K-12 guidance",
+      "body": "KDE maintains a public page for AI in Kentucky K-12, including state task force context and education guidance.",
+      "source": "Kentucky Department of Education",
+      "url": "https://www.education.ky.gov/districts/tech/Pages/A.I.-in-Kentucky-Education.aspx",
+      "publishedAt": "2026-08-01T12:00:00.000Z",
+      "kind": "curated",
+      "lane": "Education and policy"
+    },
+    {
+      "id": "kyai-l3c8zp",
+      "category": "research",
+      "region": "Lexington",
+      "title": "Multi-Backbone U-Net segmentation and interpretable hybrid deep learning classification for lung cancer detection in chest CT images",
+      "body": "Research signal connected to Oakland University, Bowling Green State University, Beykent University, University of Kentucky.",
+      "source": "BMC Pulmonary Medicine",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1186/s12890-026-04526-2",
+      "publishedAt": "2026-08-01T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Nasibeh Asadi Isakan"
+      ],
+      "institutions": [
+        "Oakland University",
+        "Bowling Green State University",
+        "Beykent University",
+        "University of Kentucky"
+      ]
+    },
+    {
+      "id": "kyai-urkkp4",
+      "category": "research",
+      "region": "Louisville",
+      "title": "Multimodal chatbot triage for eyelid disorders shows high accuracy and net benefit",
+      "body": "Research signal connected to Iran University of Medical Sciences, Kowsar Hospital, Shahid Beheshti University of Medical Sciences, University of Louisville.",
+      "source": "Scientific Reports",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1038/s41598-026-62926-0",
+      "publishedAt": "2026-07-29T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Mohsen Bahmani Kashkouli"
+      ],
+      "institutions": [
+        "Iran University of Medical Sciences",
+        "Kowsar Hospital",
+        "Shahid Beheshti University of Medical Sciences",
+        "University of Louisville"
+      ]
+    },
+    {
+      "id": "kyai-8dhkn1",
+      "category": "research",
+      "region": "Motilal Nehru National Institute of Technology",
+      "title": "Deep Learning Methods for Detection of Stroke for Neuropathology: Lessons learned from In‑Vivo Imaging to Digital Pathology",
+      "body": "Research signal connected to Motilal Nehru National Institute of Technology, University of California, Davis, Ronald Reagan UCLA Medical Center, University of California System.",
+      "source": "Journal of Clinical and Translational Science",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1017/cts.2026.10799",
+      "publishedAt": "2026-07-28T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Sen-ching S. Cheung"
+      ],
+      "institutions": [
+        "Motilal Nehru National Institute of Technology",
+        "University of California, Davis",
+        "Ronald Reagan UCLA Medical Center",
+        "University of California System"
+      ]
+    },
+    {
+      "id": "kyai-tdntp1",
+      "category": "events",
+      "region": "Louisville",
+      "title": "UofL digital innovation center points toward public AI and cybersecurity programming",
+      "body": "Coverage of UofL's Kentucky Center for Digital Innovation notes public awareness events and expanded AI and cyber programs.",
+      "source": "Hoodline",
+      "url": "https://hoodline.com/2026/07/uofl-unveils-10m-cybersecurity-and-ai-hub-for-kentucky/",
+      "publishedAt": "2026-07-27T12:00:00.000Z",
+      "kind": "curated",
+      "lane": "Events and workshops"
+    },
+    {
+      "id": "kyai-il5q95",
+      "category": "research",
+      "region": "Louisville",
+      "title": "UofL launches Kentucky Center for Digital Innovation",
+      "body": "The University of Louisville launched KCDI to advance cybersecurity, artificial intelligence, workforce development, and industry collaboration.",
+      "source": "UofL News",
+      "url": "https://news.louisville.edu/news/uofl-launches-kentucky-center-digital-innovation",
+      "publishedAt": "2026-07-27T12:00:00.000Z",
+      "kind": "curated",
+      "lane": "Research and universities",
+      "people": [
+        "V. K. Cody Bumgardner"
+      ]
+    },
+    {
+      "id": "kyai-b7z395",
+      "category": "research",
+      "region": "University of Crete",
+      "title": "Artificial Intelligence for radiation protection in medical imaging and radiotherapy: A perspective from the AI Working Party of ICRP Committee 3",
+      "body": "Research signal connected to University of Crete, University of Helsinki, Helsinki University Hospital, Loyola University Chicago.",
+      "source": "Physica Medica",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.ejmp.2026.105906",
+      "publishedAt": "2026-07-25T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Kimberly Applegate"
+      ],
+      "institutions": [
+        "University of Crete",
+        "University of Helsinki",
+        "Helsinki University Hospital",
+        "Loyola University Chicago"
+      ]
+    },
+    {
+      "id": "kyai-g7cu0j",
+      "category": "education",
+      "region": "Lexington",
+      "title": "University of Kentucky maintains a generative AI research guide",
+      "body": "UK Libraries maintains a student-facing generative AI guide covering tools, academic use, and resources.",
+      "source": "University of Kentucky Libraries",
+      "url": "https://libguides.uky.edu/genai",
+      "publishedAt": "2026-07-21T12:00:00.000Z",
+      "kind": "curated",
+      "lane": "Education"
+    },
+    {
+      "id": "kyai-1g1bcz",
+      "category": "industry",
+      "region": "Western Kentucky",
+      "title": "Anthropic and TeraWulf commit to long-term Hawesville AI data center campus",
+      "body": "Reporting tracks Anthropic's long-term lease with TeraWulf at the Justified Data campus in Hancock County.",
+      "source": "Spectrum News 1",
+      "url": "https://spectrumnews1.com/ky/louisville/news/2026/07/06/ai-company-anthropic-commits-to-long-term-hawesville-campus",
+      "publishedAt": "2026-07-10T12:00:00.000Z",
+      "kind": "curated",
+      "lane": "Infrastructure and big movers"
+    },
+    {
+      "id": "kyai-ej6rvu",
+      "category": "research",
+      "region": "Louisville",
+      "title": "UofL high-performance computing system accelerates AI-assisted research",
+      "body": "UofL highlighted AI-assisted research using the Zurada high-performance computing system, including materials work led by Badri Narayanan.",
+      "source": "UofL News",
+      "url": "https://www.uoflnews.com/section/science-and-tech/uofls-new-high-performance-computing-system-accelerates-research-with-ai/",
+      "publishedAt": "2026-06-09T12:00:00.000Z",
+      "kind": "curated",
+      "lane": "Researchers",
+      "people": [
+        "Badri Narayanan",
+        "Jacek M. Zurada",
+        "Adam E. Gaweda"
+      ]
+    },
+    {
+      "id": "kyai-jme68n",
+      "category": "workforce",
+      "region": "Eastern Kentucky",
+      "title": "Eastern Kentucky workforce voice included in AI literacy training conversation",
+      "body": "WorkforceGPS event materials include Bridget Back of Eastern Kentucky Concentrated Employment Program in a national AI literacy and workforce training discussion.",
+      "source": "WorkforceGPS",
+      "url": "https://www.workforcegps.org/events/2026/03/06/14/24/SERIES_AI_Literacy_in_the_Workforce",
+      "publishedAt": "2026-03-06T12:00:00.000Z",
+      "kind": "curated",
+      "lane": "Workforce and business",
+      "people": [
+        "Bridget Back"
+      ]
+    },
+    {
+      "id": "kyai-b3dpzy",
+      "category": "policy",
+      "region": "Frankfort",
+      "title": "Kentucky legislature's AI task force makes recommendations",
+      "body": "Public radio coverage follows the Kentucky Artificial Intelligence Task Force and recommendations around AI work groups, literacy, governance, and data center policy.",
+      "source": "WKMS",
+      "url": "https://www.wkms.org/government-politics/2025-11-13/kentucky-legislatures-ai-task-force-makes-recommendations-heading-into-general-assembly",
+      "publishedAt": "2025-11-14T12:00:00.000Z",
+      "kind": "curated",
+      "lane": "Policy and public sector"
+    }
+  ],
+  "watchlist": [
+    {
+      "name": "Kentucky university research",
+      "type": "Researchers",
+      "focus": "OpenAlex scans for AI-related papers connected to Kentucky institutions."
+    },
+    {
+      "name": "AI infrastructure and data centers",
+      "type": "Big movers",
+      "focus": "News scans watch for data centers, hyperscalers, energy, and economic development."
+    },
+    {
+      "name": "Schools, libraries, and workforce boards",
+      "type": "Training",
+      "focus": "Public workshops, degree launches, training programs, and digital readiness activity."
+    },
+    {
+      "name": "State and local policy",
+      "type": "Civic",
+      "focus": "Legislation, public agency guidance, procurement, lawsuits, and public meetings."
+    },
+    {
+      "name": "Kentucky founders and companies",
+      "type": "Industry",
+      "focus": "Startups, small-business adoption, local pilots, and AI-enabled services."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Kentucky AI news",
+      "type": "GDELT Project DOC 2.0",
+      "category": "news"
+    },
+    {
+      "name": "Research and universities",
+      "type": "GDELT Project DOC 2.0",
+      "category": "research"
+    },
+    {
+      "name": "Policy and public sector",
+      "type": "GDELT Project DOC 2.0",
+      "category": "policy"
+    },
+    {
+      "name": "Workforce and business",
+      "type": "GDELT Project DOC 2.0",
+      "category": "workforce"
+    },
+    {
+      "name": "Infrastructure and big movers",
+      "type": "GDELT Project DOC 2.0",
+      "category": "industry"
+    },
+    {
+      "name": "Events and workshops",
+      "type": "GDELT Project DOC 2.0",
+      "category": "events"
+    },
+    {
+      "name": "Kentucky institution research",
+      "type": "OpenAlex",
+      "category": "research"
+    }
+  ]
+}

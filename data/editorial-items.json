@@ -1,0 +1,115 @@
+[
+  {
+    "category": "education",
+    "region": "Statewide",
+    "title": "Kentucky Department of Education publishes AI in Kentucky K-12 guidance",
+    "body": "KDE maintains a public page for AI in Kentucky K-12, including state task force context and education guidance.",
+    "source": "Kentucky Department of Education",
+    "url": "https://www.education.ky.gov/districts/tech/Pages/A.I.-in-Kentucky-Education.aspx",
+    "publishedAt": "2026-08-01T12:00:00.000Z",
+    "kind": "curated",
+    "lane": "Education and policy"
+  },
+  {
+    "category": "research",
+    "region": "Louisville",
+    "title": "UofL launches Kentucky Center for Digital Innovation",
+    "body": "The University of Louisville launched KCDI to advance cybersecurity, artificial intelligence, workforce development, and industry collaboration.",
+    "source": "UofL News",
+    "url": "https://news.louisville.edu/news/uofl-launches-kentucky-center-digital-innovation",
+    "publishedAt": "2026-07-27T12:00:00.000Z",
+    "kind": "curated",
+    "lane": "Research and universities",
+    "people": ["V. K. Cody Bumgardner"]
+  },
+  {
+    "category": "research",
+    "region": "Louisville",
+    "title": "UofL high-performance computing system accelerates AI-assisted research",
+    "body": "UofL highlighted AI-assisted research using the Zurada high-performance computing system, including materials work led by Badri Narayanan.",
+    "source": "UofL News",
+    "url": "https://www.uoflnews.com/section/science-and-tech/uofls-new-high-performance-computing-system-accelerates-research-with-ai/",
+    "publishedAt": "2026-06-09T12:00:00.000Z",
+    "kind": "curated",
+    "lane": "Researchers",
+    "people": ["Badri Narayanan", "Jacek M. Zurada", "Adam E. Gaweda"]
+  },
+  {
+    "category": "education",
+    "region": "Lexington",
+    "title": "University of Kentucky maintains a generative AI research guide",
+    "body": "UK Libraries maintains a student-facing generative AI guide covering tools, academic use, and resources.",
+    "source": "University of Kentucky Libraries",
+    "url": "https://libguides.uky.edu/genai",
+    "publishedAt": "2026-07-21T12:00:00.000Z",
+    "kind": "curated",
+    "lane": "Education"
+  },
+  {
+    "category": "education",
+    "region": "Statewide",
+    "title": "Two public Kentucky universities launch AI degrees",
+    "body": "Public radio coverage tracks new artificial intelligence degree activity at Kentucky universities.",
+    "source": "WEKU",
+    "url": "https://www.weku.org/the-commonwealth/2026-08-11/two-public-kentucky-universities-launch-artificial-intelligence-degrees-this-fall",
+    "publishedAt": "2026-08-11T12:00:00.000Z",
+    "kind": "curated",
+    "lane": "Education and workforce"
+  },
+  {
+    "category": "industry",
+    "region": "Western Kentucky",
+    "title": "Anthropic and TeraWulf commit to long-term Hawesville AI data center campus",
+    "body": "Reporting tracks Anthropic's long-term lease with TeraWulf at the Justified Data campus in Hancock County.",
+    "source": "Spectrum News 1",
+    "url": "https://spectrumnews1.com/ky/louisville/news/2026/07/06/ai-company-anthropic-commits-to-long-term-hawesville-campus",
+    "publishedAt": "2026-07-10T12:00:00.000Z",
+    "kind": "curated",
+    "lane": "Infrastructure and big movers"
+  },
+  {
+    "category": "industry",
+    "region": "Western Kentucky",
+    "title": "Data centers eye Kentucky idle industrial sites for power access",
+    "body": "Kentucky Lantern coverage follows hyperscale data center interest in industrial sites, power access, and community impacts.",
+    "source": "Kentucky Lantern",
+    "url": "https://kentuckylantern.com/2026/08/03/data-centers-need-massive-power-theyre-eyeing-kentuckys-idle-industrial-sites-to-get-it/",
+    "publishedAt": "2026-08-03T12:00:00.000Z",
+    "kind": "curated",
+    "lane": "Infrastructure and big movers"
+  },
+  {
+    "category": "policy",
+    "region": "Frankfort",
+    "title": "Kentucky legislature's AI task force makes recommendations",
+    "body": "Public radio coverage follows the Kentucky Artificial Intelligence Task Force and recommendations around AI work groups, literacy, governance, and data center policy.",
+    "source": "WKMS",
+    "url": "https://www.wkms.org/government-politics/2025-11-13/kentucky-legislatures-ai-task-force-makes-recommendations-heading-into-general-assembly",
+    "publishedAt": "2025-11-14T12:00:00.000Z",
+    "kind": "curated",
+    "lane": "Policy and public sector"
+  },
+  {
+    "category": "workforce",
+    "region": "Eastern Kentucky",
+    "title": "Eastern Kentucky workforce voice included in AI literacy training conversation",
+    "body": "WorkforceGPS event materials include Bridget Back of Eastern Kentucky Concentrated Employment Program in a national AI literacy and workforce training discussion.",
+    "source": "WorkforceGPS",
+    "url": "https://www.workforcegps.org/events/2026/03/06/14/24/SERIES_AI_Literacy_in_the_Workforce",
+    "publishedAt": "2026-03-06T12:00:00.000Z",
+    "kind": "curated",
+    "lane": "Workforce and business",
+    "people": ["Bridget Back"]
+  },
+  {
+    "category": "events",
+    "region": "Louisville",
+    "title": "UofL digital innovation center points toward public AI and cybersecurity programming",
+    "body": "Coverage of UofL's Kentucky Center for Digital Innovation notes public awareness events and expanded AI and cyber programs.",
+    "source": "Hoodline",
+    "url": "https://hoodline.com/2026/07/uofl-unveils-10m-cybersecurity-and-ai-hub-for-kentucky/",
+    "publishedAt": "2026-07-27T12:00:00.000Z",
+    "kind": "curated",
+    "lane": "Events and workshops"
+  }
+]

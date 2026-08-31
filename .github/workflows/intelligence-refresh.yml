@@ -1,0 +1,43 @@
+name: Kentucky AI Intelligence Refresh
+
+on:
+  schedule:
+    - cron: "15 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install
+        run: npm install
+
+      - name: Refresh Kentucky AI feed
+        run: npm run refresh:intel
+        env:
+          KYAI_ENABLE_GDELT: "0"
+
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm test
+
+      - name: Commit refreshed feed
+        run: |
+          git config user.name "kyai-intelligence-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/intelligence-feed.json
+          git diff --cached --quiet || git commit -m "Refresh Kentucky AI intelligence feed"
+          git push

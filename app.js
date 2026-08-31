@@ -1,4 +1,4 @@
-const updates = [
+const fallbackUpdates = [
   {
     category: "education",
     region: "Bluegrass",
@@ -43,6 +43,9 @@ const updates = [
   },
 ];
 
+let updates = fallbackUpdates;
+let activeFilter = "all";
+
 const seedThreads = [
   {
     type: "News lead",
@@ -74,6 +77,11 @@ const formStatus = document.querySelector("#formStatus");
 const threadList = document.querySelector("#threadList");
 const threadForm = document.querySelector("#threadForm");
 const threadStatus = document.querySelector("#threadStatus");
+const intelUpdatedAt = document.querySelector("#intelUpdatedAt");
+const intelItemsCount = document.querySelector("#intelItemsCount");
+const intelSources = document.querySelector("#intelSources");
+const digestPreview = document.querySelector("#digestPreview");
+const watchList = document.querySelector("#watchList");
 
 function iconize() {
   if (window.lucide) {
@@ -94,7 +102,16 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+function formatDate(value) {
+  if (!value) return "Seed data";
+  return new Intl.DateTimeFormat("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(new Date(value));
+}
+
 function renderUpdates(filter = "all") {
+  activeFilter = filter;
   updateList.innerHTML = updates
     .map(
       (update) => `
@@ -104,13 +121,86 @@ function renderUpdates(filter = "all") {
           <div class="update-meta">
             <span>${escapeHtml(update.region)}</span>
             <span>${escapeHtml(update.category)}</span>
+            ${update.publishedAt ? `<span>${escapeHtml(update.publishedAt.slice(0, 10))}</span>` : ""}
           </div>
-          <h3>${escapeHtml(update.title)}</h3>
+          <h3>
+            ${
+              update.url
+                ? `<a href="${escapeHtml(update.url)}" target="_blank" rel="noreferrer">${escapeHtml(update.title)}</a>`
+                : escapeHtml(update.title)
+            }
+          </h3>
           <p>${escapeHtml(update.body)}</p>
+          ${
+            update.people?.length
+              ? `<p class="people-line">People: ${escapeHtml(update.people.join(", "))}</p>`
+              : ""
+          }
+          ${
+            update.source
+              ? `<p class="source-line">Source: ${escapeHtml(update.source)}</p>`
+              : ""
+          }
         </article>
       `,
     )
     .join("");
+}
+
+function renderIntelligence(feed) {
+  intelUpdatedAt.textContent = formatDate(feed.updatedAt);
+  intelItemsCount.textContent = String(feed.items?.length || 0);
+  intelSources.textContent = String(feed.sources?.length || 0);
+
+  digestPreview.innerHTML = (feed.items || [])
+    .slice(0, 4)
+    .map(
+      (item) => `
+        <article>
+          <span>${escapeHtml(item.category)}</span>
+          <a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a>
+        </article>
+      `,
+    )
+    .join("");
+
+  watchList.innerHTML = (feed.watchlist || [])
+    .map(
+      (item) => `
+        <article>
+          <span>${escapeHtml(item.type)}</span>
+          <strong>${escapeHtml(item.name)}</strong>
+          <p>${escapeHtml(item.focus)}</p>
+        </article>
+      `,
+    )
+    .join("");
+}
+
+async function loadIntelligence() {
+  try {
+    const response = await fetch("./data/intelligence-feed.json", { cache: "no-cache" });
+    if (!response.ok) throw new Error("Feed unavailable");
+    const feed = await response.json();
+    if (feed.items?.length) {
+      updates = feed.items;
+      renderUpdates(activeFilter);
+    }
+    renderIntelligence(feed);
+  } catch {
+    renderIntelligence({
+      updatedAt: null,
+      items: fallbackUpdates,
+      sources: [],
+      watchlist: [
+        {
+          type: "Seed",
+          name: "Kentucky AI tracker",
+          focus: "The public automation feed will appear here after the first refresh.",
+        },
+      ],
+    });
+  }
 }
 
 function getThreads() {
@@ -178,4 +268,5 @@ joinForm.addEventListener("submit", (event) => {
 
 renderUpdates();
 renderThreads();
+loadIntelligence();
 iconize();

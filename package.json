@@ -6,6 +6,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "build:vercel": "node scripts/build.mjs",
+    "digest:intel": "node scripts/format-digest.mjs",
+    "refresh:intel": "node scripts/refresh-intelligence.mjs",
     "vercel-build": "node scripts/build.mjs",
     "test": "node scripts/smoke-test.mjs"
   },
