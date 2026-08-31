@@ -22,7 +22,10 @@
     <header class="site-header">
       <a class="brand" href="#top" aria-label="KYAI home">
         <img src="./assets/kyai-mark.svg" alt="" />
-        <span>KYAI</span>
+        <span>
+          KYAI
+          <small>AI for the Commonwealth</small>
+        </span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#workshops">Workshops</a>
@@ -40,12 +43,19 @@
           <img src="./assets/kyai-hero.png" alt="" />
         </div>
         <div class="hero-content">
-          <p class="kicker">Kentucky AI Initiative</p>
+          <p class="kicker">From Paducah to Pikeville</p>
           <h1 id="hero-title">KYAI</h1>
           <p class="hero-copy">
-            Free AI workshops, practical training, and an open-source record of how artificial
-            intelligence is shaping Kentucky.
+            Free AI workshops, practical training, and a living public record of how artificial
+            intelligence is moving through Kentucky.
           </p>
+          <div class="hero-locales" aria-label="Kentucky focus areas">
+            <span>Libraries</span>
+            <span>Schools</span>
+            <span>Small business</span>
+            <span>Frankfort policy</span>
+            <span>University research</span>
+          </div>
           <div class="hero-actions">
             <a class="button primary" href="#join">
               <span data-lucide="user-plus" aria-hidden="true"></span>
@@ -61,14 +71,17 @@
 
       <section class="mission-band" aria-label="KYAI mission">
         <div class="mission-item">
+          <span class="mission-index">01</span>
           <strong>Free to learn</strong>
           <span>Beginner-friendly workshops for students, workers, founders, educators, and civic leaders.</span>
         </div>
         <div class="mission-item">
+          <span class="mission-index">02</span>
           <strong>Kentucky-specific</strong>
           <span>Local news, policy, workforce shifts, school activity, university research, and business adoption.</span>
         </div>
         <div class="mission-item">
+          <span class="mission-index">03</span>
           <strong>Open source</strong>
           <span>Public notes, reusable workshop material, and a community-maintained statewide AI knowledge base.</span>
         </div>
@@ -82,6 +95,10 @@
             KYAI starts with hands-on sessions that help Kentuckians understand AI, use it
             responsibly, and talk clearly about what it means for local work, education, and public life.
           </p>
+          <div class="commonwealth-note">
+            <span>Commonwealth lens</span>
+            <p>Bluegrass classrooms, Appalachian small businesses, Louisville labs, Western Kentucky energy corridors, and Frankfort policy rooms all need a seat at the table.</p>
+          </div>
         </div>
         <div class="workshop-grid" aria-label="Workshop tracks">
           <article class="card">
@@ -154,8 +171,18 @@
               <span class="region region-appalachia">Appalachia</span>
               <span class="region region-louisville">Louisville</span>
             </div>
+            <div class="map-caption">
+              <span>Regional scan</span>
+              <strong>Ohio River industry, Bluegrass research, Appalachian access, and city/county policy.</strong>
+            </div>
           </div>
-          <div class="update-list" id="updateList" aria-live="polite"></div>
+          <div>
+            <div class="update-list" id="updateList" aria-live="polite"></div>
+            <button class="button secondary show-more-button" id="showMoreUpdates" type="button">
+              <span data-lucide="list-plus" aria-hidden="true"></span>
+              Show more updates
+            </button>
+          </div>
         </div>
         <div class="watchlist-panel" aria-label="KYAI watchlist">
           <div class="digest-preview">
@@ -175,7 +202,7 @@
         <div class="section-heading">
           <div>
             <p class="kicker">Community board</p>
-            <h2 id="board-title">A place for Kentucky to talk about AI in public.</h2>
+            <h2 id="board-title">A front porch for Kentucky's AI conversation.</h2>
           </div>
           <a class="button board-button" href="#join">
             <span data-lucide="message-square-plus" aria-hidden="true"></span>
@@ -221,10 +248,10 @@
 
       <section class="section plain" id="open-source" aria-labelledby="open-source-title">
         <div class="section-intro wide">
-          <p class="kicker">Open source nonprofit</p>
+            <p class="kicker">Open source nonprofit</p>
           <h2 id="open-source-title">A public commons for Kentucky AI knowledge.</h2>
           <p>
-            KYAI.com can grow into a shared home for workshop materials, local datasets,
+            KYAI can grow into a shared home for workshop materials, local datasets,
             explainers, case studies, event notes, and issue tracking. The default posture:
             publish useful work, invite review, and make it easy for Kentuckians to contribute.
           </p>
@@ -296,10 +323,10 @@
 
     <footer class="site-footer">
       <div>
-        <strong>KYAI.com</strong>
+        <strong>KYAI</strong>
         <span>Open AI education for Kentucky.</span>
       </div>
-      <a href="mailto:hello@kyai.com">hello@kyai.com</a>
+      <a href="https://github.com/Kgarmon99/kyai-com">Open-source repo</a>
     </footer>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>

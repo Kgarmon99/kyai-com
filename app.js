@@ -45,6 +45,9 @@ const fallbackUpdates = [
 
 let updates = fallbackUpdates;
 let activeFilter = "all";
+let visibleUpdateCount = 6;
+const UPDATE_BATCH_SIZE = 6;
+const CATEGORY_PRIORITY = ["industry", "research", "education", "policy", "workforce", "events", "news"];
 
 const seedThreads = [
   {
@@ -82,6 +85,7 @@ const intelItemsCount = document.querySelector("#intelItemsCount");
 const intelSources = document.querySelector("#intelSources");
 const digestPreview = document.querySelector("#digestPreview");
 const watchList = document.querySelector("#watchList");
+const showMoreButton = document.querySelector("#showMoreUpdates");
 
 function iconize() {
   if (window.lucide) {
@@ -110,14 +114,40 @@ function formatDate(value) {
   }).format(new Date(value));
 }
 
+function getBalancedUpdates(items) {
+  const selected = [];
+  const selectedIds = new Set();
+
+  for (const category of CATEGORY_PRIORITY) {
+    const item = items.find((candidate) => candidate.category === category && !selectedIds.has(candidate.id || candidate.title));
+    if (item) {
+      selected.push(item);
+      selectedIds.add(item.id || item.title);
+    }
+  }
+
+  for (const item of items) {
+    const key = item.id || item.title;
+    if (selectedIds.has(key)) continue;
+    selected.push(item);
+    selectedIds.add(key);
+  }
+
+  return selected;
+}
+
 function renderUpdates(filter = "all") {
   activeFilter = filter;
-  updateList.innerHTML = updates
+  const filteredUpdates =
+    filter === "all"
+      ? getBalancedUpdates(updates)
+      : updates.filter((update) => update.category === filter);
+  const visibleUpdates = filteredUpdates.slice(0, visibleUpdateCount);
+
+  updateList.innerHTML = visibleUpdates
     .map(
       (update) => `
-        <article class="update-card" data-category="${update.category}" data-hidden="${
-          filter !== "all" && update.category !== filter
-        }">
+        <article class="update-card" data-category="${update.category}">
           <div class="update-meta">
             <span>${escapeHtml(update.region)}</span>
             <span>${escapeHtml(update.category)}</span>
@@ -145,6 +175,23 @@ function renderUpdates(filter = "all") {
       `,
     )
     .join("");
+
+  if (!visibleUpdates.length) {
+    updateList.innerHTML = `
+      <article class="update-card">
+        <div class="update-meta">
+          <span>Kentucky</span>
+          <span>${escapeHtml(filter)}</span>
+        </div>
+        <h3>No items in this lane yet</h3>
+        <p>The automation will add relevant public leads as they show up.</p>
+      </article>
+    `;
+  }
+
+  if (showMoreButton) {
+    showMoreButton.hidden = visibleUpdateCount >= filteredUpdates.length;
+  }
 }
 
 function renderIntelligence(feed) {
@@ -152,7 +199,7 @@ function renderIntelligence(feed) {
   intelItemsCount.textContent = String(feed.items?.length || 0);
   intelSources.textContent = String(feed.sources?.length || 0);
 
-  digestPreview.innerHTML = (feed.items || [])
+  digestPreview.innerHTML = getBalancedUpdates(feed.items || [])
     .slice(0, 4)
     .map(
       (item) => `
@@ -228,8 +275,15 @@ filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     filterButtons.forEach((item) => item.classList.remove("is-active"));
     button.classList.add("is-active");
+    visibleUpdateCount = 6;
     renderUpdates(button.dataset.filter);
   });
+});
+
+showMoreButton.addEventListener("click", () => {
+  visibleUpdateCount += UPDATE_BATCH_SIZE;
+  renderUpdates(activeFilter);
+  iconize();
 });
 
 threadForm.addEventListener("submit", (event) => {
