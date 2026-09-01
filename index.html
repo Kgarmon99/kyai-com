@@ -11,7 +11,7 @@
     <meta property="og:title" content="KYAI | Kentucky AI Pulse" />
     <meta
       property="og:description"
-      content="A live Kentucky AI pulse with news, research, events, people, policy, workshops, and regional intelligence."
+      content="A live Kentucky AI pulse with newsletter updates, news, research, events, people, policy, workshops, and regional intelligence."
     />
     <meta property="og:image" content="./assets/kyai-hero.png" />
     <title>KYAI | Kentucky AI Pulse</title>
@@ -31,6 +31,7 @@
         <a href="#pulse">Pulse</a>
         <a href="#tracker">Map</a>
         <a href="#intelligence">Intelligence</a>
+        <a href="#newsletter">Updates</a>
         <a href="#directory">Directory</a>
         <a href="#workshops">Workshops</a>
         <a href="#contribute">Contribute</a>
@@ -51,7 +52,11 @@
               and the people building AI across the Commonwealth.
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#contribute">
+              <a class="button primary" href="#newsletter">
+                <span data-lucide="mail-plus" aria-hidden="true"></span>
+                Get updates
+              </a>
+              <a class="button secondary" href="#contribute">
                 <span data-lucide="send" aria-hidden="true"></span>
                 Submit a lead
               </a>
@@ -97,6 +102,10 @@
       </section>
 
       <section class="action-rail" aria-label="Contribution actions">
+        <a href="#newsletter">
+          <span data-lucide="mail-check" aria-hidden="true"></span>
+          <strong>Get updates</strong>
+        </a>
         <a href="#lead-form">
           <span data-lucide="newspaper" aria-hidden="true"></span>
           <strong>Submit a lead</strong>
@@ -205,6 +214,76 @@
         </div>
       </section>
 
+      <section class="section newsletter-section" id="newsletter" aria-labelledby="newsletter-title">
+        <div class="newsletter-layout">
+          <div class="newsletter-copy">
+            <p class="kicker">Newsletter updates</p>
+            <h2 id="newsletter-title">Get the Kentucky AI pulse in your inbox.</h2>
+            <p>
+              A practical update stream for Kentuckians tracking local AI news, school moves,
+              public meetings, events, research, policy, and workshops.
+            </p>
+            <dl class="newsletter-preview" aria-label="Newsletter contents">
+              <div>
+                <dt>Weekly pulse</dt>
+                <dd>Top statewide signals without the noise.</dd>
+              </div>
+              <div>
+                <dt>Regional alerts</dt>
+                <dd>Louisville, Bluegrass, Appalachia, Western KY, NKY, and South Central.</dd>
+              </div>
+              <div>
+                <dt>Workshop drops</dt>
+                <dd>Free sessions, public talks, school resources, and civic AI notes.</dd>
+              </div>
+            </dl>
+          </div>
+
+          <form class="newsletter-form" id="newsletterForm">
+            <div class="form-heading">
+              <span data-lucide="mail-plus" aria-hidden="true"></span>
+              <div>
+                <h3>Join the update list</h3>
+                <p id="newsletterCount">Weekly digest plus regional alerts</p>
+              </div>
+            </div>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label>
+              Name
+              <input name="name" autocomplete="name" />
+            </label>
+            <label>
+              Kentucky region
+              <select name="region" required>
+                <option value="">Choose a region</option>
+                <option>Statewide</option>
+                <option>Louisville / North Central</option>
+                <option>Lexington / Bluegrass</option>
+                <option>Western Kentucky</option>
+                <option>Eastern Kentucky / Appalachia</option>
+                <option>Northern Kentucky</option>
+                <option>South Central Kentucky</option>
+              </select>
+            </label>
+            <fieldset>
+              <legend>Send me</legend>
+              <label><input type="checkbox" name="interest" value="weekly-pulse" checked /> Weekly pulse</label>
+              <label><input type="checkbox" name="interest" value="events" /> Events</label>
+              <label><input type="checkbox" name="interest" value="research" /> Research</label>
+              <label><input type="checkbox" name="interest" value="workshops" /> Workshops</label>
+            </fieldset>
+            <button class="button primary form-button" type="submit">
+              <span data-lucide="mail-check" aria-hidden="true"></span>
+              Get Kentucky AI updates
+            </button>
+            <p class="form-status" id="newsletterStatus" role="status"></p>
+          </form>
+        </div>
+      </section>
+
       <section class="section directory-section" id="directory" aria-labelledby="directory-title">
         <div class="section-heading">
           <div>
@@ -308,7 +387,7 @@
           </form>
 
           <form class="join-form" id="joinForm">
-            <h3 id="join">Join or request a workshop</h3>
+            <h3 id="join">Partner or request a workshop</h3>
             <label>
               Name
               <input name="name" autocomplete="name" required />
@@ -335,6 +414,7 @@
               <label><input type="checkbox" name="interest" value="news" /> News tracking</label>
               <label><input type="checkbox" name="interest" value="open-source" /> Open source</label>
               <label><input type="checkbox" name="interest" value="hosting" /> Hosting local events</label>
+              <label><input type="checkbox" name="interest" value="newsletter" /> Newsletter updates</label>
             </fieldset>
             <button class="button primary form-button" type="submit">
               <span data-lucide="send" aria-hidden="true"></span>

@@ -181,11 +181,16 @@ let visibleUpdateCount = 6;
 
 const UPDATE_BATCH_SIZE = 6;
 const CATEGORY_PRIORITY = ["industry", "research", "education", "policy", "workforce", "events", "news"];
+const NEWSLETTER_STORAGE_KEY = "kyai-newsletter-subscribers";
+const NEWSLETTER_ENDPOINT = window.KYAI_NEWSLETTER_ENDPOINT || "";
 
 const updateList = document.querySelector("#updateList");
 const filterButtons = document.querySelectorAll(".filter-button");
 const regionButtons = document.querySelectorAll(".region-button");
 const mapRegions = document.querySelectorAll(".ky-region-map");
+const newsletterForm = document.querySelector("#newsletterForm");
+const newsletterStatus = document.querySelector("#newsletterStatus");
+const newsletterCount = document.querySelector("#newsletterCount");
 const joinForm = document.querySelector("#joinForm");
 const formStatus = document.querySelector("#formStatus");
 const threadList = document.querySelector("#threadList");
@@ -240,6 +245,15 @@ function normalizeRegion(value = "") {
   if (text.includes("northern")) return "northern";
   if (text.includes("south") || text.includes("bowling")) return "southcentral";
   return "statewide";
+}
+
+function readLocalJson(key, fallback) {
+  try {
+    return JSON.parse(localStorage.getItem(key) || "null") || fallback;
+  } catch {
+    localStorage.removeItem(key);
+    return fallback;
+  }
 }
 
 function getBalancedUpdates(items) {
@@ -439,7 +453,7 @@ async function loadIntelligence() {
 }
 
 function getThreads() {
-  return JSON.parse(localStorage.getItem("kyai-threads") || "null") || seedThreads;
+  return readLocalJson("kyai-threads", seedThreads);
 }
 
 function renderThreads() {
@@ -457,6 +471,43 @@ function renderThreads() {
       `,
     )
     .join("");
+}
+
+function getNewsletterSubscribers() {
+  return readLocalJson(NEWSLETTER_STORAGE_KEY, []);
+}
+
+function renderNewsletterCount() {
+  const total = getNewsletterSubscribers().length;
+  newsletterCount.textContent = total
+    ? "Preferences saved for this browser"
+    : "Weekly digest plus regional alerts";
+}
+
+async function postNewsletterSignup(entry) {
+  if (!NEWSLETTER_ENDPOINT) return { savedRemotely: false };
+
+  const response = await fetch(NEWSLETTER_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(entry),
+  });
+
+  if (!response.ok) {
+    throw new Error("Newsletter endpoint rejected signup");
+  }
+
+  return { savedRemotely: true };
+}
+
+function saveNewsletterSignup(entry) {
+  const subscribers = getNewsletterSubscribers();
+  const withoutDuplicate = subscribers.filter((subscriber) => subscriber.email !== entry.email);
+  withoutDuplicate.unshift(entry);
+  localStorage.setItem(NEWSLETTER_STORAGE_KEY, JSON.stringify(withoutDuplicate));
+  renderNewsletterCount();
 }
 
 filterButtons.forEach((button) => {
@@ -506,6 +557,35 @@ threadForm.addEventListener("submit", (event) => {
   renderThreads();
 });
 
+newsletterForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const formData = new FormData(newsletterForm);
+  const email = String(formData.get("email") || "").trim().toLowerCase();
+  const interests = formData.getAll("interest");
+  const entry = {
+    email,
+    name: String(formData.get("name") || "").trim(),
+    region: formData.get("region"),
+    interests: interests.length ? interests : ["weekly-pulse"],
+    createdAt: new Date().toISOString(),
+    source: "kyai-newsletter",
+  };
+
+  newsletterStatus.textContent = "Saving newsletter preferences...";
+
+  try {
+    const result = await postNewsletterSignup(entry);
+    saveNewsletterSignup(entry);
+    newsletterStatus.textContent = result.savedRemotely
+      ? "You're on the KYAI update list."
+      : "Saved on this device. The email delivery connector is ready to plug in.";
+    newsletterForm.reset();
+  } catch {
+    saveNewsletterSignup(entry);
+    newsletterStatus.textContent = "Saved on this device. The email service did not respond yet.";
+  }
+});
+
 joinForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(joinForm);
@@ -517,15 +597,26 @@ joinForm.addEventListener("submit", (event) => {
     interests,
     createdAt: new Date().toISOString(),
   };
-  const existing = JSON.parse(localStorage.getItem("kyai-interest") || "[]");
+  const existing = readLocalJson("kyai-interest", []);
   existing.push(entry);
   localStorage.setItem("kyai-interest", JSON.stringify(existing));
-  formStatus.textContent = "Interest saved. KYAI can connect this to email, CRM, or GitHub next.";
+  if (interests.includes("newsletter")) {
+    saveNewsletterSignup({
+      email: String(entry.email || "").trim().toLowerCase(),
+      name: String(entry.name || "").trim(),
+      region: entry.region,
+      interests: ["weekly-pulse", "workshops"],
+      createdAt: entry.createdAt,
+      source: "kyai-partner-form",
+    });
+  }
+  formStatus.textContent = "Interest saved. KYAI can connect this to CRM, email, or GitHub next.";
   joinForm.reset();
 });
 
 renderDirectory();
 renderWorkshops();
 renderThreads();
+renderNewsletterCount();
 loadIntelligence();
 iconize();

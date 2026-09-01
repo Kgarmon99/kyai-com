@@ -317,6 +317,7 @@ h3 {
 .workshop-card,
 .thread-card,
 .lead-form,
+.newsletter-form,
 .join-form {
   border: 1px solid rgba(255, 253, 247, 0.16);
   border-radius: 8px;
@@ -413,7 +414,7 @@ h3 {
 
 .action-rail {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   border-bottom: 1px solid var(--line);
   background: var(--porch);
 }
@@ -744,6 +745,67 @@ h3 {
   display: none;
 }
 
+.newsletter-section {
+  background:
+    linear-gradient(135deg, rgba(24, 58, 141, 0.96), rgba(18, 61, 104, 0.92) 48%, rgba(45, 107, 79, 0.9)),
+    var(--deep-blue);
+  color: var(--paper);
+}
+
+.newsletter-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(360px, 0.68fr);
+  gap: 34px;
+  align-items: center;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.newsletter-copy {
+  max-width: 760px;
+}
+
+.newsletter-copy h2,
+.newsletter-form h3 {
+  color: var(--paper);
+}
+
+.newsletter-copy p {
+  max-width: 680px;
+  color: rgba(255, 253, 247, 0.78);
+  font-size: 1.08rem;
+  font-weight: 720;
+}
+
+.newsletter-preview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 28px 0 0;
+}
+
+.newsletter-preview div {
+  min-height: 150px;
+  padding: 18px;
+  border: 1px solid rgba(255, 253, 247, 0.18);
+  border-radius: 8px;
+  background: rgba(255, 253, 247, 0.08);
+}
+
+.newsletter-preview dt {
+  margin-bottom: 8px;
+  color: var(--goldenrod);
+  font-size: 0.8rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.newsletter-preview dd {
+  margin: 0;
+  color: rgba(255, 253, 247, 0.76);
+  font-weight: 760;
+}
+
 .directory-section {
   background:
     repeating-linear-gradient(90deg, rgba(40, 90, 132, 0.05) 0 1px, transparent 1px 110px),
@@ -879,6 +941,7 @@ h3 {
 }
 
 .lead-form,
+.newsletter-form,
 .join-form {
   display: grid;
   gap: 16px;
@@ -886,6 +949,61 @@ h3 {
   border-color: var(--line);
   background: var(--paper);
   box-shadow: var(--shadow);
+}
+
+.newsletter-form {
+  border-color: rgba(255, 253, 247, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.14), rgba(255, 253, 247, 0.08)),
+    rgba(23, 23, 23, 0.18);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(18px);
+}
+
+.newsletter-form label,
+.newsletter-form legend {
+  color: var(--paper);
+}
+
+.newsletter-form fieldset {
+  border-color: rgba(255, 253, 247, 0.22);
+}
+
+.newsletter-form fieldset label {
+  color: rgba(255, 253, 247, 0.78);
+}
+
+.form-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.form-heading > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  background: var(--goldenrod);
+  color: var(--ink);
+}
+
+.form-heading svg {
+  width: 24px;
+  height: 24px;
+}
+
+.form-heading h3,
+.form-heading p {
+  margin: 0;
+}
+
+.form-heading p {
+  color: rgba(255, 253, 247, 0.66);
+  font-size: 0.88rem;
+  font-weight: 800;
 }
 
 label,
@@ -1002,6 +1120,7 @@ fieldset input {
   .pulse-shell,
   .map-command,
   .lane-layout,
+  .newsletter-layout,
   .contribute-section {
     grid-template-columns: 1fr;
   }
@@ -1043,6 +1162,7 @@ fieldset input {
   .brief-panel,
   .region-panel,
   .lead-form,
+  .newsletter-form,
   .join-form {
     gap: 14px;
   }
@@ -1052,6 +1172,7 @@ fieldset input {
   .action-rail,
   .directory-grid,
   .workshop-grid,
+  .newsletter-preview,
   .source-steps,
   fieldset {
     grid-template-columns: 1fr;
@@ -1128,6 +1249,7 @@ fieldset input {
   .workshop-card,
   .thread-card,
   .lead-form,
+  .newsletter-form,
   .join-form {
     padding: 20px;
   }

@@ -29,6 +29,7 @@ for (const phrase of [
   "Kentucky AI Tracker",
   "Community board",
   "Latest Kentucky AI intelligence",
+  "Get the Kentucky AI pulse in your inbox",
   "A public commons for Kentucky AI knowledge",
 ]) {
   if (!html.includes(phrase)) {
@@ -36,7 +37,7 @@ for (const phrase of [
   }
 }
 
-for (const phrase of ["loadIntelligence", "research", "events", "seedThreads", "kyai-threads"]) {
+for (const phrase of ["loadIntelligence", "research", "events", "seedThreads", "kyai-threads", "kyai-newsletter-subscribers"]) {
   if (!js.includes(phrase)) {
     throw new Error(`Missing app capability: ${phrase}`);
   }
