@@ -7,14 +7,14 @@
       name="description"
       content="KYAI is an open-source Kentucky nonprofit for free AI workshops, local AI news, regional updates, and civic conversation."
     />
-    <meta name="theme-color" content="#f7f4eb" />
-    <meta property="og:title" content="KYAI | Open AI Education for Kentucky" />
+    <meta name="theme-color" content="#123d68" />
+    <meta property="og:title" content="KYAI | AI for Kentucky" />
     <meta
       property="og:description"
       content="Free workshops, free training, and an open-source AI tracker for Kentucky communities."
     />
     <meta property="og:image" content="./assets/kyai-hero.png" />
-    <title>KYAI | Open AI Education for Kentucky</title>
+    <title>KYAI | AI for Kentucky</title>
     <link rel="icon" href="./assets/kyai-mark.svg" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -24,7 +24,7 @@
         <img src="./assets/kyai-mark.svg" alt="" />
         <span>
           KYAI
-          <small>AI for the Commonwealth</small>
+          <small>AI for Kentucky</small>
         </span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
@@ -45,16 +45,17 @@
         <div class="hero-content">
           <p class="kicker">From Paducah to Pikeville</p>
           <h1 id="hero-title">KYAI</h1>
+          <p class="hero-lockup">AI for Kentucky</p>
           <p class="hero-copy">
-            Free AI workshops, practical training, and a living public record of how artificial
-            intelligence is moving through Kentucky.
+            A Commonwealth-first hub for free AI workshops, practical training, local research,
+            public policy, and the people moving Kentucky forward.
           </p>
           <div class="hero-locales" aria-label="Kentucky focus areas">
-            <span>Libraries</span>
-            <span>Schools</span>
-            <span>Small business</span>
+            <span>County libraries</span>
+            <span>Public schools</span>
+            <span>Main Street business</span>
             <span>Frankfort policy</span>
-            <span>University research</span>
+            <span>Campus research</span>
           </div>
           <div class="hero-actions">
             <a class="button primary" href="#join">
@@ -66,18 +67,44 @@
               View the tracker
             </a>
           </div>
+          <div class="hero-route" aria-label="Kentucky corridor">
+            <span>Louisville</span>
+            <span>Lexington</span>
+            <span>Bowling Green</span>
+            <span>Paducah</span>
+            <span>Pikeville</span>
+          </div>
         </div>
+      </section>
+
+      <section class="commonwealth-strip" aria-label="Kentucky regional lanes">
+        <a href="#tracker">
+          <span>Bluegrass</span>
+          <strong>Research, healthcare, and university talent</strong>
+        </a>
+        <a href="#tracker">
+          <span>Appalachia</span>
+          <strong>Access, small business, workforce, and energy</strong>
+        </a>
+        <a href="#tracker">
+          <span>Western KY</span>
+          <strong>Industry, agriculture, logistics, and data centers</strong>
+        </a>
+        <a href="#tracker">
+          <span>Metro corridors</span>
+          <strong>Startups, city policy, events, and civic pilots</strong>
+        </a>
       </section>
 
       <section class="mission-band" aria-label="KYAI mission">
         <div class="mission-item">
           <span class="mission-index">01</span>
-          <strong>Free to learn</strong>
-          <span>Beginner-friendly workshops for students, workers, founders, educators, and civic leaders.</span>
+          <strong>Front-porch learning</strong>
+          <span>Beginner-friendly AI sessions for students, workers, founders, educators, and civic leaders.</span>
         </div>
         <div class="mission-item">
           <span class="mission-index">02</span>
-          <strong>Kentucky-specific</strong>
+          <strong>County-by-county signal</strong>
           <span>Local news, policy, workforce shifts, school activity, university research, and business adoption.</span>
         </div>
         <div class="mission-item">
@@ -92,23 +119,23 @@
           <p class="kicker">Training</p>
           <h2 id="workshops-title">Free workshops that meet people where they are.</h2>
           <p>
-            KYAI starts with hands-on sessions that help Kentuckians understand AI, use it
-            responsibly, and talk clearly about what it means for local work, education, and public life.
+            KYAI starts with hands-on sessions built for Kentucky rooms: libraries, high schools,
+            community colleges, workforce boards, local chambers, and city halls.
           </p>
           <div class="commonwealth-note">
             <span>Commonwealth lens</span>
-            <p>Bluegrass classrooms, Appalachian small businesses, Louisville labs, Western Kentucky energy corridors, and Frankfort policy rooms all need a seat at the table.</p>
+            <p>Bluegrass classrooms, Appalachian small businesses, Louisville labs, Western Kentucky energy corridors, and Frankfort policy rooms all need a seat at the same table.</p>
           </div>
         </div>
         <div class="workshop-grid" aria-label="Workshop tracks">
           <article class="card">
             <span data-lucide="graduation-cap" aria-hidden="true"></span>
             <h3>AI Basics</h3>
-            <p>Plain-English sessions on prompts, models, privacy, hallucinations, and useful everyday workflows.</p>
+            <p>Plain-English sessions on prompts, models, privacy, citations, scams, and useful everyday workflows.</p>
           </article>
           <article class="card">
             <span data-lucide="briefcase-business" aria-hidden="true"></span>
-            <h3>Workforce Skills</h3>
+            <h3>Main Street Skills</h3>
             <p>Practical training for small businesses, nonprofits, job seekers, and teams learning AI-enabled tools.</p>
           </article>
           <article class="card">
@@ -128,7 +155,7 @@
         <div class="section-heading">
           <div>
             <p class="kicker">Kentucky AI Tracker</p>
-            <h2 id="tracker-title">Follow the AI conversation across the Commonwealth.</h2>
+            <h2 id="tracker-title">A field map for Kentucky's AI movement.</h2>
           </div>
           <div class="filter-controls" aria-label="Filter updates by region">
             <button class="filter-button is-active" data-filter="all" type="button">All</button>
@@ -143,9 +170,10 @@
         <div class="intelligence-panel" id="intelligence" aria-label="Latest Kentucky AI intelligence">
           <div>
             <p class="kicker">Latest Kentucky AI intelligence</p>
-            <h3>News, research, policy, workforce, events, and big-mover signals.</h3>
+            <h3>News, research, policy, workforce, events, and big-mover signals with local context.</h3>
             <p>
-              Auto-generated from public news and research indexes. Each item links back to the original source for review.
+              Auto-generated from public news and research indexes, then shaped around what matters for Kentucky communities.
+              Each item links back to the original source for review.
             </p>
           </div>
           <dl class="intel-stats">
@@ -173,7 +201,7 @@
             </div>
             <div class="map-caption">
               <span>Regional scan</span>
-              <strong>Ohio River industry, Bluegrass research, Appalachian access, and city/county policy.</strong>
+              <strong>Ohio River industry, Bluegrass research, Appalachian access, river-city startups, and city/county policy.</strong>
             </div>
           </div>
           <div>
@@ -252,8 +280,8 @@
           <h2 id="open-source-title">A public commons for Kentucky AI knowledge.</h2>
           <p>
             KYAI can grow into a shared home for workshop materials, local datasets,
-            explainers, case studies, event notes, and issue tracking. The default posture:
-            publish useful work, invite review, and make it easy for Kentuckians to contribute.
+            explainers, case studies, event notes, and issue tracking. The default posture is
+            simple: publish useful work, invite review, and make it easy for Kentuckians to contribute.
           </p>
         </div>
         <div class="source-steps" aria-label="Open source participation">

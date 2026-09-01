@@ -2,21 +2,21 @@ const fallbackUpdates = [
   {
     category: "education",
     region: "Bluegrass",
-    title: "Free AI Basics curriculum",
+    title: "County library AI Basics curriculum",
     body:
-      "Starter lesson plans for libraries, schools, churches, and community colleges covering prompts, privacy, citations, and responsible use.",
+      "Starter lesson plans for libraries, schools, churches, and community colleges covering prompts, privacy, citations, scams, and responsible use.",
   },
   {
     category: "workforce",
     region: "Louisville",
-    title: "Small business workflow clinics",
+    title: "Main Street workflow clinics",
     body:
       "Hands-on training for local teams that want to use AI for operations, customer support, grant writing, marketing, and internal documentation.",
   },
   {
     category: "policy",
     region: "Statewide",
-    title: "Public meetings and policy notes",
+    title: "Frankfort and county policy notes",
     body:
       "A community-maintained log of AI-related public meetings, procurement activity, school guidance, and statewide policy conversations.",
   },
@@ -30,7 +30,7 @@ const fallbackUpdates = [
   {
     category: "events",
     region: "Northern Kentucky",
-    title: "AI meetups, workshops, and public talks",
+    title: "Meetups, library workshops, and public talks",
     body:
       "Community-submitted listings for free workshops, school events, library sessions, business clinics, and civic AI conversations.",
   },
@@ -53,21 +53,21 @@ const seedThreads = [
   {
     type: "News lead",
     place: "Statewide",
-    topic: "Where should KYAI track Kentucky AI news first?",
+    topic: "Where should KYAI listen first across Kentucky?",
     context:
       "Suggested starting lanes: schools, universities, workforce boards, local government, health systems, startups, and public library programs.",
   },
   {
     type: "Research note",
     place: "Bluegrass",
-    topic: "Build a public Kentucky AI research index",
+    topic: "Build a public Kentucky AI research map",
     context:
       "Collect university labs, faculty work, student projects, public datasets, grants, and applied AI pilots in one open directory.",
   },
   {
     type: "Workshop request",
     place: "Eastern Kentucky",
-    topic: "AI basics session for rural small businesses",
+    topic: "AI basics session for Appalachian small businesses",
     context:
       "A practical workshop on using AI for quotes, inventory notes, customer messages, grant drafts, and fraud-aware research would be useful.",
   },
