@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="KYAI is an open-source Kentucky nonprofit for free AI workshops, local AI news, regional updates, and civic conversation."
+      content="KYAI is a Kentucky AI pulse, regional tracker, workshop hub, and open-source civic intelligence project."
     />
     <meta name="theme-color" content="#123d68" />
-    <meta property="og:title" content="KYAI | AI for Kentucky" />
+    <meta property="og:title" content="KYAI | Kentucky AI Pulse" />
     <meta
       property="og:description"
-      content="Free workshops, free training, and an open-source AI tracker for Kentucky communities."
+      content="A live Kentucky AI pulse with news, research, events, people, policy, workshops, and regional intelligence."
     />
     <meta property="og:image" content="./assets/kyai-hero.png" />
-    <title>KYAI | AI for Kentucky</title>
+    <title>KYAI | Kentucky AI Pulse</title>
     <link rel="icon" href="./assets/kyai-mark.svg" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -28,138 +28,161 @@
         </span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#workshops">Workshops</a>
+        <a href="#pulse">Pulse</a>
+        <a href="#tracker">Map</a>
         <a href="#intelligence">Intelligence</a>
-        <a href="#tracker">Tracker</a>
-        <a href="#board">Board</a>
-        <a href="#open-source">Open source</a>
-        <a href="#join">Join</a>
+        <a href="#directory">Directory</a>
+        <a href="#workshops">Workshops</a>
+        <a href="#contribute">Contribute</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="pulse-hero" id="pulse" aria-labelledby="pulse-title">
         <div class="hero-media" aria-hidden="true">
           <img src="./assets/kyai-hero.png" alt="" />
         </div>
-        <div class="hero-content">
-          <p class="kicker">From Paducah to Pikeville</p>
-          <h1 id="hero-title">KYAI</h1>
-          <p class="hero-lockup">AI for Kentucky</p>
-          <p class="hero-copy">
-            A Commonwealth-first hub for free AI workshops, practical training, local research,
-            public policy, and the people moving Kentucky forward.
-          </p>
-          <div class="hero-locales" aria-label="Kentucky focus areas">
-            <span>County libraries</span>
-            <span>Public schools</span>
-            <span>Main Street business</span>
-            <span>Frankfort policy</span>
-            <span>Campus research</span>
+        <div class="pulse-shell">
+          <div class="pulse-copy">
+            <p class="kicker">Kentucky AI Pulse</p>
+            <h1 id="pulse-title">Know what AI is doing in Kentucky today.</h1>
+            <p>
+              Live signals from public news, research indexes, events, policy moves, workforce shifts,
+              and the people building AI across the Commonwealth.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#contribute">
+                <span data-lucide="send" aria-hidden="true"></span>
+                Submit a lead
+              </a>
+              <a class="button secondary" href="#tracker">
+                <span data-lucide="map" aria-hidden="true"></span>
+                Explore regions
+              </a>
+            </div>
           </div>
-          <div class="hero-actions">
-            <a class="button primary" href="#join">
-              <span data-lucide="user-plus" aria-hidden="true"></span>
-              Get involved
-            </a>
-            <a class="button secondary" href="#tracker">
-              <span data-lucide="map" aria-hidden="true"></span>
-              View the tracker
-            </a>
-          </div>
-          <div class="hero-route" aria-label="Kentucky corridor">
-            <span>Louisville</span>
-            <span>Lexington</span>
-            <span>Bowling Green</span>
-            <span>Paducah</span>
-            <span>Pikeville</span>
-          </div>
+
+          <aside class="pulse-panel" aria-label="Today in Kentucky AI">
+            <div class="pulse-panel-heading">
+              <p class="kicker">Today</p>
+              <h2>Commonwealth brief</h2>
+            </div>
+            <article class="lead-story" id="pulseLead">
+              <span>Loading</span>
+              <h3>Loading latest Kentucky AI signal</h3>
+              <p>The daily pulse will appear here after the intelligence feed loads.</p>
+            </article>
+            <div class="pulse-cards" id="pulseCards"></div>
+          </aside>
         </div>
+
+        <dl class="pulse-metrics" aria-label="KYAI intelligence metrics">
+          <div>
+            <dt>Last refresh</dt>
+            <dd id="intelUpdatedAt">Loading</dd>
+          </div>
+          <div>
+            <dt>Items tracked</dt>
+            <dd id="intelItemsCount">0</dd>
+          </div>
+          <div>
+            <dt>Source lanes</dt>
+            <dd id="intelSources">0</dd>
+          </div>
+          <div>
+            <dt>Coverage</dt>
+            <dd>Statewide</dd>
+          </div>
+        </dl>
       </section>
 
-      <section class="commonwealth-strip" aria-label="Kentucky regional lanes">
-        <a href="#tracker">
-          <span>Bluegrass</span>
-          <strong>Research, healthcare, and university talent</strong>
+      <section class="action-rail" aria-label="Contribution actions">
+        <a href="#lead-form">
+          <span data-lucide="newspaper" aria-hidden="true"></span>
+          <strong>Submit a lead</strong>
         </a>
-        <a href="#tracker">
-          <span>Appalachia</span>
-          <strong>Access, small business, workforce, and energy</strong>
+        <a href="#lead-form">
+          <span data-lucide="calendar-plus" aria-hidden="true"></span>
+          <strong>Add an event</strong>
         </a>
-        <a href="#tracker">
-          <span>Western KY</span>
-          <strong>Industry, agriculture, logistics, and data centers</strong>
+        <a href="#lead-form">
+          <span data-lucide="user-round-plus" aria-hidden="true"></span>
+          <strong>Suggest a person</strong>
         </a>
-        <a href="#tracker">
-          <span>Metro corridors</span>
-          <strong>Startups, city policy, events, and civic pilots</strong>
+        <a href="#join">
+          <span data-lucide="presentation" aria-hidden="true"></span>
+          <strong>Request a workshop</strong>
         </a>
-      </section>
-
-      <section class="mission-band" aria-label="KYAI mission">
-        <div class="mission-item">
-          <span class="mission-index">01</span>
-          <strong>Front-porch learning</strong>
-          <span>Beginner-friendly AI sessions for students, workers, founders, educators, and civic leaders.</span>
-        </div>
-        <div class="mission-item">
-          <span class="mission-index">02</span>
-          <strong>County-by-county signal</strong>
-          <span>Local news, policy, workforce shifts, school activity, university research, and business adoption.</span>
-        </div>
-        <div class="mission-item">
-          <span class="mission-index">03</span>
-          <strong>Open source</strong>
-          <span>Public notes, reusable workshop material, and a community-maintained statewide AI knowledge base.</span>
-        </div>
-      </section>
-
-      <section class="section split" id="workshops" aria-labelledby="workshops-title">
-        <div class="section-intro">
-          <p class="kicker">Training</p>
-          <h2 id="workshops-title">Free workshops that meet people where they are.</h2>
-          <p>
-            KYAI starts with hands-on sessions built for Kentucky rooms: libraries, high schools,
-            community colleges, workforce boards, local chambers, and city halls.
-          </p>
-          <div class="commonwealth-note">
-            <span>Commonwealth lens</span>
-            <p>Bluegrass classrooms, Appalachian small businesses, Louisville labs, Western Kentucky energy corridors, and Frankfort policy rooms all need a seat at the same table.</p>
-          </div>
-        </div>
-        <div class="workshop-grid" aria-label="Workshop tracks">
-          <article class="card">
-            <span data-lucide="graduation-cap" aria-hidden="true"></span>
-            <h3>AI Basics</h3>
-            <p>Plain-English sessions on prompts, models, privacy, citations, scams, and useful everyday workflows.</p>
-          </article>
-          <article class="card">
-            <span data-lucide="briefcase-business" aria-hidden="true"></span>
-            <h3>Main Street Skills</h3>
-            <p>Practical training for small businesses, nonprofits, job seekers, and teams learning AI-enabled tools.</p>
-          </article>
-          <article class="card">
-            <span data-lucide="landmark" aria-hidden="true"></span>
-            <h3>Civic AI</h3>
-            <p>Community conversations on schools, public services, policy, rural access, ethics, and opportunity.</p>
-          </article>
-          <article class="card">
-            <span data-lucide="code-2" aria-hidden="true"></span>
-            <h3>Open Build Nights</h3>
-            <p>Collaborative sessions for datasets, maps, guides, local explainers, and simple public-interest tools.</p>
-          </article>
-        </div>
       </section>
 
       <section class="section tracker-section" id="tracker" aria-labelledby="tracker-title">
         <div class="section-heading">
           <div>
             <p class="kicker">Kentucky AI Tracker</p>
-            <h2 id="tracker-title">A field map for Kentucky's AI movement.</h2>
+            <h2 id="tracker-title">Clickable regional intelligence for the Commonwealth.</h2>
           </div>
-          <div class="filter-controls" aria-label="Filter updates by region">
+          <div class="region-controls" aria-label="Choose Kentucky region">
+            <button class="region-button is-active" data-region="statewide" type="button">Statewide</button>
+            <button class="region-button" data-region="western" type="button">Western KY</button>
+            <button class="region-button" data-region="louisville" type="button">Louisville</button>
+            <button class="region-button" data-region="bluegrass" type="button">Bluegrass</button>
+            <button class="region-button" data-region="appalachia" type="button">Appalachia</button>
+            <button class="region-button" data-region="northern" type="button">NKY</button>
+          </div>
+        </div>
+
+        <div class="map-command">
+          <div class="map-panel" aria-label="Interactive Kentucky regional focus map">
+            <svg class="kentucky-map" viewBox="0 0 640 300" role="img" aria-labelledby="kentucky-map-title kentucky-map-desc">
+              <title id="kentucky-map-title">Kentucky AI regional tracker map</title>
+              <desc id="kentucky-map-desc">Accurate Kentucky outline with selectable Kentucky AI regions and city reference points.</desc>
+              <defs>
+                <path
+                  id="kentuckyShape"
+                  d="M436.2 59.3 L452.8 72.1 L464.5 65.4 L492.5 72.6 L500.6 63.4 L511.2 60.3 L514.4 76.2 L522.9 78.7 L533.0 91.6 L531.0 119.8 L539.9 137.7 L551.7 151.5 L555.3 162.3 L569.5 173.1 L579.3 174.6 L550.9 199.7 L523.7 213.6 L523.7 220.7 L512.8 226.9 L512.0 235.1 L497.8 238.7 L492.9 248.9 L453.2 262.3 L452.0 263.8 L388.7 262.8 L333.6 259.7 L319.0 260.7 L237.2 257.1 L143.9 259.2 L127.7 255.1 L128.9 272.0 L36.9 271.0 L28.0 272.0 L32.1 260.2 L43.0 264.3 L49.1 226.4 L45.4 221.3 L56.8 204.8 L65.3 203.8 L92.4 218.2 L101.8 210.5 L94.9 198.2 L97.7 188.4 L128.1 179.7 L121.2 163.3 L131.0 150.0 L137.8 141.3 L156.5 140.3 L162.6 133.6 L169.1 140.3 L178.8 137.2 L197.4 151.0 L203.5 141.3 L222.2 132.1 L227.0 141.3 L243.6 137.7 L242.4 127.4 L258.6 115.7 L261.5 126.4 L278.1 135.1 L286.6 129.0 L293.5 105.4 L306.5 100.8 L311.3 89.0 L323.9 81.3 L323.1 62.9 L342.1 67.0 L355.9 58.2 L368.9 57.7 L362.8 32.1 L368.5 28.0 L396.9 28.0 L411.9 47.5 L413.1 55.7 L436.2 59.3 Z"
+                />
+                <clipPath id="kentuckyClip">
+                  <use href="#kentuckyShape" />
+                </clipPath>
+              </defs>
+              <g clip-path="url(#kentuckyClip)">
+                <rect class="ky-region-map ky-western" data-region="western" role="button" tabindex="0" x="28" y="28" width="155" height="244" />
+                <rect class="ky-region-map ky-southcentral" data-region="southcentral" role="button" tabindex="0" x="183" y="28" width="125" height="244" />
+                <rect class="ky-region-map ky-louisville" data-region="louisville" role="button" tabindex="0" x="308" y="28" width="82" height="244" />
+                <rect class="ky-region-map ky-bluegrass" data-region="bluegrass" role="button" tabindex="0" x="390" y="28" width="118" height="244" />
+                <rect class="ky-region-map ky-appalachia" data-region="appalachia" role="button" tabindex="0" x="508" y="28" width="80" height="244" />
+                <path class="ky-ridge-line" d="M56 212 C132 180 174 196 240 166 C310 134 367 150 436 116 C486 92 520 108 556 88" />
+                <path class="ky-river-line" d="M52 78 C128 92 181 66 246 86 C305 104 334 58 397 63 C451 68 497 73 543 94" />
+              </g>
+              <use class="ky-border" href="#kentuckyShape" />
+              <g class="ky-pins" aria-hidden="true">
+                <circle cx="298.9" cy="107.6" r="5.5" />
+                <text x="309" y="104">Louisville</text>
+                <circle cx="391.7" cy="127.5" r="5.5" />
+                <text x="402" y="132">Lexington</text>
+                <circle cx="248.2" cy="227.8" r="5.5" />
+                <text x="258" y="233">Bowling Green</text>
+                <circle cx="88.6" cy="217.1" r="5.5" />
+                <text x="99" y="214">Paducah</text>
+                <circle cx="538.6" cy="180.0" r="5.5" />
+                <text x="456" y="184">Pikeville</text>
+              </g>
+            </svg>
+          </div>
+
+          <aside class="region-panel" id="regionPanel" aria-live="polite"></aside>
+        </div>
+      </section>
+
+      <section class="section intelligence-section" id="intelligence" aria-labelledby="intelligence-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Latest Kentucky AI intelligence</p>
+            <h2 id="intelligence-title">Scan by what you came to understand.</h2>
+          </div>
+          <div class="filter-controls" aria-label="Filter updates by lane">
             <button class="filter-button is-active" data-filter="all" type="button">All</button>
-            <button class="filter-button" data-filter="education" type="button">Education</button>
+            <button class="filter-button" data-filter="education" type="button">Schools</button>
             <button class="filter-button" data-filter="workforce" type="button">Workforce</button>
             <button class="filter-button" data-filter="research" type="button">Research</button>
             <button class="filter-button" data-filter="events" type="button">Events</button>
@@ -167,152 +190,57 @@
             <button class="filter-button" data-filter="policy" type="button">Policy</button>
           </div>
         </div>
-        <div class="intelligence-panel" id="intelligence" aria-label="Latest Kentucky AI intelligence">
-          <div>
-            <p class="kicker">Latest Kentucky AI intelligence</p>
-            <h3>News, research, policy, workforce, events, and big-mover signals with local context.</h3>
-            <p>
-              Auto-generated from public news and research indexes, then shaped around what matters for Kentucky communities.
-              Each item links back to the original source for review.
-            </p>
-          </div>
-          <dl class="intel-stats">
-            <div>
-              <dt>Last refresh</dt>
-              <dd id="intelUpdatedAt">Loading</dd>
-            </div>
-            <div>
-              <dt>Items tracked</dt>
-              <dd id="intelItemsCount">0</dd>
-            </div>
-            <div>
-              <dt>Source lanes</dt>
-              <dd id="intelSources">0</dd>
-            </div>
-          </dl>
-        </div>
-        <div class="tracker-layout">
-          <div class="map-panel" aria-label="Kentucky regional focus areas">
-            <div class="kentucky-outline">
-              <svg class="kentucky-map" viewBox="0 0 640 300" role="img" aria-labelledby="kentucky-map-title kentucky-map-desc">
-                <title id="kentucky-map-title">Kentucky AI tracker map</title>
-                <desc id="kentucky-map-desc">Accurate Kentucky outline with Kentucky-colored regional bands and city reference points.</desc>
-                <defs>
-                  <path
-                    id="kentuckyShape"
-                    d="M436.2 59.3 L452.8 72.1 L464.5 65.4 L492.5 72.6 L500.6 63.4 L511.2 60.3 L514.4 76.2 L522.9 78.7 L533.0 91.6 L531.0 119.8 L539.9 137.7 L551.7 151.5 L555.3 162.3 L569.5 173.1 L579.3 174.6 L550.9 199.7 L523.7 213.6 L523.7 220.7 L512.8 226.9 L512.0 235.1 L497.8 238.7 L492.9 248.9 L453.2 262.3 L452.0 263.8 L388.7 262.8 L333.6 259.7 L319.0 260.7 L237.2 257.1 L143.9 259.2 L127.7 255.1 L128.9 272.0 L36.9 271.0 L28.0 272.0 L32.1 260.2 L43.0 264.3 L49.1 226.4 L45.4 221.3 L56.8 204.8 L65.3 203.8 L92.4 218.2 L101.8 210.5 L94.9 198.2 L97.7 188.4 L128.1 179.7 L121.2 163.3 L131.0 150.0 L137.8 141.3 L156.5 140.3 L162.6 133.6 L169.1 140.3 L178.8 137.2 L197.4 151.0 L203.5 141.3 L222.2 132.1 L227.0 141.3 L243.6 137.7 L242.4 127.4 L258.6 115.7 L261.5 126.4 L278.1 135.1 L286.6 129.0 L293.5 105.4 L306.5 100.8 L311.3 89.0 L323.9 81.3 L323.1 62.9 L342.1 67.0 L355.9 58.2 L368.9 57.7 L362.8 32.1 L368.5 28.0 L396.9 28.0 L411.9 47.5 L413.1 55.7 L436.2 59.3 Z"
-                  />
-                  <clipPath id="kentuckyClip">
-                    <use href="#kentuckyShape" />
-                  </clipPath>
-                </defs>
-                <g clip-path="url(#kentuckyClip)">
-                  <rect class="ky-band ky-band-river" x="28" y="28" width="130" height="244" />
-                  <rect class="ky-band ky-band-bluegrass" x="158" y="28" width="155" height="244" />
-                  <rect class="ky-band ky-band-commonwealth" x="313" y="28" width="145" height="244" />
-                  <rect class="ky-band ky-band-goldenrod" x="458" y="28" width="82" height="244" />
-                  <rect class="ky-band ky-band-cardinal" x="540" y="28" width="48" height="244" />
-                  <path class="ky-ridge-line" d="M56 212 C132 180 174 196 240 166 C310 134 367 150 436 116 C486 92 520 108 556 88" />
-                  <path class="ky-river-line" d="M52 78 C128 92 181 66 246 86 C305 104 334 58 397 63 C451 68 497 73 543 94" />
-                </g>
-                <use class="ky-border" href="#kentuckyShape" />
-                <g class="ky-pins" aria-hidden="true">
-                  <circle cx="298.9" cy="107.6" r="5.5" />
-                  <text x="309" y="104">Louisville</text>
-                  <circle cx="391.7" cy="127.5" r="5.5" />
-                  <text x="402" y="132">Lexington</text>
-                  <circle cx="248.2" cy="227.8" r="5.5" />
-                  <text x="258" y="233">Bowling Green</text>
-                  <circle cx="88.6" cy="217.1" r="5.5" />
-                  <text x="99" y="214">Paducah</text>
-                  <circle cx="538.6" cy="180.0" r="5.5" />
-                  <text x="456" y="184">Pikeville</text>
-                </g>
-              </svg>
-            </div>
-            <div class="map-caption">
-              <span>Regional scan</span>
-              <strong>Ohio River industry, Bluegrass research, Appalachian access, river-city startups, and city/county policy.</strong>
-            </div>
-          </div>
-          <div>
-            <div class="update-list" id="updateList" aria-live="polite"></div>
-            <button class="button secondary show-more-button" id="showMoreUpdates" type="button">
-              <span data-lucide="list-plus" aria-hidden="true"></span>
-              Show more updates
-            </button>
-          </div>
-        </div>
-        <div class="watchlist-panel" aria-label="KYAI watchlist">
-          <div class="digest-preview">
+
+        <div class="lane-layout">
+          <div class="update-list" id="updateList" aria-live="polite"></div>
+          <aside class="brief-panel">
             <p class="kicker">Daily brief</p>
             <h3>Morning digest preview</h3>
             <div id="digestPreview"></div>
-          </div>
-          <div>
-            <p class="kicker">Watchlist</p>
-            <h3>What the automation follows</h3>
-            <div class="watch-list" id="watchList"></div>
-          </div>
+            <button class="button neutral show-more-button" id="showMoreUpdates" type="button">
+              <span data-lucide="list-plus" aria-hidden="true"></span>
+              Show more updates
+            </button>
+          </aside>
         </div>
       </section>
 
-      <section class="section board-section" id="board" aria-labelledby="board-title">
+      <section class="section directory-section" id="directory" aria-labelledby="directory-title">
         <div class="section-heading">
           <div>
-            <p class="kicker">Community board</p>
-            <h2 id="board-title">A front porch for Kentucky's AI conversation.</h2>
+            <p class="kicker">People and places</p>
+            <h2 id="directory-title">Who is moving AI in Kentucky?</h2>
           </div>
-          <a class="button board-button" href="#join">
-            <span data-lucide="message-square-plus" aria-hidden="true"></span>
-            Join the board
+          <a class="button neutral" href="#lead-form">
+            <span data-lucide="user-round-plus" aria-hidden="true"></span>
+            Suggest a listing
           </a>
         </div>
-        <div class="board-layout">
-          <div class="thread-list" id="threadList" aria-label="Discussion threads"></div>
-          <form class="thread-form" id="threadForm">
-            <h3>Start a local thread</h3>
-            <label>
-              Topic
-              <input name="topic" maxlength="90" required />
-            </label>
-            <label>
-              Type
-              <select name="type" required>
-                <option>News lead</option>
-                <option>Research note</option>
-                <option>Event</option>
-                <option>Policy question</option>
-                <option>Workshop request</option>
-              </select>
-            </label>
-            <label>
-              Context
-              <textarea
-                name="context"
-                maxlength="420"
-                rows="4"
-                placeholder="What happened, where in Kentucky, and why should people pay attention?"
-                required
-              ></textarea>
-            </label>
-            <button class="button primary form-button" type="submit">
-              <span data-lucide="plus" aria-hidden="true"></span>
-              Add thread locally
-            </button>
-            <p class="form-status" id="threadStatus" role="status"></p>
-          </form>
-        </div>
+        <div class="directory-grid" id="directoryGrid"></div>
       </section>
 
-      <section class="section plain" id="open-source" aria-labelledby="open-source-title">
+      <section class="section workshop-section" id="workshops" aria-labelledby="workshops-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Workshop menu</p>
+            <h2 id="workshops-title">Concrete sessions Kentuckians can request.</h2>
+          </div>
+          <a class="button neutral" href="#join">
+            <span data-lucide="presentation" aria-hidden="true"></span>
+            Request a session
+          </a>
+        </div>
+        <div class="workshop-grid" id="workshopGrid"></div>
+      </section>
+
+      <section class="section commons-section" id="open-source" aria-labelledby="open-source-title">
         <div class="section-intro wide">
-            <p class="kicker">Open source nonprofit</p>
+          <p class="kicker">Open source nonprofit</p>
           <h2 id="open-source-title">A public commons for Kentucky AI knowledge.</h2>
           <p>
-            KYAI can grow into a shared home for workshop materials, local datasets,
-            explainers, case studies, event notes, and issue tracking. The default posture is
-            simple: publish useful work, invite review, and make it easy for Kentuckians to contribute.
+            KYAI can grow into a shared home for workshop materials, local datasets, explainers,
+            case studies, event notes, and issue tracking. The default posture is simple:
+            publish useful work, invite review, and make it easy for Kentuckians to contribute.
           </p>
         </div>
         <div class="source-steps" aria-label="Open source participation">
@@ -334,56 +262,94 @@
         </div>
       </section>
 
-      <section class="section join-section" id="join" aria-labelledby="join-title">
+      <section class="section contribute-section" id="contribute" aria-labelledby="contribute-title">
         <div class="join-copy">
-          <p class="kicker">Join the conversation</p>
-          <h2 id="join-title">Help shape KYAI from day one.</h2>
+          <p class="kicker">Contribute</p>
+          <h2 id="contribute-title">Make the Kentucky AI map smarter.</h2>
           <p>
-            Tell KYAI where you are in Kentucky and how you want to plug in. This first version
-            saves interest locally and prepares the site for a real CRM, email list, or GitHub issue flow.
+            Send KYAI a news lead, local event, person to list, workshop request, or policy question.
+            This version saves locally while the public submission flow is being wired up.
           </p>
+          <div class="thread-list" id="threadList" aria-label="Community board"></div>
         </div>
-        <form class="join-form" id="joinForm">
-          <label>
-            Name
-            <input name="name" autocomplete="name" required />
-          </label>
-          <label>
-            Email
-            <input name="email" type="email" autocomplete="email" required />
-          </label>
-          <label>
-            Kentucky region
-            <select name="region" required>
-              <option value="">Choose a region</option>
-              <option>Louisville / North Central</option>
-              <option>Lexington / Bluegrass</option>
-              <option>Western Kentucky</option>
-              <option>Eastern Kentucky / Appalachia</option>
-              <option>Northern Kentucky</option>
-              <option>South Central Kentucky</option>
-            </select>
-          </label>
-          <fieldset>
-            <legend>I want to help with</legend>
-            <label><input type="checkbox" name="interest" value="workshops" /> Workshops</label>
-            <label><input type="checkbox" name="interest" value="news" /> News tracking</label>
-            <label><input type="checkbox" name="interest" value="open-source" /> Open source</label>
-            <label><input type="checkbox" name="interest" value="hosting" /> Hosting local events</label>
-          </fieldset>
-          <button class="button primary form-button" type="submit">
-            <span data-lucide="send" aria-hidden="true"></span>
-            Register interest
-          </button>
-          <p class="form-status" id="formStatus" role="status"></p>
-        </form>
+        <div class="forms-stack">
+          <form class="lead-form" id="threadForm">
+            <h3 id="lead-form">Submit a local signal</h3>
+            <label>
+              Topic
+              <input name="topic" maxlength="90" required />
+            </label>
+            <label>
+              Type
+              <select name="type" required>
+                <option>News lead</option>
+                <option>Research note</option>
+                <option>Event</option>
+                <option>Person to list</option>
+                <option>Policy question</option>
+                <option>Workshop request</option>
+              </select>
+            </label>
+            <label>
+              Context
+              <textarea
+                name="context"
+                maxlength="420"
+                rows="4"
+                placeholder="What happened, where in Kentucky, and why should people pay attention?"
+                required
+              ></textarea>
+            </label>
+            <button class="button primary form-button" type="submit">
+              <span data-lucide="plus" aria-hidden="true"></span>
+              Add signal locally
+            </button>
+            <p class="form-status" id="threadStatus" role="status"></p>
+          </form>
+
+          <form class="join-form" id="joinForm">
+            <h3 id="join">Join or request a workshop</h3>
+            <label>
+              Name
+              <input name="name" autocomplete="name" required />
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label>
+              Kentucky region
+              <select name="region" required>
+                <option value="">Choose a region</option>
+                <option>Louisville / North Central</option>
+                <option>Lexington / Bluegrass</option>
+                <option>Western Kentucky</option>
+                <option>Eastern Kentucky / Appalachia</option>
+                <option>Northern Kentucky</option>
+                <option>South Central Kentucky</option>
+              </select>
+            </label>
+            <fieldset>
+              <legend>I want to help with</legend>
+              <label><input type="checkbox" name="interest" value="workshops" /> Workshops</label>
+              <label><input type="checkbox" name="interest" value="news" /> News tracking</label>
+              <label><input type="checkbox" name="interest" value="open-source" /> Open source</label>
+              <label><input type="checkbox" name="interest" value="hosting" /> Hosting local events</label>
+            </fieldset>
+            <button class="button primary form-button" type="submit">
+              <span data-lucide="send" aria-hidden="true"></span>
+              Register interest
+            </button>
+            <p class="form-status" id="formStatus" role="status"></p>
+          </form>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div>
         <strong>KYAI</strong>
-        <span>Open AI education for Kentucky.</span>
+        <span>Open AI intelligence and education for Kentucky.</span>
       </div>
       <a href="https://github.com/Kgarmon99/kyai-com">Open-source repo</a>
     </footer>

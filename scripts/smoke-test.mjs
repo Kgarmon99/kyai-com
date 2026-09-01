@@ -25,7 +25,7 @@ const js = readFileSync("app.js", "utf8");
 const vercel = JSON.parse(readFileSync("vercel.json", "utf8"));
 
 for (const phrase of [
-  "KYAI | AI for Kentucky",
+  "KYAI | Kentucky AI Pulse",
   "Kentucky AI Tracker",
   "Community board",
   "Latest Kentucky AI intelligence",

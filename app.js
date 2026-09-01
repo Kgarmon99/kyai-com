@@ -43,11 +43,112 @@ const fallbackUpdates = [
   },
 ];
 
-let updates = fallbackUpdates;
-let activeFilter = "all";
-let visibleUpdateCount = 6;
-const UPDATE_BATCH_SIZE = 6;
-const CATEGORY_PRIORITY = ["industry", "research", "education", "policy", "workforce", "events", "news"];
+const regions = {
+  statewide: {
+    label: "Statewide",
+    metric: "All lanes",
+    focus: "News, research, schools, workforce, policy, events, infrastructure, and people.",
+    bullets: ["Daily digest", "Public source links", "County-by-county leads"],
+  },
+  western: {
+    label: "Western Kentucky",
+    metric: "Industry + energy",
+    focus: "Data centers, agriculture, logistics, river industry, workforce, and regional campuses.",
+    bullets: ["Paducah and Purchase area", "Bowling Green corridor", "Power and site readiness"],
+  },
+  louisville: {
+    label: "Louisville",
+    metric: "Metro pilots",
+    focus: "City policy, private AI adoption, health systems, startups, events, and accelerator activity.",
+    bullets: ["TALK and civic tech", "Healthcare and logistics", "Startup ecosystem"],
+  },
+  bluegrass: {
+    label: "Bluegrass",
+    metric: "Research core",
+    focus: "University of Kentucky, Lexington employers, public-sector pilots, healthcare, and campus talent.",
+    bullets: ["Research signals", "Student pipelines", "Applied AI programs"],
+  },
+  appalachia: {
+    label: "Appalachia",
+    metric: "Access + resilience",
+    focus: "Rural access, small business tools, broadband realities, workforce transition, and community trust.",
+    bullets: ["Pikeville and eastern counties", "Local business clinics", "Energy transition"],
+  },
+  northern: {
+    label: "Northern Kentucky",
+    metric: "Talent corridor",
+    focus: "Cincinnati-region talent, logistics, manufacturing, higher education, and cross-border AI activity.",
+    bullets: ["NKY schools", "Advanced manufacturing", "Regional events"],
+  },
+  southcentral: {
+    label: "South Central",
+    metric: "Career pathways",
+    focus: "K-12 career pathways, community colleges, manufacturing, small business, and public workshops.",
+    bullets: ["Bowling Green", "Career and technical education", "Employer training"],
+  },
+};
+
+const directoryItems = [
+  {
+    type: "Research",
+    name: "University research watch",
+    region: "Bluegrass / Louisville",
+    detail: "Track AI papers, grants, labs, student work, public datasets, and faculty projects.",
+    icon: "microscope",
+  },
+  {
+    type: "Workforce",
+    name: "AI degree and pathway programs",
+    region: "Statewide",
+    detail: "Follow public university AI degrees, K-12 pathways, IBM certificates, and employer training.",
+    icon: "graduation-cap",
+  },
+  {
+    type: "Infrastructure",
+    name: "Data center and energy corridor",
+    region: "Eastern / Western KY",
+    detail: "Watch site selection, local moratoriums, power use, water impact, taxes, and public meetings.",
+    icon: "server",
+  },
+  {
+    type: "Community",
+    name: "Local workshop hosts",
+    region: "County-level",
+    detail: "Libraries, schools, chambers, churches, nonprofits, and civic groups that can host practical AI sessions.",
+    icon: "map-pin",
+  },
+];
+
+const workshops = [
+  {
+    title: "AI Basics for County Libraries",
+    audience: "Libraries, adult learners, seniors, students",
+    outcome: "Prompts, privacy, citations, hallucinations, scams, and useful everyday tasks.",
+    duration: "75 min",
+    icon: "library",
+  },
+  {
+    title: "AI for Main Street Business",
+    audience: "Small businesses, chambers, local teams",
+    outcome: "Customer messages, operations notes, marketing drafts, grant research, and fraud-aware workflows.",
+    duration: "90 min",
+    icon: "store",
+  },
+  {
+    title: "AI for Teachers and Schools",
+    audience: "Educators, principals, school boards",
+    outcome: "Classroom policy, lesson support, academic integrity, accessibility, and student readiness.",
+    duration: "90 min",
+    icon: "school",
+  },
+  {
+    title: "Civic AI and Public Trust",
+    audience: "Cities, counties, agencies, nonprofits",
+    outcome: "Procurement, transparency, public meetings, risk, data rights, and community benefit.",
+    duration: "60 min",
+    icon: "landmark",
+  },
+];
 
 const seedThreads = [
   {
@@ -73,8 +174,18 @@ const seedThreads = [
   },
 ];
 
+let updates = fallbackUpdates;
+let activeFilter = "all";
+let activeRegion = "statewide";
+let visibleUpdateCount = 6;
+
+const UPDATE_BATCH_SIZE = 6;
+const CATEGORY_PRIORITY = ["industry", "research", "education", "policy", "workforce", "events", "news"];
+
 const updateList = document.querySelector("#updateList");
 const filterButtons = document.querySelectorAll(".filter-button");
+const regionButtons = document.querySelectorAll(".region-button");
+const mapRegions = document.querySelectorAll(".ky-region-map");
 const joinForm = document.querySelector("#joinForm");
 const formStatus = document.querySelector("#formStatus");
 const threadList = document.querySelector("#threadList");
@@ -84,8 +195,12 @@ const intelUpdatedAt = document.querySelector("#intelUpdatedAt");
 const intelItemsCount = document.querySelector("#intelItemsCount");
 const intelSources = document.querySelector("#intelSources");
 const digestPreview = document.querySelector("#digestPreview");
-const watchList = document.querySelector("#watchList");
 const showMoreButton = document.querySelector("#showMoreUpdates");
+const pulseLead = document.querySelector("#pulseLead");
+const pulseCards = document.querySelector("#pulseCards");
+const regionPanel = document.querySelector("#regionPanel");
+const directoryGrid = document.querySelector("#directoryGrid");
+const workshopGrid = document.querySelector("#workshopGrid");
 
 function iconize() {
   if (window.lucide) {
@@ -98,7 +213,7 @@ function iconize() {
 }
 
 function escapeHtml(value) {
-  return String(value)
+  return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -109,9 +224,22 @@ function escapeHtml(value) {
 function formatDate(value) {
   if (!value) return "Seed data";
   return new Intl.DateTimeFormat("en-US", {
-    dateStyle: "medium",
-    timeStyle: "short",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
   }).format(new Date(value));
+}
+
+function normalizeRegion(value = "") {
+  const text = value.toLowerCase();
+  if (text.includes("western") || text.includes("west") || text.includes("paducah")) return "western";
+  if (text.includes("louisville")) return "louisville";
+  if (text.includes("lexington") || text.includes("bluegrass")) return "bluegrass";
+  if (text.includes("eastern") || text.includes("appalachia") || text.includes("pikeville")) return "appalachia";
+  if (text.includes("northern")) return "northern";
+  if (text.includes("south") || text.includes("bowling")) return "southcentral";
+  return "statewide";
 }
 
 function getBalancedUpdates(items) {
@@ -136,20 +264,47 @@ function getBalancedUpdates(items) {
   return selected;
 }
 
-function renderUpdates(filter = "all") {
-  activeFilter = filter;
-  const filteredUpdates =
-    filter === "all"
-      ? getBalancedUpdates(updates)
-      : updates.filter((update) => update.category === filter);
+function getFilteredUpdates() {
+  const laneItems = activeFilter === "all" ? updates : updates.filter((update) => update.category === activeFilter);
+  if (activeRegion === "statewide") return getBalancedUpdates(laneItems);
+  const regional = laneItems.filter((update) => normalizeRegion(update.region) === activeRegion);
+  return regional.length ? regional : getBalancedUpdates(laneItems).slice(0, 4);
+}
+
+function renderPulse(feed = {}) {
+  const balanced = getBalancedUpdates(feed.items?.length ? feed.items : updates);
+  const lead = balanced[0] || fallbackUpdates[0];
+  const supporting = balanced.slice(1, 4);
+
+  pulseLead.innerHTML = `
+    <span>${escapeHtml(lead.region || "Kentucky")} / ${escapeHtml(lead.category || "signal")}</span>
+    <h3>${lead.url ? `<a href="${escapeHtml(lead.url)}" target="_blank" rel="noreferrer">${escapeHtml(lead.title)}</a>` : escapeHtml(lead.title)}</h3>
+    <p>${escapeHtml(lead.body)}</p>
+  `;
+
+  pulseCards.innerHTML = supporting
+    .map(
+      (item) => `
+        <article>
+          <span>${escapeHtml(item.category)}</span>
+          <strong>${escapeHtml(item.title)}</strong>
+          <small>${escapeHtml(item.region || "Kentucky")}</small>
+        </article>
+      `,
+    )
+    .join("");
+}
+
+function renderUpdates() {
+  const filteredUpdates = getFilteredUpdates();
   const visibleUpdates = filteredUpdates.slice(0, visibleUpdateCount);
 
   updateList.innerHTML = visibleUpdates
     .map(
       (update) => `
-        <article class="update-card" data-category="${update.category}">
+        <article class="update-card" data-category="${escapeHtml(update.category)}">
           <div class="update-meta">
-            <span>${escapeHtml(update.region)}</span>
+            <span>${escapeHtml(update.region || "Kentucky")}</span>
             <span>${escapeHtml(update.category)}</span>
             ${update.publishedAt ? `<span>${escapeHtml(update.publishedAt.slice(0, 10))}</span>` : ""}
           </div>
@@ -161,16 +316,8 @@ function renderUpdates(filter = "all") {
             }
           </h3>
           <p>${escapeHtml(update.body)}</p>
-          ${
-            update.people?.length
-              ? `<p class="people-line">People: ${escapeHtml(update.people.join(", "))}</p>`
-              : ""
-          }
-          ${
-            update.source
-              ? `<p class="source-line">Source: ${escapeHtml(update.source)}</p>`
-              : ""
-          }
+          ${update.people?.length ? `<p class="people-line">People: ${escapeHtml(update.people.join(", "))}</p>` : ""}
+          ${update.source ? `<p class="source-line">Source: ${escapeHtml(update.source)}</p>` : ""}
         </article>
       `,
     )
@@ -181,7 +328,7 @@ function renderUpdates(filter = "all") {
       <article class="update-card">
         <div class="update-meta">
           <span>Kentucky</span>
-          <span>${escapeHtml(filter)}</span>
+          <span>${escapeHtml(activeFilter)}</span>
         </div>
         <h3>No items in this lane yet</h3>
         <p>The automation will add relevant public leads as they show up.</p>
@@ -189,9 +336,7 @@ function renderUpdates(filter = "all") {
     `;
   }
 
-  if (showMoreButton) {
-    showMoreButton.hidden = visibleUpdateCount >= filteredUpdates.length;
-  }
+  showMoreButton.hidden = visibleUpdateCount >= filteredUpdates.length;
 }
 
 function renderIntelligence(feed) {
@@ -200,24 +345,69 @@ function renderIntelligence(feed) {
   intelSources.textContent = String(feed.sources?.length || 0);
 
   digestPreview.innerHTML = getBalancedUpdates(feed.items || [])
-    .slice(0, 4)
+    .slice(0, 5)
     .map(
       (item) => `
         <article>
           <span>${escapeHtml(item.category)}</span>
-          <a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a>
+          <a href="${escapeHtml(item.url || "#")}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a>
         </article>
       `,
     )
     .join("");
+}
 
-  watchList.innerHTML = (feed.watchlist || [])
+function renderRegion(regionKey = "statewide") {
+  const region = regions[regionKey] || regions.statewide;
+  activeRegion = regionKey;
+
+  regionButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.region === regionKey);
+  });
+  mapRegions.forEach((regionShape) => {
+    regionShape.classList.toggle("is-active", regionShape.dataset.region === regionKey);
+  });
+
+  regionPanel.innerHTML = `
+    <p class="kicker">Regional lens</p>
+    <h3>${escapeHtml(region.label)}</h3>
+    <strong>${escapeHtml(region.metric)}</strong>
+    <p>${escapeHtml(region.focus)}</p>
+    <ul>
+      ${region.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+    </ul>
+  `;
+
+  visibleUpdateCount = 6;
+  renderUpdates();
+}
+
+function renderDirectory() {
+  directoryGrid.innerHTML = directoryItems
     .map(
       (item) => `
-        <article>
-          <span>${escapeHtml(item.type)}</span>
-          <strong>${escapeHtml(item.name)}</strong>
-          <p>${escapeHtml(item.focus)}</p>
+        <article class="directory-card">
+          <span data-lucide="${escapeHtml(item.icon)}" aria-hidden="true"></span>
+          <div>
+            <p>${escapeHtml(item.type)} / ${escapeHtml(item.region)}</p>
+            <h3>${escapeHtml(item.name)}</h3>
+            <span>${escapeHtml(item.detail)}</span>
+          </div>
+        </article>
+      `,
+    )
+    .join("");
+}
+
+function renderWorkshops() {
+  workshopGrid.innerHTML = workshops
+    .map(
+      (workshop) => `
+        <article class="workshop-card">
+          <span data-lucide="${escapeHtml(workshop.icon)}" aria-hidden="true"></span>
+          <p>${escapeHtml(workshop.duration)} / ${escapeHtml(workshop.audience)}</p>
+          <h3>${escapeHtml(workshop.title)}</h3>
+          <strong>${escapeHtml(workshop.outcome)}</strong>
         </article>
       `,
     )
@@ -231,23 +421,21 @@ async function loadIntelligence() {
     const feed = await response.json();
     if (feed.items?.length) {
       updates = feed.items;
-      renderUpdates(activeFilter);
     }
+    renderPulse(feed);
     renderIntelligence(feed);
+    renderRegion(activeRegion);
   } catch {
-    renderIntelligence({
+    const fallbackFeed = {
       updatedAt: null,
       items: fallbackUpdates,
       sources: [],
-      watchlist: [
-        {
-          type: "Seed",
-          name: "Kentucky AI tracker",
-          focus: "The public automation feed will appear here after the first refresh.",
-        },
-      ],
-    });
+    };
+    renderPulse(fallbackFeed);
+    renderIntelligence(fallbackFeed);
+    renderRegion(activeRegion);
   }
+  iconize();
 }
 
 function getThreads() {
@@ -275,14 +463,30 @@ filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     filterButtons.forEach((item) => item.classList.remove("is-active"));
     button.classList.add("is-active");
+    activeFilter = button.dataset.filter;
     visibleUpdateCount = 6;
-    renderUpdates(button.dataset.filter);
+    renderUpdates();
+  });
+});
+
+regionButtons.forEach((button) => {
+  button.addEventListener("click", () => renderRegion(button.dataset.region));
+});
+
+mapRegions.forEach((regionShape) => {
+  const selectRegion = () => renderRegion(regionShape.dataset.region);
+  regionShape.addEventListener("click", selectRegion);
+  regionShape.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      selectRegion();
+    }
   });
 });
 
 showMoreButton.addEventListener("click", () => {
   visibleUpdateCount += UPDATE_BATCH_SIZE;
-  renderUpdates(activeFilter);
+  renderUpdates();
   iconize();
 });
 
@@ -297,7 +501,7 @@ threadForm.addEventListener("submit", (event) => {
     context: formData.get("context"),
   });
   localStorage.setItem("kyai-threads", JSON.stringify(threads));
-  threadStatus.textContent = "Thread saved locally. The next build can back this with accounts and moderation.";
+  threadStatus.textContent = "Signal saved locally. The next build can back this with accounts and moderation.";
   threadForm.reset();
   renderThreads();
 });
@@ -320,7 +524,8 @@ joinForm.addEventListener("submit", (event) => {
   joinForm.reset();
 });
 
-renderUpdates();
+renderDirectory();
+renderWorkshops();
 renderThreads();
 loadIntelligence();
 iconize();
