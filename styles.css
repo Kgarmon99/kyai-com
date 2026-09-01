@@ -610,33 +610,73 @@ h3 {
 
 .kentucky-outline {
   position: relative;
-  width: min(82%, 520px);
-  aspect-ratio: 1.85;
-  margin: 58px auto 0;
-  background:
-    linear-gradient(90deg, var(--river) 0 25%, var(--bluegrass) 25% 58%, var(--goldenrod) 58% 72%, var(--tobacco) 72% 100%);
-  clip-path: polygon(
-    4% 52%,
-    14% 42%,
-    28% 45%,
-    34% 35%,
-    45% 36%,
-    54% 22%,
-    70% 29%,
-    79% 16%,
-    90% 31%,
-    94% 46%,
-    86% 60%,
-    73% 59%,
-    60% 73%,
-    48% 66%,
-    34% 78%,
-    20% 68%,
-    8% 70%
-  );
-  box-shadow:
-    0 20px 48px rgba(0, 0, 0, 0.26),
-    inset 0 0 0 999px rgba(45, 107, 79, 0.72);
+  width: min(94%, 620px);
+  margin: 44px auto 0;
+}
+
+.kentucky-map {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 22px 42px rgba(0, 0, 0, 0.28));
+}
+
+.ky-band-river {
+  fill: var(--river);
+}
+
+.ky-band-bluegrass {
+  fill: var(--bluegrass);
+}
+
+.ky-band-commonwealth {
+  fill: var(--kentucky-blue);
+}
+
+.ky-band-goldenrod {
+  fill: var(--goldenrod);
+}
+
+.ky-band-cardinal {
+  fill: var(--cardinal);
+}
+
+.ky-ridge-line,
+.ky-river-line {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 4;
+}
+
+.ky-ridge-line {
+  stroke: rgba(255, 253, 247, 0.22);
+}
+
+.ky-river-line {
+  stroke: rgba(232, 242, 245, 0.46);
+}
+
+.ky-border {
+  fill: none;
+  stroke: rgba(255, 253, 247, 0.92);
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.ky-pins circle {
+  fill: var(--goldenrod);
+  stroke: var(--paper);
+  stroke-width: 3;
+}
+
+.ky-pins text {
+  fill: var(--paper);
+  font-size: 18px;
+  font-weight: 900;
+  paint-order: stroke;
+  stroke: rgba(23, 23, 23, 0.82);
+  stroke-linejoin: round;
+  stroke-width: 5;
 }
 
 .map-caption {
@@ -660,50 +700,6 @@ h3 {
   color: var(--paper);
   font-size: 0.98rem;
   line-height: 1.35;
-}
-
-.kentucky-outline::after {
-  position: absolute;
-  inset: 11%;
-  border: 2px dashed rgba(255, 253, 247, 0.55);
-  content: "";
-  clip-path: inherit;
-}
-
-.region {
-  position: absolute;
-  z-index: 1;
-  display: inline-flex;
-  align-items: center;
-  min-height: 30px;
-  padding: 0 9px;
-  border: 1px solid rgba(255, 253, 247, 0.52);
-  border-radius: 999px;
-  background: rgba(23, 23, 23, 0.46);
-  color: var(--paper);
-  font-size: 0.72rem;
-  font-weight: 850;
-  white-space: nowrap;
-}
-
-.region-west {
-  left: 10%;
-  top: 49%;
-}
-
-.region-bluegrass {
-  left: 52%;
-  top: 35%;
-}
-
-.region-appalachia {
-  right: 3%;
-  top: 45%;
-}
-
-.region-louisville {
-  left: 38%;
-  top: 22%;
 }
 
 .update-list {

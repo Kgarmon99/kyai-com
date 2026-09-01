@@ -193,11 +193,42 @@
         </div>
         <div class="tracker-layout">
           <div class="map-panel" aria-label="Kentucky regional focus areas">
-            <div class="kentucky-outline" aria-hidden="true">
-              <span class="region region-west">West KY</span>
-              <span class="region region-bluegrass">Bluegrass</span>
-              <span class="region region-appalachia">Appalachia</span>
-              <span class="region region-louisville">Louisville</span>
+            <div class="kentucky-outline">
+              <svg class="kentucky-map" viewBox="0 0 640 300" role="img" aria-labelledby="kentucky-map-title kentucky-map-desc">
+                <title id="kentucky-map-title">Kentucky AI tracker map</title>
+                <desc id="kentucky-map-desc">Accurate Kentucky outline with Kentucky-colored regional bands and city reference points.</desc>
+                <defs>
+                  <path
+                    id="kentuckyShape"
+                    d="M436.2 59.3 L452.8 72.1 L464.5 65.4 L492.5 72.6 L500.6 63.4 L511.2 60.3 L514.4 76.2 L522.9 78.7 L533.0 91.6 L531.0 119.8 L539.9 137.7 L551.7 151.5 L555.3 162.3 L569.5 173.1 L579.3 174.6 L550.9 199.7 L523.7 213.6 L523.7 220.7 L512.8 226.9 L512.0 235.1 L497.8 238.7 L492.9 248.9 L453.2 262.3 L452.0 263.8 L388.7 262.8 L333.6 259.7 L319.0 260.7 L237.2 257.1 L143.9 259.2 L127.7 255.1 L128.9 272.0 L36.9 271.0 L28.0 272.0 L32.1 260.2 L43.0 264.3 L49.1 226.4 L45.4 221.3 L56.8 204.8 L65.3 203.8 L92.4 218.2 L101.8 210.5 L94.9 198.2 L97.7 188.4 L128.1 179.7 L121.2 163.3 L131.0 150.0 L137.8 141.3 L156.5 140.3 L162.6 133.6 L169.1 140.3 L178.8 137.2 L197.4 151.0 L203.5 141.3 L222.2 132.1 L227.0 141.3 L243.6 137.7 L242.4 127.4 L258.6 115.7 L261.5 126.4 L278.1 135.1 L286.6 129.0 L293.5 105.4 L306.5 100.8 L311.3 89.0 L323.9 81.3 L323.1 62.9 L342.1 67.0 L355.9 58.2 L368.9 57.7 L362.8 32.1 L368.5 28.0 L396.9 28.0 L411.9 47.5 L413.1 55.7 L436.2 59.3 Z"
+                  />
+                  <clipPath id="kentuckyClip">
+                    <use href="#kentuckyShape" />
+                  </clipPath>
+                </defs>
+                <g clip-path="url(#kentuckyClip)">
+                  <rect class="ky-band ky-band-river" x="28" y="28" width="130" height="244" />
+                  <rect class="ky-band ky-band-bluegrass" x="158" y="28" width="155" height="244" />
+                  <rect class="ky-band ky-band-commonwealth" x="313" y="28" width="145" height="244" />
+                  <rect class="ky-band ky-band-goldenrod" x="458" y="28" width="82" height="244" />
+                  <rect class="ky-band ky-band-cardinal" x="540" y="28" width="48" height="244" />
+                  <path class="ky-ridge-line" d="M56 212 C132 180 174 196 240 166 C310 134 367 150 436 116 C486 92 520 108 556 88" />
+                  <path class="ky-river-line" d="M52 78 C128 92 181 66 246 86 C305 104 334 58 397 63 C451 68 497 73 543 94" />
+                </g>
+                <use class="ky-border" href="#kentuckyShape" />
+                <g class="ky-pins" aria-hidden="true">
+                  <circle cx="298.9" cy="107.6" r="5.5" />
+                  <text x="309" y="104">Louisville</text>
+                  <circle cx="391.7" cy="127.5" r="5.5" />
+                  <text x="402" y="132">Lexington</text>
+                  <circle cx="248.2" cy="227.8" r="5.5" />
+                  <text x="258" y="233">Bowling Green</text>
+                  <circle cx="88.6" cy="217.1" r="5.5" />
+                  <text x="99" y="214">Paducah</text>
+                  <circle cx="538.6" cy="180.0" r="5.5" />
+                  <text x="456" y="184">Pikeville</text>
+                </g>
+              </svg>
             </div>
             <div class="map-caption">
               <span>Regional scan</span>
