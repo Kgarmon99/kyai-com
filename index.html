@@ -43,6 +43,14 @@
         <div class="hero-media" aria-hidden="true">
           <img src="./assets/kyai-hero.png" alt="" />
         </div>
+        <div class="ai-signal-layer" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div class="pulse-shell">
           <div class="pulse-copy">
             <p class="kicker">Kentucky AI Pulse</p>
@@ -51,6 +59,11 @@
               Live signals from public news, research indexes, events, policy moves, workforce shifts,
               and the people building AI across the Commonwealth.
             </p>
+            <div class="hero-status" aria-label="KYAI live signal coverage">
+              <span><i></i> Live feed</span>
+              <span>Research graph</span>
+              <span>Regional alerts</span>
+            </div>
             <div class="hero-actions">
               <a class="button primary" href="#newsletter">
                 <span data-lucide="mail-plus" aria-hidden="true"></span>
@@ -69,8 +82,11 @@
 
           <aside class="pulse-panel" aria-label="Today in Kentucky AI">
             <div class="pulse-panel-heading">
-              <p class="kicker">Today</p>
-              <h2>Commonwealth brief</h2>
+              <div>
+                <p class="kicker">Today</p>
+                <h2>Commonwealth brief</h2>
+              </div>
+              <span class="panel-live-pill"><i></i> Online</span>
             </div>
             <article class="lead-story" id="pulseLead">
               <span>Loading</span>
