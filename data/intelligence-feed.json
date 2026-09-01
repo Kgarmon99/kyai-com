@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-08-31T17:59:39.272Z",
+  "updatedAt": "2026-09-01T15:27:46.634Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 28,
+    "totalItems": 26,
     "newsItems": 0,
-    "researchItems": 18,
+    "researchItems": 16,
     "curatedItems": 10
   },
   "items": [
@@ -227,27 +227,6 @@
       ]
     },
     {
-      "id": "kyai-oohbje",
-      "category": "research",
-      "region": "Louisville",
-      "title": "Energy pile thermal performance in saturated layered ground considering mixed convection: A numerical modeling and machine learning approach",
-      "body": "Research signal connected to Sharif University of Technology, University of Louisville, University of Louisville Hospital.",
-      "source": "Renewable Energy",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.renene.2026.126325",
-      "publishedAt": "2026-08-17T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "people": [
-        "Omid Ghasemi‐Fare"
-      ],
-      "institutions": [
-        "Sharif University of Technology",
-        "University of Louisville",
-        "University of Louisville Hospital"
-      ]
-    },
-    {
       "id": "kyai-w3u2wk",
       "category": "research",
       "region": "Lexington",
@@ -303,28 +282,6 @@
       "publishedAt": "2026-08-11T12:00:00.000Z",
       "kind": "curated",
       "lane": "Education and workforce"
-    },
-    {
-      "id": "kyai-yk1zp2",
-      "category": "research",
-      "region": "Louisville",
-      "title": "Can an experienced qualitative researcher distinguish AI from human qualitative content analysis?",
-      "body": "Research signal connected to Massachusetts General Hospital, MGH Institute of Health Professions, University of Louisville, Old Dominion University.",
-      "source": "Journal of Healthcare Simulation",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.54531/fcqk4553",
-      "publishedAt": "2026-08-10T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "people": [
-        "Aaron Calhoun"
-      ],
-      "institutions": [
-        "Massachusetts General Hospital",
-        "MGH Institute of Health Professions",
-        "University of Louisville",
-        "Old Dominion University"
-      ]
     },
     {
       "id": "kyai-5z2qym",
