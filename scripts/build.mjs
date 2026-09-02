@@ -58,13 +58,13 @@ function signalPage(item) {
     <meta property="og:url" content="${escapeHtml(url)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>${escapeHtml(title)}</title>
-    <link rel="icon" href="/assets/kyai-mark.svg" />
+    <link rel="icon" href="/assets/kyai-mark.svg?v=kentucky-20260902" />
     <link rel="stylesheet" href="/styles.css?v=network-20260902" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="/#top" aria-label="KYAI home">
-        <img src="/assets/kyai-mark.svg" alt="" />
+        <img src="/assets/kyai-mark.svg?v=kentucky-20260902" alt="" />
         <span>
           KYAI
           <small>AI for Kentucky</small>
