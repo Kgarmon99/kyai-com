@@ -12,6 +12,7 @@ const requiredFiles = [
   "dist/client/styles.css",
   "dist/client/app.js",
   "dist/client/data/intelligence-feed.json",
+  "dist/client/signals/kyai-urv8ur/index.html",
 ];
 
 for (const file of requiredFiles) {
@@ -26,10 +27,15 @@ const vercel = JSON.parse(readFileSync("vercel.json", "utf8"));
 
 for (const phrase of [
   "KYAI | Kentucky AI Pulse",
+  "AI near me",
   "Kentucky AI Tracker",
+  "Regional momentum",
   "Community board",
   "Latest Kentucky AI intelligence",
+  "Turn the pulse into posts people can pass around",
   "Get the Kentucky AI pulse in your inbox",
+  "People, places, and claimed listings",
+  "Resources people can use immediately",
   "A public commons for Kentucky AI knowledge",
 ]) {
   if (!html.includes(phrase)) {
@@ -37,9 +43,29 @@ for (const phrase of [
   }
 }
 
-for (const phrase of ["loadIntelligence", "research", "events", "seedThreads", "kyai-threads", "kyai-newsletter-subscribers"]) {
+for (const phrase of [
+  "loadIntelligence",
+  "rolePlaybooks",
+  "renderNearMe",
+  "renderShareKit",
+  "renderLeaderboard",
+  "renderToolkits",
+  "getSignalUrl",
+  "research",
+  "events",
+  "seedThreads",
+  "kyai-threads",
+  "kyai-newsletter-subscribers",
+]) {
   if (!js.includes(phrase)) {
     throw new Error(`Missing app capability: ${phrase}`);
+  }
+}
+
+const signalPage = readFileSync("dist/client/signals/kyai-urv8ur/index.html", "utf8");
+for (const phrase of ["KYAI Signal", "Share this signal", "Why it matters"]) {
+  if (!signalPage.includes(phrase)) {
+    throw new Error(`Missing signal page phrase: ${phrase}`);
   }
 }
 

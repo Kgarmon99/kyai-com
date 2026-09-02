@@ -1563,6 +1563,366 @@ fieldset input {
   color: rgba(255, 253, 247, 0.66);
 }
 
+.near-me-section {
+  background:
+    radial-gradient(circle at 76% 12%, rgba(105, 231, 189, 0.16), transparent 22rem),
+    linear-gradient(180deg, rgba(255, 253, 247, 0.9), rgba(232, 242, 245, 0.92)),
+    var(--paper);
+}
+
+.near-me-command,
+.share-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.62fr) minmax(360px, 1fr);
+  gap: 18px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.near-me-command {
+  grid-template-columns: minmax(280px, 0.56fr) minmax(320px, 0.74fr) minmax(340px, 1fr);
+}
+
+.near-me-controls,
+.near-me-panel,
+.near-me-card,
+.leaderboard-card,
+.share-card,
+.mini-share-card,
+.toolkit-card,
+.signal-detail-card {
+  border: 1px solid rgba(40, 90, 132, 0.13);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.98), rgba(232, 242, 245, 0.22)),
+    var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.near-me-controls,
+.near-me-panel {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding: 24px;
+}
+
+.near-me-panel {
+  position: relative;
+  overflow: hidden;
+  color: var(--paper);
+  background:
+    linear-gradient(135deg, rgba(18, 61, 104, 0.96), rgba(9, 19, 27, 0.92)),
+    var(--deep-blue);
+}
+
+.near-me-panel h3 {
+  color: var(--paper);
+  font-size: 1.85rem;
+}
+
+.near-me-panel p,
+.near-me-panel li {
+  color: rgba(255, 253, 247, 0.78);
+}
+
+.near-me-panel ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.near-me-cards,
+.mini-share-grid,
+.toolkit-grid,
+.leaderboard-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.near-me-card,
+.mini-share-card {
+  padding: 20px;
+}
+
+.near-me-card span,
+.mini-share-card span,
+.toolkit-card p {
+  color: var(--cardinal);
+  font-size: 0.74rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.near-me-card p,
+.mini-share-card p,
+.toolkit-card strong {
+  color: var(--muted);
+}
+
+.near-me-card a {
+  color: var(--deep-blue);
+  font-weight: 900;
+  text-underline-offset: 4px;
+}
+
+.leaderboard-section {
+  background:
+    linear-gradient(135deg, rgba(232, 242, 245, 0.96), rgba(255, 253, 247, 0.98)),
+    repeating-linear-gradient(90deg, rgba(40, 90, 132, 0.05) 0 1px, transparent 1px 86px);
+}
+
+.leaderboard-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.leaderboard-card {
+  display: grid;
+  gap: 12px;
+  min-height: 230px;
+  padding: 20px;
+}
+
+.leaderboard-card > span {
+  color: var(--goldenrod);
+  font-size: 0.76rem;
+  font-weight: 950;
+}
+
+.leaderboard-card strong {
+  color: var(--deep-blue);
+}
+
+.leaderboard-card dl,
+.signal-facts {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.leaderboard-card dl div,
+.signal-facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(40, 90, 132, 0.12);
+}
+
+.leaderboard-card dt,
+.signal-facts dt {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.leaderboard-card dd,
+.signal-facts dd {
+  margin: 0;
+  color: var(--coal);
+  font-weight: 900;
+}
+
+.share-section {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(70, 216, 255, 0.14), transparent 24rem),
+    linear-gradient(180deg, #f8fbf9, var(--limestone));
+}
+
+.share-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 430px;
+  padding: 28px;
+}
+
+.primary-share-card {
+  color: var(--paper);
+  background:
+    linear-gradient(135deg, rgba(5, 16, 30, 0.96), rgba(18, 61, 104, 0.94) 54%, rgba(45, 107, 79, 0.86)),
+    var(--deep-blue);
+}
+
+.share-card h3,
+.signal-share-card h2 {
+  color: var(--paper);
+  font-size: 2.45rem;
+}
+
+.share-card p {
+  color: rgba(255, 253, 247, 0.8);
+}
+
+#weeklyShareBullets {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+#weeklyShareBullets p {
+  margin: 0;
+  padding: 12px 0;
+  border-top: 1px solid rgba(255, 253, 247, 0.14);
+}
+
+.mini-share-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.mini-share-card {
+  min-height: 206px;
+}
+
+.share-actions,
+.card-actions,
+.thread-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.small-button {
+  min-height: 36px;
+  padding: 0 11px;
+  font-size: 0.8rem;
+}
+
+.card-actions .button {
+  width: auto;
+}
+
+.profile-status {
+  display: grid;
+  gap: 8px;
+  align-self: end;
+  padding-top: 14px;
+  border-top: 1px solid rgba(40, 90, 132, 0.12);
+}
+
+.profile-status strong {
+  color: var(--deep-blue);
+}
+
+.profile-status a {
+  color: var(--cardinal);
+  font-weight: 900;
+  text-underline-offset: 4px;
+}
+
+.toolkits-section {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(211, 156, 45, 0.14), transparent 22rem),
+    linear-gradient(180deg, #f8f0df, var(--paper));
+}
+
+.toolkit-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.toolkit-card {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  min-height: 292px;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.toolkit-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--signal), var(--goldenrod));
+  content: "";
+}
+
+.toolkit-card svg {
+  width: 30px;
+  height: 30px;
+  color: var(--river);
+}
+
+.thread-actions {
+  margin-top: 14px;
+}
+
+.signal-detail-section {
+  min-height: calc(100vh - 128px);
+  padding: 86px 72px;
+  background:
+    radial-gradient(circle at 72% 10%, rgba(70, 216, 255, 0.16), transparent 24rem),
+    linear-gradient(180deg, var(--paper), var(--limestone));
+}
+
+.signal-detail-card {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 34px;
+}
+
+.signal-detail-card h1 {
+  max-width: 880px;
+  font-size: 3.25rem;
+}
+
+.signal-lede {
+  max-width: 780px;
+  color: var(--muted);
+  font-size: 1.18rem;
+  font-weight: 720;
+}
+
+.back-link {
+  display: inline-flex;
+  margin-bottom: 24px;
+  color: var(--deep-blue);
+  font-weight: 900;
+  text-underline-offset: 4px;
+}
+
+.signal-facts {
+  margin: 26px 0;
+}
+
+.signal-facts div {
+  align-items: start;
+}
+
+.signal-facts dd {
+  max-width: 640px;
+  color: var(--muted);
+}
+
+.signal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.signal-tags span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(40, 90, 132, 0.08);
+  color: var(--deep-blue);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.signal-share-card {
+  margin-top: 30px;
+  color: var(--paper);
+  background:
+    linear-gradient(135deg, rgba(18, 61, 104, 0.96), rgba(5, 16, 30, 0.9)),
+    var(--deep-blue);
+}
+
 @media (max-width: 1040px) {
   .site-header,
   .pulse-hero,
@@ -1584,7 +1944,9 @@ fieldset input {
   .map-command,
   .lane-layout,
   .newsletter-layout,
-  .contribute-section {
+  .contribute-section,
+  .near-me-command,
+  .share-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1592,7 +1954,9 @@ fieldset input {
   .action-rail,
   .directory-grid,
   .workshop-grid,
-  .newsletter-preview {
+  .newsletter-preview,
+  .leaderboard-grid,
+  .toolkit-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1613,7 +1977,20 @@ fieldset input {
   }
 
   .nav-links {
+    flex-wrap: nowrap;
     justify-content: flex-start;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .nav-links a {
+    flex: 0 0 auto;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
   }
 
   .pulse-hero {
@@ -1646,6 +2023,9 @@ fieldset input {
   .workshop-grid,
   .newsletter-preview,
   .source-steps,
+  .leaderboard-grid,
+  .toolkit-grid,
+  .mini-share-grid,
   fieldset {
     grid-template-columns: 1fr;
   }
@@ -1725,9 +2105,28 @@ fieldset input {
   .directory-card,
   .workshop-card,
   .thread-card,
+  .near-me-controls,
+  .near-me-panel,
+  .near-me-card,
+  .leaderboard-card,
+  .share-card,
+  .mini-share-card,
+  .toolkit-card,
+  .signal-detail-card,
   .lead-form,
   .newsletter-form,
   .join-form {
     padding: 20px;
+  }
+
+  .signal-detail-section {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .signal-detail-card h1,
+  .share-card h3,
+  .signal-share-card h2 {
+    font-size: 2.1rem;
   }
 }

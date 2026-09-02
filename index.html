@@ -16,7 +16,7 @@
     <meta property="og:image" content="./assets/kyai-hero.png" />
     <title>KYAI | Kentucky AI Pulse</title>
     <link rel="icon" href="./assets/kyai-mark.svg" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=network-20260902" />
   </head>
   <body>
     <header class="site-header">
@@ -29,11 +29,13 @@
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#pulse">Pulse</a>
+        <a href="#near-me">AI near me</a>
         <a href="#tracker">Map</a>
         <a href="#intelligence">Intelligence</a>
+        <a href="#share">Share</a>
         <a href="#newsletter">Updates</a>
-        <a href="#directory">Directory</a>
-        <a href="#workshops">Workshops</a>
+        <a href="#network">Network</a>
+        <a href="#toolkits">Toolkits</a>
         <a href="#contribute">Contribute</a>
       </nav>
     </header>
@@ -140,6 +142,52 @@
         </a>
       </section>
 
+      <section class="section near-me-section" id="near-me" aria-labelledby="near-me-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">AI near me</p>
+            <h2 id="near-me-title">Make the pulse personal.</h2>
+          </div>
+          <a class="button neutral" href="#newsletter">
+            <span data-lucide="bell-plus" aria-hidden="true"></span>
+            Follow my region
+          </a>
+        </div>
+        <div class="near-me-command">
+          <form class="near-me-controls" id="nearMeForm">
+            <label>
+              I am a
+              <select id="roleSelect" name="role">
+                <option value="business">Business owner</option>
+                <option value="teacher">Teacher or school leader</option>
+                <option value="student">Student</option>
+                <option value="founder">Founder or builder</option>
+                <option value="civic">Public leader</option>
+                <option value="journalist">Journalist or researcher</option>
+              </select>
+            </label>
+            <label>
+              Watching
+              <select id="nearRegionSelect" name="region">
+                <option value="statewide">Statewide</option>
+                <option value="louisville">Louisville</option>
+                <option value="bluegrass">Lexington / Bluegrass</option>
+                <option value="western">Western Kentucky</option>
+                <option value="appalachia">Eastern Kentucky / Appalachia</option>
+                <option value="northern">Northern Kentucky</option>
+                <option value="southcentral">South Central Kentucky</option>
+              </select>
+            </label>
+            <label>
+              County or city
+              <input id="placeInput" name="place" placeholder="Louisville, Pikeville, Paducah..." />
+            </label>
+          </form>
+          <div class="near-me-panel" id="nearMePanel" aria-live="polite"></div>
+          <div class="near-me-cards" id="nearMeCards" aria-label="Personalized Kentucky AI recommendations"></div>
+        </div>
+      </section>
+
       <section class="section tracker-section" id="tracker" aria-labelledby="tracker-title">
         <div class="section-heading">
           <div>
@@ -199,6 +247,20 @@
         </div>
       </section>
 
+      <section class="section leaderboard-section" id="leaderboard" aria-labelledby="leaderboard-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Regional momentum</p>
+            <h2 id="leaderboard-title">Who is adding the most Kentucky AI signal?</h2>
+          </div>
+          <a class="button neutral" href="#lead-form">
+            <span data-lucide="badge-plus" aria-hidden="true"></span>
+            Add your city
+          </a>
+        </div>
+        <div class="leaderboard-grid" id="leaderboardGrid"></div>
+      </section>
+
       <section class="section intelligence-section" id="intelligence" aria-labelledby="intelligence-title">
         <div class="section-heading">
           <div>
@@ -227,6 +289,35 @@
               Show more updates
             </button>
           </aside>
+        </div>
+      </section>
+
+      <section class="section share-section" id="share" aria-labelledby="share-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Weekly share kit</p>
+            <h2 id="share-title">Turn the pulse into posts people can pass around.</h2>
+          </div>
+          <button class="button neutral" id="copyDigestButton" type="button">
+            <span data-lucide="copy" aria-hidden="true"></span>
+            Copy weekly post
+          </button>
+        </div>
+        <div class="share-layout">
+          <article class="share-card primary-share-card" id="weeklyShareCard">
+            <p class="kicker">Kentucky AI week</p>
+            <h3 id="weeklyShareTitle">Kentucky AI week in 5 signals</h3>
+            <div id="weeklyShareBullets"></div>
+            <div class="share-actions">
+              <button class="button primary" data-share="weekly" type="button">
+                <span data-lucide="share-2" aria-hidden="true"></span>
+                Share
+              </button>
+              <a class="button secondary" id="weeklyLinkedIn" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="button secondary" id="weeklyText" href="#">Text</a>
+            </div>
+          </article>
+          <div class="mini-share-grid" id="miniShareGrid" aria-label="Regional share cards"></div>
         </div>
       </section>
 
@@ -300,11 +391,11 @@
         </div>
       </section>
 
-      <section class="section directory-section" id="directory" aria-labelledby="directory-title">
+      <section class="section directory-section" id="network" aria-labelledby="directory-title">
         <div class="section-heading">
           <div>
-            <p class="kicker">People and places</p>
-            <h2 id="directory-title">Who is moving AI in Kentucky?</h2>
+            <p class="kicker">Kentucky AI network</p>
+            <h2 id="directory-title">People, places, and claimed listings.</h2>
           </div>
           <a class="button neutral" href="#lead-form">
             <span data-lucide="user-round-plus" aria-hidden="true"></span>
@@ -326,6 +417,20 @@
           </a>
         </div>
         <div class="workshop-grid" id="workshopGrid"></div>
+      </section>
+
+      <section class="section toolkits-section" id="toolkits" aria-labelledby="toolkits-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Practical toolkits</p>
+            <h2 id="toolkits-title">Resources people can use immediately.</h2>
+          </div>
+          <a class="button neutral" href="#lead-form">
+            <span data-lucide="file-plus-2" aria-hidden="true"></span>
+            Request a toolkit
+          </a>
+        </div>
+        <div class="toolkit-grid" id="toolkitGrid"></div>
       </section>
 
       <section class="section commons-section" id="open-source" aria-labelledby="open-source-title">
@@ -451,6 +556,6 @@
     </footer>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script src="./app.js"></script>
+    <script src="./app.js?v=network-20260902"></script>
   </body>
 </html>
