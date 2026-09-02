@@ -1,0 +1,56 @@
+name: Submit a Kentucky AI signal
+description: Share news, policy, research, grants, infrastructure, or local AI movement.
+title: "[Signal]: "
+labels: ["signal", "needs review"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Signal title
+      placeholder: UK and Murray State launch AI degrees
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source URL
+      placeholder: https://...
+    validations:
+      required: true
+  - type: dropdown
+    id: region
+    attributes:
+      label: Kentucky region
+      options:
+        - Statewide
+        - Louisville / North Central
+        - Lexington / Bluegrass
+        - Western Kentucky
+        - Eastern Kentucky / Appalachia
+        - Northern Kentucky
+        - South Central Kentucky
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Education
+        - Workforce
+        - Research
+        - Policy
+        - Infrastructure
+        - Event
+        - Startup / industry
+        - Civic / nonprofit
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters
+      description: One or two specific sentences.
+    validations:
+      required: true
+

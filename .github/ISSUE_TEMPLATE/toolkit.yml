@@ -1,0 +1,30 @@
+name: Improve or request a toolkit
+description: Propose practical guides, decks, checklists, or templates.
+title: "[Toolkit]: "
+labels: ["toolkit", "needs review"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Toolkit title
+    validations:
+      required: true
+  - type: input
+    id: audience
+    attributes:
+      label: Audience
+      placeholder: K-12 leaders, libraries, small businesses, civic groups
+    validations:
+      required: true
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Use case
+    validations:
+      required: true
+  - type: textarea
+    id: review
+    attributes:
+      label: Review needed
+      placeholder: Educator, lawyer, local business owner, accessibility reviewer, etc.
+

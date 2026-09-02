@@ -7,11 +7,18 @@ const requiredFiles = [
   "app.js",
   "assets/kyai-hero.png",
   "assets/kyai-mark.svg",
+  "data/contributor-os.json",
+  "CONTRIBUTING.md",
+  "EDITORIAL_POLICY.md",
+  "ROADMAP.md",
+  ".github/ISSUE_TEMPLATE/signal.yml",
+  ".github/PULL_REQUEST_TEMPLATE.md",
   "vercel.json",
   "dist/client/index.html",
   "dist/client/styles.css",
   "dist/client/app.js",
   "dist/client/data/intelligence-feed.json",
+  "dist/client/data/contributor-os.json",
   "dist/client/signals/kyai-urv8ur/index.html",
 ];
 
@@ -37,6 +44,9 @@ for (const phrase of [
   "People, places, and claimed listings",
   "Resources people can use immediately",
   "A public commons for Kentucky AI knowledge",
+  "Build with KYAI",
+  "Claim a real lane in Kentucky AI",
+  "Weekly missions people can claim",
 ]) {
   if (!html.includes(phrase)) {
     throw new Error(`Missing page phrase: ${phrase}`);
@@ -56,6 +66,9 @@ for (const phrase of [
   "seedThreads",
   "kyai-threads",
   "kyai-newsletter-subscribers",
+  "loadContributorOs",
+  "renderContributorOs",
+  "buildIssueUrl",
 ]) {
   if (!js.includes(phrase)) {
     throw new Error(`Missing app capability: ${phrase}`);

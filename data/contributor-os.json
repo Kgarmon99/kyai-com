@@ -1,0 +1,218 @@
+{
+  "version": "2026-09-02",
+  "github": {
+    "repo": "https://github.com/Kgarmon99/kyai-com",
+    "issues": "https://github.com/Kgarmon99/kyai-com/issues",
+    "newIssue": "https://github.com/Kgarmon99/kyai-com/issues/new/choose"
+  },
+  "roles": [
+    {
+      "id": "signal-scout",
+      "title": "Signal scout",
+      "focus": "News, grants, policy, research, events",
+      "impact": "Find local AI movement before it disappears into disconnected feeds.",
+      "firstAction": "Submit one sourced Kentucky AI signal with region, date, and why it matters.",
+      "template": "signal.yml",
+      "icon": "radar"
+    },
+    {
+      "id": "source-reviewer",
+      "title": "Source reviewer",
+      "focus": "Verification and corrections",
+      "impact": "Keep KYAI trusted enough for schools, cities, chambers, and journalists.",
+      "firstAction": "Verify five links for date, region, people, institution, and status.",
+      "template": "mission.yml",
+      "icon": "badge-check"
+    },
+    {
+      "id": "toolkit-builder",
+      "title": "Toolkit builder",
+      "focus": "Guides, checklists, decks, templates",
+      "impact": "Turn the pulse into useful artifacts people can apply the same day.",
+      "firstAction": "Improve one checklist for a school, library, small business, or civic group.",
+      "template": "toolkit.yml",
+      "icon": "file-pen-line"
+    },
+    {
+      "id": "workshop-host",
+      "title": "Workshop host",
+      "focus": "Libraries, chambers, schools, nonprofits, churches",
+      "impact": "Bring AI literacy into real rooms across Kentucky.",
+      "firstAction": "Offer a location, audience, and preferred month for a practical AI session.",
+      "template": "event.yml",
+      "icon": "presentation"
+    },
+    {
+      "id": "profile-maintainer",
+      "title": "Profile maintainer",
+      "focus": "People, programs, companies, meetups, labs",
+      "impact": "Make Kentucky's AI network discoverable instead of invisible.",
+      "firstAction": "Add or correct one person, organization, program, or local host profile.",
+      "template": "profile.yml",
+      "icon": "users-round"
+    },
+    {
+      "id": "developer",
+      "title": "Developer",
+      "focus": "Site, automation, data validation, search, APIs",
+      "impact": "Make contribution intake, review, publishing, and sharing easier every week.",
+      "firstAction": "Claim a scoped issue and keep the pull request small enough to review.",
+      "template": "mission.yml",
+      "icon": "code-2"
+    },
+    {
+      "id": "designer",
+      "title": "Designer",
+      "focus": "Share cards, maps, decks, accessibility, visual polish",
+      "impact": "Make Kentucky AI work feel credible, modern, and worth passing around.",
+      "firstAction": "Improve one share asset, regional card, toolkit layout, or mobile interaction.",
+      "template": "mission.yml",
+      "icon": "pen-tool"
+    },
+    {
+      "id": "editor",
+      "title": "Editor",
+      "focus": "Review queue, publishing standards, corrections",
+      "impact": "Protect trust while letting the community submit widely.",
+      "firstAction": "Review three submitted signals against the editorial checklist.",
+      "template": "mission.yml",
+      "icon": "clipboard-check"
+    }
+  ],
+  "missions": [
+    {
+      "id": "map-ai-degrees",
+      "title": "Map every Kentucky AI degree, certificate, and course cluster",
+      "region": "Statewide",
+      "difficulty": "Starter",
+      "status": "Open",
+      "needed": "Education signal scouts and source reviewers",
+      "outcome": "A verified education pipeline page KYAI can update each semester.",
+      "template": "mission.yml"
+    },
+    {
+      "id": "events-30-days",
+      "title": "Find the next 30 days of Kentucky AI events",
+      "region": "Statewide",
+      "difficulty": "Starter",
+      "status": "Open",
+      "needed": "Signal scouts in every region",
+      "outcome": "A living event rail people can actually plan around.",
+      "template": "event.yml"
+    },
+    {
+      "id": "data-center-policy",
+      "title": "Verify the data-center policy and infrastructure watchlist",
+      "region": "Statewide",
+      "difficulty": "Focused",
+      "status": "Needs reviewer",
+      "needed": "Policy readers, local government watchers, source reviewers",
+      "outcome": "Clear source-backed explainers on energy, taxes, jobs, and local impact.",
+      "template": "signal.yml"
+    },
+    {
+      "id": "library-ai-deck",
+      "title": "Build the public library AI basics deck",
+      "region": "Open host needed",
+      "difficulty": "Builder",
+      "status": "Open",
+      "needed": "Toolkit builders, librarians, workshop hosts",
+      "outcome": "A 45-minute deck any Kentucky library can run.",
+      "template": "toolkit.yml"
+    },
+    {
+      "id": "who-builds-ai",
+      "title": "Add 25 Kentucky people and organizations building with AI",
+      "region": "Statewide",
+      "difficulty": "Starter",
+      "status": "Open",
+      "needed": "Profile maintainers and local connectors",
+      "outcome": "A network directory people can claim, correct, and share.",
+      "template": "profile.yml"
+    },
+    {
+      "id": "louisville-ecosystem",
+      "title": "Draft the Louisville AI ecosystem brief",
+      "region": "Louisville / North Central",
+      "difficulty": "Focused",
+      "status": "Open",
+      "needed": "Regional maintainer, event scout, editor",
+      "outcome": "A shareable city page with signals, events, people, and open asks.",
+      "template": "mission.yml"
+    }
+  ],
+  "regions": [
+    {
+      "id": "louisville",
+      "name": "Louisville / North Central",
+      "openRoles": ["Regional maintainer", "Event scout", "Workshop host"],
+      "nextWin": "Turn TALK AI Day and local government signals into a public city brief."
+    },
+    {
+      "id": "bluegrass",
+      "name": "Lexington / Bluegrass",
+      "openRoles": ["Research scout", "University profile maintainer", "Toolkit reviewer"],
+      "nextWin": "Map university labs, programs, and agricultural AI projects."
+    },
+    {
+      "id": "western",
+      "name": "Western Kentucky",
+      "openRoles": ["Event scout", "Business workshop host", "Source reviewer"],
+      "nextWin": "Find manufacturing, logistics, health, and chamber AI use cases."
+    },
+    {
+      "id": "appalachia",
+      "name": "Eastern Kentucky / Appalachia",
+      "openRoles": ["Workshop host", "Small business toolkit builder", "Regional maintainer"],
+      "nextWin": "Package a practical AI basics session for local business owners."
+    },
+    {
+      "id": "northern",
+      "name": "Northern Kentucky",
+      "openRoles": ["Startup scout", "Event scout", "Profile maintainer"],
+      "nextWin": "Connect Cincinnati-adjacent AI activity back into the Kentucky map."
+    },
+    {
+      "id": "southcentral",
+      "name": "South Central Kentucky",
+      "openRoles": ["Education scout", "Workshop host", "Editor"],
+      "nextWin": "Track applied AI activity around Bowling Green, schools, and workforce."
+    }
+  ],
+  "pipeline": [
+    {
+      "status": "Submitted",
+      "description": "Community idea, lead, profile, or toolkit request arrives through GitHub issue forms."
+    },
+    {
+      "status": "Needs review",
+      "description": "Editors check source URL, date, region, category, people, and relevance."
+    },
+    {
+      "status": "Verified",
+      "description": "Signal has enough source backing to enter the next public build."
+    },
+    {
+      "status": "Published",
+      "description": "Signal, profile, event, toolkit, or mission is live and shareable."
+    }
+  ],
+  "badges": [
+    {
+      "name": "Founding contributor",
+      "description": "Help publish, review, or host one of the first KYAI community contributions."
+    },
+    {
+      "name": "Regional maintainer",
+      "description": "Keep one Kentucky region's signals, events, people, and open asks current."
+    },
+    {
+      "name": "Verified source reviewer",
+      "description": "Review submitted links and corrections against the editorial policy."
+    },
+    {
+      "name": "Workshop host",
+      "description": "Offer a real room, audience, or partner channel for practical AI education."
+    }
+  ]
+}

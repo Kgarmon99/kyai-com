@@ -2296,6 +2296,174 @@ textarea:focus {
   color: var(--river);
 }
 
+.build-section {
+  background:
+    conic-gradient(from 296deg at 18% 38%, transparent 0deg, rgba(69, 220, 255, 0.16) 28deg, transparent 74deg),
+    conic-gradient(from 28deg at 86% 16%, transparent 0deg, rgba(168, 85, 255, 0.2) 30deg, transparent 76deg),
+    linear-gradient(135deg, #02030a 0%, #071027 48%, #090617 100%);
+}
+
+.build-layout,
+.build-subgrid {
+  display: grid;
+  gap: 18px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.build-layout {
+  grid-template-columns: minmax(300px, 0.44fr) minmax(420px, 1fr);
+}
+
+.build-subgrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.contributor-picker,
+.mission-board,
+.role-card,
+.mission-card,
+.region-maintainer-card,
+.pipeline-card,
+.badge-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(107, 142, 255, 0.22);
+  border-radius: 8px;
+  background:
+    linear-gradient(138deg, rgba(69, 220, 255, 0.1), rgba(168, 85, 255, 0.06) 48%, rgba(255, 255, 255, 0.035)),
+    rgba(11, 16, 32, 0.78);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.contributor-picker,
+.mission-board {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  padding: 24px;
+}
+
+.contributor-picker h3 {
+  max-width: 460px;
+  color: var(--coal);
+  font-size: 1.65rem;
+}
+
+.contributor-match-panel {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid rgba(69, 220, 255, 0.2);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(69, 220, 255, 0.12), rgba(168, 85, 255, 0.1));
+}
+
+.contributor-match-panel > span,
+.role-card > span,
+.badge-card > span {
+  color: var(--signal);
+}
+
+.contributor-match-panel h4,
+.mission-card h3,
+.role-card h3,
+.region-maintainer-card h3,
+.pipeline-card h3,
+.badge-card h3 {
+  margin: 0;
+  color: var(--coal);
+}
+
+.contributor-match-panel p,
+.mission-card p,
+.region-maintainer-card p,
+.pipeline-card p,
+.badge-card p,
+.role-card strong {
+  color: var(--muted);
+}
+
+.contributor-match-panel strong,
+.mission-card strong,
+.region-maintainer-card strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--mint);
+}
+
+.board-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.board-heading a {
+  color: var(--signal);
+  font-size: 0.86rem;
+  font-weight: 900;
+  text-underline-offset: 4px;
+}
+
+.mission-grid,
+.role-grid,
+.region-maintainer-grid,
+.pipeline-grid,
+.badge-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.mission-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.role-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 1320px;
+  margin: 18px auto 0;
+}
+
+.mission-card,
+.role-card,
+.region-maintainer-card,
+.pipeline-card,
+.badge-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 20px;
+}
+
+.mission-card::before,
+.role-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--signal), var(--plasma));
+  content: "";
+}
+
+.mission-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mission-meta span,
+.pipeline-card > span {
+  padding: 5px 8px;
+  border: 1px solid rgba(69, 220, 255, 0.18);
+  border-radius: 999px;
+  color: var(--signal);
+  font-size: 0.72rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
 .thread-actions {
   margin-top: 14px;
 }
@@ -2382,6 +2550,7 @@ textarea:focus {
 .leaderboard-section,
 .share-section,
 .toolkits-section,
+.build-section,
 .signal-detail-section {
   background:
     linear-gradient(135deg, rgba(69, 220, 255, 0.08), transparent 28%, rgba(168, 85, 255, 0.09) 72%, transparent),
@@ -2405,6 +2574,13 @@ textarea:focus {
 .share-card,
 .mini-share-card,
 .toolkit-card,
+.contributor-picker,
+.mission-board,
+.role-card,
+.mission-card,
+.region-maintainer-card,
+.pipeline-card,
+.badge-card,
 .signal-detail-card,
 .update-card,
 .brief-panel,
@@ -2443,6 +2619,12 @@ textarea:focus {
 .leaderboard-card h3,
 .mini-share-card h3,
 .toolkit-card h3,
+.contributor-picker h3,
+.mission-card h3,
+.role-card h3,
+.region-maintainer-card h3,
+.pipeline-card h3,
+.badge-card h3,
 .lead-form h3,
 .join-form h3,
 .signal-detail-card h1 {
@@ -2455,6 +2637,12 @@ textarea:focus {
 .near-me-card p,
 .mini-share-card p,
 .toolkit-card strong,
+.contributor-match-panel p,
+.mission-card p,
+.region-maintainer-card p,
+.pipeline-card p,
+.badge-card p,
+.role-card strong,
 .section-intro p,
 .join-copy p,
 .thread-card p,
@@ -2489,7 +2677,9 @@ textarea:focus {
   .newsletter-layout,
   .contribute-section,
   .near-me-command,
-  .share-layout {
+  .share-layout,
+  .build-layout,
+  .build-subgrid {
     grid-template-columns: 1fr;
   }
 
@@ -2499,7 +2689,9 @@ textarea:focus {
   .workshop-grid,
   .newsletter-preview,
   .leaderboard-grid,
-  .toolkit-grid {
+  .toolkit-grid,
+  .role-grid,
+  .mission-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2569,6 +2761,9 @@ textarea:focus {
   .leaderboard-grid,
   .toolkit-grid,
   .mini-share-grid,
+  .role-grid,
+  .mission-grid,
+  .build-subgrid,
   fieldset {
     grid-template-columns: 1fr;
   }
@@ -2655,6 +2850,13 @@ textarea:focus {
   .share-card,
   .mini-share-card,
   .toolkit-card,
+  .contributor-picker,
+  .mission-board,
+  .role-card,
+  .mission-card,
+  .region-maintainer-card,
+  .pipeline-card,
+  .badge-card,
   .signal-detail-card,
   .lead-form,
   .newsletter-form,

@@ -2,11 +2,14 @@
 
 Open-source website for KYAI, a Kentucky nonprofit initiative for free AI workshops, local AI news tracking, research updates, events, and public discussion.
 
+KYAI is also a contributor-driven civic intelligence project. Start with [CONTRIBUTING.md](CONTRIBUTING.md), the GitHub issue forms, and the public `Build with KYAI` section on the site.
+
 ## Local Development
 
 ```bash
 npm install
 npm run build
+npm run validate:collab
 npm test
 ```
 
@@ -28,3 +31,13 @@ KYAI deploys on Vercel.
 - Local AI tracker with filters for education, workforce, research, events, and policy
 - Community board starter
 - Join-interest form
+- Build with KYAI contributor operating system
+- Claimable missions, regional maintainer cards, contributor roles, badges, and editorial pipeline
+- GitHub issue forms for signals, events, profiles, missions, toolkits, and bugs
+
+## Contributor Rails
+
+- `data/contributor-os.json` powers the public contributor roles, missions, pipeline, regional ownership cards, and badges.
+- `.github/ISSUE_TEMPLATE/` contains structured intake forms.
+- `EDITORIAL_POLICY.md` defines what can be published.
+- `docs/DATA_CONTRACTS.md` defines the fields contributors should provide.

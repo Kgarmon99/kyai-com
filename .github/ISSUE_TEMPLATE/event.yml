@@ -1,0 +1,38 @@
+name: Add an AI event or workshop
+description: Add a Kentucky AI event, public meeting, meetup, class, or workshop request.
+title: "[Event]: "
+labels: ["event", "needs review"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Event title
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Date or time window
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      placeholder: Louisville, KY or Online
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Source or registration URL
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Kentucky relevance
+    validations:
+      required: true
+

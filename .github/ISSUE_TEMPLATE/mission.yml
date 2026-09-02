@@ -1,0 +1,34 @@
+name: Claim or propose a mission
+description: Claim a scoped contributor mission or propose a new one.
+title: "[Mission]: "
+labels: ["mission", "needs review"]
+body:
+  - type: input
+    id: mission
+    attributes:
+      label: Mission
+    validations:
+      required: true
+  - type: dropdown
+    id: lane
+    attributes:
+      label: Contributor lane
+      options:
+        - Signal scout
+        - Source reviewer
+        - Toolkit builder
+        - Workshop host
+        - Profile maintainer
+        - Developer
+        - Designer
+        - Editor
+    validations:
+      required: true
+  - type: textarea
+    id: plan
+    attributes:
+      label: What you can contribute
+      placeholder: Links, review time, design help, code, venue, local knowledge, etc.
+    validations:
+      required: true
+

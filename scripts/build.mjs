@@ -59,7 +59,7 @@ function signalPage(item) {
     <meta name="twitter:card" content="summary_large_image" />
     <title>${escapeHtml(title)}</title>
     <link rel="icon" href="/assets/kyai-mark.svg?v=kentucky-20260902" />
-    <link rel="stylesheet" href="/styles.css?v=hadid-dark-20260902" />
+    <link rel="stylesheet" href="/styles.css?v=contributor-os-20260902" />
   </head>
   <body>
     <header class="site-header">
@@ -75,6 +75,7 @@ function signalPage(item) {
         <a href="/#intelligence">Intelligence</a>
         <a href="/#share">Share</a>
         <a href="/#network">Network</a>
+        <a href="/#build-with-kyai">Build</a>
         <a href="/#toolkits">Toolkits</a>
         <a href="/#contribute">Contribute</a>
       </nav>

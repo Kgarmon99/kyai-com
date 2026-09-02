@@ -1,0 +1,19 @@
+name: Report a site issue
+description: Report a bug, broken link, content problem, or accessibility issue.
+title: "[Bug]: "
+labels: ["bug", "needs review"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page or URL
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen instead?

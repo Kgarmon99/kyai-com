@@ -9,8 +9,9 @@
     "digest:intel": "node scripts/format-digest.mjs",
     "newsletter:send": "node scripts/send-weekly-newsletter.mjs",
     "refresh:intel": "node scripts/refresh-intelligence.mjs",
+    "validate:collab": "node scripts/validate-collaboration.mjs",
     "vercel-build": "node scripts/build.mjs",
-    "test": "node scripts/smoke-test.mjs"
+    "test": "node scripts/validate-collaboration.mjs && node scripts/smoke-test.mjs"
   },
   "dependencies": {},
   "devDependencies": {}

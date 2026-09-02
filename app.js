@@ -272,7 +272,65 @@ const seedThreads = [
   },
 ];
 
+const fallbackContributorOs = {
+  roles: [
+    {
+      id: "signal-scout",
+      title: "Signal scout",
+      focus: "News, grants, policy, research, events",
+      impact: "Find local AI movement before it disappears into disconnected feeds.",
+      firstAction: "Submit one sourced Kentucky AI signal with region, date, and why it matters.",
+      template: "signal.yml",
+      icon: "radar",
+    },
+    {
+      id: "toolkit-builder",
+      title: "Toolkit builder",
+      focus: "Guides, checklists, decks, templates",
+      impact: "Turn the pulse into useful artifacts people can apply the same day.",
+      firstAction: "Improve one checklist for a school, library, small business, or civic group.",
+      template: "toolkit.yml",
+      icon: "file-pen-line",
+    },
+    {
+      id: "developer",
+      title: "Developer",
+      focus: "Site, automation, data validation, search, APIs",
+      impact: "Make contribution intake, review, publishing, and sharing easier every week.",
+      firstAction: "Claim a scoped issue and keep the pull request small enough to review.",
+      template: "mission.yml",
+      icon: "code-2",
+    },
+  ],
+  missions: [
+    {
+      id: "events-30-days",
+      title: "Find the next 30 days of Kentucky AI events",
+      region: "Statewide",
+      difficulty: "Starter",
+      status: "Open",
+      needed: "Signal scouts in every region",
+      outcome: "A living event rail people can plan around.",
+      template: "event.yml",
+    },
+    {
+      id: "who-builds-ai",
+      title: "Add 25 Kentucky people and organizations building with AI",
+      region: "Statewide",
+      difficulty: "Starter",
+      status: "Open",
+      needed: "Profile maintainers and local connectors",
+      outcome: "A network directory people can claim, correct, and share.",
+      template: "profile.yml",
+    },
+  ],
+  regions: [],
+  pipeline: [],
+  badges: [],
+};
+
 let updates = fallbackUpdates;
+let contributorOs = fallbackContributorOs;
 let activeFilter = "all";
 let activeRegion = "statewide";
 let visibleUpdateCount = 6;
@@ -317,6 +375,13 @@ const weeklyText = document.querySelector("#weeklyText");
 const copyDigestButton = document.querySelector("#copyDigestButton");
 const miniShareGrid = document.querySelector("#miniShareGrid");
 const toolkitGrid = document.querySelector("#toolkitGrid");
+const contributorRoleSelect = document.querySelector("#contributorRoleSelect");
+const contributorMatchPanel = document.querySelector("#contributorMatchPanel");
+const buildRoleGrid = document.querySelector("#buildRoleGrid");
+const missionBoard = document.querySelector("#missionBoard");
+const regionMaintainerGrid = document.querySelector("#regionMaintainerGrid");
+const pipelineGrid = document.querySelector("#pipelineGrid");
+const badgeGrid = document.querySelector("#badgeGrid");
 
 function iconize() {
   if (window.lucide) {
@@ -367,6 +432,14 @@ function getSiteUrl(path = "") {
   return `${origin}${path}`;
 }
 
+function buildIssueUrl(template, title = "", body = "") {
+  const url = new URL("https://github.com/Kgarmon99/kyai-com/issues/new");
+  url.searchParams.set("template", template);
+  if (title) url.searchParams.set("title", title);
+  if (body) url.searchParams.set("body", body);
+  return url.toString();
+}
+
 function getSignalUrl(update) {
   return update.id ? getSiteUrl(`/signals/${encodeURIComponent(update.id)}`) : getSiteUrl("/#intelligence");
 }
@@ -400,6 +473,14 @@ function readLocalJson(key, fallback) {
     localStorage.removeItem(key);
     return fallback;
   }
+}
+
+function restoreHashScroll() {
+  if (!window.location.hash) return;
+  const targetId = decodeURIComponent(window.location.hash.slice(1));
+  const target = document.getElementById(targetId);
+  if (!target) return;
+  requestAnimationFrame(() => target.scrollIntoView({ block: "start" }));
 }
 
 function getBalancedUpdates(items) {
@@ -724,7 +805,13 @@ function renderDirectory() {
           </div>
           <div class="profile-status">
             <strong>${escapeHtml(item.status)}</strong>
-            <a href="#lead-form">${escapeHtml(item.action)}</a>
+            <a href="${escapeHtml(
+              buildIssueUrl(
+                "profile.yml",
+                `[Profile]: ${item.name}`,
+                `Profile: ${item.name}\nType: ${item.type}\nRegion: ${item.region}\nContext: ${item.detail}`,
+              ),
+            )}">${escapeHtml(item.action)}</a>
           </div>
         </article>
       `,
@@ -761,7 +848,13 @@ function renderToolkits() {
               <span data-lucide="copy" aria-hidden="true"></span>
               Copy
             </button>
-            <a class="button neutral small-button" href="#lead-form">
+            <a class="button neutral small-button" href="${escapeHtml(
+              buildIssueUrl(
+                "toolkit.yml",
+                `[Toolkit]: ${toolkit.title}`,
+                `Toolkit: ${toolkit.title}\nAudience: ${toolkit.audience}\nUse case: ${toolkit.detail}`,
+              ),
+            )}">
               <span data-lucide="send" aria-hidden="true"></span>
               Request
             </a>
@@ -770,6 +863,129 @@ function renderToolkits() {
       `,
     )
     .join("");
+}
+
+function renderContributorMatch() {
+  const selectedRole =
+    contributorOs.roles.find((role) => role.id === contributorRoleSelect.value) || contributorOs.roles[0];
+  if (!selectedRole) return;
+
+  contributorMatchPanel.innerHTML = `
+    <span data-lucide="${escapeHtml(selectedRole.icon)}" aria-hidden="true"></span>
+    <div>
+      <h4>${escapeHtml(selectedRole.title)}</h4>
+      <p>${escapeHtml(selectedRole.impact)}</p>
+      <strong>${escapeHtml(selectedRole.firstAction)}</strong>
+      <a class="button primary small-button" href="${escapeHtml(
+        buildIssueUrl(
+          selectedRole.template,
+          `[${selectedRole.title}]: ${selectedRole.firstAction}`,
+          `Contributor lane: ${selectedRole.title}\nFocus: ${selectedRole.focus}\nFirst action: ${selectedRole.firstAction}`,
+        ),
+      )}">
+        <span data-lucide="arrow-up-right" aria-hidden="true"></span>
+        Start this lane
+      </a>
+    </div>
+  `;
+  iconize();
+}
+
+function renderContributorOs() {
+  contributorRoleSelect.innerHTML = contributorOs.roles
+    .map((role) => `<option value="${escapeHtml(role.id)}">${escapeHtml(role.title)}</option>`)
+    .join("");
+
+  buildRoleGrid.innerHTML = contributorOs.roles
+    .map(
+      (role) => `
+        <article class="role-card">
+          <span data-lucide="${escapeHtml(role.icon)}" aria-hidden="true"></span>
+          <p>${escapeHtml(role.focus)}</p>
+          <h3>${escapeHtml(role.title)}</h3>
+          <strong>${escapeHtml(role.impact)}</strong>
+        </article>
+      `,
+    )
+    .join("");
+
+  missionBoard.innerHTML = contributorOs.missions
+    .map(
+      (mission) => `
+        <article class="mission-card">
+          <div class="mission-meta">
+            <span>${escapeHtml(mission.status)}</span>
+            <span>${escapeHtml(mission.difficulty)}</span>
+            <span>${escapeHtml(mission.region)}</span>
+          </div>
+          <h3>${escapeHtml(mission.title)}</h3>
+          <p>${escapeHtml(mission.outcome)}</p>
+          <strong>${escapeHtml(mission.needed)}</strong>
+          <a class="button neutral small-button" href="${escapeHtml(
+            buildIssueUrl(
+              mission.template,
+              `[Mission]: ${mission.title}`,
+              `Mission: ${mission.title}\nRegion: ${mission.region}\nNeeded: ${mission.needed}\nOutcome: ${mission.outcome}`,
+            ),
+          )}">
+            <span data-lucide="target" aria-hidden="true"></span>
+            Claim or help
+          </a>
+        </article>
+      `,
+    )
+    .join("");
+
+  regionMaintainerGrid.innerHTML = contributorOs.regions
+    .map(
+      (region) => `
+        <article class="region-maintainer-card">
+          <h3>${escapeHtml(region.name)}</h3>
+          <p>${escapeHtml(region.nextWin)}</p>
+          <strong>${escapeHtml(region.openRoles.join(" / "))}</strong>
+        </article>
+      `,
+    )
+    .join("");
+
+  pipelineGrid.innerHTML = contributorOs.pipeline
+    .map(
+      (step, index) => `
+        <article class="pipeline-card">
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <h3>${escapeHtml(step.status)}</h3>
+          <p>${escapeHtml(step.description)}</p>
+        </article>
+      `,
+    )
+    .join("");
+
+  badgeGrid.innerHTML = contributorOs.badges
+    .map(
+      (badge) => `
+        <article class="badge-card">
+          <span data-lucide="badge" aria-hidden="true"></span>
+          <h3>${escapeHtml(badge.name)}</h3>
+          <p>${escapeHtml(badge.description)}</p>
+        </article>
+      `,
+    )
+    .join("");
+
+  renderContributorMatch();
+  iconize();
+}
+
+async function loadContributorOs() {
+  try {
+    const response = await fetch("./data/contributor-os.json", { cache: "no-cache" });
+    if (!response.ok) throw new Error("Contributor OS unavailable");
+    contributorOs = await response.json();
+  } catch {
+    contributorOs = fallbackContributorOs;
+  }
+  renderContributorOs();
+  restoreHashScroll();
 }
 
 async function loadIntelligence() {
@@ -800,6 +1016,7 @@ async function loadIntelligence() {
     renderShareKit();
   }
   iconize();
+  restoreHashScroll();
 }
 
 function getThreads() {
@@ -1002,17 +1219,21 @@ copyDigestButton.addEventListener("click", async () => {
 threadForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(threadForm);
+  const topic = String(formData.get("topic") || "").trim();
+  const type = String(formData.get("type") || "").trim();
+  const context = String(formData.get("context") || "").trim();
   const threads = getThreads();
   threads.unshift({
-    type: formData.get("type"),
+    type,
     place: "Community submitted",
     status: "Pending review",
     votes: 1,
-    topic: formData.get("topic"),
-    context: formData.get("context"),
+    topic,
+    context,
   });
   localStorage.setItem("kyai-threads", JSON.stringify(threads));
-  threadStatus.textContent = "Signal saved locally. The next build can back this with accounts and moderation.";
+  const reviewUrl = buildIssueUrl("signal.yml", `[Signal]: ${topic}`, `Type: ${type}\n\nContext:\n${context}`);
+  threadStatus.innerHTML = `Signal saved locally. <a href="${escapeHtml(reviewUrl)}">Open the editor review issue</a>.`;
   threadForm.reset();
   renderThreads();
   renderLeaderboard();
@@ -1071,14 +1292,22 @@ joinForm.addEventListener("submit", (event) => {
       source: "kyai-partner-form",
     });
   }
-  formStatus.textContent = "Interest saved. KYAI can connect this to CRM, email, or GitHub next.";
+  const missionUrl = buildIssueUrl(
+    "mission.yml",
+    `[Mission]: ${entry.region || "Kentucky"} contributor interest`,
+    `Name: ${entry.name}\nRegion: ${entry.region}\nInterests: ${interests.join(", ") || "General KYAI contribution"}`,
+  );
+  formStatus.innerHTML = `Interest saved. <a href="${escapeHtml(missionUrl)}">Open a contributor mission issue</a>.`;
   joinForm.reset();
 });
+
+contributorRoleSelect.addEventListener("change", renderContributorMatch);
 
 renderDirectory();
 renderWorkshops();
 renderToolkits();
 renderThreads();
 renderNewsletterCount();
+loadContributorOs();
 loadIntelligence();
 iconize();
