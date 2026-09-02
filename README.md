@@ -24,6 +24,14 @@ KYAI deploys on Vercel.
 - Production alias: `https://kyai-flax.vercel.app`
 - Custom domains: `kyai.com`, `www.kyai.com`
 
+### Newsletter Signup
+
+The public newsletter form posts to `/api/newsletter-signup`.
+
+- Preferred durable backend: set `KYAI_NEWSLETTER_WEBHOOK_URL` to a private intake webhook.
+- Email backend: set `RESEND_API_KEY`, plus optional `KYAI_NEWSLETTER_NOTIFY_TO` and `KYAI_NEWSLETTER_FROM`.
+- No-secret fallback: the API notifies `kahlil@getmoneybot.com` through FormSubmit.
+
 ## Current Surface
 
 - Kentucky-branded homepage

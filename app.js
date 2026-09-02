@@ -338,7 +338,9 @@ let visibleUpdateCount = 6;
 const UPDATE_BATCH_SIZE = 6;
 const CATEGORY_PRIORITY = ["industry", "research", "education", "policy", "workforce", "events", "news"];
 const NEWSLETTER_STORAGE_KEY = "kyai-newsletter-subscribers";
-const NEWSLETTER_ENDPOINT = window.KYAI_NEWSLETTER_ENDPOINT || "";
+const NEWSLETTER_ENDPOINT =
+  window.KYAI_NEWSLETTER_ENDPOINT ||
+  (window.location.protocol.startsWith("http") ? "/api/newsletter-signup" : "");
 
 const updateList = document.querySelector("#updateList");
 const filterButtons = document.querySelectorAll(".filter-button");
@@ -1078,7 +1080,7 @@ async function postNewsletterSignup(entry) {
     throw new Error("Newsletter endpoint rejected signup");
   }
 
-  return { savedRemotely: true };
+  return response.json().catch(() => ({ savedRemotely: true }));
 }
 
 function saveNewsletterSignup(entry) {
@@ -1258,7 +1260,7 @@ newsletterForm.addEventListener("submit", async (event) => {
   try {
     const result = await postNewsletterSignup(entry);
     saveNewsletterSignup(entry);
-    newsletterStatus.textContent = result.savedRemotely
+    newsletterStatus.textContent = result.savedRemotely || result.ok
       ? "You're on the KYAI update list."
       : "Saved on this device. The email delivery connector is ready to plug in.";
     newsletterForm.reset();
