@@ -59,7 +59,7 @@ function signalPage(item) {
     <meta name="twitter:card" content="summary_large_image" />
     <title>${escapeHtml(title)}</title>
     <link rel="icon" href="/assets/kyai-mark.svg?v=kentucky-20260902" />
-    <link rel="stylesheet" href="/styles.css?v=network-20260902" />
+    <link rel="stylesheet" href="/styles.css?v=hadid-dark-20260902" />
   </head>
   <body>
     <header class="site-header">

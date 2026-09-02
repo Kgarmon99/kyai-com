@@ -1,25 +1,25 @@
 :root {
-  color-scheme: light;
-  --limestone: #f7f4eb;
-  --paper: #fffdf7;
-  --ink: #171717;
-  --coal: #24282a;
-  --kentucky-blue: #183a8d;
-  --deep-blue: #123d68;
-  --muted: #64615a;
-  --line: #d9d1c2;
-  --bluegrass: #2d6b4f;
-  --river: #285a84;
-  --cardinal: #b12c35;
-  --goldenrod: #d39c2d;
-  --tobacco: #7a5134;
-  --porch: #ece3d1;
-  --sky: #e8f2f5;
-  --signal: #46d8ff;
-  --mint: #69e7bd;
-  --plasma: #e8516f;
-  --shadow: 0 20px 46px rgba(25, 31, 37, 0.14);
-  --deep-shadow: 0 26px 80px rgba(5, 16, 30, 0.35);
+  color-scheme: dark;
+  --limestone: #05060d;
+  --paper: #f7fbff;
+  --ink: #f7fbff;
+  --coal: #edf6ff;
+  --kentucky-blue: #1f6dff;
+  --deep-blue: #062a78;
+  --muted: #aeb9d4;
+  --line: rgba(117, 153, 255, 0.2);
+  --bluegrass: #0d56d9;
+  --river: #3fc7ff;
+  --cardinal: #ff4d7d;
+  --goldenrod: #ffd166;
+  --tobacco: #8f5cff;
+  --porch: #0f1424;
+  --sky: #121b36;
+  --signal: #45dcff;
+  --mint: #7dffd8;
+  --plasma: #a855ff;
+  --shadow: 0 22px 60px rgba(0, 0, 0, 0.42);
+  --deep-shadow: 0 34px 100px rgba(0, 0, 0, 0.58);
 }
 
 * {
@@ -37,9 +37,10 @@ section {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 18% 0%, rgba(70, 216, 255, 0.14), transparent 24rem),
-    linear-gradient(180deg, rgba(232, 242, 245, 0.74), rgba(247, 244, 235, 0.92) 360px),
-    repeating-linear-gradient(90deg, rgba(24, 58, 141, 0.04) 0 1px, transparent 1px 96px),
+    linear-gradient(120deg, rgba(69, 220, 255, 0.16), transparent 18%, rgba(168, 85, 255, 0.12) 48%, transparent 68%),
+    repeating-linear-gradient(112deg, rgba(69, 220, 255, 0.055) 0 1px, transparent 1px 118px),
+    repeating-linear-gradient(24deg, rgba(168, 85, 255, 0.05) 0 1px, transparent 1px 132px),
+    linear-gradient(180deg, #02030a 0%, #070b18 44%, #05060d 100%),
     var(--limestone);
   color: var(--ink);
   font-family:
@@ -1563,6 +1564,453 @@ fieldset input {
   color: rgba(255, 253, 247, 0.66);
 }
 
+body::before {
+  position: fixed;
+  inset: -20% -12%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    conic-gradient(from 214deg at 18% 48%, transparent 0deg, rgba(69, 220, 255, 0.18) 34deg, transparent 74deg),
+    conic-gradient(from 36deg at 82% 18%, transparent 0deg, rgba(168, 85, 255, 0.18) 28deg, transparent 68deg),
+    linear-gradient(122deg, transparent 0 20%, rgba(31, 109, 255, 0.16) 21%, transparent 33% 100%);
+  filter: blur(0.2px);
+  opacity: 0.9;
+  content: "";
+}
+
+.site-header {
+  border-bottom-color: rgba(69, 220, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(7, 10, 22, 0.9), rgba(7, 10, 22, 0.72)),
+    rgba(2, 3, 10, 0.78);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.48);
+}
+
+.site-header::before {
+  background: linear-gradient(90deg, var(--kentucky-blue), var(--signal), var(--plasma), var(--river));
+  box-shadow: 0 0 32px rgba(69, 220, 255, 0.42);
+}
+
+.brand,
+.nav-links {
+  color: var(--ink);
+}
+
+.brand small,
+.nav-links a:hover {
+  color: var(--signal);
+}
+
+.nav-links a:hover {
+  border-color: rgba(69, 220, 255, 0.32);
+  background: rgba(69, 220, 255, 0.08);
+}
+
+.primary {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent),
+    linear-gradient(135deg, var(--signal), var(--kentucky-blue) 54%, var(--plasma));
+  color: #02030a;
+  box-shadow: 0 16px 38px rgba(31, 109, 255, 0.34), 0 0 32px rgba(69, 220, 255, 0.2);
+}
+
+.secondary,
+.neutral {
+  border-color: rgba(107, 142, 255, 0.32);
+  background:
+    linear-gradient(135deg, rgba(69, 220, 255, 0.09), rgba(168, 85, 255, 0.055)),
+    rgba(11, 16, 32, 0.72);
+  color: var(--ink);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 32px rgba(0, 0, 0, 0.26);
+}
+
+.pulse-hero {
+  border-bottom-color: rgba(69, 220, 255, 0.18);
+  background:
+    conic-gradient(from 225deg at 20% 40%, transparent 0deg, rgba(69, 220, 255, 0.24) 34deg, transparent 72deg),
+    conic-gradient(from 38deg at 80% 24%, transparent 0deg, rgba(168, 85, 255, 0.24) 32deg, transparent 78deg),
+    linear-gradient(135deg, #02030a 0%, #071124 45%, #090717 100%);
+}
+
+.pulse-hero::before {
+  position: absolute;
+  right: -18%;
+  bottom: 8%;
+  z-index: 1;
+  width: 82%;
+  height: 46%;
+  pointer-events: none;
+  border: 1px solid rgba(69, 220, 255, 0.18);
+  border-right: 0;
+  border-radius: 60% 0 0 60% / 100% 0 0 100%;
+  transform: rotate(-8deg);
+  box-shadow:
+    inset 0 0 42px rgba(69, 220, 255, 0.12),
+    0 0 60px rgba(168, 85, 255, 0.14);
+  content: "";
+}
+
+.hero-media::after {
+  background:
+    linear-gradient(90deg, rgba(2, 3, 10, 0.94), rgba(6, 42, 120, 0.74) 42%, rgba(15, 7, 30, 0.76)),
+    linear-gradient(0deg, rgba(2, 3, 10, 0.72), transparent 48%),
+    repeating-linear-gradient(0deg, rgba(69, 220, 255, 0.06) 0 1px, transparent 1px 7px);
+}
+
+.hero-media img {
+  filter: saturate(1.22) contrast(1.08) brightness(0.82);
+}
+
+.ai-signal-layer {
+  background:
+    linear-gradient(90deg, transparent, rgba(69, 220, 255, 0.2), transparent) 0 32% / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent, rgba(168, 85, 255, 0.18), transparent) 0 64% / 100% 1px no-repeat,
+    repeating-linear-gradient(106deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 108px),
+    repeating-linear-gradient(16deg, rgba(69, 220, 255, 0.045) 0 1px, transparent 1px 92px);
+}
+
+.ai-signal-layer::before,
+.ai-signal-layer::after {
+  background: linear-gradient(90deg, transparent, var(--signal), var(--plasma), var(--kentucky-blue), transparent);
+}
+
+.kicker,
+.pulse-metrics dt,
+.lead-story span,
+.pulse-cards span,
+.update-meta,
+.directory-card p,
+.workshop-card p,
+.thread-meta,
+.brief-panel span,
+.near-me-card span,
+.mini-share-card span,
+.toolkit-card p,
+.leaderboard-card > span {
+  color: var(--signal);
+}
+
+.action-rail {
+  border-top: 1px solid rgba(69, 220, 255, 0.12);
+  border-bottom-color: rgba(69, 220, 255, 0.18);
+  background:
+    linear-gradient(90deg, rgba(69, 220, 255, 0.08), transparent 38%, rgba(168, 85, 255, 0.09)),
+    rgba(7, 10, 22, 0.94);
+}
+
+.action-rail a {
+  border-right-color: rgba(117, 153, 255, 0.18);
+  color: var(--ink);
+}
+
+.action-rail svg {
+  color: var(--signal);
+}
+
+.action-rail a:hover {
+  background: rgba(69, 220, 255, 0.08);
+}
+
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(122deg, transparent 0 12%, rgba(31, 109, 255, 0.09) 12.5%, transparent 24% 100%),
+    linear-gradient(62deg, transparent 0 62%, rgba(168, 85, 255, 0.09) 63%, transparent 75% 100%),
+    repeating-linear-gradient(96deg, rgba(69, 220, 255, 0.035) 0 1px, transparent 1px 120px);
+  opacity: 0.78;
+  content: "";
+}
+
+.section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.tracker-section,
+.intelligence-section,
+.newsletter-section,
+.directory-section,
+.workshop-section,
+.commons-section,
+.contribute-section,
+.near-me-section,
+.leaderboard-section,
+.share-section,
+.toolkits-section,
+.signal-detail-section {
+  background:
+    linear-gradient(135deg, rgba(69, 220, 255, 0.08), transparent 28%, rgba(168, 85, 255, 0.09) 72%, transparent),
+    linear-gradient(180deg, #050712 0%, #090d1b 100%);
+  color: var(--ink);
+}
+
+.tracker-section,
+.newsletter-section,
+.share-section {
+  background:
+    conic-gradient(from 238deg at 16% 42%, transparent 0deg, rgba(69, 220, 255, 0.18) 30deg, transparent 72deg),
+    conic-gradient(from 32deg at 88% 24%, transparent 0deg, rgba(168, 85, 255, 0.18) 28deg, transparent 70deg),
+    linear-gradient(135deg, #02030a 0%, #081124 52%, #080617 100%);
+}
+
+.intelligence-section .section-heading h2,
+.directory-section .section-heading h2,
+.workshop-section .section-heading h2,
+.commons-section .section-intro h2,
+.contribute-section h2,
+.section-heading h2,
+.section-intro h2,
+.join-copy h2,
+.brief-panel h3,
+.update-card h3,
+.directory-card h3,
+.workshop-card h3,
+.thread-card h3,
+.near-me-card h3,
+.leaderboard-card h3,
+.mini-share-card h3,
+.toolkit-card h3,
+.lead-form h3,
+.join-form h3,
+.signal-detail-card h1 {
+  color: var(--coal);
+}
+
+.pulse-panel,
+.lead-story,
+.pulse-cards article,
+.brief-panel,
+.region-panel,
+.map-panel,
+.update-card,
+.directory-card,
+.workshop-card,
+.thread-card,
+.lead-form,
+.newsletter-form,
+.join-form,
+.near-me-controls,
+.near-me-panel,
+.near-me-card,
+.leaderboard-card,
+.share-card,
+.mini-share-card,
+.toolkit-card,
+.signal-detail-card,
+.newsletter-preview div {
+  border-color: rgba(107, 142, 255, 0.22);
+  background:
+    linear-gradient(138deg, rgba(69, 220, 255, 0.1), rgba(168, 85, 255, 0.06) 48%, rgba(255, 255, 255, 0.035)),
+    rgba(11, 16, 32, 0.78);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.pulse-panel,
+.near-me-panel,
+.primary-share-card,
+.signal-share-card {
+  background:
+    linear-gradient(138deg, rgba(69, 220, 255, 0.16), rgba(31, 109, 255, 0.18) 42%, rgba(168, 85, 255, 0.14)),
+    rgba(3, 5, 14, 0.82);
+}
+
+.update-card::before,
+.thread-card::before,
+.toolkit-card::before {
+  background: linear-gradient(180deg, var(--signal), var(--kentucky-blue), var(--plasma));
+}
+
+.update-card::after,
+.directory-card::after,
+.workshop-card::after {
+  background:
+    linear-gradient(90deg, transparent, rgba(69, 220, 255, 0.28), rgba(168, 85, 255, 0.18), transparent) 0 0 / 100% 1px no-repeat,
+    linear-gradient(122deg, transparent 0 62%, rgba(69, 220, 255, 0.08) 64%, transparent 78%);
+}
+
+.update-card:hover,
+.directory-card:hover,
+.workshop-card:hover {
+  border-color: rgba(69, 220, 255, 0.46);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.52), 0 0 38px rgba(31, 109, 255, 0.16);
+}
+
+.update-meta span,
+.signal-tags span {
+  background: rgba(69, 220, 255, 0.09);
+  color: #dff8ff;
+}
+
+.update-card p,
+.source-line,
+.people-line,
+.near-me-card p,
+.mini-share-card p,
+.toolkit-card strong,
+.section-intro p,
+.join-copy p,
+.thread-card p,
+.source-steps p,
+.directory-card span,
+.workshop-card strong,
+.signal-lede,
+.signal-facts dd {
+  color: var(--muted);
+}
+
+.near-me-panel p,
+.near-me-panel li,
+.region-panel p,
+.region-panel li,
+.newsletter-copy p,
+.newsletter-preview dd,
+.lead-story p,
+.share-card p {
+  color: rgba(237, 246, 255, 0.78);
+}
+
+.near-me-card a,
+.profile-status a,
+.brief-panel a,
+.update-card h3 a,
+.back-link {
+  color: var(--signal);
+}
+
+.profile-status strong,
+.leaderboard-card strong,
+.leaderboard-card dd,
+.signal-facts dd,
+#digestPreview a {
+  color: var(--coal);
+}
+
+.region-button,
+.filter-button,
+.intelligence-section .filter-button {
+  border-color: rgba(107, 142, 255, 0.3);
+  background: rgba(11, 16, 32, 0.68);
+  color: var(--ink);
+}
+
+.region-button.is-active,
+.filter-button.is-active,
+.intelligence-section .filter-button.is-active {
+  border-color: rgba(69, 220, 255, 0.58);
+  background:
+    linear-gradient(135deg, rgba(69, 220, 255, 0.95), rgba(31, 109, 255, 0.9) 54%, rgba(168, 85, 255, 0.86));
+  color: #02030a;
+  box-shadow: 0 14px 36px rgba(31, 109, 255, 0.3);
+}
+
+.map-panel {
+  background:
+    linear-gradient(126deg, rgba(69, 220, 255, 0.12), transparent 34%, rgba(168, 85, 255, 0.1)),
+    repeating-linear-gradient(102deg, transparent 0 42px, rgba(255, 255, 255, 0.045) 43px 44px),
+    rgba(3, 5, 14, 0.76);
+}
+
+.ky-western,
+.ky-louisville,
+.ky-bluegrass,
+.ky-appalachia,
+.ky-southcentral {
+  fill: var(--bluegrass);
+}
+
+.ky-louisville,
+.ky-bluegrass {
+  fill: var(--kentucky-blue);
+}
+
+.ky-appalachia {
+  fill: var(--plasma);
+}
+
+.ky-southcentral {
+  fill: #155bff;
+}
+
+.ky-pins circle {
+  fill: var(--signal);
+}
+
+.source-steps article::before,
+.lead-form::before,
+.join-form::before {
+  background: linear-gradient(90deg, var(--signal), var(--kentucky-blue), var(--plasma));
+}
+
+label,
+legend,
+.newsletter-form label,
+.newsletter-form legend {
+  color: var(--coal);
+}
+
+fieldset,
+.newsletter-form fieldset {
+  border-color: rgba(107, 142, 255, 0.22);
+}
+
+fieldset label,
+.newsletter-form fieldset label {
+  color: var(--muted);
+}
+
+input,
+select,
+textarea {
+  border-color: rgba(107, 142, 255, 0.28);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.045)),
+    rgba(2, 3, 10, 0.72);
+  color: var(--ink);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(174, 185, 212, 0.72);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--signal);
+  box-shadow: 0 0 0 3px rgba(69, 220, 255, 0.2), 0 0 28px rgba(31, 109, 255, 0.14);
+}
+
+.form-heading > span {
+  background:
+    linear-gradient(135deg, var(--signal), var(--kentucky-blue) 60%, var(--plasma));
+  color: #02030a;
+}
+
+.form-heading p {
+  color: var(--muted);
+}
+
+.form-status,
+.newsletter-form .form-status {
+  color: var(--mint);
+}
+
+.site-footer {
+  border-top: 1px solid rgba(69, 220, 255, 0.16);
+  background:
+    linear-gradient(90deg, rgba(69, 220, 255, 0.1), transparent 36%, rgba(168, 85, 255, 0.1)),
+    #02030a;
+}
+
 .near-me-section {
   background:
     radial-gradient(circle at 76% 12%, rgba(105, 231, 189, 0.16), transparent 22rem),
@@ -1921,6 +2369,101 @@ fieldset input {
   background:
     linear-gradient(135deg, rgba(18, 61, 104, 0.96), rgba(5, 16, 30, 0.9)),
     var(--deep-blue);
+}
+
+.tracker-section,
+.intelligence-section,
+.newsletter-section,
+.directory-section,
+.workshop-section,
+.commons-section,
+.contribute-section,
+.near-me-section,
+.leaderboard-section,
+.share-section,
+.toolkits-section,
+.signal-detail-section {
+  background:
+    linear-gradient(135deg, rgba(69, 220, 255, 0.08), transparent 28%, rgba(168, 85, 255, 0.09) 72%, transparent),
+    linear-gradient(180deg, #050712 0%, #090d1b 100%);
+  color: var(--ink);
+}
+
+.tracker-section,
+.newsletter-section,
+.share-section {
+  background:
+    conic-gradient(from 238deg at 16% 42%, transparent 0deg, rgba(69, 220, 255, 0.18) 30deg, transparent 72deg),
+    conic-gradient(from 32deg at 88% 24%, transparent 0deg, rgba(168, 85, 255, 0.18) 28deg, transparent 70deg),
+    linear-gradient(135deg, #02030a 0%, #081124 52%, #080617 100%);
+}
+
+.near-me-controls,
+.near-me-panel,
+.near-me-card,
+.leaderboard-card,
+.share-card,
+.mini-share-card,
+.toolkit-card,
+.signal-detail-card,
+.update-card,
+.brief-panel,
+.directory-card,
+.workshop-card,
+.thread-card,
+.lead-form,
+.newsletter-form,
+.join-form {
+  border-color: rgba(107, 142, 255, 0.22);
+  background:
+    linear-gradient(138deg, rgba(69, 220, 255, 0.1), rgba(168, 85, 255, 0.06) 48%, rgba(255, 255, 255, 0.035)),
+    rgba(11, 16, 32, 0.78);
+  color: var(--ink);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.near-me-panel,
+.primary-share-card,
+.signal-share-card,
+.pulse-panel {
+  background:
+    linear-gradient(138deg, rgba(69, 220, 255, 0.16), rgba(31, 109, 255, 0.18) 42%, rgba(168, 85, 255, 0.14)),
+    rgba(3, 5, 14, 0.82);
+}
+
+.section-heading h2,
+.section-intro h2,
+.join-copy h2,
+.brief-panel h3,
+.update-card h3,
+.directory-card h3,
+.workshop-card h3,
+.thread-card h3,
+.near-me-card h3,
+.leaderboard-card h3,
+.mini-share-card h3,
+.toolkit-card h3,
+.lead-form h3,
+.join-form h3,
+.signal-detail-card h1 {
+  color: var(--coal);
+}
+
+.update-card p,
+.source-line,
+.people-line,
+.near-me-card p,
+.mini-share-card p,
+.toolkit-card strong,
+.section-intro p,
+.join-copy p,
+.thread-card p,
+.source-steps p,
+.directory-card span,
+.workshop-card strong,
+.signal-lede,
+.signal-facts dd {
+  color: var(--muted);
 }
 
 @media (max-width: 1040px) {
