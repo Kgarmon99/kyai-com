@@ -1,5 +1,5 @@
 const DEFAULT_NOTIFY_TO = "kahlil@getmoneybot.com";
-const FORM_SUBMIT_ENDPOINT = "https://formsubmit.co/ajax";
+const DEFAULT_GITHUB_REPO = "Kgarmon99/kyai-newsletter-signups";
 
 function setCors(response) {
   response.setHeader("Access-Control-Allow-Origin", "*");
@@ -85,6 +85,36 @@ async function deliverWithWebhook(entry) {
   return true;
 }
 
+async function deliverWithGitHub(entry) {
+  const token = process.env.KYAI_NEWSLETTER_GITHUB_TOKEN || process.env.GITHUB_TOKEN;
+  const repo = process.env.KYAI_NEWSLETTER_GITHUB_REPO || DEFAULT_GITHUB_REPO;
+  if (!token) return false;
+
+  await postJson(
+    `https://api.github.com/repos/${repo}/issues`,
+    {
+      title: `Newsletter signup: ${entry.email}`,
+      body: [
+        "New KYAI newsletter signup.",
+        "",
+        `Email: ${entry.email}`,
+        `Name: ${entry.name || "Not provided"}`,
+        `Region: ${entry.region}`,
+        `Interests: ${entry.interests.join(", ")}`,
+        `Source: ${entry.source}`,
+        `Created: ${entry.createdAt}`,
+      ].join("\n"),
+    },
+    {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer ${token}`,
+      "User-Agent": "kyai-newsletter-signup",
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  );
+  return true;
+}
+
 async function deliverWithResend(entry) {
   const apiKey = process.env.RESEND_API_KEY;
   const notifyTo = process.env.KYAI_NEWSLETTER_NOTIFY_TO || DEFAULT_NOTIFY_TO;
@@ -112,23 +142,6 @@ async function deliverWithResend(entry) {
       Authorization: `Bearer ${apiKey}`,
     },
   );
-  return true;
-}
-
-async function deliverWithFormSubmit(entry) {
-  const notifyTo = process.env.KYAI_NEWSLETTER_NOTIFY_TO || DEFAULT_NOTIFY_TO;
-
-  await postJson(`${FORM_SUBMIT_ENDPOINT}/${encodeURIComponent(notifyTo)}`, {
-    _subject: `New KYAI newsletter signup: ${entry.email}`,
-    _template: "table",
-    _captcha: "false",
-    email: entry.email,
-    name: entry.name || "Not provided",
-    region: entry.region,
-    interests: entry.interests.join(", "),
-    source: entry.source,
-    createdAt: entry.createdAt,
-  });
   return true;
 }
 
@@ -160,10 +173,15 @@ export default async function handler(request, response) {
 
     const delivered =
       (await deliverWithWebhook(entry)) ||
+      (await deliverWithGitHub(entry)) ||
       (await deliverWithResend(entry)) ||
-      (await deliverWithFormSubmit(entry));
+      false;
 
-    json(response, 200, { ok: true, savedRemotely: delivered, delivery: "notification" });
+    if (!delivered) {
+      throw new Error("No newsletter delivery backend configured");
+    }
+
+    json(response, 200, { ok: true, savedRemotely: delivered, delivery: "private-intake" });
   } catch (error) {
     console.error("Newsletter signup failed", error);
     json(response, 502, {
