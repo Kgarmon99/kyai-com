@@ -1,13 +1,80 @@
 {
-  "updatedAt": "2026-09-02T15:05:29.682Z",
+  "updatedAt": "2026-09-03T14:59:10.983Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 26,
+    "totalItems": 27,
     "newsItems": 0,
-    "researchItems": 16,
+    "researchItems": 17,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-t1z37e",
+      "category": "research",
+      "region": "Louisville",
+      "title": "Predicting the need for syrinx shunting after posterior fossa decompression in Chiari I malformation: a real-world machine learning analysis",
+      "body": "Research signal connected to University of Louisville, Johns Hopkins University, Johns Hopkins All Children's Hospital, Medical City Children's Hospital.",
+      "source": "Journal of Neurosurgery Spine",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3171/2026.6.spine26351",
+      "publishedAt": "2026-09-02T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Rahim Abo Kasem",
+        "Nicholas Dietz",
+        "Isaac Josh Abecassis",
+        "Redi Rahmani"
+      ],
+      "institutions": [
+        "University of Louisville",
+        "Johns Hopkins University",
+        "Johns Hopkins All Children's Hospital",
+        "Medical City Children's Hospital"
+      ]
+    },
+    {
+      "id": "kyai-t4c3jm",
+      "category": "research",
+      "region": "Lexington",
+      "title": "Predictive Analytics and Machine Learning for Energy Forecasting and Load Optimisation in Hospital Systems: A Critical Narrative Review",
+      "body": "Research signal connected to Northeastern University, Illinois State University, University of Akron, University of Kentucky.",
+      "source": "Journal of Scientific Research and Reports",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.9734/jsrr/2026/v32i94483",
+      "publishedAt": "2026-09-02T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Nurudeen Gbadegesin",
+        "Andrew Oluwashijibomi Adegoju"
+      ],
+      "institutions": [
+        "Northeastern University",
+        "Illinois State University",
+        "University of Akron",
+        "University of Kentucky"
+      ]
+    },
+    {
+      "id": "kyai-2uh38g",
+      "category": "research",
+      "region": "Louisville",
+      "title": "Adaptive, ethical and responsible AI governance for smart cities and nations",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Discover Cities",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1007/s44327-026-00349-2",
+      "publishedAt": "2026-09-01T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "people": [
+        "Z. R. M. Abdullah Kaiser"
+      ],
+      "institutions": [
+        "University of Louisville"
+      ]
+    },
     {
       "id": "kyai-3e92mj",
       "category": "research",
@@ -249,29 +316,6 @@
       ]
     },
     {
-      "id": "kyai-3p0407",
-      "category": "research",
-      "region": "Louisville",
-      "title": "Multi-view explainability and ensemble deep learning for prostate lesion classification: A comprehensive study",
-      "body": "Research signal connected to Hitit Üniversitesi, University of Louisville, University of Chicago, Quinnipiac University.",
-      "source": "Computer Methods and Programs in Biomedicine",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.cmpb.2026.109607",
-      "publishedAt": "2026-08-15T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "people": [
-        "Mehmed Kantardzic",
-        "Jason Turner"
-      ],
-      "institutions": [
-        "Hitit Üniversitesi",
-        "University of Louisville",
-        "University of Chicago",
-        "Quinnipiac University"
-      ]
-    },
-    {
       "id": "kyai-urv8ur",
       "category": "education",
       "region": "Statewide",
@@ -398,28 +442,6 @@
       "lane": "Research and universities",
       "people": [
         "V. K. Cody Bumgardner"
-      ]
-    },
-    {
-      "id": "kyai-b7z395",
-      "category": "research",
-      "region": "University of Crete",
-      "title": "Artificial Intelligence for radiation protection in medical imaging and radiotherapy: A perspective from the AI Working Party of ICRP Committee 3",
-      "body": "Research signal connected to University of Crete, University of Helsinki, Helsinki University Hospital, Loyola University Chicago.",
-      "source": "Physica Medica",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.ejmp.2026.105906",
-      "publishedAt": "2026-07-25T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "people": [
-        "Kimberly Applegate"
-      ],
-      "institutions": [
-        "University of Crete",
-        "University of Helsinki",
-        "Helsinki University Hospital",
-        "Loyola University Chicago"
       ]
     },
     {
