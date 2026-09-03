@@ -1,0 +1,83 @@
+{
+  "version": "2026-09-03",
+  "events": [
+    {
+      "id": "talk-ai-day-2026",
+      "title": "TALK AI Day",
+      "date": "2026-09-29",
+      "time": "All day",
+      "region": "Louisville",
+      "location": "Galt House, Louisville, KY",
+      "host": "TALK",
+      "type": "Conference",
+      "status": "Source verified",
+      "sourceUrl": "https://www.eventbrite.com/e/talk-ai-day-helping-louisville-grow-tickets-1998266937201",
+      "whyItMatters": "A near-term room for Louisville government, workforce, hospitality, data centers, manufacturing, transportation, and accelerator conversations."
+    },
+    {
+      "id": "kyai-signal-review-call",
+      "title": "KYAI signal review call",
+      "date": "Rolling",
+      "time": "Monthly",
+      "region": "Statewide",
+      "location": "Online",
+      "host": "KYAI contributor desk",
+      "type": "Contributor call",
+      "status": "Needs host",
+      "sourceUrl": "https://github.com/Kgarmon99/kyai-com/issues/new?template=event.yml",
+      "whyItMatters": "A recurring review room can turn submitted leads into verified public intelligence."
+    },
+    {
+      "id": "library-ai-basics-host-slot",
+      "title": "Library AI Basics host slot",
+      "date": "Open",
+      "time": "75 minutes",
+      "region": "Statewide",
+      "location": "Kentucky libraries and community rooms",
+      "host": "Open host",
+      "type": "Workshop",
+      "status": "Claimable",
+      "sourceUrl": "https://github.com/Kgarmon99/kyai-com/issues/new?template=event.yml",
+      "whyItMatters": "Libraries are one of the fastest ways to bring practical AI literacy to adults, seniors, students, and local families."
+    },
+    {
+      "id": "main-street-ai-clinic",
+      "title": "Main Street AI workflow clinic",
+      "date": "Open",
+      "time": "90 minutes",
+      "region": "Eastern Kentucky / Appalachia",
+      "location": "Chamber, library, church, or workforce partner",
+      "host": "Open host",
+      "type": "Workshop",
+      "status": "Claimable",
+      "sourceUrl": "https://github.com/Kgarmon99/kyai-com/issues/new?template=event.yml",
+      "whyItMatters": "Small businesses need practical, fraud-aware AI help for estimates, customer replies, grant drafts, operations notes, and hiring."
+    },
+    {
+      "id": "school-ai-policy-roundtable",
+      "title": "School AI policy roundtable",
+      "date": "Open",
+      "time": "60 minutes",
+      "region": "Statewide",
+      "location": "School district, co-op, or online",
+      "host": "Open education partner",
+      "type": "Roundtable",
+      "status": "Needs partner",
+      "sourceUrl": "https://github.com/Kgarmon99/kyai-com/issues/new?template=event.yml",
+      "whyItMatters": "Districts need shared language around classroom use, academic integrity, privacy, procurement, accessibility, and parent communication."
+    },
+    {
+      "id": "data-center-public-meeting-watch",
+      "title": "AI data center public meeting watch",
+      "date": "Rolling",
+      "time": "As meetings are posted",
+      "region": "Western Kentucky",
+      "location": "County and municipal public meetings",
+      "host": "Local source reviewers",
+      "type": "Public meeting watch",
+      "status": "Needs reviewers",
+      "sourceUrl": "https://github.com/Kgarmon99/kyai-com/issues/new?template=signal.yml",
+      "whyItMatters": "Residents need source-backed notes on energy, water, tax, jobs, and community-impact commitments before decisions disappear into meeting minutes."
+    }
+  ]
+}

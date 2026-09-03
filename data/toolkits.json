@@ -1,0 +1,131 @@
+{
+  "version": "2026-09-03",
+  "toolkits": [
+    {
+      "id": "school-ai-policy-starter-kit",
+      "title": "AI Policy Starter Kit for Schools",
+      "audience": "Districts, principals, teachers, board members",
+      "useCase": "District policy, classroom guidance, privacy, procurement, academic integrity, accessibility, and parent communication.",
+      "status": "Priority",
+      "reviewNeeded": "Educator and policy reviewer",
+      "icon": "school",
+      "downloadLabel": "Open school kit",
+      "sections": [
+        "Classroom use boundaries",
+        "Student disclosure and citation language",
+        "Privacy and vendor-review questions",
+        "Parent communication template",
+        "Staff training agenda"
+      ],
+      "starterText": "Use this kit to align school leaders around practical classroom AI use, privacy, procurement, academic integrity, accessibility, and parent communication."
+    },
+    {
+      "id": "library-ai-basics-deck",
+      "title": "Library AI Basics Deck",
+      "audience": "Libraries, seniors, adult learners, students",
+      "useCase": "A community session covering prompting, citations, hallucinations, scams, privacy, and daily tasks.",
+      "status": "Shareable",
+      "reviewNeeded": "Librarian and adult-learning reviewer",
+      "icon": "library",
+      "downloadLabel": "Open library deck",
+      "sections": [
+        "What AI tools are useful for",
+        "Prompt examples for everyday tasks",
+        "Checking sources and citations",
+        "Hallucinations and mistakes",
+        "Scam and privacy habits"
+      ],
+      "starterText": "Run this as a 45- to 75-minute practical AI session for libraries, community rooms, churches, and adult learners."
+    },
+    {
+      "id": "main-street-ai-workflows",
+      "title": "Main Street AI Workflow Templates",
+      "audience": "Small business owners and local teams",
+      "useCase": "Reusable templates for customer replies, estimates, inventory notes, hiring drafts, grant research, SOPs, and fraud-aware workflows.",
+      "status": "Useful now",
+      "reviewNeeded": "Small-business operator and fraud reviewer",
+      "icon": "store",
+      "downloadLabel": "Open workflow templates",
+      "sections": [
+        "Customer reply template",
+        "Estimate and quote helper",
+        "Inventory and operations notes",
+        "Hiring draft assistant",
+        "Grant research prompt"
+      ],
+      "starterText": "Give Main Street teams practical AI workflows they can test immediately without pretending the tools are magic or risk-free."
+    },
+    {
+      "id": "public-meeting-ai-checklist",
+      "title": "Public Meeting AI Checklist",
+      "audience": "Cities, counties, nonprofits, reporters",
+      "useCase": "Questions for procurement, public records, explainability, data rights, bias review, resident impact, and public accountability.",
+      "status": "Civic",
+      "reviewNeeded": "Public-sector reviewer and journalist",
+      "icon": "landmark",
+      "downloadLabel": "Open civic checklist",
+      "sections": [
+        "Procurement questions",
+        "Public records questions",
+        "Data ownership and retention",
+        "Bias and error review",
+        "Resident appeal process"
+      ],
+      "starterText": "Use this checklist before AI decisions disappear into procurement decks, vendor demos, or meeting minutes."
+    },
+    {
+      "id": "ai-scam-fraud-guide",
+      "title": "AI Scam and Fraud Guide",
+      "audience": "Families, churches, banks, schools, local media",
+      "useCase": "Plain-language guidance on voice scams, fake invoices, phishing, deepfakes, and verification habits.",
+      "status": "High trust",
+      "reviewNeeded": "Fraud prevention and community reviewer",
+      "icon": "shield-alert",
+      "downloadLabel": "Open fraud guide",
+      "sections": [
+        "Voice cloning red flags",
+        "Fake invoice checks",
+        "Phishing and deepfake examples",
+        "Family verification phrase",
+        "Report and recovery steps"
+      ],
+      "starterText": "Put simple verification habits in front of families, churches, schools, banks, and local media before AI scams become normal."
+    },
+    {
+      "id": "ai-opportunity-map",
+      "title": "Kentucky AI Opportunity Map",
+      "audience": "Students, founders, workforce groups, funders",
+      "useCase": "A region-by-region view of programs, labs, employers, workshops, events, and gaps worth filling.",
+      "status": "Network fuel",
+      "reviewNeeded": "Regional maintainers",
+      "icon": "map",
+      "downloadLabel": "Open opportunity map",
+      "sections": [
+        "Programs and degree pathways",
+        "Labs and public research",
+        "Employers and startup signals",
+        "Events and workshop hosts",
+        "Regional gaps to claim"
+      ],
+      "starterText": "Use this map to help students, founders, workforce partners, and funders see where Kentucky AI activity is real and where help is missing."
+    },
+    {
+      "id": "data-center-community-questions",
+      "title": "Data Center Community Questions",
+      "audience": "Residents, local officials, reporters, schools, utility watchers",
+      "useCase": "A source-backed checklist for power, water, taxes, jobs, public meetings, local benefits, and environmental review.",
+      "status": "Urgent",
+      "reviewNeeded": "Energy, policy, and local government reviewers",
+      "icon": "server",
+      "downloadLabel": "Open data center questions",
+      "sections": [
+        "Power demand and ratepayer impact",
+        "Water and environmental questions",
+        "Tax commitments and incentives",
+        "Construction jobs versus permanent jobs",
+        "Public meeting and records checklist"
+      ],
+      "starterText": "Give communities a grounded way to ask better questions about AI infrastructure before the decision window closes."
+    }
+  ]
+}

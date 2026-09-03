@@ -1,0 +1,119 @@
+{
+  "version": "2026-09-03",
+  "regions": [
+    {
+      "id": "louisville",
+      "slug": "louisville",
+      "name": "Louisville / North Central",
+      "shortName": "Louisville",
+      "headline": "Metro pilots, health systems, civic tech, logistics, startups, and public AI convenings.",
+      "summary": "Louisville is KYAI's densest civic and institutional signal lane: city government, UofL, health systems, logistics employers, accelerators, and recurring public technology rooms.",
+      "maintainer": "Open regional maintainer",
+      "status": "Priority brief",
+      "nextWin": "Turn TALK AI Day, UofL digital innovation, health, logistics, and local government signals into a public city brief.",
+      "focusAreas": ["Civic AI", "Healthcare and cybersecurity", "Logistics and workforce", "Startup ecosystem"],
+      "openQuestions": [
+        "Which public agencies are actively evaluating AI procurement?",
+        "What health-system AI work can be translated into public education?",
+        "Which local events should KYAI use as recurring signal-review rooms?"
+      ],
+      "partnerAsks": ["Regional maintainer", "Event scout", "Workshop host", "Healthcare reviewer"],
+      "recommendedToolkits": ["public-meeting-ai-checklist", "main-street-ai-workflows", "library-ai-basics-deck"]
+    },
+    {
+      "id": "bluegrass",
+      "slug": "bluegrass",
+      "name": "Lexington / Bluegrass",
+      "shortName": "Bluegrass",
+      "headline": "University research, agriculture, health, public-sector pilots, and student pathways.",
+      "summary": "The Bluegrass lane is anchored by research institutions, student talent, agricultural AI, healthcare research, and policy activity near Frankfort.",
+      "maintainer": "Open regional maintainer",
+      "status": "Research core",
+      "nextWin": "Map university labs, applied AI programs, faculty work, student projects, and agriculture-related AI pilots.",
+      "focusAreas": ["University research", "Student pathways", "Agriculture and health", "Frankfort policy"],
+      "openQuestions": [
+        "Which AI courses and certificates should be tracked each semester?",
+        "Which faculty projects have a public-facing Kentucky benefit?",
+        "How should KYAI distinguish research discovery from deployable community tools?"
+      ],
+      "partnerAsks": ["Research scout", "University profile maintainer", "Toolkit reviewer", "Student project lead"],
+      "recommendedToolkits": ["ai-opportunity-map", "school-ai-policy-starter-kit", "public-meeting-ai-checklist"]
+    },
+    {
+      "id": "western",
+      "slug": "western-kentucky",
+      "name": "Western Kentucky",
+      "shortName": "Western KY",
+      "headline": "Data centers, energy, logistics, agriculture, manufacturing, river industry, and local workforce.",
+      "summary": "Western Kentucky is becoming a high-stakes AI infrastructure and workforce region, with data center, power, manufacturing, and community-impact questions moving fast.",
+      "maintainer": "Open regional maintainer",
+      "status": "Industry watch",
+      "nextWin": "Build a source-backed data center and power-impact watchlist people in the region can understand and challenge.",
+      "focusAreas": ["AI infrastructure", "Energy and water", "Manufacturing", "Chambers and workforce boards"],
+      "openQuestions": [
+        "Which public meetings and tax commitments need monitoring?",
+        "What local jobs are construction-only versus permanent operations?",
+        "Which communities need plain-language explainers on data center impact?"
+      ],
+      "partnerAsks": ["Source reviewer", "Business workshop host", "Local government watcher", "Energy policy reader"],
+      "recommendedToolkits": ["data-center-community-questions", "main-street-ai-workflows", "ai-scam-fraud-guide"]
+    },
+    {
+      "id": "appalachia",
+      "slug": "appalachia",
+      "name": "Eastern Kentucky / Appalachia",
+      "shortName": "Appalachia",
+      "headline": "Rural access, digital readiness, small-business workflows, workforce transition, and public trust.",
+      "summary": "The Appalachia lane should make AI practical and trustworthy for counties where access, workforce transition, broadband, and local institutions matter more than hype.",
+      "maintainer": "Open regional maintainer",
+      "status": "Access lane",
+      "nextWin": "Package a practical AI basics session for Appalachian small businesses, libraries, churches, and workforce partners.",
+      "focusAreas": ["Small business clinics", "Libraries and churches", "Workforce transition", "Broadband realities"],
+      "openQuestions": [
+        "Which community rooms can host trusted beginner sessions?",
+        "Where can AI help with paperwork, grants, customer service, and fraud prevention?",
+        "What barriers should be documented before recommending new tools?"
+      ],
+      "partnerAsks": ["Workshop host", "Small-business toolkit builder", "Regional maintainer", "Library partner"],
+      "recommendedToolkits": ["library-ai-basics-deck", "main-street-ai-workflows", "ai-scam-fraud-guide"]
+    },
+    {
+      "id": "northern",
+      "slug": "northern-kentucky",
+      "name": "Northern Kentucky",
+      "shortName": "NKY",
+      "headline": "Cincinnati-adjacent talent, logistics, advanced manufacturing, startups, and campus pathways.",
+      "summary": "Northern Kentucky can connect cross-border technology activity back into a Kentucky-specific AI map for employers, schools, students, and founders.",
+      "maintainer": "Open regional maintainer",
+      "status": "Talent corridor",
+      "nextWin": "Connect Cincinnati-adjacent AI events, employers, NKU programs, and manufacturing activity back into KYAI.",
+      "focusAreas": ["Advanced manufacturing", "Higher education", "Logistics", "Startup ecosystem"],
+      "openQuestions": [
+        "Which cross-border events should be treated as Kentucky-relevant?",
+        "What employer training is already happening but not publicly visible?",
+        "Which NKY organizations should be listed first?"
+      ],
+      "partnerAsks": ["Startup scout", "Event scout", "Profile maintainer", "Employer training lead"],
+      "recommendedToolkits": ["ai-opportunity-map", "main-street-ai-workflows", "school-ai-policy-starter-kit"]
+    },
+    {
+      "id": "southcentral",
+      "slug": "south-central-kentucky",
+      "name": "South Central Kentucky",
+      "shortName": "South Central",
+      "headline": "Career pathways, manufacturing, small business, community colleges, and public workshops.",
+      "summary": "South Central Kentucky needs a practical AI lane connecting Bowling Green, schools, workforce partners, manufacturers, and small businesses.",
+      "maintainer": "Open regional maintainer",
+      "status": "Career pathway lane",
+      "nextWin": "Track applied AI activity around Bowling Green, schools, manufacturing employers, and regional workforce partners.",
+      "focusAreas": ["Career and technical education", "Manufacturing", "Small business", "Community workshops"],
+      "openQuestions": [
+        "Which schools and employers are already experimenting with AI?",
+        "What starter workshops would be most useful to local teams?",
+        "How should KYAI surface student projects and pathway programs?"
+      ],
+      "partnerAsks": ["Education scout", "Workshop host", "Editor", "Employer profile maintainer"],
+      "recommendedToolkits": ["school-ai-policy-starter-kit", "main-street-ai-workflows", "ai-opportunity-map"]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "version": "2026-09-03",
+  "profiles": [
+    {
+      "id": "kentucky-department-of-education-ai",
+      "name": "Kentucky Department of Education AI guidance",
+      "type": "State education resource",
+      "region": "Statewide",
+      "claimStatus": "Public source",
+      "sourceUrl": "https://www.education.ky.gov/districts/tech/Pages/A.I.-in-Kentucky-Education.aspx",
+      "reason": "KDE maintains public AI-in-Kentucky education guidance and task force context that schools can reference."
+    },
+    {
+      "id": "uofl-kcdi",
+      "name": "Kentucky Center for Digital Innovation",
+      "type": "University center",
+      "region": "Louisville",
+      "claimStatus": "Open profile",
+      "sourceUrl": "https://news.louisville.edu/news/uofl-launches-kentucky-center-digital-innovation",
+      "reason": "UofL's center connects AI, cybersecurity, workforce development, secure facilities, and public awareness programming."
+    },
+    {
+      "id": "uk-generative-ai-guide",
+      "name": "University of Kentucky generative AI guide",
+      "type": "University resource",
+      "region": "Lexington / Bluegrass",
+      "claimStatus": "Public source",
+      "sourceUrl": "https://libguides.uky.edu/genai",
+      "reason": "UK Libraries maintains student-facing AI guidance covering tools, academic use, citations, and responsible use."
+    },
+    {
+      "id": "murray-state-ai-degree-signal",
+      "name": "Murray State AI pathway signal",
+      "type": "University program lead",
+      "region": "Western Kentucky",
+      "claimStatus": "Needs maintainer",
+      "sourceUrl": "https://www.weku.org/the-commonwealth/2026-08-11/two-public-kentucky-universities-launch-artificial-intelligence-degrees-this-fall",
+      "reason": "Western Kentucky needs a maintained education pipeline page for AI degrees, certificates, and course clusters."
+    },
+    {
+      "id": "talk-ai-day",
+      "name": "TALK AI Day",
+      "type": "Event and ecosystem convener",
+      "region": "Louisville",
+      "claimStatus": "Event verified",
+      "sourceUrl": "https://www.eventbrite.com/e/talk-ai-day-helping-louisville-grow-tickets-1998266937201",
+      "reason": "A practical Louisville convening for local government, workforce, hospitality, manufacturing, transportation, and accelerator signals."
+    },
+    {
+      "id": "ekcep-ai-literacy",
+      "name": "Eastern Kentucky workforce AI literacy lead",
+      "type": "Workforce signal",
+      "region": "Eastern Kentucky / Appalachia",
+      "claimStatus": "Needs profile owner",
+      "sourceUrl": "https://www.workforcegps.org/events/2026/03/06/14/24/SERIES_AI_Literacy_in_the_Workforce",
+      "reason": "Eastern Kentucky workforce perspectives belong in KYAI's rural access, digital readiness, and practical training lane."
+    },
+    {
+      "id": "justified-data-campus",
+      "name": "Hawesville AI data center campus watch",
+      "type": "Infrastructure watchlist",
+      "region": "Western Kentucky",
+      "claimStatus": "Needs source reviewers",
+      "sourceUrl": "https://spectrumnews1.com/ky/louisville/news/2026/07/06/ai-company-anthropic-commits-to-long-term-hawesville-campus",
+      "reason": "The Hancock County data center story needs ongoing public notes on jobs, power, water, tax commitments, and community impact."
+    },
+    {
+      "id": "county-library-host-network",
+      "name": "County library AI workshop host network",
+      "type": "Workshop host network",
+      "region": "Statewide",
+      "claimStatus": "Claimable",
+      "sourceUrl": "https://github.com/Kgarmon99/kyai-com/issues/new?template=profile.yml",
+      "reason": "Libraries can host practical, trusted AI literacy sessions for adults, seniors, students, and local families."
+    }
+  ]
+}

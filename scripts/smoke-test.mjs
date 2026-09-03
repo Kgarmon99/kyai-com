@@ -8,6 +8,10 @@ const requiredFiles = [
   "assets/kyai-hero.png",
   "assets/kyai-mark.svg",
   "data/contributor-os.json",
+  "data/regions.json",
+  "data/events.json",
+  "data/profiles.json",
+  "data/toolkits.json",
   "CONTRIBUTING.md",
   "EDITORIAL_POLICY.md",
   "ROADMAP.md",
@@ -20,7 +24,13 @@ const requiredFiles = [
   "dist/client/app.js",
   "dist/client/data/intelligence-feed.json",
   "dist/client/data/contributor-os.json",
+  "dist/client/data/regions.json",
+  "dist/client/data/events.json",
+  "dist/client/data/profiles.json",
+  "dist/client/data/toolkits.json",
   "dist/client/signals/kyai-urv8ur/index.html",
+  "dist/client/regions/louisville/index.html",
+  "dist/client/toolkits/school-ai-policy-starter-kit/index.html",
 ];
 
 for (const file of requiredFiles) {
@@ -36,10 +46,12 @@ const vercel = JSON.parse(readFileSync("vercel.json", "utf8"));
 for (const phrase of [
   "KYAI | Kentucky AI Pulse",
   "AI near me",
+  "Regional pages",
   "Kentucky AI Tracker",
   "Regional momentum",
   "Community board",
   "Latest Kentucky AI intelligence",
+  "Kentucky AI calendar",
   "Turn the pulse into posts people can pass around",
   "Get the Kentucky AI pulse in your inbox",
   "People, places, and claimed listings",
@@ -57,6 +69,10 @@ for (const phrase of [
 for (const phrase of [
   "loadIntelligence",
   "rolePlaybooks",
+  "loadProductData",
+  "renderRegionalPages",
+  "renderEventCalendar",
+  "trustDesk",
   "renderNearMe",
   "renderShareKit",
   "renderLeaderboard",
@@ -78,9 +94,23 @@ for (const phrase of [
 }
 
 const signalPage = readFileSync("dist/client/signals/kyai-urv8ur/index.html", "utf8");
-for (const phrase of ["KYAI Signal", "Share this signal", "Why it matters"]) {
+for (const phrase of ["KYAI Signal", "Share this signal", "Why it matters", "Review status"]) {
   if (!signalPage.includes(phrase)) {
     throw new Error(`Missing signal page phrase: ${phrase}`);
+  }
+}
+
+const regionPage = readFileSync("dist/client/regions/louisville/index.html", "utf8");
+for (const phrase of ["Louisville / North Central AI brief", "Events and rooms", "People and toolkits"]) {
+  if (!regionPage.includes(phrase)) {
+    throw new Error(`Missing region page phrase: ${phrase}`);
+  }
+}
+
+const toolkitPage = readFileSync("dist/client/toolkits/school-ai-policy-starter-kit/index.html", "utf8");
+for (const phrase of ["KYAI Toolkit", "Review needed", "Share this toolkit"]) {
+  if (!toolkitPage.includes(phrase)) {
+    throw new Error(`Missing toolkit page phrase: ${phrase}`);
   }
 }
 

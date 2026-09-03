@@ -2296,6 +2296,173 @@ textarea:focus {
   color: var(--river);
 }
 
+.regional-pages-section,
+.events-section {
+  background:
+    linear-gradient(135deg, rgba(69, 220, 255, 0.08), transparent 28%, rgba(168, 85, 255, 0.09) 72%, transparent),
+    linear-gradient(180deg, #050712 0%, #090d1b 100%);
+}
+
+.regional-page-grid,
+.event-calendar,
+.profile-grid {
+  display: grid;
+  gap: 14px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.regional-page-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.regional-page-card,
+.event-card,
+.profile-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(107, 142, 255, 0.22);
+  border-radius: 8px;
+  background:
+    linear-gradient(138deg, rgba(69, 220, 255, 0.1), rgba(168, 85, 255, 0.06) 48%, rgba(255, 255, 255, 0.035)),
+    rgba(11, 16, 32, 0.78);
+  color: var(--ink);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.regional-page-card,
+.profile-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-height: 310px;
+  padding: 22px;
+}
+
+.regional-page-card::before,
+.profile-card::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--signal), var(--kentucky-blue), var(--plasma));
+  content: "";
+}
+
+.regional-page-card h3,
+.event-card h3,
+.profile-card h3 {
+  color: var(--coal);
+}
+
+.regional-page-card p,
+.event-card p,
+.profile-card p,
+.regional-page-card strong {
+  color: var(--muted);
+}
+
+.regional-focus-list,
+.toolkit-section-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.regional-focus-list span,
+.toolkit-section-list span {
+  padding: 6px 8px;
+  border: 1px solid rgba(69, 220, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(69, 220, 255, 0.07);
+  color: var(--coal);
+  font-size: 0.75rem;
+  font-weight: 850;
+}
+
+.event-calendar {
+  grid-template-columns: 1fr;
+}
+
+.event-card {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.18fr) 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+}
+
+.event-date {
+  display: grid;
+  gap: 6px;
+  min-height: 92px;
+  align-content: center;
+  padding: 14px;
+  border: 1px solid rgba(69, 220, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(69, 220, 255, 0.07);
+}
+
+.event-date strong {
+  color: var(--signal);
+  font-size: 1.08rem;
+}
+
+.event-date span,
+.event-foot {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.event-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.profile-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.trust-desk {
+  display: grid;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(107, 142, 255, 0.22);
+}
+
+.trust-desk dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.trust-desk dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.trust-desk dt {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.trust-desk dd {
+  margin: 0;
+  color: var(--coal);
+  font-weight: 950;
+}
+
+.trust-desk a {
+  color: var(--signal);
+  font-weight: 900;
+  text-underline-offset: 4px;
+}
+
 .build-section {
   background:
     conic-gradient(from 296deg at 18% 38%, transparent 0deg, rgba(69, 220, 255, 0.16) 28deg, transparent 74deg),
@@ -2690,6 +2857,8 @@ textarea:focus {
   .newsletter-preview,
   .leaderboard-grid,
   .toolkit-grid,
+  .regional-page-grid,
+  .profile-grid,
   .role-grid,
   .mission-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2761,11 +2930,18 @@ textarea:focus {
   .leaderboard-grid,
   .toolkit-grid,
   .mini-share-grid,
+  .regional-page-grid,
+  .profile-grid,
   .role-grid,
   .mission-grid,
   .build-subgrid,
   fieldset {
     grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    grid-template-columns: 1fr;
+    align-items: stretch;
   }
 
   .action-rail a {
@@ -2850,6 +3026,9 @@ textarea:focus {
   .share-card,
   .mini-share-card,
   .toolkit-card,
+  .regional-page-card,
+  .event-card,
+  .profile-card,
   .contributor-picker,
   .mission-board,
   .role-card,

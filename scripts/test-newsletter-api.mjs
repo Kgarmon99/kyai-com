@@ -49,6 +49,7 @@ const signup = await callApi({
     email: "Test@Example.com",
     name: "Kentucky Builder",
     region: "Lexington / Bluegrass",
+    role: "founder",
     interests: ["weekly-pulse", "events"],
     source: "kyai-newsletter",
   },

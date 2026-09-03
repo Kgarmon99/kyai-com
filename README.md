@@ -37,15 +37,26 @@ The public newsletter form posts to `/api/newsletter-signup`.
 - Kentucky-branded homepage
 - Workshop tracks
 - Local AI tracker with filters for education, workforce, research, events, and policy
+- AI Near Me personalization by role, region, local signals, events, profiles, and toolkits
+- Shareable regional intelligence pages generated at `/regions/<region>/`
+- Source trust desk with review status, confidence, source links, and correction path
+- Kentucky AI event calendar for conferences, workshops, public meetings, and open host slots
 - Community board starter
 - Join-interest form
 - Build with KYAI contributor operating system
 - Claimable missions, regional maintainer cards, contributor roles, badges, and editorial pipeline
+- People/org profile directory with claim/correction links
+- Practical toolkit catalog with generated `/toolkits/<toolkit>/` pages
 - GitHub issue forms for signals, events, profiles, missions, toolkits, and bugs
 
 ## Contributor Rails
 
 - `data/contributor-os.json` powers the public contributor roles, missions, pipeline, regional ownership cards, and badges.
+- `data/regions.json` powers regional intelligence pages and the regional brief cards.
+- `data/events.json` powers the public Kentucky AI calendar.
+- `data/profiles.json` powers people, organization, event, and infrastructure profile cards.
+- `data/toolkits.json` powers the public toolkit cards and generated toolkit pages.
+- `data/intelligence-feed.json` powers the live pulse, signal pages, trust desk, and regional feeds.
 - `.github/ISSUE_TEMPLATE/` contains structured intake forms.
 - `EDITORIAL_POLICY.md` defines what can be published.
 - `docs/DATA_CONTRACTS.md` defines the fields contributors should provide.

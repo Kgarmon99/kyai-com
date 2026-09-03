@@ -43,7 +43,7 @@ const fallbackUpdates = [
   },
 ];
 
-const regions = {
+let regions = {
   statewide: {
     label: "Statewide",
     metric: "All lanes",
@@ -197,9 +197,10 @@ const rolePlaybooks = {
   },
 };
 
-const toolkits = [
+let toolkits = [
   {
     title: "AI Policy Starter Kit for Schools",
+    id: "school-ai-policy-starter-kit",
     audience: "Districts, principals, teachers, board members",
     detail: "A practical outline for classroom use, privacy, academic integrity, parent communication, and staff training.",
     icon: "school",
@@ -207,6 +208,7 @@ const toolkits = [
   },
   {
     title: "Library AI Basics Deck",
+    id: "library-ai-basics-deck",
     audience: "Libraries, seniors, adult learners, students",
     detail: "A community-session deck covering prompting, citations, hallucinations, scams, privacy, and daily tasks.",
     icon: "library",
@@ -214,6 +216,7 @@ const toolkits = [
   },
   {
     title: "Main Street AI Workflow Templates",
+    id: "main-street-ai-workflows",
     audience: "Small business owners and local teams",
     detail: "Reusable templates for customer replies, estimates, inventory notes, hiring drafts, grant research, and SOPs.",
     icon: "store",
@@ -221,6 +224,7 @@ const toolkits = [
   },
   {
     title: "Public Meeting AI Checklist",
+    id: "public-meeting-ai-checklist",
     audience: "Cities, counties, nonprofits, reporters",
     detail: "Questions for procurement, public records, explainability, data rights, bias review, and resident impact.",
     icon: "landmark",
@@ -228,6 +232,7 @@ const toolkits = [
   },
   {
     title: "AI Scam and Fraud Guide",
+    id: "ai-scam-fraud-guide",
     audience: "Families, churches, banks, schools, local media",
     detail: "A plain-language guide to voice scams, fake invoices, phishing, deepfakes, and verification habits.",
     icon: "shield-alert",
@@ -235,6 +240,7 @@ const toolkits = [
   },
   {
     title: "Kentucky AI Opportunity Map",
+    id: "ai-opportunity-map",
     audience: "Students, founders, workforce groups, funders",
     detail: "A region-by-region view of programs, labs, employers, workshops, events, and gaps worth filling.",
     icon: "map",
@@ -329,6 +335,41 @@ const fallbackContributorOs = {
   badges: [],
 };
 
+let regionalPages = Object.entries(regions)
+  .filter(([key]) => key !== "statewide")
+  .map(([id, region]) => ({
+    id,
+    slug: id,
+    name: region.label,
+    shortName: region.label,
+    headline: region.focus,
+    summary: region.focus,
+    status: region.metric,
+    nextWin: region.bullets.join(" / "),
+    focusAreas: region.bullets,
+    openQuestions: [],
+    partnerAsks: [],
+    recommendedToolkits: [],
+  }));
+
+let publicProfiles = [];
+
+let publicEvents = [
+  {
+    id: "library-ai-basics-host-slot",
+    title: "Library AI Basics host slot",
+    date: "Open",
+    time: "75 minutes",
+    region: "Statewide",
+    location: "Kentucky libraries and community rooms",
+    host: "Open host",
+    type: "Workshop",
+    status: "Claimable",
+    sourceUrl: "https://github.com/Kgarmon99/kyai-com/issues/new?template=event.yml",
+    whyItMatters: "Libraries are a fast path to practical AI literacy for adults, seniors, students, and local families.",
+  },
+];
+
 let updates = fallbackUpdates;
 let contributorOs = fallbackContributorOs;
 let activeFilter = "all";
@@ -357,13 +398,18 @@ const threadStatus = document.querySelector("#threadStatus");
 const intelUpdatedAt = document.querySelector("#intelUpdatedAt");
 const intelItemsCount = document.querySelector("#intelItemsCount");
 const intelSources = document.querySelector("#intelSources");
+const regionPagesCount = document.querySelector("#regionPagesCount");
 const digestPreview = document.querySelector("#digestPreview");
+const trustDesk = document.querySelector("#trustDesk");
 const showMoreButton = document.querySelector("#showMoreUpdates");
 const pulseLead = document.querySelector("#pulseLead");
 const pulseCards = document.querySelector("#pulseCards");
 const regionPanel = document.querySelector("#regionPanel");
 const directoryGrid = document.querySelector("#directoryGrid");
+const profileGrid = document.querySelector("#profileGrid");
 const workshopGrid = document.querySelector("#workshopGrid");
+const regionalPageGrid = document.querySelector("#regionalPageGrid");
+const eventCalendar = document.querySelector("#eventCalendar");
 const nearMeForm = document.querySelector("#nearMeForm");
 const roleSelect = document.querySelector("#roleSelect");
 const nearRegionSelect = document.querySelector("#nearRegionSelect");
@@ -477,12 +523,50 @@ function readLocalJson(key, fallback) {
   }
 }
 
+async function fetchLocalJson(path, fallback) {
+  try {
+    const response = await fetch(path, { cache: "no-cache" });
+    if (!response.ok) throw new Error(`${path} unavailable`);
+    return await response.json();
+  } catch {
+    return fallback;
+  }
+}
+
 function restoreHashScroll() {
   if (!window.location.hash) return;
   const targetId = decodeURIComponent(window.location.hash.slice(1));
   const target = document.getElementById(targetId);
   if (!target) return;
   requestAnimationFrame(() => target.scrollIntoView({ block: "start" }));
+}
+
+function syncRegionPages(nextRegions = []) {
+  if (!nextRegions.length) return;
+
+  regionalPages = nextRegions;
+  const nextRegionMap = { ...regions };
+  for (const region of nextRegions) {
+    nextRegionMap[region.id] = {
+      label: region.shortName || region.name,
+      metric: region.status || "Regional brief",
+      focus: region.headline || region.summary,
+      bullets: region.focusAreas?.length ? region.focusAreas : region.partnerAsks || [],
+      slug: region.slug,
+      summary: region.summary,
+      nextWin: region.nextWin,
+    };
+  }
+  regions = nextRegionMap;
+}
+
+function getRegionUrl(regionKey) {
+  const region = regionalPages.find((item) => item.id === regionKey);
+  return region?.slug ? `/regions/${region.slug}/` : "/#regions";
+}
+
+function getToolkitUrl(toolkit) {
+  return toolkit?.id ? `/toolkits/${encodeURIComponent(toolkit.id)}/` : "/#toolkits";
 }
 
 function getBalancedUpdates(items) {
@@ -547,12 +631,17 @@ function renderUpdates() {
       (update) => {
         const shareUrl = getSignalUrl(update);
         const shareText = buildShareText(update);
+        const regionKey = normalizeRegion(update.region);
+        const trustLabel = update.reviewStatus || (update.kind === "curated" ? "Curated source" : "Needs editor pass");
+        const confidence = update.confidence || (update.kind === "curated" ? "high" : "review");
         return `
         <article class="update-card" data-category="${escapeHtml(update.category)}">
           <div class="update-meta">
             <span>${escapeHtml(update.region || "Kentucky")}</span>
             <span>${escapeHtml(update.category)}</span>
             ${update.publishedAt ? `<span>${escapeHtml(update.publishedAt.slice(0, 10))}</span>` : ""}
+            <span>${escapeHtml(trustLabel)}</span>
+            <span>${escapeHtml(confidence)} confidence</span>
           </div>
           <h3>
             ${
@@ -562,12 +651,21 @@ function renderUpdates() {
             }
           </h3>
           <p>${escapeHtml(update.body)}</p>
+          ${
+            update.kentuckyConnection
+              ? `<p class="people-line">Kentucky connection: ${escapeHtml(update.kentuckyConnection)}</p>`
+              : ""
+          }
           ${update.people?.length ? `<p class="people-line">People: ${escapeHtml(update.people.join(", "))}</p>` : ""}
           ${update.source ? `<p class="source-line">Source: ${escapeHtml(update.source)}</p>` : ""}
           <div class="card-actions">
             <a class="button neutral small-button" href="${escapeHtml(shareUrl)}">
               <span data-lucide="external-link" aria-hidden="true"></span>
               Signal page
+            </a>
+            <a class="button neutral small-button" href="${escapeHtml(getRegionUrl(regionKey))}">
+              <span data-lucide="map-pin" aria-hidden="true"></span>
+              Region brief
             </a>
             <button class="button neutral small-button" data-copy="${escapeHtml(`${shareText} ${shareUrl}`)}" type="button">
               <span data-lucide="copy" aria-hidden="true"></span>
@@ -604,6 +702,9 @@ function renderIntelligence(feed) {
   intelUpdatedAt.textContent = formatDate(feed.updatedAt);
   intelItemsCount.textContent = String(feed.items?.length || 0);
   intelSources.textContent = String(feed.sources?.length || 0);
+  if (regionPagesCount) {
+    regionPagesCount.textContent = `${regionalPages.length || 6} regions`;
+  }
 
   digestPreview.innerHTML = getBalancedUpdates(feed.items || [])
     .slice(0, 5)
@@ -616,11 +717,26 @@ function renderIntelligence(feed) {
       `,
     )
     .join("");
+
+  const items = feed.items || [];
+  const reviewed = items.filter((item) => item.reviewStatus || item.kind === "curated").length;
+  const sourceLinked = items.filter((item) => item.url).length;
+  const needsReview = Math.max(items.length - reviewed, 0);
+  trustDesk.innerHTML = `
+    <p class="kicker">Trust desk</p>
+    <dl>
+      <div><dt>Source linked</dt><dd>${sourceLinked}/${items.length || 0}</dd></div>
+      <div><dt>Reviewed or curated</dt><dd>${reviewed}</dd></div>
+      <div><dt>Needs editor pass</dt><dd>${needsReview}</dd></div>
+    </dl>
+    <a href="${escapeHtml(buildIssueUrl("signal.yml", "[Correction]: KYAI signal correction"))}">Submit a correction</a>
+  `;
 }
 
 function renderRegion(regionKey = "statewide") {
   const region = regions[regionKey] || regions.statewide;
   activeRegion = regionKey;
+  const regionPage = regionalPages.find((item) => item.id === regionKey);
 
   regionButtons.forEach((button) => {
     button.classList.toggle("is-active", button.dataset.region === regionKey);
@@ -637,6 +753,14 @@ function renderRegion(regionKey = "statewide") {
     <ul>
       ${region.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
     </ul>
+    ${
+      regionPage
+        ? `<a class="button primary small-button" href="${escapeHtml(getRegionUrl(regionKey))}">
+            <span data-lucide="arrow-up-right" aria-hidden="true"></span>
+            Open regional page
+          </a>`
+        : ""
+    }
   `;
 
   visibleUpdateCount = 6;
@@ -669,6 +793,16 @@ function renderNearMe() {
   const role = rolePlaybooks[roleKey] || rolePlaybooks.business;
   const regionLabel = place || getRegionLabel(regionKey);
   const matches = getRoleMatches(roleKey, regionKey);
+  const eventMatches = publicEvents
+    .filter((event) => regionKey === "statewide" || normalizeRegion(event.region) === regionKey || normalizeRegion(event.region) === "statewide")
+    .slice(0, 2);
+  const profileMatches = publicProfiles
+    .filter((profile) => regionKey === "statewide" || normalizeRegion(profile.region) === regionKey || normalizeRegion(profile.region) === "statewide")
+    .slice(0, 2);
+  const toolkitMatches = toolkits
+    .filter((toolkit) => role.priorities.some((priority) => `${toolkit.title} ${toolkit.useCase || toolkit.detail}`.toLowerCase().includes(priority.toLowerCase().split(" ")[0])))
+    .slice(0, 2);
+  const fallbackToolkits = toolkitMatches.length ? toolkitMatches : toolkits.slice(0, 2);
 
   nearMePanel.innerHTML = `
     <p class="kicker">${escapeHtml(role.label)} lens</p>
@@ -681,10 +815,18 @@ function renderNearMe() {
       <span data-lucide="send" aria-hidden="true"></span>
       ${escapeHtml(role.nextStep)}
     </a>
+    ${
+      regionKey !== "statewide"
+        ? `<a class="button secondary" href="${escapeHtml(getRegionUrl(regionKey))}">
+            <span data-lucide="map-pin" aria-hidden="true"></span>
+            Open ${escapeHtml(getRegionLabel(regionKey))} page
+          </a>`
+        : ""
+    }
   `;
 
-  nearMeCards.innerHTML = matches
-    .map(
+  nearMeCards.innerHTML = [
+    ...matches.map(
       (item) => `
         <article class="near-me-card">
           <span>${escapeHtml(item.region || "Kentucky")} / ${escapeHtml(item.category)}</span>
@@ -693,7 +835,38 @@ function renderNearMe() {
           <a href="${escapeHtml(getSignalUrl(item))}">Open signal</a>
         </article>
       `,
-    )
+    ),
+    ...eventMatches.map(
+      (event) => `
+        <article class="near-me-card">
+          <span>${escapeHtml(event.region)} / ${escapeHtml(event.type || "Event")}</span>
+          <h3>${escapeHtml(event.title)}</h3>
+          <p>${escapeHtml(event.date)} ${event.time ? `/ ${escapeHtml(event.time)}` : ""} - ${escapeHtml(event.whyItMatters)}</p>
+          <a href="${escapeHtml(event.sourceUrl || "#events")}">Open event</a>
+        </article>
+      `,
+    ),
+    ...profileMatches.map(
+      (profile) => `
+        <article class="near-me-card">
+          <span>${escapeHtml(profile.region)} / ${escapeHtml(profile.type)}</span>
+          <h3>${escapeHtml(profile.name)}</h3>
+          <p>${escapeHtml(profile.reason)}</p>
+          <a href="${escapeHtml(profile.sourceUrl || "#network")}">Open profile</a>
+        </article>
+      `,
+    ),
+    ...fallbackToolkits.map(
+      (toolkit) => `
+        <article class="near-me-card">
+          <span>${escapeHtml(toolkit.status || "Toolkit")} / ${escapeHtml(toolkit.audience)}</span>
+          <h3>${escapeHtml(toolkit.title)}</h3>
+          <p>${escapeHtml(toolkit.useCase || toolkit.detail)}</p>
+          <a href="${escapeHtml(getToolkitUrl(toolkit))}">${escapeHtml(toolkit.downloadLabel || "Open toolkit")}</a>
+        </article>
+      `,
+    ),
+  ]
     .join("");
 }
 
@@ -794,8 +967,98 @@ function renderShareKit() {
     .join("");
 }
 
+function renderRegionalPages() {
+  if (!regionalPageGrid) return;
+
+  regionalPageGrid.innerHTML = regionalPages
+    .map((region) => {
+      const regionKey = region.id;
+      const signalCount = updates.filter((item) => normalizeRegion(item.region) === regionKey).length;
+      const eventCount = publicEvents.filter((event) => normalizeRegion(event.region) === regionKey).length;
+      const profileCount = publicProfiles.filter((profile) => normalizeRegion(profile.region) === regionKey).length;
+      return `
+        <article class="regional-page-card">
+          <div class="mission-meta">
+            <span>${escapeHtml(region.status || "Regional brief")}</span>
+            <span>${signalCount} signals</span>
+            <span>${eventCount} events</span>
+            <span>${profileCount} profiles</span>
+          </div>
+          <h3>${escapeHtml(region.name)}</h3>
+          <p>${escapeHtml(region.headline || region.summary)}</p>
+          <strong>${escapeHtml(region.nextWin || "Claim a local win and keep the page current.")}</strong>
+          <div class="regional-focus-list">
+            ${(region.focusAreas || []).slice(0, 4).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
+          </div>
+          <div class="card-actions">
+            <a class="button primary small-button" href="${escapeHtml(getRegionUrl(regionKey))}">
+              <span data-lucide="arrow-up-right" aria-hidden="true"></span>
+              Open page
+            </a>
+            <a class="button neutral small-button" href="${escapeHtml(
+              buildIssueUrl(
+                "signal.yml",
+                `[${region.shortName || region.name}]: local AI signal`,
+                `Region: ${region.name}\n\nWhat happened?\n\nWhy it matters:`,
+              ),
+            )}">
+              <span data-lucide="send" aria-hidden="true"></span>
+              Add signal
+            </a>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function renderEventCalendar() {
+  if (!eventCalendar) return;
+
+  eventCalendar.innerHTML = publicEvents
+    .map(
+      (event) => `
+        <article class="event-card">
+          <div class="event-date">
+            <strong>${escapeHtml(event.date)}</strong>
+            <span>${escapeHtml(event.time || event.type || "Event")}</span>
+          </div>
+          <div>
+            <div class="mission-meta">
+              <span>${escapeHtml(event.region || "Kentucky")}</span>
+              <span>${escapeHtml(event.status || "Submitted")}</span>
+              <span>${escapeHtml(event.type || "Event")}</span>
+            </div>
+            <h3>${escapeHtml(event.title)}</h3>
+            <p>${escapeHtml(event.whyItMatters || event.location || "")}</p>
+            <div class="event-foot">
+              <span>${escapeHtml(event.host || "Open host")}</span>
+              <span>${escapeHtml(event.location || "Kentucky")}</span>
+            </div>
+          </div>
+          <a class="button neutral small-button" href="${escapeHtml(event.sourceUrl || "#lead-form")}">
+            <span data-lucide="calendar-plus" aria-hidden="true"></span>
+            Open
+          </a>
+        </article>
+      `,
+    )
+    .join("");
+}
+
 function renderDirectory() {
-  directoryGrid.innerHTML = directoryItems
+  const profileBackedItems = publicProfiles.map((profile) => ({
+    type: profile.type,
+    name: profile.name,
+    region: profile.region,
+    detail: profile.reason,
+    icon: profile.type?.toLowerCase().includes("workshop") ? "presentation" : "users-round",
+    status: profile.claimStatus,
+    action: "Claim or correct",
+    sourceUrl: profile.sourceUrl,
+  }));
+
+  directoryGrid.innerHTML = [...directoryItems, ...profileBackedItems.slice(0, 4)]
     .map(
       (item) => `
         <article class="directory-card">
@@ -808,17 +1071,52 @@ function renderDirectory() {
           <div class="profile-status">
             <strong>${escapeHtml(item.status)}</strong>
             <a href="${escapeHtml(
-              buildIssueUrl(
-                "profile.yml",
-                `[Profile]: ${item.name}`,
-                `Profile: ${item.name}\nType: ${item.type}\nRegion: ${item.region}\nContext: ${item.detail}`,
-              ),
+              item.sourceUrl ||
+                buildIssueUrl(
+                  "profile.yml",
+                  `[Profile]: ${item.name}`,
+                  `Profile: ${item.name}\nType: ${item.type}\nRegion: ${item.region}\nContext: ${item.detail}`,
+                ),
             )}">${escapeHtml(item.action)}</a>
           </div>
         </article>
       `,
     )
     .join("");
+
+  if (profileGrid) {
+    profileGrid.innerHTML = publicProfiles
+      .map(
+        (profile) => `
+          <article class="profile-card">
+            <div class="mission-meta">
+              <span>${escapeHtml(profile.region || "Kentucky")}</span>
+              <span>${escapeHtml(profile.type || "Profile")}</span>
+              <span>${escapeHtml(profile.claimStatus || "Open profile")}</span>
+            </div>
+            <h3>${escapeHtml(profile.name)}</h3>
+            <p>${escapeHtml(profile.reason)}</p>
+            <div class="card-actions">
+              <a class="button neutral small-button" href="${escapeHtml(profile.sourceUrl || "#network")}">
+                <span data-lucide="external-link" aria-hidden="true"></span>
+                Source
+              </a>
+              <a class="button neutral small-button" href="${escapeHtml(
+                buildIssueUrl(
+                  "profile.yml",
+                  `[Profile]: ${profile.name}`,
+                  `Profile: ${profile.name}\nType: ${profile.type}\nRegion: ${profile.region}\nCorrection or context:`,
+                ),
+              )}">
+                <span data-lucide="badge-check" aria-hidden="true"></span>
+                Correct
+              </a>
+            </div>
+          </article>
+        `,
+      )
+      .join("");
+  }
 }
 
 function renderWorkshops() {
@@ -844,9 +1142,21 @@ function renderToolkits() {
           <span data-lucide="${escapeHtml(toolkit.icon)}" aria-hidden="true"></span>
           <p>${escapeHtml(toolkit.status)} / ${escapeHtml(toolkit.audience)}</p>
           <h3>${escapeHtml(toolkit.title)}</h3>
-          <strong>${escapeHtml(toolkit.detail)}</strong>
+          <strong>${escapeHtml(toolkit.useCase || toolkit.detail)}</strong>
+          ${
+            toolkit.sections?.length
+              ? `<div class="toolkit-section-list">${toolkit.sections
+                  .slice(0, 4)
+                  .map((section) => `<span>${escapeHtml(section)}</span>`)
+                  .join("")}</div>`
+              : ""
+          }
           <div class="card-actions">
-            <button class="button neutral small-button" data-copy="${escapeHtml(`${toolkit.title}: ${toolkit.detail} https://kyai-flax.vercel.app/#toolkits`)}" type="button">
+            <a class="button primary small-button" href="${escapeHtml(getToolkitUrl(toolkit))}">
+              <span data-lucide="file-text" aria-hidden="true"></span>
+              ${escapeHtml(toolkit.downloadLabel || "Open toolkit")}
+            </a>
+            <button class="button neutral small-button" data-copy="${escapeHtml(`${toolkit.title}: ${toolkit.useCase || toolkit.detail} ${getSiteUrl(getToolkitUrl(toolkit))}`)}" type="button">
               <span data-lucide="copy" aria-hidden="true"></span>
               Copy
             </button>
@@ -854,7 +1164,7 @@ function renderToolkits() {
               buildIssueUrl(
                 "toolkit.yml",
                 `[Toolkit]: ${toolkit.title}`,
-                `Toolkit: ${toolkit.title}\nAudience: ${toolkit.audience}\nUse case: ${toolkit.detail}`,
+                `Toolkit: ${toolkit.title}\nAudience: ${toolkit.audience}\nUse case: ${toolkit.useCase || toolkit.detail}`,
               ),
             )}">
               <span data-lucide="send" aria-hidden="true"></span>
@@ -978,6 +1288,28 @@ function renderContributorOs() {
   iconize();
 }
 
+async function loadProductData() {
+  const [regionData, profileData, eventData, toolkitData] = await Promise.all([
+    fetchLocalJson("./data/regions.json", { regions: regionalPages }),
+    fetchLocalJson("./data/profiles.json", { profiles: publicProfiles }),
+    fetchLocalJson("./data/events.json", { events: publicEvents }),
+    fetchLocalJson("./data/toolkits.json", { toolkits }),
+  ]);
+
+  syncRegionPages(regionData.regions || []);
+  publicProfiles = profileData.profiles || publicProfiles;
+  publicEvents = eventData.events || publicEvents;
+  toolkits = toolkitData.toolkits || toolkits;
+
+  renderRegionalPages();
+  renderEventCalendar();
+  renderDirectory();
+  renderToolkits();
+  renderNearMe();
+  renderLeaderboard();
+  iconize();
+}
+
 async function loadContributorOs() {
   try {
     const response = await fetch("./data/contributor-os.json", { cache: "no-cache" });
@@ -1004,6 +1336,8 @@ async function loadIntelligence() {
     renderNearMe();
     renderLeaderboard();
     renderShareKit();
+    renderRegionalPages();
+    renderEventCalendar();
   } catch {
     const fallbackFeed = {
       updatedAt: null,
@@ -1016,6 +1350,8 @@ async function loadIntelligence() {
     renderNearMe();
     renderLeaderboard();
     renderShareKit();
+    renderRegionalPages();
+    renderEventCalendar();
   }
   iconize();
   restoreHashScroll();
@@ -1250,6 +1586,7 @@ newsletterForm.addEventListener("submit", async (event) => {
     email,
     name: String(formData.get("name") || "").trim(),
     region: formData.get("region"),
+    role: formData.get("role"),
     interests: interests.length ? interests : ["weekly-pulse"],
     createdAt: new Date().toISOString(),
     source: "kyai-newsletter",
@@ -1305,11 +1642,13 @@ joinForm.addEventListener("submit", (event) => {
 
 contributorRoleSelect.addEventListener("change", renderContributorMatch);
 
-renderDirectory();
-renderWorkshops();
-renderToolkits();
-renderThreads();
-renderNewsletterCount();
-loadContributorOs();
-loadIntelligence();
-iconize();
+async function init() {
+  renderWorkshops();
+  renderThreads();
+  renderNewsletterCount();
+  await loadProductData();
+  await Promise.all([loadContributorOs(), loadIntelligence()]);
+  iconize();
+}
+
+init();

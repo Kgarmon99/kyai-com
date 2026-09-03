@@ -195,6 +195,36 @@ function openAlexId(id) {
   return String(id).replace("https://openalex.org/", "");
 }
 
+const openAlexRegionById = new Map(
+  sources.openAlexInstitutions.map((institution) => [openAlexId(institution.id), institution.region]),
+);
+
+function getKentuckyInstitutionNames(work) {
+  const kentuckyIds = new Set(sources.openAlexInstitutions.map((institution) => openAlexId(institution.id)));
+  return [
+    ...new Set(
+      (work.authorships || [])
+        .flatMap((authorship) => authorship.institutions || [])
+        .filter((institution) => kentuckyIds.has(openAlexId(institution.id)))
+        .map((institution) => institution.display_name)
+        .filter(Boolean),
+    ),
+  ];
+}
+
+function inferOpenAlexRegion(work) {
+  const matchedRegions = [
+    ...new Set(
+      (work.authorships || [])
+        .flatMap((authorship) => authorship.institutions || [])
+        .map((institution) => openAlexRegionById.get(openAlexId(institution.id)))
+        .filter(Boolean),
+    ),
+  ];
+
+  return matchedRegions[0] || inferRegion(getInstitutionNames(work).join(" "), "Kentucky research");
+}
+
 function getAuthorNames(work) {
   const kentuckyIds = new Set(sources.openAlexInstitutions.map((institution) => openAlexId(institution.id)));
   return (work.authorships || [])
@@ -239,6 +269,7 @@ async function getOpenAlexItems() {
         if (!title) continue;
 
         const institutions = getInstitutionNames(work);
+        const kentuckyInstitutions = getKentuckyInstitutionNames(work);
         const authors = getAuthorNames(work);
         const source = work.primary_location?.source?.display_name || work.host_venue?.display_name || "OpenAlex";
         const link = work.doi || work.primary_location?.landing_page_url || work.id;
@@ -248,15 +279,18 @@ async function getOpenAlexItems() {
         items.push({
           id: stableId(link || title),
           category: "research",
-          region: inferRegion(text, institutions[0] || "Kentucky research"),
+          region: inferOpenAlexRegion(work),
           title,
-          body: `Research signal connected to ${institutions.join(", ") || "a Kentucky institution"}.`,
+          body: `Research signal connected to ${kentuckyInstitutions.join(", ") || "a Kentucky institution"}.`,
           source,
           sourceUrl: work.primary_location?.source?.homepage_url || null,
           url: link,
           publishedAt: work.publication_date ? new Date(`${work.publication_date}T12:00:00Z`).toISOString() : null,
           lane: "Kentucky research",
           kind: "research",
+          reviewStatus: "Automated research match",
+          confidence: kentuckyInstitutions.length ? "medium" : "needs review",
+          kentuckyConnection: kentuckyInstitutions.join(", ") || "Matched through configured Kentucky institution filters",
           people: authors,
           institutions,
         });

@@ -30,8 +30,10 @@
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#pulse">Pulse</a>
         <a href="#near-me">AI near me</a>
+        <a href="#regions">Regions</a>
         <a href="#tracker">Map</a>
         <a href="#intelligence">Intelligence</a>
+        <a href="#events">Events</a>
         <a href="#share">Share</a>
         <a href="#newsletter">Updates</a>
         <a href="#network">Network</a>
@@ -68,6 +70,10 @@
               <span>Regional alerts</span>
             </div>
             <div class="hero-actions">
+              <a class="button primary" href="#near-me">
+                <span data-lucide="crosshair" aria-hidden="true"></span>
+                Find my AI brief
+              </a>
               <a class="button primary" href="#newsletter">
                 <span data-lucide="mail-plus" aria-hidden="true"></span>
                 Get updates
@@ -115,7 +121,7 @@
           </div>
           <div>
             <dt>Coverage</dt>
-            <dd>Statewide</dd>
+            <dd id="regionPagesCount">Statewide</dd>
           </div>
         </dl>
       </section>
@@ -187,6 +193,20 @@
           <div class="near-me-panel" id="nearMePanel" aria-live="polite"></div>
           <div class="near-me-cards" id="nearMeCards" aria-label="Personalized Kentucky AI recommendations"></div>
         </div>
+      </section>
+
+      <section class="section regional-pages-section" id="regions" aria-labelledby="regions-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Regional pages</p>
+            <h2 id="regions-title">Every Kentucky region gets its own decision brief.</h2>
+          </div>
+          <a class="button neutral" href="#lead-form">
+            <span data-lucide="map-pin-plus" aria-hidden="true"></span>
+            Add local context
+          </a>
+        </div>
+        <div class="regional-page-grid" id="regionalPageGrid"></div>
       </section>
 
       <section class="section tracker-section" id="tracker" aria-labelledby="tracker-title">
@@ -285,12 +305,27 @@
             <p class="kicker">Daily brief</p>
             <h3>Morning digest preview</h3>
             <div id="digestPreview"></div>
+            <div class="trust-desk" id="trustDesk" aria-label="KYAI source trust status"></div>
             <button class="button neutral show-more-button" id="showMoreUpdates" type="button">
               <span data-lucide="list-plus" aria-hidden="true"></span>
               Show more updates
             </button>
           </aside>
         </div>
+      </section>
+
+      <section class="section events-section" id="events" aria-labelledby="events-title">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Kentucky AI calendar</p>
+            <h2 id="events-title">Events, workshops, public meetings, and rooms to watch.</h2>
+          </div>
+          <a class="button neutral" href="#lead-form">
+            <span data-lucide="calendar-plus" aria-hidden="true"></span>
+            Submit an event
+          </a>
+        </div>
+        <div class="event-calendar" id="eventCalendar"></div>
       </section>
 
       <section class="section share-section" id="share" aria-labelledby="share-title">
@@ -376,12 +411,25 @@
                 <option>South Central Kentucky</option>
               </select>
             </label>
+            <label>
+              I am tracking AI as a
+              <select name="role" required>
+                <option value="business">Business owner</option>
+                <option value="teacher">Teacher or school leader</option>
+                <option value="student">Student</option>
+                <option value="founder">Founder or builder</option>
+                <option value="civic">Public leader</option>
+                <option value="journalist">Journalist or researcher</option>
+              </select>
+            </label>
             <fieldset>
               <legend>Send me</legend>
               <label><input type="checkbox" name="interest" value="weekly-pulse" checked /> Weekly pulse</label>
               <label><input type="checkbox" name="interest" value="events" /> Events</label>
               <label><input type="checkbox" name="interest" value="research" /> Research</label>
               <label><input type="checkbox" name="interest" value="workshops" /> Workshops</label>
+              <label><input type="checkbox" name="interest" value="policy" /> Policy</label>
+              <label><input type="checkbox" name="interest" value="industry" /> Industry</label>
             </fieldset>
             <button class="button primary form-button" type="submit">
               <span data-lucide="mail-check" aria-hidden="true"></span>
@@ -404,6 +452,7 @@
           </a>
         </div>
         <div class="directory-grid" id="directoryGrid"></div>
+        <div class="profile-grid" id="profileGrid"></div>
       </section>
 
       <section class="section workshop-section" id="workshops" aria-labelledby="workshops-title">
