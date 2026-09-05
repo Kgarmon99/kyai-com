@@ -615,6 +615,72 @@
             <p class="form-status" id="threadStatus" role="status"></p>
           </form>
 
+          <form class="lead-form" id="apiSubmissionForm">
+            <h3>Submit to the KYAI desk</h3>
+            <label>
+              Type
+              <select name="type" required>
+                <option value="signal">Signal</option>
+                <option value="event">Event</option>
+                <option value="profile">Profile</option>
+                <option value="toolkit">Toolkit</option>
+              </select>
+            </label>
+            <label>
+              Title
+              <input name="title" maxlength="140" required />
+            </label>
+            <label>
+              Body / summary
+              <textarea name="body" maxlength="420" rows="3" required></textarea>
+            </label>
+            <label>
+              Category
+              <select name="category">
+                <option value="news">News</option>
+                <option value="education">Education</option>
+                <option value="workforce">Workforce</option>
+                <option value="research">Research</option>
+                <option value="industry">Industry</option>
+                <option value="policy">Policy</option>
+                <option value="events">Events</option>
+              </select>
+            </label>
+            <label>
+              Region
+              <select name="region">
+                <option value="Statewide">Statewide</option>
+                <option value="Louisville / North Central">Louisville / North Central</option>
+                <option value="Lexington / Bluegrass">Lexington / Bluegrass</option>
+                <option value="Western Kentucky">Western Kentucky</option>
+                <option value="Eastern Kentucky / Appalachia">Eastern Kentucky / Appalachia</option>
+                <option value="Northern Kentucky">Northern Kentucky</option>
+                <option value="South Central Kentucky">South Central Kentucky</option>
+              </select>
+            </label>
+            <label>
+              Source name
+              <input name="sourceName" maxlength="80" />
+            </label>
+            <label>
+              Source URL
+              <input name="sourceUrl" type="url" />
+            </label>
+            <label>
+              Why it matters
+              <textarea name="whyItMatters" maxlength="240" rows="2"></textarea>
+            </label>
+            <label>
+              Kentucky connection
+              <input name="kentuckyConnection" maxlength="120" />
+            </label>
+            <button class="button primary form-button" type="submit">
+              <span data-lucide="send" aria-hidden="true"></span>
+              Submit to KYAI review
+            </button>
+            <p class="form-status" role="status"></p>
+          </form>
+
           <form class="join-form" id="joinForm">
             <h3 id="join">Partner or request a workshop</h3>
             <label>
@@ -665,5 +731,6 @@
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="./app.js?v=contributor-os-20260902"></script>
+    <script type="module" src="./api-client.js?v=intel-platform-20260904"></script>
   </body>
 </html>

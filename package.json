@@ -1,18 +1,25 @@
 {
   "name": "kyai-com",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
     "build:vercel": "node scripts/build.mjs",
+    "db:init": "node scripts/db-init.mjs",
+    "db:seed": "node scripts/db-seed.mjs",
+    "admin:create": "node scripts/create-admin.mjs",
     "digest:intel": "node scripts/format-digest.mjs",
     "newsletter:send": "node scripts/send-weekly-newsletter.mjs",
     "refresh:intel": "node scripts/refresh-intelligence.mjs",
     "validate:collab": "node scripts/validate-collaboration.mjs",
     "vercel-build": "node scripts/build.mjs",
-    "test": "node scripts/validate-collaboration.mjs && node scripts/smoke-test.mjs && node scripts/test-newsletter-api.mjs"
+    "test": "node scripts/validate-collaboration.mjs && node scripts/smoke-test.mjs && node scripts/test-newsletter-api.mjs && node scripts/test-api.mjs",
+    "test:api": "node scripts/test-api.mjs"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@vercel/postgres": "^0.10.0",
+    "better-sqlite3": "^13.0.3"
+  },
   "devDependencies": {}
 }

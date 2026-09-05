@@ -31,6 +31,11 @@ const requiredFiles = [
   "dist/client/signals/kyai-urv8ur/index.html",
   "dist/client/regions/louisville/index.html",
   "dist/client/toolkits/school-ai-policy-starter-kit/index.html",
+  "dist/client/feed/signals.json",
+  "dist/client/feed/events.json",
+  "dist/client/feed/profiles.json",
+  "dist/client/feed/toolkits.json",
+  "dist/client/feed/regions.json",
 ];
 
 for (const file of requiredFiles) {

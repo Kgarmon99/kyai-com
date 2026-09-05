@@ -26,7 +26,7 @@ jobs:
       - name: Refresh Kentucky AI feed
         run: npm run refresh:intel
         env:
-          KYAI_ENABLE_GDELT: "0"
+          KYAI_ENABLE_GDELT: "1"
 
       - name: Build
         run: npm run build

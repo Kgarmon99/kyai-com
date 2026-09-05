@@ -3,6 +3,21 @@ import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } fr
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+const { initSchema, seedFromStaticData, query, isConnected } = await import("../lib/db.mjs").catch(() => ({
+  initSchema: null,
+  seedFromStaticData: null,
+  query: null,
+  isConnected: () => false,
+}));
+
+const { rowToSignal, rowToEvent, rowToProfile, rowToToolkit, rowToRegion } = await import("../lib/api-utils.mjs").catch(() => ({
+  rowToSignal: (r) => r,
+  rowToEvent: (r) => r,
+  rowToProfile: (r) => r,
+  rowToToolkit: (r) => r,
+  rowToRegion: (r) => r,
+}));
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const client = path.join(root, "dist", "client");
 const SITE_URL = "https://kyai-flax.vercel.app";
@@ -345,4 +360,58 @@ for (const toolkit of toolkits) {
   writeFileSync(path.join(pageDir, "index.html"), toolkitPage(toolkit));
 }
 
-console.log("Built static client files, signal pages, regional pages, and toolkit pages into dist/client");
+async function buildFeeds() {
+  const feedDir = path.join(client, "feed");
+  mkdirSync(feedDir, { recursive: true });
+
+  let dbAvailable = false;
+  try {
+    if (isConnected && isConnected()) {
+      await initSchema();
+      await seedFromStaticData();
+      dbAvailable = true;
+    }
+  } catch (error) {
+    console.log("Database unavailable for feed build; falling back to static JSON.", error.message);
+  }
+
+  const feeds = {
+    signals: { items: [] },
+    events: { items: [] },
+    profiles: { items: [] },
+    toolkits: { items: [] },
+    regions: { items: [] },
+  };
+
+  if (dbAvailable) {
+    const [signalRows, eventRows, profileRows, toolkitRows, regionRows] = await Promise.all([
+      query("SELECT * FROM signals ORDER BY published_at DESC LIMIT 200", []),
+      query("SELECT * FROM events ORDER BY date DESC LIMIT 200", []),
+      query("SELECT * FROM profiles ORDER BY updated_at DESC LIMIT 200", []),
+      query("SELECT * FROM toolkits ORDER BY updated_at DESC LIMIT 200", []),
+      query("SELECT * FROM regions ORDER BY name", []),
+    ]);
+    feeds.signals.items = signalRows.map(rowToSignal);
+    feeds.events.items = eventRows.map(rowToEvent);
+    feeds.profiles.items = profileRows.map(rowToProfile);
+    feeds.toolkits.items = toolkitRows.map(rowToToolkit);
+    feeds.regions.items = regionRows.map(rowToRegion);
+  } else {
+    feeds.signals.items = feed.items || [];
+    feeds.events.items = events;
+    feeds.profiles.items = profiles;
+    feeds.toolkits.items = toolkits;
+    feeds.regions.items = regions;
+  }
+
+  for (const [type, data] of Object.entries(feeds)) {
+    writeFileSync(
+      path.join(feedDir, `${type}.json`),
+      JSON.stringify({ generatedAt: new Date().toISOString(), type, total: data.items.length, items: data.items }, null, 2),
+    );
+  }
+}
+
+await buildFeeds();
+
+console.log("Built static client files, signal pages, regional pages, toolkit pages, and JSON feeds into dist/client");
