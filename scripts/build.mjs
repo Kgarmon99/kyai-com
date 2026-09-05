@@ -414,4 +414,8 @@ async function buildFeeds() {
 
 await buildFeeds();
 
+const reviewDir = path.join(client, "review");
+mkdirSync(reviewDir, { recursive: true });
+cpSync(path.join(root, "review.html"), path.join(reviewDir, "index.html"));
+
 console.log("Built static client files, signal pages, regional pages, toolkit pages, and JSON feeds into dist/client");
