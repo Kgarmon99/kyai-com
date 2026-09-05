@@ -80,6 +80,16 @@ export async function fetchSubmissions(apiKey, filters = {}) {
   });
 }
 
+export async function fetchSubscribers(apiKey, filters = {}) {
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(filters)) {
+    if (value) params.set(key, value);
+  }
+  return kyaiFetch(`/subscribers?${params.toString()}`, {
+    headers: { "X-KYAI-API-Key": apiKey },
+  });
+}
+
 export async function reviewSubmission(type, id, action, apiKey, notes = "") {
   const body = {};
   if (notes) body.reviewerNotes = notes;

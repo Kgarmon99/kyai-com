@@ -98,6 +98,7 @@ async function main() {
   const submit = (await import("../api/v1/submit.js")).default;
   const review = (await import("../api/v1/review/[type]/[id]/[action].js")).default;
   const personalized = (await import("../api/v1/personalized.js")).default;
+  const subscribersList = (await import("../api/v1/subscribers.js")).default;
   const feed = (await import("../api/v1/feed/[type].js")).default;
   const ingest = (await import("../api/v1/ingest.js")).default;
 
@@ -215,6 +216,19 @@ async function main() {
     }));
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.items.every((item) => item.status === "pending"), "only pending");
+  });
+
+  await test("GET /api/v1/subscribers requires authentication and returns subscribers", async () => {
+    const unauth = await runHandler(subscribersList, createRequest({ url: "/api/v1/subscribers" }));
+    assert(unauth.response.statusCode === 401, `unauth status ${unauth.response.statusCode}`);
+
+    const { response, json } = await runHandler(subscribersList, createRequest({
+      url: "/api/v1/subscribers",
+      headers: { "x-kyai-api-key": apiKey },
+    }));
+    assert(response.statusCode === 200, `status ${response.statusCode}`);
+    assert(json.ok === true, "ok flag");
+    assert(Array.isArray(json.subscribers), "subscribers array");
   });
 
   await test("GET /api/v1/personalized returns a tailored brief", async () => {

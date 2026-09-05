@@ -1,0 +1,35 @@
+{
+  "updatedAt": "2026-09-05T18:38:10.002Z",
+  "subscribers": [
+    {
+      "id": "kyai-sub-kahlil",
+      "email": "kahlil@getmoneybot.com",
+      "name": "Kahlil Garmon",
+      "region": "Louisville / North Central",
+      "role": "business",
+      "interests": [
+        "weekly-pulse",
+        "events",
+        "research",
+        "policy"
+      ],
+      "source": "kyai-newsletter",
+      "createdAt": "2026-09-05T18:34:17.595Z",
+      "welcomeSent": true
+    },
+    {
+      "id": "kyai-sub-mtoq75n1-5xcw",
+      "email": "test@example.com",
+      "name": "Kentucky Builder",
+      "region": "Lexington / Bluegrass",
+      "role": "founder",
+      "interests": [
+        "weekly-pulse",
+        "events"
+      ],
+      "source": "kyai-newsletter",
+      "createdAt": "2026-09-05T18:38:09.997Z",
+      "welcomeSent": false
+    }
+  ]
+}

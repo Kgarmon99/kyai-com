@@ -252,6 +252,7 @@
             <div class="review-tabs" role="tablist" aria-label="Review views">
               <button id="tabPending" role="tab" aria-selected="true" aria-controls="panelPending">Pending</button>
               <button id="tabApproved" role="tab" aria-selected="false" aria-controls="panelApproved">Approved</button>
+              <button id="tabSubscribers" role="tab" aria-selected="false" aria-controls="panelSubscribers">Subscribers</button>
             </div>
 
             <div id="panelPending" role="tabpanel" aria-labelledby="tabPending">
@@ -310,6 +311,27 @@
                 </div>
               </div>
             </div>
+
+            <div id="panelSubscribers" role="tabpanel" aria-labelledby="tabSubscribers" hidden>
+              <div class="review-toolbar">
+                <label>
+                  Region
+                  <input type="text" id="subscriberRegionFilter" placeholder="Filter by region" />
+                </label>
+                <label>
+                  Role
+                  <input type="text" id="subscriberRoleFilter" placeholder="Filter by role" />
+                </label>
+                <button class="button secondary" id="refreshSubscribers">Refresh</button>
+                <button class="button primary" id="exportSubscribersCsv">Export CSV</button>
+              </div>
+              <div class="submission-list" id="subscriberList">
+                <div class="empty-state">
+                  <strong>Loading subscribers…</strong>
+                  Save an API key above to view newsletter subscribers.
+                </div>
+              </div>
+            </div>
           </article>
         </div>
       </section>
@@ -331,6 +353,7 @@
         fetchEvents,
         fetchProfiles,
         fetchToolkits,
+        fetchSubscribers,
       } from "./api-client.js?v=intel-platform-20260904";
 
       const $ = (selector) => document.querySelector(selector);
@@ -395,8 +418,8 @@
       });
 
       // Tabs
-      const tabs = [$("#tabPending"), $("#tabApproved")];
-      const panels = [$("#panelPending"), $("#panelApproved")];
+      const tabs = [$("#tabPending"), $("#tabApproved"), $("#tabSubscribers")];
+      const panels = [$("#panelPending"), $("#panelApproved"), $("#panelSubscribers")];
 
       tabs.forEach((tab, index) => {
         tab.addEventListener("click", () => {
@@ -405,6 +428,7 @@
             panels[i].hidden = i !== index;
           });
           if (index === 1 && approvedList.children.length <= 1) loadApproved();
+          if (index === 2 && $("#subscriberList").children.length <= 1) loadSubscribers();
         });
       });
 
@@ -598,6 +622,115 @@
           timeout = setTimeout(fn, wait);
         };
       }
+
+      // Subscribers
+      const subscriberList = $("#subscriberList");
+      const subscriberRegionFilter = $("#subscriberRegionFilter");
+      const subscriberRoleFilter = $("#subscriberRoleFilter");
+      let loadedSubscribersData = [];
+
+      async function loadSubscribers() {
+        if (!apiKey) {
+          subscriberList.innerHTML = `
+            <div class="empty-state">
+              <strong>API key required</strong>
+              Save an admin or editor key above to view newsletter subscribers.
+            </div>`;
+          return;
+        }
+
+        subscriberList.innerHTML = `
+          <div class="empty-state">
+            <strong>Loading newsletter subscribers…</strong>
+          </div>`;
+
+        const filters = {};
+        if (subscriberRegionFilter.value.trim()) filters.region = subscriberRegionFilter.value.trim();
+        if (subscriberRoleFilter.value.trim()) filters.role = subscriberRoleFilter.value.trim();
+
+        const result = await fetchSubscribers(apiKey, filters);
+        if (!result.ok || !result.data?.ok) {
+          subscriberList.innerHTML = `
+            <div class="empty-state">
+              <strong>Could not load subscribers</strong>
+              ${escapeHtml(result.data?.error || `HTTP ${result.status}`)}
+            </div>`;
+          return;
+        }
+
+        loadedSubscribersData = result.data.subscribers || [];
+        if (!loadedSubscribersData.length) {
+          subscriberList.innerHTML = `
+            <div class="empty-state">
+              <strong>No subscribers found</strong>
+              No subscribers match the current filter.
+            </div>`;
+          return;
+        }
+
+        subscriberList.innerHTML = loadedSubscribersData.map((s) => renderSubscriberCard(s)).join("");
+      }
+
+      function renderSubscriberCard(s) {
+        const name = s.name || "Subscriber";
+        const email = s.email || "—";
+        const region = s.region || "Statewide";
+        const role = s.role || "General";
+        const interests = Array.isArray(s.interests) ? s.interests.join(", ") : s.interests || "—";
+
+        return `
+          <article class="submission-card">
+            <div class="meta">
+              <span>${escapeHtml(region)}</span>
+              <span>${escapeHtml(role)}</span>
+              <span>Welcome sent: ${s.welcomeSent ? "Yes" : "Pending"}</span>
+            </div>
+            <h3>${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</h3>
+            <p>Interests: ${escapeHtml(interests)}</p>
+            <dl>
+              <div><dt>Email</dt><dd><a href="mailto:${escapeHtml(email)}" style="color:var(--signal);">${escapeHtml(email)}</a></dd></div>
+              <div><dt>Region</dt><dd>${escapeHtml(region)}</dd></div>
+              <div><dt>Role</dt><dd>${escapeHtml(role)}</dd></div>
+              <div><dt>Signed Up</dt><dd>${escapeHtml(formatDate(s.createdAt))}</dd></div>
+            </dl>
+          </article>
+        `;
+      }
+
+      $("#refreshSubscribers").addEventListener("click", loadSubscribers);
+      subscriberRegionFilter.addEventListener("input", debounce(loadSubscribers, 300));
+      subscriberRoleFilter.addEventListener("input", debounce(loadSubscribers, 300));
+
+      $("#exportSubscribersCsv").addEventListener("click", () => {
+        if (!loadedSubscribersData.length) {
+          setStatus("No subscribers to export.", true);
+          return;
+        }
+        const headers = ["ID", "Email", "Name", "Region", "Role", "Interests", "Source", "CreatedAt"];
+        const rows = loadedSubscribersData.map((s) => [
+          s.id,
+          s.email,
+          s.name || "",
+          s.region || "",
+          s.role || "",
+          Array.isArray(s.interests) ? s.interests.join(";") : s.interests || "",
+          s.source || "",
+          s.createdAt || "",
+        ]);
+        const csvContent = [
+          headers.join(","),
+          ...rows.map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(",")),
+        ].join("\n");
+
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `kyai-subscribers-${new Date().toISOString().slice(0, 10)}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+        setStatus(`Exported ${loadedSubscribersData.length} subscribers to CSV.`);
+      });
 
       // Initial load
       if (apiKey) loadPending();
