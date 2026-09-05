@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="KYAI review queue for editors and admins to approve, reject, or request changes on community submissions."
+    />
+    <meta name="theme-color" content="#123d68" />
+    <meta property="og:title" content="KYAI Review Queue" />
+    <meta
+      property="og:description"
+      content="KYAI review queue for editors and admins to approve, reject, or request changes on community submissions."
+    />
+    <meta property="og:image" content="./assets/kyai-hero.png" />
+    <title>KYAI Review Queue</title>
+    <link rel="icon" href="./assets/kyai-mark.svg?v=kentucky-20260902" />
+    <link rel="stylesheet" href="./styles.css?v=contributor-os-20260902" />
+    <style>
+      .review-section {
+        min-height: calc(100svh - 72px);
+        padding: 48px 56px 96px;
+        background:
+          linear-gradient(135deg, rgba(69, 220, 255, 0.08), transparent 28%, rgba(168, 85, 255, 0.09) 72%, transparent),
+          linear-gradient(180deg, #050712 0%, #090d1b 100%);
+        color: var(--ink);
+      }
+      .review-section h1 {
+        font-size: 3rem;
+      }
+      .review-layout {
+        display: grid;
+        gap: 28px;
+        max-width: 1160px;
+        margin: 0 auto;
+      }
+      .review-card {
+        border: 1px solid rgba(107, 142, 255, 0.22);
+        border-radius: 14px;
+        padding: 28px;
+        background:
+          linear-gradient(138deg, rgba(69, 220, 255, 0.1), rgba(168, 85, 255, 0.06) 48%, rgba(255, 255, 255, 0.035)),
+          rgba(11, 16, 32, 0.78);
+        box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(18px) saturate(1.2);
+      }
+      .review-card h2 {
+        font-size: 1.45rem;
+        margin-bottom: 18px;
+      }
+      .review-tabs {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 4px;
+      }
+      .review-tabs button {
+        min-height: 40px;
+        padding: 0 16px;
+        border: 1px solid rgba(70, 216, 255, 0.32);
+        border-radius: 6px;
+        background: rgba(255, 253, 247, 0.08);
+        color: var(--ink);
+        font-weight: 800;
+        cursor: pointer;
+        transition: background 180ms ease, border-color 180ms ease;
+      }
+      .review-tabs button[aria-selected="true"] {
+        background: var(--goldenrod);
+        border-color: var(--goldenrod);
+        color: #171717;
+      }
+      .review-toolbar {
+        display: flex;
+        gap: 12px;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+      }
+      .review-toolbar label {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        color: var(--muted);
+        font-size: 0.85rem;
+        font-weight: 750;
+        min-width: 160px;
+      }
+      .review-toolbar select,
+      .review-toolbar input {
+        margin-top: 0;
+      }
+      .submission-list {
+        display: grid;
+        gap: 18px;
+      }
+      .submission-card {
+        border: 1px solid rgba(107, 142, 255, 0.18);
+        border-radius: 10px;
+        padding: 20px;
+        background: rgba(3, 5, 14, 0.42);
+      }
+      .submission-card .meta {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+      .submission-card .meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(69, 220, 255, 0.1);
+        color: var(--signal);
+        font-size: 0.76rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+      .submission-card h3 {
+        margin-bottom: 8px;
+        color: var(--coal);
+      }
+      .submission-card p {
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+      .submission-card dl {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 8px 18px;
+        margin: 0 0 14px;
+      }
+      .submission-card dt {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      .submission-card dd {
+        margin: 0;
+        color: var(--ink);
+      }
+      .submission-card textarea {
+        min-height: 80px;
+        margin-bottom: 12px;
+      }
+      .submission-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .submission-actions .button {
+        min-height: 38px;
+        padding: 0 14px;
+        font-size: 0.88rem;
+      }
+      .submission-actions .approve {
+        background: var(--mint);
+        color: #052a1f;
+      }
+      .submission-actions .reject {
+        background: var(--cardinal);
+        color: #fff;
+      }
+      .submission-actions .request {
+        background: var(--goldenrod);
+        color: #3d2b00;
+      }
+      .empty-state {
+        padding: 36px 20px;
+        text-align: center;
+        color: var(--muted);
+      }
+      .empty-state strong {
+        display: block;
+        color: var(--coal);
+        margin-bottom: 8px;
+      }
+      .auth-row {
+        display: flex;
+        gap: 12px;
+        align-items: flex-end;
+        flex-wrap: wrap;
+      }
+      .auth-row label {
+        flex: 1 1 280px;
+      }
+      .auth-row input {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+      @media (max-width: 720px) {
+        .review-section {
+          padding: 32px 24px 64px;
+        }
+        .review-section h1 {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="KYAI home">
+        <img src="./assets/kyai-mark.svg?v=kentucky-20260902" alt="" />
+        <span>
+          KYAI
+          <small>AI for Kentucky</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="./index.html#pulse">Pulse</a>
+        <a href="./index.html#near-me">AI near me</a>
+        <a href="./index.html#regions">Regions</a>
+        <a href="./index.html#events">Events</a>
+        <a href="./review.html" aria-current="page">Review</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="review-section" aria-labelledby="review-title">
+        <div class="review-layout">
+          <div>
+            <p class="kicker">Editor queue</p>
+            <h1 id="review-title">KYAI Review Queue</h1>
+            <p class="form-status" id="pageStatus"></p>
+          </div>
+
+          <article class="review-card">
+            <h2>Authentication</h2>
+            <p style="color: var(--muted); margin-bottom: 14px;">
+              Enter your admin or editor API key to load pending submissions and perform review actions.
+              The key is stored only in memory.
+            </p>
+            <div class="auth-row">
+              <label>
+                API key
+                <input
+                  type="password"
+                  id="apiKey"
+                  placeholder="kyai_..."
+                  autocomplete="off"
+                />
+              </label>
+              <button class="button primary" id="saveKey">Save key</button>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-tabs" role="tablist" aria-label="Review views">
+              <button id="tabPending" role="tab" aria-selected="true" aria-controls="panelPending">Pending</button>
+              <button id="tabApproved" role="tab" aria-selected="false" aria-controls="panelApproved">Approved</button>
+            </div>
+
+            <div id="panelPending" role="tabpanel" aria-labelledby="tabPending">
+              <div class="review-toolbar">
+                <label>
+                  Type
+                  <select id="pendingType">
+                    <option value="">All types</option>
+                    <option value="signal">Signal</option>
+                    <option value="event">Event</option>
+                    <option value="profile">Profile</option>
+                    <option value="toolkit">Toolkit</option>
+                  </select>
+                </label>
+                <label>
+                  Status
+                  <select id="pendingStatus">
+                    <option value="pending">Pending</option>
+                    <option value="changes_requested">Changes requested</option>
+                    <option value="rejected">Rejected</option>
+                    <option value="approved">Approved</option>
+                    <option value="">All statuses</option>
+                  </select>
+                </label>
+                <button class="button secondary" id="refreshPending">Refresh</button>
+              </div>
+              <div class="submission-list" id="pendingList">
+                <div class="empty-state">
+                  <strong>Loading submissions…</strong>
+                  Save an API key above to view the queue.
+                </div>
+              </div>
+            </div>
+
+            <div id="panelApproved" role="tabpanel" aria-labelledby="tabApproved" hidden>
+              <div class="review-toolbar">
+                <label>
+                  Resource
+                  <select id="approvedType">
+                    <option value="signals">Signals</option>
+                    <option value="events">Events</option>
+                    <option value="profiles">Profiles</option>
+                    <option value="toolkits">Toolkits</option>
+                  </select>
+                </label>
+                <label>
+                  Region / filter
+                  <input type="text" id="approvedFilter" placeholder="Optional region or keyword" />
+                </label>
+                <button class="button secondary" id="refreshApproved">Refresh</button>
+              </div>
+              <div class="submission-list" id="approvedList">
+                <div class="empty-state">
+                  <strong>Loading approved items…</strong>
+                  Choose a resource type to view published items.
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>KYAI</strong>
+        <span>Open AI intelligence and education for Kentucky.</span>
+      </div>
+      <a href="https://github.com/Kgarmon99/kyai-com">Open-source repo</a>
+    </footer>
+
+    <script type="module">
+      import {
+        fetchSubmissions,
+        reviewSubmission,
+        fetchSignals,
+        fetchEvents,
+        fetchProfiles,
+        fetchToolkits,
+      } from "./api-client.js?v=intel-platform-20260904";
+
+      const $ = (selector) => document.querySelector(selector);
+      const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+
+      const pageStatus = $("#pageStatus");
+      const apiKeyInput = $("#apiKey");
+      const saveKeyBtn = $("#saveKey");
+      const pendingList = $("#pendingList");
+      const approvedList = $("#approvedList");
+      const pendingType = $("#pendingType");
+      const pendingStatus = $("#pendingStatus");
+      const approvedType = $("#approvedType");
+      const approvedFilter = $("#approvedFilter");
+
+      let apiKey = sessionStorage.getItem("kyaiApiKey") || "";
+      if (apiKey) apiKeyInput.value = apiKey;
+
+      function setStatus(message, isError = false) {
+        pageStatus.textContent = message;
+        pageStatus.style.color = isError ? "var(--cardinal)" : "var(--bluegrass)";
+      }
+
+      function formatDate(value) {
+        if (!value) return "—";
+        try {
+          return new Date(value).toLocaleString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+          });
+        } catch {
+          return value;
+        }
+      }
+
+      function escapeHtml(value) {
+        return String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      saveKeyBtn.addEventListener("click", () => {
+        apiKey = apiKeyInput.value.trim();
+        if (apiKey) {
+          sessionStorage.setItem("kyaiApiKey", apiKey);
+          setStatus("API key saved for this session.");
+          loadPending();
+        } else {
+          sessionStorage.removeItem("kyaiApiKey");
+          setStatus("API key cleared.", true);
+        }
+      });
+
+      apiKeyInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") saveKeyBtn.click();
+      });
+
+      // Tabs
+      const tabs = [$("#tabPending"), $("#tabApproved")];
+      const panels = [$("#panelPending"), $("#panelApproved")];
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t, i) => {
+            t.setAttribute("aria-selected", String(i === index));
+            panels[i].hidden = i !== index;
+          });
+          if (index === 1 && approvedList.children.length <= 1) loadApproved();
+        });
+      });
+
+      // Pending submissions
+      async function loadPending() {
+        if (!apiKey) {
+          pendingList.innerHTML = `
+            <div class="empty-state">
+              <strong>API key required</strong>
+              Save an admin or editor key above to view pending submissions.
+            </div>`;
+          return;
+        }
+
+        pendingList.innerHTML = `
+          <div class="empty-state">
+            <strong>Loading submissions…</strong>
+          </div>`;
+
+        const filters = {};
+        if (pendingType.value) filters.type = pendingType.value;
+        if (pendingStatus.value) filters.status = pendingStatus.value;
+
+        const result = await fetchSubmissions(apiKey, filters);
+        if (!result.ok || !result.data?.ok) {
+          pendingList.innerHTML = `
+            <div class="empty-state">
+              <strong>Could not load submissions</strong>
+              ${escapeHtml(result.data?.error || `HTTP ${result.status}`)}
+            </div>`;
+          return;
+        }
+
+        const items = result.data.items || [];
+        if (!items.length) {
+          pendingList.innerHTML = `
+            <div class="empty-state">
+              <strong>No submissions found</strong>
+              There are no items matching the current filter.
+            </div>`;
+          return;
+        }
+
+        pendingList.innerHTML = items.map((item) => renderPendingCard(item)).join("");
+      }
+
+      function renderPendingCard(item) {
+        const payload = item.payload || {};
+        const title = payload.title || payload.name || "Untitled submission";
+        const body = payload.body || payload.useCase || payload.reason || payload.whyItMatters || "";
+        const region = payload.region || "—";
+        const source = payload.sourceName || payload.source || payload.host || "—";
+        const category = payload.category || payload.type || payload.audience || "—";
+
+        return `
+          <article class="submission-card" data-id="${escapeHtml(item.id)}" data-type="${escapeHtml(item.type)}">
+            <div class="meta">
+              <span>${escapeHtml(item.type)}</span>
+              <span>${escapeHtml(item.status)}</span>
+              <span>${escapeHtml(formatDate(item.createdAt))}</span>
+            </div>
+            <h3>${escapeHtml(title)}</h3>
+            <p>${escapeHtml(body)}</p>
+            <dl>
+              <div><dt>Region</dt><dd>${escapeHtml(region)}</dd></div>
+              <div><dt>Category / type</dt><dd>${escapeHtml(category)}</dd></div>
+              <div><dt>Source</dt><dd>${escapeHtml(source)}</dd></div>
+              <div><dt>Submission ID</dt><dd>${escapeHtml(item.id)}</dd></div>
+            </dl>
+            <label style="color: var(--muted); font-size: 0.85rem; font-weight: 750;">Reviewer notes</label>
+            <textarea
+              class="reviewer-notes"
+              placeholder="Add notes before taking action (optional)."
+            >${escapeHtml(item.reviewerNotes || "")}</textarea>
+            <div class="submission-actions">
+              <button class="button approve" data-action="approve">Approve</button>
+              <button class="button request" data-action="request_changes">Request changes</button>
+              <button class="button reject" data-action="reject">Reject</button>
+            </div>
+          </article>
+        `;
+      }
+
+      pendingList.addEventListener("click", async (event) => {
+        const button = event.target.closest("button[data-action]");
+        if (!button) return;
+
+        const card = button.closest(".submission-card");
+        const id = card.dataset.id;
+        const type = card.dataset.type;
+        const action = button.dataset.action;
+        const notes = card.querySelector(".reviewer-notes").value.trim();
+
+        button.disabled = true;
+        button.textContent = "Working…";
+
+        const result = await reviewSubmission(type, id, action, apiKey, notes);
+        if (result.ok && result.data?.ok) {
+          setStatus(`${action} succeeded for ${type} ${id}.`);
+          card.style.opacity = "0.5";
+          setTimeout(() => loadPending(), 400);
+        } else {
+          setStatus(`Action failed: ${result.data?.error || `HTTP ${result.status}`}`, true);
+          button.disabled = false;
+          button.textContent = action === "approve" ? "Approve" : action === "reject" ? "Reject" : "Request changes";
+        }
+      });
+
+      $("#refreshPending").addEventListener("click", loadPending);
+      pendingType.addEventListener("change", loadPending);
+      pendingStatus.addEventListener("change", loadPending);
+
+      // Approved items
+      async function loadApproved() {
+        approvedList.innerHTML = `
+          <div class="empty-state">
+            <strong>Loading approved items…</strong>
+          </div>`;
+
+        const type = approvedType.value;
+        const filter = approvedFilter.value.trim().toLowerCase();
+        const fetchers = {
+          signals: fetchSignals,
+          events: fetchEvents,
+          profiles: fetchProfiles,
+          toolkits: fetchToolkits,
+        };
+
+        const result = await fetchers[type]({ limit: 50 });
+        if (!result.ok || !result.data?.ok) {
+          approvedList.innerHTML = `
+            <div class="empty-state">
+              <strong>Could not load approved items</strong>
+              ${escapeHtml(result.data?.error || `HTTP ${result.status}`)}
+            </div>`;
+          return;
+        }
+
+        let items = result.data.items || [];
+        if (filter) {
+          items = items.filter((item) =>
+            JSON.stringify(item).toLowerCase().includes(filter),
+          );
+        }
+
+        if (!items.length) {
+          approvedList.innerHTML = `
+            <div class="empty-state">
+              <strong>No approved items found</strong>
+              Try a different resource type or filter.
+            </div>`;
+          return;
+        }
+
+        approvedList.innerHTML = items.map((item) => renderApprovedCard(type, item)).join("");
+      }
+
+      function renderApprovedCard(type, item) {
+        const title = item.title || item.name || "Untitled";
+        const body = item.body || item.useCase || item.reason || item.whyItMatters || "";
+        const region = item.region || "—";
+        const category = item.category || item.type || item.audience || item.status || "—";
+        const updated = item.updatedAt || item.publishedAt || item.date || "—";
+
+        return `
+          <article class="submission-card">
+            <div class="meta">
+              <span>${escapeHtml(type.slice(0, -1))}</span>
+              <span>${escapeHtml(item.reviewStatus || item.status || "approved")}</span>
+            </div>
+            <h3>${escapeHtml(title)}</h3>
+            <p>${escapeHtml(body)}</p>
+            <dl>
+              <div><dt>Region</dt><dd>${escapeHtml(region)}</dd></div>
+              <div><dt>Category / type</dt><dd>${escapeHtml(category)}</dd></div>
+              <div><dt>Updated</dt><dd>${escapeHtml(formatDate(updated))}</dd></div>
+              <div><dt>ID</dt><dd>${escapeHtml(item.id)}</dd></div>
+            </dl>
+          </article>
+        `;
+      }
+
+      $("#refreshApproved").addEventListener("click", loadApproved);
+      approvedType.addEventListener("change", loadApproved);
+      approvedFilter.addEventListener("input", debounce(loadApproved, 300));
+
+      function debounce(fn, wait) {
+        let timeout;
+        return () => {
+          clearTimeout(timeout);
+          timeout = setTimeout(fn, wait);
+        };
+      }
+
+      // Initial load
+      if (apiKey) loadPending();
+    </script>
+  </body>
+</html>

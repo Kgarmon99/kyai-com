@@ -91,6 +91,7 @@ async function main() {
 
   const signalsList = (await import("../api/v1/signals.js")).default;
   const signalDetail = (await import("../api/v1/signals/[id].js")).default;
+  const submissionsList = (await import("../api/v1/submissions.js")).default;
   const eventsList = (await import("../api/v1/events.js")).default;
   const regionsList = (await import("../api/v1/regions.js")).default;
   const regionDetail = (await import("../api/v1/regions/[id].js")).default;
@@ -188,6 +189,32 @@ async function main() {
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.action === "approve", "approve action");
     assert(json.publishedId, "published id");
+  });
+
+  await test("GET /api/v1/submissions requires authentication", async () => {
+    const { response } = await runHandler(submissionsList, createRequest({ url: "/api/v1/submissions" }));
+    assert(response.statusCode === 401, `expected 401, got ${response.statusCode}`);
+  });
+
+  await test("GET /api/v1/submissions returns submissions for editors", async () => {
+    const { response, json } = await runHandler(submissionsList, createRequest({
+      url: "/api/v1/submissions",
+      headers: { "x-kyai-api-key": apiKey },
+    }));
+    assert(response.statusCode === 200, `status ${response.statusCode}`);
+    assert(json.ok === true, "ok flag");
+    assert(json.type === "submissions", "type");
+    assert(Array.isArray(json.items), "items array");
+    assert(json.items.some((item) => item.id === submissionId), "includes test submission");
+  });
+
+  await test("GET /api/v1/submissions filters by status", async () => {
+    const { response, json } = await runHandler(submissionsList, createRequest({
+      url: "/api/v1/submissions?status=pending",
+      headers: { "x-kyai-api-key": apiKey },
+    }));
+    assert(response.statusCode === 200, `status ${response.statusCode}`);
+    assert(json.items.every((item) => item.status === "pending"), "only pending");
   });
 
   await test("GET /api/v1/personalized returns a tailored brief", async () => {

@@ -70,6 +70,26 @@ export async function submitLead(type, payload, source = "kyai-site") {
   });
 }
 
+export async function fetchSubmissions(apiKey, filters = {}) {
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(filters)) {
+    if (value) params.set(key, value);
+  }
+  return kyaiFetch(`/submissions?${params.toString()}`, {
+    headers: { "X-KYAI-API-Key": apiKey },
+  });
+}
+
+export async function reviewSubmission(type, id, action, apiKey, notes = "") {
+  const body = {};
+  if (notes) body.reviewerNotes = notes;
+  return kyaiFetch(`/review/${encodeURIComponent(type)}/${encodeURIComponent(id)}/${encodeURIComponent(action)}`, {
+    method: "POST",
+    headers: { "X-KYAI-API-Key": apiKey },
+    body: JSON.stringify(body),
+  });
+}
+
 export async function fetchFeed(type) {
   return kyaiFetch(`/feed/${type}.json`);
 }

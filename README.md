@@ -58,6 +58,17 @@ For production, create a Vercel Postgres (Neon) database and set `DATABASE_URL` 
 
 For local development, set `DATABASE_URL=kyai.db` (or leave it unset to default to `kyai.db` in the repo root). The build and API routes will use `better-sqlite3`.
 
+### Review UI
+
+A lightweight review dashboard is available at `/review.html`. Editors and admins can:
+
+- Enter an API key (stored only in session memory) to authenticate.
+- View pending submissions filtered by type and status.
+- Approve, reject, or request changes with reviewer notes.
+- Browse approved public items across signals, events, profiles, and toolkits.
+
+The dashboard is static HTML/JS and calls the same `/api/v1/` endpoints used by the rest of the site.
+
 ### API routes
 
 The following serverless API routes are available under `/api/v1/`:
@@ -65,6 +76,7 @@ The following serverless API routes are available under `/api/v1/`:
 - `GET /api/v1/signals`, `/api/v1/events`, `/api/v1/profiles`, `/api/v1/toolkits`, `/api/v1/regions`
 - `GET /api/v1/signals/:id`, etc.
 - `POST /api/v1/submit`
+- `GET /api/v1/submissions` (requires `X-KYAI-API-Key`)
 - `POST /api/v1/review/:type/:id/:action`
 - `GET /api/v1/personalized`
 - `POST /api/v1/ingest`

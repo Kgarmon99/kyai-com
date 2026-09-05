@@ -25,7 +25,7 @@ const SITE_URL = "https://kyai-flax.vercel.app";
 rmSync(path.join(root, "dist"), { force: true, recursive: true });
 mkdirSync(client, { recursive: true });
 
-for (const entry of ["index.html", "styles.css", "app.js", "assets"]) {
+for (const entry of ["index.html", "review.html", "styles.css", "app.js", "api-client.js", "assets"]) {
   cpSync(path.join(root, entry), path.join(client, entry), { recursive: true });
 }
 
