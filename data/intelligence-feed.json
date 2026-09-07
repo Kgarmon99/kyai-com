@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-09-06T14:10:41.374Z",
+  "updatedAt": "2026-09-07T16:28:17.566Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 27,
+    "totalItems": 26,
     "newsItems": 0,
-    "researchItems": 17,
+    "researchItems": 16,
     "curatedItems": 10
   },
   "items": [
@@ -81,6 +81,82 @@
         "Z. R. M. Abdullah Kaiser"
       ],
       "institutions": [
+        "University of Louisville"
+      ]
+    },
+    {
+      "id": "kyai-g4hrah",
+      "category": "research",
+      "region": "South Central Kentucky",
+      "title": "CropFusionNet: an interpretable deep learning framework for uncertainty-aware crop yield forecasting across Germany",
+      "body": "Research signal connected to Western Kentucky University.",
+      "source": "Artificial Intelligence in Agriculture",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.aiia.2026.08.016",
+      "publishedAt": "2026-09-01T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Western Kentucky University",
+      "people": [
+        "Manmeet Singh"
+      ],
+      "institutions": [
+        "Leibniz Centre for Agricultural Landscape Research",
+        "University of Bonn",
+        "Wageningen University & Research",
+        "University of Potsdam"
+      ]
+    },
+    {
+      "id": "kyai-rvgvhd",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Hands-on Artificial Intelligence Education for Radiology Residents: A Three-year Feasibility and Curriculum Implementation Study",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Academic Radiology",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.acra.2026.08.095",
+      "publishedAt": "2026-09-01T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Jie Zhang",
+        "Gary Ge"
+      ],
+      "institutions": [
+        "University of Kentucky"
+      ]
+    },
+    {
+      "id": "kyai-i752ir",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Steatosis liver index: A validated machine learning model using clinical data distinguishes steatotic liver disease phenotypes",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Digestive and Liver Disease",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.dld.2026.08.009",
+      "publishedAt": "2026-09-01T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Wanyu Zhang",
+        "Vatsalya Vatsalya",
+        "Craig J McClain",
+        "Maiying Kong"
+      ],
+      "institutions": [
+        "Methodist Hospital",
+        "Methodist Dallas Medical Center",
+        "Northwell Health",
         "University of Louisville"
       ]
     },
@@ -181,33 +257,6 @@
       ]
     },
     {
-      "id": "kyai-w982kl",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Natural History of Fibrotic Interstitial Lung Disease using AI-driven Test-free Assessment of Routine EHR",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "medRxiv",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.64898/2026.08.19.26360827",
-      "publishedAt": "2026-08-22T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Dmytro Onishchenko",
-        "Anthony N. Gerber",
-        "Edward Cantu",
-        "Girish Nair"
-      ],
-      "institutions": [
-        "University of Kentucky",
-        "University of Massachusetts Chan Medical School",
-        "Pulmonary and Allergy Associates"
-      ]
-    },
-    {
       "id": "kyai-y9bxy5",
       "category": "research",
       "region": "Lexington / Bluegrass",
@@ -229,29 +278,6 @@
         "National Taiwan Normal University",
         "University of Kentucky",
         "National Chengchi University"
-      ]
-    },
-    {
-      "id": "kyai-if61cd",
-      "category": "research",
-      "region": "Western Kentucky",
-      "title": "Using Generative Artificial Intelligence to Advance Student Mastery of IEEE Format",
-      "body": "Research signal connected to Murray State University.",
-      "source": "OpenAlex",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.18260/1-2--61197",
-      "publishedAt": "2026-08-21T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Murray State University",
-      "people": [
-        "Yuejin Xu"
-      ],
-      "institutions": [
-        "Cleveland State University",
-        "Murray State University"
       ]
     },
     {
@@ -305,31 +331,6 @@
         "McLaren Regional Medical Center",
         "Indiana University Health",
         "Indiana University – Purdue University Indianapolis"
-      ]
-    },
-    {
-      "id": "kyai-w9w39d",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Explainable Clinician-Supervised Artificial Intelligence as an Implementation Framework for Cardiovascular–Kidney–Metabolic Population Health: Synthetic Data Validation of the CHAPERONE-CKM Framework",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "medRxiv",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.64898/2026.08.17.26360643",
-      "publishedAt": "2026-08-19T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "D. Kalra"
-      ],
-      "institutions": [
-        "DCN (United States)",
-        "George Washington University",
-        "American Heart Association",
-        "Dignity Health"
       ]
     },
     {
@@ -441,31 +442,6 @@
         "Kowsar Hospital",
         "Shahid Beheshti University of Medical Sciences",
         "University of Louisville"
-      ]
-    },
-    {
-      "id": "kyai-8dhkn1",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Deep Learning Methods for Detection of Stroke for Neuropathology: Lessons learned from In‑Vivo Imaging to Digital Pathology",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Journal of Clinical and Translational Science",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1017/cts.2026.10799",
-      "publishedAt": "2026-07-28T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Sen-ching S. Cheung"
-      ],
-      "institutions": [
-        "Motilal Nehru National Institute of Technology",
-        "University of California, Davis",
-        "Ronald Reagan UCLA Medical Center",
-        "University of California System"
       ]
     },
     {
