@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T15:07:39.786Z",
+  "updatedAt": "2026-09-10T15:00:00.521Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
     "totalItems": 26,
@@ -8,6 +8,32 @@
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-uxhad4",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Real-World Evidence and Machine Learning for Predictive Oncology and Clinical Decision Support: A Critical Narrative Review",
+      "body": "Research signal connected to University of Kentucky, Western Kentucky University.",
+      "source": "Archives of Current Research International",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.9734/acri/2026/v26i92156",
+      "publishedAt": "2026-09-08T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky, Western Kentucky University",
+      "people": [
+        "Nurudeen Gbadegesin",
+        "Andrew Oluwashijibomi Adegoju"
+      ],
+      "institutions": [
+        "Northeastern University",
+        "Saint Luke's Hospital",
+        "University of Kentucky",
+        "Western Kentucky University"
+      ]
+    },
     {
       "id": "kyai-t1z37e",
       "category": "research",
@@ -229,30 +255,6 @@
       ],
       "institutions": [
         "Islamic Azad University Medical Branch of Tehran",
-        "University of Louisville"
-      ]
-    },
-    {
-      "id": "kyai-8p5xco",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Machine Learning and Deep Learning for EEG-Based Dementia Prediction: A Comprehensive Survey",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "J — Multidisciplinary Scientific Journal",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3390/j9030025",
-      "publishedAt": "2026-08-24T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Long Nguyen"
-      ],
-      "institutions": [
-        "Bowie State University",
-        "Indiana University – Purdue University Indianapolis",
         "University of Louisville"
       ]
     },
