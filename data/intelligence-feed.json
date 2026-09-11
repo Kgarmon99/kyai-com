@@ -1,13 +1,85 @@
 {
-  "updatedAt": "2026-09-10T15:00:00.521Z",
+  "updatedAt": "2026-09-11T15:00:57.210Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 26,
+    "totalItems": 28,
     "newsItems": 0,
-    "researchItems": 16,
+    "researchItems": 18,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-x70e9b",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Application of Artificial Intelligence in Aquaculture, Processing, Safety, and Traceability in the Industry of Aquatic Products: A Review",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Foods",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3390/foods15183205",
+      "publishedAt": "2026-09-10T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Hongbing Fan"
+      ],
+      "institutions": [
+        "Xinjiang Production and Construction Corps",
+        "Tarim University",
+        "China National Center for Food Safety Risk Assessment",
+        "National Engineering Research Center for Information Technology in Agriculture"
+      ]
+    },
+    {
+      "id": "kyai-bu4tep",
+      "category": "research",
+      "region": "Frankfort / Bluegrass",
+      "title": "Designing singing syllabi with virtual avatars: AI-assisted syllabus reauthoring",
+      "body": "Research signal connected to Kentucky State University.",
+      "source": "Open Scholarship of Teaching and Learning",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.56230/osotl.176",
+      "publishedAt": "2026-09-10T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Kentucky State University",
+      "people": [
+        "X. Ben Wu"
+      ],
+      "institutions": [
+        "Kentucky State University"
+      ]
+    },
+    {
+      "id": "kyai-96k4bd",
+      "category": "research",
+      "region": "South Central Kentucky",
+      "title": "Generative Diffusion Outperforms Quantile Mapping for Climate Downscaling Across Scales",
+      "body": "Research signal connected to Western Kentucky University.",
+      "source": "Research Square",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.21203/rs.3.rs-10600756/v1",
+      "publishedAt": "2026-09-09T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Western Kentucky University",
+      "people": [
+        "Manmeet Singh"
+      ],
+      "institutions": [
+        "Leibniz Centre for Agricultural Landscape Research",
+        "Western Kentucky University",
+        "German Climate Computing Centre",
+        "Technical University of Munich"
+      ]
+    },
     {
       "id": "kyai-uxhad4",
       "category": "research",
@@ -187,28 +259,54 @@
       ]
     },
     {
-      "id": "kyai-3e92mj",
+      "id": "kyai-hl07k1",
       "category": "research",
       "region": "Lexington / Bluegrass",
-      "title": "Machine learning-integrated explainable artificial intelligence for survival prediction in urothelial carcinoma with enfortumab vedotin: an exploratory real-world analysis",
+      "title": "Trust in the Machine? Practitioner Perspectives on the Role of AI in Online Content Moderation",
       "body": "Research signal connected to University of Kentucky.",
-      "source": "Expert Opinion on Biological Therapy",
+      "source": "Policy & Internet",
       "sourceUrl": null,
-      "url": "https://doi.org/10.1080/14712598.2026.2727098",
-      "publishedAt": "2026-08-29T12:00:00.000Z",
+      "url": "https://doi.org/10.1002/poi3.70059",
+      "publishedAt": "2026-09-01T12:00:00.000Z",
       "lane": "Kentucky research",
       "kind": "research",
       "reviewStatus": "Automated research match",
       "confidence": "medium",
       "kentuckyConnection": "University of Kentucky",
       "people": [
-        "Zin W Myint"
+        "Megan Trafford",
+        "Paul Bleakley"
       ],
       "institutions": [
-        "Arabian Gulf University",
-        "Charles University",
-        "Arnold Ventures",
-        "Ochsner Medical Center"
+        "University of Edinburgh",
+        "University of New Haven",
+        "University of Kentucky",
+        "Grameen Foundation"
+      ]
+    },
+    {
+      "id": "kyai-tbff4n",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Will your AI turn backers away? Evidence from Kickstarter's AI-use disclosure policy",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Decision Support Systems",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.dss.2026.114773",
+      "publishedAt": "2026-09-01T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Sonika Singhal"
+      ],
+      "institutions": [
+        "University of Kentucky",
+        "Wake Forest University",
+        "Missouri University of Science and Technology",
+        "Virginia Commonwealth University"
       ]
     },
     {
@@ -233,29 +331,6 @@
         "Palo Alto Networks (United States)",
         "University of Kentucky",
         "Kyung Hee University"
-      ]
-    },
-    {
-      "id": "kyai-8herzc",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Diagnostic Accuracy of Artificial Intelligence Models for Detecting Odontogenic Keratocytes on CBCT Imaging: A Systematic Review and Meta‐Analysis",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Health Science Reports",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1002/hsr2.73086",
-      "publishedAt": "2026-08-26T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Simin Lesan"
-      ],
-      "institutions": [
-        "Islamic Azad University Medical Branch of Tehran",
-        "University of Louisville"
       ]
     },
     {
@@ -419,31 +494,6 @@
         "Bowling Green State University",
         "Beykent University",
         "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-urkkp4",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Multimodal chatbot triage for eyelid disorders shows high accuracy and net benefit",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Scientific Reports",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1038/s41598-026-62926-0",
-      "publishedAt": "2026-07-29T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Mohsen Bahmani Kashkouli"
-      ],
-      "institutions": [
-        "Iran University of Medical Sciences",
-        "Kowsar Hospital",
-        "Shahid Beheshti University of Medical Sciences",
-        "University of Louisville"
       ]
     },
     {
