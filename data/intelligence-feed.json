@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-12T14:07:39.943Z",
+  "updatedAt": "2026-09-13T14:56:37.076Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
     "totalItems": 28,
@@ -8,6 +8,31 @@
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-n03t2y",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Artificial Intelligence and Multimodal Data Approaches for Diagnosis, Prognosis, and Treatment Decision Support in Diffuse Large B-Cell Lymphoma and Acute Myeloid Leukaemia: A Systematic Review",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Journal of Advances in Medical and Pharmaceutical Sciences",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.9734/jamps/2026/v28i10893",
+      "publishedAt": "2026-09-12T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Nurudeen Gbadegesin"
+      ],
+      "institutions": [
+        "Northeastern University",
+        "Mayo Clinic",
+        "Mayo Clinic in Arizona",
+        "Mayo Clinic in Florida"
+      ]
+    },
     {
       "id": "kyai-x70e9b",
       "category": "research",
@@ -307,30 +332,6 @@
         "Wake Forest University",
         "Missouri University of Science and Technology",
         "Virginia Commonwealth University"
-      ]
-    },
-    {
-      "id": "kyai-4e9unw",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "TAFFAC: Threat assessment framework for frontier AI models for cybersecurity",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Computers & Electrical Engineering",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.compeleceng.2026.111472",
-      "publishedAt": "2026-08-29T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Sherali Zeadally"
-      ],
-      "institutions": [
-        "Palo Alto Networks (United States)",
-        "University of Kentucky",
-        "Kyung Hee University"
       ]
     },
     {
