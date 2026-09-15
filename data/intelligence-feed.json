@@ -1,13 +1,37 @@
 {
-  "updatedAt": "2026-09-14T16:58:38.563Z",
+  "updatedAt": "2026-09-15T15:34:45.442Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 28,
+    "totalItems": 29,
     "newsItems": 0,
-    "researchItems": 18,
+    "researchItems": 19,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-xb4f87",
+      "category": "research",
+      "region": "Frankfort / Bluegrass",
+      "title": "Differentiable Spatial Autocorrelation in End-to-End Deep Learning for Hedonic Agricultural Land Pricing",
+      "body": "Research signal connected to Kentucky State University.",
+      "source": "Land",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3390/land15091706",
+      "publishedAt": "2026-09-14T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Kentucky State University",
+      "people": [
+        "Sait Sarr"
+      ],
+      "institutions": [
+        "Florida Agricultural and Mechanical University",
+        "Tripura University",
+        "Kentucky State University"
+      ]
+    },
     {
       "id": "kyai-n03t2y",
       "category": "research",
@@ -132,6 +156,29 @@
       ]
     },
     {
+      "id": "kyai-jdfzv1",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Academ-AI: Documenting the Undisclosed Use of Generative Artificial Intelligence in Academic Publishing",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Lecture notes in networks and systems",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1007/978-3-032-32729-1_19",
+      "publishedAt": "2026-09-02T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Alex Glynn"
+      ],
+      "institutions": [
+        "University of Louisville",
+        "Stanford University"
+      ]
+    },
+    {
       "id": "kyai-t1z37e",
       "category": "research",
       "region": "Louisville / North Central",
@@ -253,34 +300,6 @@
       ],
       "institutions": [
         "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-i752ir",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Steatosis liver index: A validated machine learning model using clinical data distinguishes steatotic liver disease phenotypes",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Digestive and Liver Disease",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.dld.2026.08.009",
-      "publishedAt": "2026-09-01T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Wanyu Zhang",
-        "Vatsalya Vatsalya",
-        "Craig J McClain",
-        "Maiying Kong"
-      ],
-      "institutions": [
-        "Methodist Hospital",
-        "Methodist Dallas Medical Center",
-        "Northwell Health",
-        "University of Louisville"
       ]
     },
     {
