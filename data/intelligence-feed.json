@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-09-16T15:26:46.477Z",
+  "updatedAt": "2026-09-17T15:33:37.116Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 29,
+    "totalItems": 27,
     "newsItems": 0,
-    "researchItems": 19,
+    "researchItems": 17,
     "curatedItems": 10
   },
   "items": [
@@ -127,6 +127,31 @@
         "Western Kentucky University",
         "German Climate Computing Centre",
         "Technical University of Munich"
+      ]
+    },
+    {
+      "id": "kyai-tbff4n",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Will your AI turn backers away? Evidence from Kickstarter's AI-use disclosure policy",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Decision Support Systems",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.dss.2026.114773",
+      "publishedAt": "2026-09-09T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Sonika Singhal"
+      ],
+      "institutions": [
+        "University of Kentucky",
+        "Wake Forest University",
+        "Missouri University of Science and Technology",
+        "Virginia Commonwealth University"
       ]
     },
     {
@@ -280,29 +305,6 @@
       ]
     },
     {
-      "id": "kyai-rvgvhd",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Hands-on Artificial Intelligence Education for Radiology Residents: A Three-year Feasibility and Curriculum Implementation Study",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Academic Radiology",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.acra.2026.08.095",
-      "publishedAt": "2026-09-01T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Jie Zhang",
-        "Gary Ge"
-      ],
-      "institutions": [
-        "University of Kentucky"
-      ]
-    },
-    {
       "id": "kyai-hl07k1",
       "category": "research",
       "region": "Lexington / Bluegrass",
@@ -326,31 +328,6 @@
         "University of New Haven",
         "University of Kentucky",
         "Grameen Foundation"
-      ]
-    },
-    {
-      "id": "kyai-tbff4n",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Will your AI turn backers away? Evidence from Kickstarter's AI-use disclosure policy",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Decision Support Systems",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.dss.2026.114773",
-      "publishedAt": "2026-09-01T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Sonika Singhal"
-      ],
-      "institutions": [
-        "University of Kentucky",
-        "Wake Forest University",
-        "Missouri University of Science and Technology",
-        "Virginia Commonwealth University"
       ]
     },
     {
@@ -400,34 +377,6 @@
         "Higher Colleges of Technology",
         "Higher Education Academy",
         "Yanbu University College"
-      ]
-    },
-    {
-      "id": "kyai-7uzp6o",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Readability of AI-Generated Patient Visit Summaries in Orthopedic Surgery: Retrospective Analysis",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Journal of Medical Internet Research",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.2196/87283",
-      "publishedAt": "2026-08-20T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Edward L. Major",
-        "Juergen Goetz",
-        "Chaitu Malempati",
-        "Sameer Badarudeen"
-      ],
-      "institutions": [
-        "University of Kentucky",
-        "McLaren Regional Medical Center",
-        "Indiana University Health",
-        "Indiana University – Purdue University Indianapolis"
       ]
     },
     {
