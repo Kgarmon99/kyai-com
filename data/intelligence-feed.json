@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-09-20T14:43:03.552Z",
+  "updatedAt": "2026-09-21T17:03:33.189Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 28,
+    "totalItems": 25,
     "newsItems": 0,
-    "researchItems": 18,
+    "researchItems": 15,
     "curatedItems": 10
   },
   "items": [
@@ -201,83 +201,6 @@
         "Saint Luke's Hospital",
         "University of Kentucky",
         "Western Kentucky University"
-      ]
-    },
-    {
-      "id": "kyai-jdfzv1",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Academ-AI: Documenting the Undisclosed Use of Generative Artificial Intelligence in Academic Publishing",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Lecture notes in networks and systems",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1007/978-3-032-32729-1_19",
-      "publishedAt": "2026-09-02T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Alex Glynn"
-      ],
-      "institutions": [
-        "University of Louisville",
-        "Stanford University"
-      ]
-    },
-    {
-      "id": "kyai-t1z37e",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Predicting the need for syrinx shunting after posterior fossa decompression in Chiari I malformation: a real-world machine learning analysis",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Journal of Neurosurgery Spine",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3171/2026.6.spine26351",
-      "publishedAt": "2026-09-02T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Rahim Abo Kasem",
-        "Nicholas Dietz",
-        "Isaac Josh Abecassis",
-        "Redi Rahmani"
-      ],
-      "institutions": [
-        "University of Louisville",
-        "Johns Hopkins University",
-        "Johns Hopkins All Children's Hospital",
-        "Medical City Children's Hospital"
-      ]
-    },
-    {
-      "id": "kyai-t4c3jm",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Predictive Analytics and Machine Learning for Energy Forecasting and Load Optimisation in Hospital Systems: A Critical Narrative Review",
-      "body": "Research signal connected to University of Kentucky, Western Kentucky University.",
-      "source": "Journal of Scientific Research and Reports",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.9734/jsrr/2026/v32i94483",
-      "publishedAt": "2026-09-02T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky, Western Kentucky University",
-      "people": [
-        "Nurudeen Gbadegesin",
-        "Andrew Oluwashijibomi Adegoju"
-      ],
-      "institutions": [
-        "Northeastern University",
-        "Illinois State University",
-        "University of Akron",
-        "University of Kentucky"
       ]
     },
     {
