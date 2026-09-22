@@ -1,13 +1,37 @@
 {
-  "updatedAt": "2026-09-21T17:03:33.189Z",
+  "updatedAt": "2026-09-22T15:32:34.889Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 25,
+    "totalItems": 26,
     "newsItems": 0,
-    "researchItems": 15,
+    "researchItems": 16,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-3b0tl3",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Toward Continuous, Multimodal Perioperative Intelligence: Translating Artificial Intelligence from Risk Prediction to Clinical Practice",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Balkan Medical Journal",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.4274/balkanmedj.galenos.2026.2026.070926",
+      "publishedAt": "2026-09-21T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Ozan Akça"
+      ],
+      "institutions": [
+        "Johns Hopkins University",
+        "Johns Hopkins Medicine",
+        "University of Louisville"
+      ]
+    },
     {
       "id": "kyai-jl5pqw",
       "category": "research",
@@ -121,7 +145,7 @@
       "confidence": "medium",
       "kentuckyConnection": "Kentucky State University",
       "people": [
-        "X. Ben Wu"
+        "Xinyuan Ben Wu"
       ],
       "institutions": [
         "Kentucky State University"
@@ -326,6 +350,31 @@
       ]
     },
     {
+      "id": "kyai-jboxol",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Explainable 3D deep learning from full-head MRI suggests scalp and skull involvement in Alzheimer's disease",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "PubMed Central",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1177/13872877261478312",
+      "publishedAt": "2026-08-20T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Ramin Hamidi",
+        "Bryan Harris",
+        "Adel Elmaghraby",
+        "Robert P. Friedland"
+      ],
+      "institutions": [
+        "University of Louisville"
+      ]
+    },
+    {
       "id": "kyai-w3u2wk",
       "category": "research",
       "region": "Lexington / Bluegrass",
@@ -385,31 +434,6 @@
       "publishedAt": "2026-08-01T12:00:00.000Z",
       "kind": "curated",
       "lane": "Education and policy"
-    },
-    {
-      "id": "kyai-l3c8zp",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Multi-Backbone U-Net segmentation and interpretable hybrid deep learning classification for lung cancer detection in chest CT images",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "BMC Pulmonary Medicine",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1186/s12890-026-04526-2",
-      "publishedAt": "2026-08-01T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Nasibeh Asadi Isakan"
-      ],
-      "institutions": [
-        "Oakland University",
-        "Bowling Green State University",
-        "Beykent University",
-        "University of Kentucky"
-      ]
     },
     {
       "id": "kyai-tdntp1",
