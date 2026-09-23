@@ -1,13 +1,88 @@
 {
-  "updatedAt": "2026-09-22T15:32:34.889Z",
+  "updatedAt": "2026-09-23T15:28:24.956Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 26,
+    "totalItems": 29,
     "newsItems": 0,
-    "researchItems": 16,
+    "researchItems": 19,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-q5hmhl",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "A novel deep learning-based approach for liver segmentation from 3D CT images using probabilistic shape guidance",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Scientific Reports",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1038/s41598-026-71324-5",
+      "publishedAt": "2026-09-23T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Ahmed Sharafeldeen",
+        "Ali Mahmoud",
+        "Guruprasad A. Giridharan",
+        "Sohail Contractor"
+      ],
+      "institutions": [
+        "Mansoura University",
+        "University of Louisville",
+        "Zayed University",
+        "Abu Dhabi University"
+      ]
+    },
+    {
+      "id": "kyai-eu0m3l",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Jacques Ellul’s work as guiding theory for critical evaluation of AI in education",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Information and Learning Sciences",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1108/ils-02-2026-0044",
+      "publishedAt": "2026-09-22T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Spencer P. Greenhalgh"
+      ],
+      "institutions": [
+        "University of Kentucky"
+      ]
+    },
+    {
+      "id": "kyai-qpp1w6",
+      "category": "research",
+      "region": "Northern Kentucky",
+      "title": "Corporate Adaptation to Sustainability Uncertainty Through Artificial Intelligence: Textual Insights",
+      "body": "Research signal connected to Northern Kentucky University.",
+      "source": "Corporate Social Responsibility and Environmental Management",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1002/csr.70998",
+      "publishedAt": "2026-09-21T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Northern Kentucky University",
+      "people": [
+        "Young Sang Kim"
+      ],
+      "institutions": [
+        "Chulalongkorn University",
+        "Pennsylvania State University",
+        "Applied Research Laboratory at Penn State",
+        "Northern Kentucky University"
+      ]
+    },
     {
       "id": "kyai-3b0tl3",
       "category": "research",
@@ -125,8 +200,8 @@
       "institutions": [
         "Xinjiang Production and Construction Corps",
         "Tarim University",
-        "China National Center for Food Safety Risk Assessment",
-        "National Engineering Research Center for Information Technology in Agriculture"
+        "National Engineering Research Center for Information Technology in Agriculture",
+        "Beijing Technology and Business University"
       ]
     },
     {
@@ -296,8 +371,7 @@
       "institutions": [
         "University of Edinburgh",
         "University of New Haven",
-        "University of Kentucky",
-        "Grameen Foundation"
+        "University of Kentucky"
       ]
     },
     {
