@@ -1,112 +1,13 @@
 {
-  "updatedAt": "2026-09-23T15:28:24.956Z",
+  "updatedAt": "2026-09-24T15:51:37.004Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 29,
+    "totalItems": 23,
     "newsItems": 0,
-    "researchItems": 19,
+    "researchItems": 13,
     "curatedItems": 10
   },
   "items": [
-    {
-      "id": "kyai-q5hmhl",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "A novel deep learning-based approach for liver segmentation from 3D CT images using probabilistic shape guidance",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Scientific Reports",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1038/s41598-026-71324-5",
-      "publishedAt": "2026-09-23T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Ahmed Sharafeldeen",
-        "Ali Mahmoud",
-        "Guruprasad A. Giridharan",
-        "Sohail Contractor"
-      ],
-      "institutions": [
-        "Mansoura University",
-        "University of Louisville",
-        "Zayed University",
-        "Abu Dhabi University"
-      ]
-    },
-    {
-      "id": "kyai-eu0m3l",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Jacques Ellul’s work as guiding theory for critical evaluation of AI in education",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Information and Learning Sciences",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1108/ils-02-2026-0044",
-      "publishedAt": "2026-09-22T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Spencer P. Greenhalgh"
-      ],
-      "institutions": [
-        "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-qpp1w6",
-      "category": "research",
-      "region": "Northern Kentucky",
-      "title": "Corporate Adaptation to Sustainability Uncertainty Through Artificial Intelligence: Textual Insights",
-      "body": "Research signal connected to Northern Kentucky University.",
-      "source": "Corporate Social Responsibility and Environmental Management",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1002/csr.70998",
-      "publishedAt": "2026-09-21T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Northern Kentucky University",
-      "people": [
-        "Young Sang Kim"
-      ],
-      "institutions": [
-        "Chulalongkorn University",
-        "Pennsylvania State University",
-        "Applied Research Laboratory at Penn State",
-        "Northern Kentucky University"
-      ]
-    },
-    {
-      "id": "kyai-3b0tl3",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Toward Continuous, Multimodal Perioperative Intelligence: Translating Artificial Intelligence from Risk Prediction to Clinical Practice",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Balkan Medical Journal",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.4274/balkanmedj.galenos.2026.2026.070926",
-      "publishedAt": "2026-09-21T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Ozan Akça"
-      ],
-      "institutions": [
-        "Johns Hopkins University",
-        "Johns Hopkins Medicine",
-        "University of Louisville"
-      ]
-    },
     {
       "id": "kyai-jl5pqw",
       "category": "research",
@@ -128,55 +29,6 @@
       "institutions": [
         "Wright State University",
         "Northern Kentucky University"
-      ]
-    },
-    {
-      "id": "kyai-xb4f87",
-      "category": "research",
-      "region": "Frankfort / Bluegrass",
-      "title": "Differentiable Spatial Autocorrelation in End-to-End Deep Learning for Hedonic Agricultural Land Pricing",
-      "body": "Research signal connected to Kentucky State University.",
-      "source": "Land",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3390/land15091706",
-      "publishedAt": "2026-09-14T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Kentucky State University",
-      "people": [
-        "Sait Sarr"
-      ],
-      "institutions": [
-        "Florida Agricultural and Mechanical University",
-        "Tripura University",
-        "Kentucky State University"
-      ]
-    },
-    {
-      "id": "kyai-n03t2y",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Artificial Intelligence and Multimodal Data Approaches for Diagnosis, Prognosis, and Treatment Decision Support in Diffuse Large B-Cell Lymphoma and Acute Myeloid Leukaemia: A Systematic Review",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Journal of Advances in Medical and Pharmaceutical Sciences",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.9734/jamps/2026/v28i10893",
-      "publishedAt": "2026-09-12T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Nurudeen Gbadegesin"
-      ],
-      "institutions": [
-        "Northeastern University",
-        "Mayo Clinic",
-        "Mayo Clinic in Arizona",
-        "Mayo Clinic in Florida"
       ]
     },
     {
@@ -441,8 +293,8 @@
       "people": [
         "Ramin Hamidi",
         "Bryan Harris",
-        "Adel Elmaghraby",
-        "Robert P. Friedland"
+        "Adel Said Elmaghraby",
+        "Robert Paul Friedland"
       ],
       "institutions": [
         "University of Louisville"
