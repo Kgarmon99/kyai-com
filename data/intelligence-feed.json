@@ -1,13 +1,37 @@
 {
-  "updatedAt": "2026-09-25T15:50:10.953Z",
+  "updatedAt": "2026-09-26T14:59:54.610Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 30,
+    "totalItems": 31,
     "newsItems": 0,
-    "researchItems": 20,
+    "researchItems": 21,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-t1htoe",
+      "category": "research",
+      "region": "Northern Kentucky",
+      "title": "Cybersecurity and Privacy in AI-Enabled Agricultural IoT Ecosystems: A Systematic Review of Threats, Safeguards, and Resilience Gaps",
+      "body": "Research signal connected to Northern Kentucky University.",
+      "source": "Algorithms",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3390/a19100827",
+      "publishedAt": "2026-09-25T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Northern Kentucky University",
+      "people": [
+        "Anthony Tsetse"
+      ],
+      "institutions": [
+        "University of Cincinnati",
+        "Northern Kentucky University",
+        "Kwame Nkrumah University of Science and Technology"
+      ]
+    },
     {
       "id": "kyai-nmz1lv",
       "category": "research",
@@ -105,6 +129,31 @@
         "Pennsylvania State University",
         "Applied Research Laboratory at Penn State",
         "Northern Kentucky University"
+      ]
+    },
+    {
+      "id": "kyai-x690vn",
+      "category": "research",
+      "region": "Western Kentucky",
+      "title": "Enhancing missing persons identification through deep learning and GAN based face recognition",
+      "body": "Research signal connected to Murray State University.",
+      "source": "Array",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.array.2026.101255",
+      "publishedAt": "2026-09-21T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Murray State University",
+      "people": [
+        "Abdullatif Hussein"
+      ],
+      "institutions": [
+        "El Shorouk Academy",
+        "Murray State University",
+        "Cairo University",
+        "Helwan University"
       ]
     },
     {
@@ -298,32 +347,6 @@
         "Wake Forest University",
         "Missouri University of Science and Technology",
         "Virginia Commonwealth University"
-      ]
-    },
-    {
-      "id": "kyai-uxhad4",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Real-World Evidence and Machine Learning for Predictive Oncology and Clinical Decision Support: A Critical Narrative Review",
-      "body": "Research signal connected to University of Kentucky, Western Kentucky University.",
-      "source": "Archives of Current Research International",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.9734/acri/2026/v26i92156",
-      "publishedAt": "2026-09-08T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky, Western Kentucky University",
-      "people": [
-        "Nurudeen Gbadegesin",
-        "Andrew Oluwashijibomi Adegoju"
-      ],
-      "institutions": [
-        "Northeastern University",
-        "Saint Luke's Hospital",
-        "University of Kentucky",
-        "Western Kentucky University"
       ]
     },
     {
