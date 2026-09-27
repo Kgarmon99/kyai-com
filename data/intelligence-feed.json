@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-09-26T14:59:54.610Z",
+  "updatedAt": "2026-09-27T15:40:31.511Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 31,
+    "totalItems": 30,
     "newsItems": 0,
-    "researchItems": 21,
+    "researchItems": 20,
     "curatedItems": 10
   },
   "items": [
@@ -178,29 +178,6 @@
         "Johns Hopkins University",
         "Johns Hopkins Medicine",
         "University of Louisville"
-      ]
-    },
-    {
-      "id": "kyai-jl5pqw",
-      "category": "research",
-      "region": "Northern Kentucky",
-      "title": "Early Mpox Detection: Integrating Skin Lesion Imaging, Epidemiology, and Treatment for Deep Learning Approaches",
-      "body": "Research signal connected to Northern Kentucky University.",
-      "source": "Medicine Advances",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1002/med4.70086",
-      "publishedAt": "2026-09-19T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Northern Kentucky University",
-      "people": [
-        "Faiza Tasnim"
-      ],
-      "institutions": [
-        "Wright State University",
-        "Northern Kentucky University"
       ]
     },
     {
