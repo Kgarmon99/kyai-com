@@ -1,13 +1,38 @@
 {
-  "updatedAt": "2026-09-27T15:40:31.511Z",
+  "updatedAt": "2026-09-28T18:37:04.809Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 30,
+    "totalItems": 29,
     "newsItems": 0,
-    "researchItems": 20,
+    "researchItems": 19,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-5ii8ul",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Artificial intelligence in breast cancer research: a systematic review and bibliometric analysis of emerging trends and future directions",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Frontiers in Oncology",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3389/fonc.2026.1800218",
+      "publishedAt": "2026-09-28T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Yathreb Bayan Mohamed"
+      ],
+      "institutions": [
+        "University of Louisville",
+        "Mansoura University",
+        "Taibah University",
+        "Assiut University"
+      ]
+    },
     {
       "id": "kyai-t1htoe",
       "category": "research",
@@ -127,7 +152,6 @@
       "institutions": [
         "Chulalongkorn University",
         "Pennsylvania State University",
-        "Applied Research Laboratory at Penn State",
         "Northern Kentucky University"
       ]
     },
@@ -152,7 +176,7 @@
       "institutions": [
         "El Shorouk Academy",
         "Murray State University",
-        "Cairo University",
+        "October University of Modern Sciences and Arts",
         "Helwan University"
       ]
     },
@@ -176,8 +200,29 @@
       ],
       "institutions": [
         "Johns Hopkins University",
-        "Johns Hopkins Medicine",
         "University of Louisville"
+      ]
+    },
+    {
+      "id": "kyai-ixmdnv",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Hit selection using SSMD-based machine learning performance metrics in high-throughput screening assays",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "SLAS DISCOVERY",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.slasd.2026.100340",
+      "publishedAt": "2026-09-18T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Xiaohua Douglas Zhang"
+      ],
+      "institutions": [
+        "University of Kentucky"
       ]
     },
     {
@@ -200,33 +245,8 @@
       ],
       "institutions": [
         "Florida Agricultural and Mechanical University",
-        "Tripura University",
+        "Techno India University",
         "Kentucky State University"
-      ]
-    },
-    {
-      "id": "kyai-n03t2y",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Artificial Intelligence and Multimodal Data Approaches for Diagnosis, Prognosis, and Treatment Decision Support in Diffuse Large B-Cell Lymphoma and Acute Myeloid Leukaemia: A Systematic Review",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Journal of Advances in Medical and Pharmaceutical Sciences",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.9734/jamps/2026/v28i10893",
-      "publishedAt": "2026-09-12T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Nurudeen Gbadegesin"
-      ],
-      "institutions": [
-        "Northeastern University",
-        "Mayo Clinic",
-        "Mayo Clinic in Arizona",
-        "Mayo Clinic in Florida"
       ]
     },
     {
@@ -248,10 +268,10 @@
         "Hongbing Fan"
       ],
       "institutions": [
-        "Xinjiang Production and Construction Corps",
         "Tarim University",
-        "National Engineering Research Center for Information Technology in Agriculture",
-        "Beijing Technology and Business University"
+        "Beijing Academy of Agriculture and Forestry Sciences",
+        "Beijing Technology and Business University",
+        "University of Kentucky"
       ]
     },
     {
@@ -274,31 +294,6 @@
       ],
       "institutions": [
         "Kentucky State University"
-      ]
-    },
-    {
-      "id": "kyai-96k4bd",
-      "category": "research",
-      "region": "South Central Kentucky",
-      "title": "Generative Diffusion Outperforms Quantile Mapping for Climate Downscaling Across Scales",
-      "body": "Research signal connected to Western Kentucky University.",
-      "source": "Research Square",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.21203/rs.3.rs-10600756/v1",
-      "publishedAt": "2026-09-09T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Western Kentucky University",
-      "people": [
-        "Manmeet Singh"
-      ],
-      "institutions": [
-        "Leibniz Centre for Agricultural Landscape Research",
-        "Western Kentucky University",
-        "German Climate Computing Centre",
-        "Technical University of Munich"
       ]
     },
     {
@@ -374,31 +369,6 @@
       ]
     },
     {
-      "id": "kyai-hl07k1",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Trust in the Machine? Practitioner Perspectives on the Role of AI in Online Content Moderation",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Policy & Internet",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1002/poi3.70059",
-      "publishedAt": "2026-09-01T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Megan Trafford",
-        "Paul Bleakley"
-      ],
-      "institutions": [
-        "University of Edinburgh",
-        "University of New Haven",
-        "University of Kentucky"
-      ]
-    },
-    {
       "id": "kyai-y9bxy5",
       "category": "research",
       "region": "Lexington / Bluegrass",
@@ -442,9 +412,9 @@
       ],
       "institutions": [
         "Zayed University",
-        "Higher Colleges of Technology",
-        "Higher Education Academy",
-        "Yanbu University College"
+        "Taibah University",
+        "Menoufia University",
+        "University of Louisville"
       ]
     },
     {
@@ -453,7 +423,7 @@
       "region": "Louisville / North Central",
       "title": "Explainable 3D deep learning from full-head MRI suggests scalp and skull involvement in Alzheimer's disease",
       "body": "Research signal connected to University of Louisville.",
-      "source": "PubMed Central",
+      "source": "Journal of Alzheimer s Disease",
       "sourceUrl": null,
       "url": "https://doi.org/10.1177/13872877261478312",
       "publishedAt": "2026-08-20T12:00:00.000Z",
@@ -463,10 +433,10 @@
       "confidence": "medium",
       "kentuckyConnection": "University of Louisville",
       "people": [
+        "Mona Ebadi Jalal",
         "Ramin Hamidi",
         "Bryan Harris",
-        "Adel Said Elmaghraby",
-        "Robert Paul Friedland"
+        "Adel Said Elmaghraby"
       ],
       "institutions": [
         "University of Louisville"
