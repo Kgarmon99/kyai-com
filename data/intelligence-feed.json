@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-09-28T18:37:04.809Z",
+  "updatedAt": "2026-09-29T16:54:50.224Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 29,
+    "totalItems": 30,
     "newsItems": 0,
-    "researchItems": 19,
+    "researchItems": 20,
     "curatedItems": 10
   },
   "items": [
@@ -31,6 +31,29 @@
         "Mansoura University",
         "Taibah University",
         "Assiut University"
+      ]
+    },
+    {
+      "id": "kyai-mbjooz",
+      "category": "research",
+      "region": "Frankfort / Bluegrass",
+      "title": "AI-Driven Nutrient Optimization Systems for Precision Agriculture: A Data-Integrated Approach to Reducing Nutrient Runoff and Enhancing Soil Health in Agricultural Systems",
+      "body": "Research signal connected to Kentucky State University.",
+      "source": "International Journal For Multidisciplinary Research",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.36948/ijfmr.2026.v08i05.85286",
+      "publishedAt": "2026-09-26T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Kentucky State University",
+      "people": [
+        "Olufisayo Obebe",
+        "Ebenezer Akinola"
+      ],
+      "institutions": [
+        "Kentucky State University"
       ]
     },
     {
@@ -290,7 +313,7 @@
       "confidence": "medium",
       "kentuckyConnection": "Kentucky State University",
       "people": [
-        "Xinyuan Ben Wu"
+        "Xinxing Wu"
       ],
       "institutions": [
         "Kentucky State University"
