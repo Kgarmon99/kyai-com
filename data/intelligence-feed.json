@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-29T16:54:50.224Z",
+  "updatedAt": "2026-09-30T16:50:35.524Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
     "totalItems": 30,
@@ -31,6 +31,76 @@
         "Mansoura University",
         "Taibah University",
         "Assiut University"
+      ]
+    },
+    {
+      "id": "kyai-lmab9w",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "That’s not what a uterus looks like: representations of female reproductive anatomy produced by Adobe Stock creators and the generative AI tools they use",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Journal of Visual Communication in Medicine",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1080/17453054.2026.2737782",
+      "publishedAt": "2026-09-28T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Melissa D. Clarkson",
+        "Kristen M. Platt"
+      ],
+      "institutions": [
+        "University of Kentucky"
+      ]
+    },
+    {
+      "id": "kyai-6vybwe",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "A Prototype Geo-Digital Twin Framework for Scenario-Based Landslide Susceptibility Assessment Using Machine Learning",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "GeoHazards",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3390/geohazards7040116",
+      "publishedAt": "2026-09-27T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Ali Moradi Afrapoli"
+      ],
+      "institutions": [
+        "Kansas State University",
+        "University of Kentucky"
+      ]
+    },
+    {
+      "id": "kyai-8iifx5",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Problem and Solution Framing in Senate Tweets: Scaling Expert Interpretation With Machine Learning",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Policy Studies Journal",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1111/psj.70166",
+      "publishedAt": "2026-09-27T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Annelise Russell"
+      ],
+      "institutions": [
+        "University of North Dakota",
+        "University of Waterloo",
+        "University of Kentucky"
       ]
     },
     {
@@ -249,27 +319,51 @@
       ]
     },
     {
-      "id": "kyai-xb4f87",
+      "id": "kyai-mhg2m6",
       "category": "research",
-      "region": "Frankfort / Bluegrass",
-      "title": "Differentiable Spatial Autocorrelation in End-to-End Deep Learning for Hedonic Agricultural Land Pricing",
-      "body": "Research signal connected to Kentucky State University.",
-      "source": "Land",
+      "region": "Lexington / Bluegrass",
+      "title": "Oxidative Stress and Its Mitigation in Neurodegenerative Disorders",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Antioxidants",
       "sourceUrl": null,
-      "url": "https://doi.org/10.3390/land15091706",
-      "publishedAt": "2026-09-14T12:00:00.000Z",
+      "url": "https://doi.org/10.3390/antiox15091190",
+      "publishedAt": "2026-09-18T12:00:00.000Z",
       "lane": "Kentucky research",
       "kind": "research",
       "reviewStatus": "Automated research match",
       "confidence": "medium",
-      "kentuckyConnection": "Kentucky State University",
+      "kentuckyConnection": "University of Kentucky",
       "people": [
-        "Sait Sarr"
+        "David Allan Butterfield"
       ],
       "institutions": [
-        "Florida Agricultural and Mechanical University",
-        "Techno India University",
-        "Kentucky State University"
+        "University of Kentucky",
+        "University of Maine"
+      ]
+    },
+    {
+      "id": "kyai-egfu44",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Digital Twins for Opinion Dynamics: A Generative LLM Framework for Social Networks",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "arXiv (Cornell University)",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.48550/arxiv.2609.19913",
+      "publishedAt": "2026-09-17T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Sherali Zeadally"
+      ],
+      "institutions": [
+        "Laboratoire Traitement et Communication de l’Information",
+        "University of Salerno",
+        "University of Kentucky",
+        "Kyung Hee University"
       ]
     },
     {
@@ -389,105 +483,6 @@
         "University of Bonn",
         "Wageningen University & Research",
         "University of Potsdam"
-      ]
-    },
-    {
-      "id": "kyai-y9bxy5",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "See what you see, hear what you hear: Theorizing AI Device Embodiment (ADE) and its effects on well-being, perceived social support, and adoption",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Computers in Human Behavior",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.chb.2026.109161",
-      "publishedAt": "2026-08-22T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Jih‐Hsuan Tammy Lin"
-      ],
-      "institutions": [
-        "National Taiwan Normal University",
-        "University of Kentucky",
-        "National Chengchi University"
-      ]
-    },
-    {
-      "id": "kyai-w5mdad",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Calibrated adaptive framework for trustworthy human and artificial intelligence decision systems",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Scientific Reports",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1038/s41598-026-65730-y",
-      "publishedAt": "2026-08-20T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Hossam Magdy Balaha"
-      ],
-      "institutions": [
-        "Zayed University",
-        "Taibah University",
-        "Menoufia University",
-        "University of Louisville"
-      ]
-    },
-    {
-      "id": "kyai-jboxol",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Explainable 3D deep learning from full-head MRI suggests scalp and skull involvement in Alzheimer's disease",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Journal of Alzheimer s Disease",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1177/13872877261478312",
-      "publishedAt": "2026-08-20T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Mona Ebadi Jalal",
-        "Ramin Hamidi",
-        "Bryan Harris",
-        "Adel Said Elmaghraby"
-      ],
-      "institutions": [
-        "University of Louisville"
-      ]
-    },
-    {
-      "id": "kyai-w3u2wk",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Generative AI in African Higher Education: A Systematic Review of Opportunities, Ethical Challenges, and Institutional Readiness",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Journal of University Teaching and Learning Practice",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.53761/c682ye61",
-      "publishedAt": "2026-08-15T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Segun Ajose"
-      ],
-      "institutions": [
-        "Texas A&M University",
-        "Kent State University",
-        "University of Kentucky",
-        "Stanford University"
       ]
     },
     {
