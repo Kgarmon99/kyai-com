@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-02T16:39:11.710Z",
+  "updatedAt": "2026-10-03T15:10:01.569Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 26,
+    "totalItems": 25,
     "newsItems": 0,
-    "researchItems": 16,
+    "researchItems": 15,
     "curatedItems": 10
   },
   "items": [
@@ -320,28 +320,6 @@
         "Beijing Academy of Agriculture and Forestry Sciences",
         "Beijing Technology and Business University",
         "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-bu4tep",
-      "category": "research",
-      "region": "Frankfort / Bluegrass",
-      "title": "Designing singing syllabi with virtual avatars: AI-assisted syllabus reauthoring",
-      "body": "Research signal connected to Kentucky State University.",
-      "source": "Open Scholarship of Teaching and Learning",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.56230/osotl.176",
-      "publishedAt": "2026-09-10T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Kentucky State University",
-      "people": [
-        "Xinxing Wu"
-      ],
-      "institutions": [
-        "Kentucky State University"
       ]
     },
     {
