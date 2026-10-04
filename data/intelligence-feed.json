@@ -1,13 +1,40 @@
 {
-  "updatedAt": "2026-10-03T15:10:01.569Z",
+  "updatedAt": "2026-10-04T15:48:59.490Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 25,
+    "totalItems": 24,
     "newsItems": 0,
-    "researchItems": 15,
+    "researchItems": 14,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-aruukq",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Assessing Deep Learning Segmentation Models for Mapping Landslides From LiDAR‐Based Elevation Data",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Earth and Space Science",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1029/2025ea004937",
+      "publishedAt": "2026-10-01T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Hudson J. Koch",
+        "Junfeng Zhu",
+        "Shashank Bhatt",
+        "Jason M. Dortch"
+      ],
+      "institutions": [
+        "University of Kentucky",
+        "Kentucky Geological Survey",
+        "Washington University in St. Louis"
+      ]
+    },
     {
       "id": "kyai-5ii8ul",
       "category": "research",
@@ -228,28 +255,6 @@
       ]
     },
     {
-      "id": "kyai-ixmdnv",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Hit selection using SSMD-based machine learning performance metrics in high-throughput screening assays",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "SLAS DISCOVERY",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.slasd.2026.100340",
-      "publishedAt": "2026-09-18T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Xiaohua Douglas Zhang"
-      ],
-      "institutions": [
-        "University of Kentucky"
-      ]
-    },
-    {
       "id": "kyai-mhg2m6",
       "category": "research",
       "region": "Lexington / Bluegrass",
@@ -270,31 +275,6 @@
       "institutions": [
         "University of Kentucky",
         "University of Maine"
-      ]
-    },
-    {
-      "id": "kyai-egfu44",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Digital Twins for Opinion Dynamics: A Generative LLM Framework for Social Networks",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "arXiv (Cornell University)",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.48550/arxiv.2609.19913",
-      "publishedAt": "2026-09-17T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Sherali Zeadally"
-      ],
-      "institutions": [
-        "Télécom Paris",
-        "Institut Polytechnique de Paris",
-        "Laboratoire Traitement et Communication de l’Information",
-        "University of Salerno"
       ]
     },
     {
