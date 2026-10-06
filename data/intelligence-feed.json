@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T15:48:59.490Z",
+  "updatedAt": "2026-10-06T17:12:01.080Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
     "totalItems": 24,
@@ -8,6 +8,29 @@
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-ympaer",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Effects of generative AI and translanguaging on second language writing complexity, accuracy, and fluency",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "International Journal of Educational Research",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.ijer.2026.103100",
+      "publishedAt": "2026-10-05T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Chengyuan Yu"
+      ],
+      "institutions": [
+        "Shanghai Jiao Tong University",
+        "University of Kentucky"
+      ]
+    },
     {
       "id": "kyai-aruukq",
       "category": "research",
@@ -175,30 +198,6 @@
         "University of Cincinnati",
         "Northern Kentucky University",
         "Kwame Nkrumah University of Science and Technology"
-      ]
-    },
-    {
-      "id": "kyai-nmz1lv",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Development and comparative evaluation of machine learning algorithms and Cox regression for predicting fasting plasma glucose-defined incident prediabetes: a longitudinal cohort study",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Frontiers in Endocrinology",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3389/fendo.2026.1862258",
-      "publishedAt": "2026-09-24T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Xinyuan Tian"
-      ],
-      "institutions": [
-        "Xinjiang Medical University",
-        "Fifth Affiliated Hospital of Xinjiang Medical University",
-        "University of Kentucky"
       ]
     },
     {
