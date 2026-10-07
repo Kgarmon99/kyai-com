@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-06T17:12:01.080Z",
+  "updatedAt": "2026-10-07T17:50:04.295Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 24,
+    "totalItems": 23,
     "newsItems": 0,
-    "researchItems": 14,
+    "researchItems": 13,
     "curatedItems": 10
   },
   "items": [
@@ -299,28 +299,6 @@
         "Beijing Academy of Agriculture and Forestry Sciences",
         "Beijing Technology and Business University",
         "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-2uh38g",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Adaptive, ethical and responsible AI governance for smart cities and nations",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Discover Cities",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1007/s44327-026-00349-2",
-      "publishedAt": "2026-09-01T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Z. R. M. Abdullah Kaiser"
-      ],
-      "institutions": [
-        "University of Louisville"
       ]
     },
     {
