@@ -1,13 +1,60 @@
 {
-  "updatedAt": "2026-10-07T17:50:04.295Z",
+  "updatedAt": "2026-10-08T17:53:41.184Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 23,
+    "totalItems": 22,
     "newsItems": 0,
-    "researchItems": 13,
+    "researchItems": 12,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-nbulq2",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Fully integrative species delimitation with machine learning and diverse data types in delimSOM 2.0",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.64898/2026.10.04.756574",
+      "publishedAt": "2026-10-07T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Daniel Schoenberger",
+        "Julian Rowe Dupuis"
+      ],
+      "institutions": [
+        "University of Kentucky",
+        "George Washington University"
+      ]
+    },
+    {
+      "id": "kyai-rvf994",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Single-image performance alone does not establish longitudinal technical performance: a paired-error framework for artificial intelligence-enabled quantitative imaging",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Frontiers in Imaging",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3389/fimag.2026.1976334",
+      "publishedAt": "2026-10-07T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Hunter Colson"
+      ],
+      "institutions": [
+        "University of Kentucky",
+        "Medical University of South Carolina"
+      ]
+    },
     {
       "id": "kyai-ympaer",
       "category": "research",
@@ -177,30 +224,6 @@
       ]
     },
     {
-      "id": "kyai-t1htoe",
-      "category": "research",
-      "region": "Northern Kentucky",
-      "title": "Cybersecurity and Privacy in AI-Enabled Agricultural IoT Ecosystems: A Systematic Review of Threats, Safeguards, and Resilience Gaps",
-      "body": "Research signal connected to Northern Kentucky University.",
-      "source": "Algorithms",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3390/a19100827",
-      "publishedAt": "2026-09-25T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Northern Kentucky University",
-      "people": [
-        "Anthony Tsetse"
-      ],
-      "institutions": [
-        "University of Cincinnati",
-        "Northern Kentucky University",
-        "Kwame Nkrumah University of Science and Technology"
-      ]
-    },
-    {
       "id": "kyai-q5hmhl",
       "category": "research",
       "region": "Louisville / North Central",
@@ -254,29 +277,6 @@
       ]
     },
     {
-      "id": "kyai-mhg2m6",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Oxidative Stress and Its Mitigation in Neurodegenerative Disorders",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Antioxidants",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3390/antiox15091190",
-      "publishedAt": "2026-09-18T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "David Allan Butterfield"
-      ],
-      "institutions": [
-        "University of Kentucky",
-        "University of Maine"
-      ]
-    },
-    {
       "id": "kyai-x70e9b",
       "category": "research",
       "region": "Lexington / Bluegrass",
@@ -299,31 +299,6 @@
         "Beijing Academy of Agriculture and Forestry Sciences",
         "Beijing Technology and Business University",
         "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-g4hrah",
-      "category": "research",
-      "region": "South Central Kentucky",
-      "title": "CropFusionNet: an interpretable deep learning framework for uncertainty-aware crop yield forecasting across Germany",
-      "body": "Research signal connected to Western Kentucky University.",
-      "source": "Artificial Intelligence in Agriculture",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.aiia.2026.08.016",
-      "publishedAt": "2026-09-01T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Western Kentucky University",
-      "people": [
-        "Manmeet Singh"
-      ],
-      "institutions": [
-        "Leibniz Centre for Agricultural Landscape Research",
-        "University of Bonn",
-        "Wageningen University & Research",
-        "University of Potsdam"
       ]
     },
     {
