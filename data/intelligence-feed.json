@@ -1,13 +1,36 @@
 {
-  "updatedAt": "2026-10-08T17:53:41.184Z",
+  "updatedAt": "2026-10-09T17:27:38.942Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 22,
+    "totalItems": 21,
     "newsItems": 0,
-    "researchItems": 12,
+    "researchItems": 11,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-2xr6k7",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Tools of the trade: AI and the restructuring of the experience premium",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "International Journal of Manpower",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1108/ijm-04-2026-0378",
+      "publishedAt": "2026-10-08T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Andrew Steven Manikas"
+      ],
+      "institutions": [
+        "Boise State University",
+        "University of Louisville"
+      ]
+    },
     {
       "id": "kyai-nbulq2",
       "category": "research",
@@ -131,29 +154,6 @@
       ]
     },
     {
-      "id": "kyai-lmab9w",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "That’s not what a uterus looks like: representations of female reproductive anatomy produced by Adobe Stock creators and the generative AI tools they use",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Journal of Visual Communication in Medicine",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1080/17453054.2026.2737782",
-      "publishedAt": "2026-09-28T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Melissa D. Clarkson",
-        "Kristen M. Platt"
-      ],
-      "institutions": [
-        "University of Kentucky"
-      ]
-    },
-    {
       "id": "kyai-6vybwe",
       "category": "research",
       "region": "Lexington / Bluegrass",
@@ -173,30 +173,6 @@
       ],
       "institutions": [
         "Kansas State University",
-        "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-8iifx5",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Problem and Solution Framing in Senate Tweets: Scaling Expert Interpretation With Machine Learning",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Policy Studies Journal",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1111/psj.70166",
-      "publishedAt": "2026-09-27T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Annelise Russell"
-      ],
-      "institutions": [
-        "University of North Dakota",
-        "University of Waterloo",
         "University of Kentucky"
       ]
     },
