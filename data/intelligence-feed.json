@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-14T15:50:49.727Z",
+  "updatedAt": "2026-10-15T15:36:50.466Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 20,
+    "totalItems": 21,
     "newsItems": 0,
-    "researchItems": 10,
+    "researchItems": 11,
     "curatedItems": 10
   },
   "items": [
@@ -74,7 +74,7 @@
       "kentuckyConnection": "University of Kentucky",
       "people": [
         "Daniel Schoenberger",
-        "Julian Rowe Dupuis"
+        "Julian R. Dupuis"
       ],
       "institutions": [
         "University of Kentucky",
@@ -124,6 +124,29 @@
       ],
       "institutions": [
         "Shanghai Jiao Tong University",
+        "University of Kentucky"
+      ]
+    },
+    {
+      "id": "kyai-rrvk07",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "AI ALGORITHMS FOR OPTIMIZING UNIVERSITY RESOURCE MANAGEMENT",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "OpenAlex",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.59787/2413-5488-2026-55-3-137-147",
+      "publishedAt": "2026-10-01T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Bakhyt N. Alipova"
+      ],
+      "institutions": [
+        "Abai Kazakh National Pedagogical University",
         "University of Kentucky"
       ]
     },
