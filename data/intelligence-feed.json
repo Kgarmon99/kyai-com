@@ -1,13 +1,38 @@
 {
-  "updatedAt": "2026-10-15T15:36:50.466Z",
+  "updatedAt": "2026-10-16T15:23:30.100Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 21,
+    "totalItems": 22,
     "newsItems": 0,
-    "researchItems": 11,
+    "researchItems": 12,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-qjnv6i",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Attention-based and contrastive deep learning models for real-time anomaly detection in Edge-IIoT networks",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Scientific Reports",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1038/s41598-026-70891-x",
+      "publishedAt": "2026-10-14T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Hossam Magdy Balaha"
+      ],
+      "institutions": [
+        "Taibah University",
+        "Higher Colleges of Technology",
+        "University of Louisville",
+        "Mansoura University"
+      ]
+    },
     {
       "id": "kyai-mbhbf3",
       "category": "research",
