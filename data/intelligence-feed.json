@@ -1,13 +1,36 @@
 {
-  "updatedAt": "2026-10-16T15:23:30.100Z",
+  "updatedAt": "2026-10-17T14:13:39.940Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 22,
+    "totalItems": 20,
     "newsItems": 0,
-    "researchItems": 12,
+    "researchItems": 10,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-hrp0nz",
+      "category": "research",
+      "region": "Northern Kentucky",
+      "title": "The AI Trust Gap: Consumer Perceptions of AI-Powered Digital Marketing",
+      "body": "Research signal connected to Northern Kentucky University.",
+      "source": "Marketing Management Journal",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.63963/001c.172170",
+      "publishedAt": "2026-10-16T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Northern Kentucky University",
+      "people": [
+        "Jennifer Wehr Holt",
+        "Linh Nguyen"
+      ],
+      "institutions": [
+        "Northern Kentucky University"
+      ]
+    },
     {
       "id": "kyai-qjnv6i",
       "category": "research",
@@ -127,79 +150,6 @@
       "institutions": [
         "University of Kentucky",
         "Medical University of South Carolina"
-      ]
-    },
-    {
-      "id": "kyai-ympaer",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Effects of generative AI and translanguaging on second language writing complexity, accuracy, and fluency",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "International Journal of Educational Research",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.ijer.2026.103100",
-      "publishedAt": "2026-10-05T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Chengyuan Yu"
-      ],
-      "institutions": [
-        "Shanghai Jiao Tong University",
-        "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-rrvk07",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "AI ALGORITHMS FOR OPTIMIZING UNIVERSITY RESOURCE MANAGEMENT",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "OpenAlex",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.59787/2413-5488-2026-55-3-137-147",
-      "publishedAt": "2026-10-01T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Bakhyt N. Alipova"
-      ],
-      "institutions": [
-        "Abai Kazakh National Pedagogical University",
-        "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-aruukq",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Assessing Deep Learning Segmentation Models for Mapping Landslides From LiDAR‐Based Elevation Data",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Earth and Space Science",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1029/2025ea004937",
-      "publishedAt": "2026-10-01T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Hudson J. Koch",
-        "Junfeng Zhu",
-        "Shashank Bhatt",
-        "Jason M. Dortch"
-      ],
-      "institutions": [
-        "University of Kentucky",
-        "Kentucky Geological Survey",
-        "Washington University in St. Louis"
       ]
     },
     {
