@@ -1,13 +1,39 @@
 {
-  "updatedAt": "2026-10-17T14:13:39.940Z",
+  "updatedAt": "2026-10-18T14:35:00.465Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 20,
+    "totalItems": 21,
     "newsItems": 0,
-    "researchItems": 10,
+    "researchItems": 11,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-den0rm",
+      "category": "research",
+      "region": "South Central Kentucky",
+      "title": "Geology-aware, patch-based deep learning for flood susceptibility mapping in a confined Appalachian watershed, eastern Kentucky, USA: code, trained models and training data",
+      "body": "Research signal connected to Western Kentucky University.",
+      "source": "Zenodo (CERN European Organization for Nuclear Research)",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.5281/zenodo.23428873",
+      "publishedAt": "2026-10-17T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Western Kentucky University",
+      "people": [
+        "Samir Pahari",
+        "Nahid D. Gani",
+        "Manmeet Singh",
+        "Victor Aham"
+      ],
+      "institutions": [
+        "The Ohio State University",
+        "Western Kentucky University"
+      ]
+    },
     {
       "id": "kyai-hrp0nz",
       "category": "research",
