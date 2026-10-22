@@ -1,13 +1,86 @@
 {
-  "updatedAt": "2026-10-21T15:57:46.769Z",
+  "updatedAt": "2026-10-22T15:53:47.820Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 21,
+    "totalItems": 23,
     "newsItems": 0,
-    "researchItems": 11,
+    "researchItems": 13,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-age74x",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Artificial Intelligence Use and Training in Residency: Results of a National Family Medicine Survey",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Family Medicine",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.22454/fammed.2026.0347",
+      "publishedAt": "2026-10-21T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Lars E. Peterson"
+      ],
+      "institutions": [
+        "Tufts University",
+        "Yale University",
+        "American Board of Family Medicine",
+        "University of Kentucky"
+      ]
+    },
+    {
+      "id": "kyai-hrv48l",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Blueprint for an AI-Enabled Particle Theory Community",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "arXiv (Cornell University)",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.48550/arxiv.2610.28505",
+      "publishedAt": "2026-10-20T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Anatoly Dymarsky"
+      ],
+      "institutions": [
+        "Fermi National Accelerator Laboratory",
+        "Northeastern University",
+        "Argonne National Laboratory",
+        "University of Alabama"
+      ]
+    },
+    {
+      "id": "kyai-qlz8wk",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "From AI literacy to epistemic vigilance: rethinking higher education curriculum in the age of artificial confidence",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Cogent Education",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1080/2331186x.2026.2746161",
+      "publishedAt": "2026-10-19T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Craig S. Miller"
+      ],
+      "institutions": [
+        "Reichman University",
+        "University of Kentucky"
+      ]
+    },
     {
       "id": "kyai-den0rm",
       "category": "research",
@@ -254,31 +327,6 @@
         "Murray State University",
         "October University of Modern Sciences and Arts",
         "Helwan University"
-      ]
-    },
-    {
-      "id": "kyai-x70e9b",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Application of Artificial Intelligence in Aquaculture, Processing, Safety, and Traceability in the Industry of Aquatic Products: A Review",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Foods",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3390/foods15183205",
-      "publishedAt": "2026-09-10T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Hongbing Fan"
-      ],
-      "institutions": [
-        "Tarim University",
-        "Beijing Academy of Agriculture and Forestry Sciences",
-        "Beijing Technology and Business University",
-        "University of Kentucky"
       ]
     },
     {
