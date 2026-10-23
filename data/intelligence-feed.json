@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-22T15:53:47.820Z",
+  "updatedAt": "2026-10-23T15:45:27.833Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 23,
+    "totalItems": 21,
     "newsItems": 0,
-    "researchItems": 13,
+    "researchItems": 11,
     "curatedItems": 10
   },
   "items": [
@@ -153,55 +153,6 @@
         "Higher Colleges of Technology",
         "University of Louisville",
         "Mansoura University"
-      ]
-    },
-    {
-      "id": "kyai-mbhbf3",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "The Use of Generative Artificial Intelligence by Psychology Graduate Students in the United States",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Teaching of Psychology",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1177/00986283261496432",
-      "publishedAt": "2026-10-10T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Jonathan M. Golding",
-        "Mary Beth McGavran"
-      ],
-      "institutions": [
-        "University of Kentucky",
-        "University of Georgia",
-        "Purdue University West Lafayette",
-        "Prairie View A&M University"
-      ]
-    },
-    {
-      "id": "kyai-2xr6k7",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Tools of the trade: AI and the restructuring of the experience premium",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "International Journal of Manpower",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1108/ijm-04-2026-0378",
-      "publishedAt": "2026-10-08T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Andrew Steven Manikas"
-      ],
-      "institutions": [
-        "Boise State University",
-        "University of Louisville"
       ]
     },
     {
