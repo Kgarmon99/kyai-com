@@ -1,13 +1,35 @@
 {
-  "updatedAt": "2026-10-23T15:45:27.833Z",
+  "updatedAt": "2026-10-24T14:31:30.020Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 21,
+    "totalItems": 22,
     "newsItems": 0,
-    "researchItems": 11,
+    "researchItems": 12,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-8s68mj",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Quantifying Reproducibility of Common Laboratory Tests in a Tertiary Care Hospital for More Realistic Synthetic Data in Machine Learning",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "medRxiv",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.64898/2026.10.20.26366057",
+      "publishedAt": "2026-10-23T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Dawson F. Dean"
+      ],
+      "institutions": [
+        "University of Kentucky"
+      ]
+    },
     {
       "id": "kyai-age74x",
       "category": "research",
