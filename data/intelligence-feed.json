@@ -1,13 +1,61 @@
 {
-  "updatedAt": "2026-10-24T14:31:30.020Z",
+  "updatedAt": "2026-10-25T14:58:28.509Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 22,
+    "totalItems": 21,
     "newsItems": 0,
-    "researchItems": 12,
+    "researchItems": 11,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-b0hwz8",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "AI and Intelligent Building Analytics for Energy Efficiency in Large Healthcare Campuses",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Journal of Engineering Research and Reports",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.9734/jerr/2026/v28i102031",
+      "publishedAt": "2026-10-24T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Nurudeen Gbadegesin"
+      ],
+      "institutions": [
+        "University of Nevada, Reno",
+        "University of Kentucky",
+        "Kwara State University"
+      ]
+    },
+    {
+      "id": "kyai-y6lpbx",
+      "category": "research",
+      "region": "Frankfort / Bluegrass",
+      "title": "Smart Food Systems: A Critical Review of Artificial Intelligence, Blockchain, and Digital Technologies for Food Safety and Nutrition",
+      "body": "Research signal connected to Kentucky State University.",
+      "source": "Journal of Advances in Food Science & Technology",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.56557/jafsat/2026/v13i411261",
+      "publishedAt": "2026-10-24T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Kentucky State University",
+      "people": [
+        "Toheeb Olaniyi Falakin",
+        "Sophia Amaka OKOH"
+      ],
+      "institutions": [
+        "Kentucky State University",
+        "Ball State University"
+      ]
+    },
     {
       "id": "kyai-8s68mj",
       "category": "research",
@@ -178,30 +226,6 @@
       ]
     },
     {
-      "id": "kyai-nbulq2",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Fully integrative species delimitation with machine learning and diverse data types in delimSOM 2.0",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.64898/2026.10.04.756574",
-      "publishedAt": "2026-10-07T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Daniel Schoenberger",
-        "Julian R. Dupuis"
-      ],
-      "institutions": [
-        "University of Kentucky",
-        "George Washington University"
-      ]
-    },
-    {
       "id": "kyai-rvf994",
       "category": "research",
       "region": "Lexington / Bluegrass",
@@ -247,59 +271,6 @@
         "Mansoura University",
         "Taibah University",
         "Assiut University"
-      ]
-    },
-    {
-      "id": "kyai-q5hmhl",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "A novel deep learning-based approach for liver segmentation from 3D CT images using probabilistic shape guidance",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Scientific Reports",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1038/s41598-026-71324-5",
-      "publishedAt": "2026-09-23T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Ahmed Sharafeldeen",
-        "Ali H. Mahmoud",
-        "Guruprasad A. Giridharan",
-        "Sohail G. Contractor"
-      ],
-      "institutions": [
-        "Mansoura University",
-        "University of Louisville",
-        "Zayed University",
-        "Abu Dhabi University"
-      ]
-    },
-    {
-      "id": "kyai-x690vn",
-      "category": "research",
-      "region": "Western Kentucky",
-      "title": "Enhancing missing persons identification through deep learning and GAN based face recognition",
-      "body": "Research signal connected to Murray State University.",
-      "source": "Array",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.array.2026.101255",
-      "publishedAt": "2026-09-21T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Murray State University",
-      "people": [
-        "Abdullatif Hussein"
-      ],
-      "institutions": [
-        "El Shorouk Academy",
-        "Murray State University",
-        "October University of Modern Sciences and Arts",
-        "Helwan University"
       ]
     },
     {
