@@ -1,13 +1,35 @@
 {
-  "updatedAt": "2026-10-28T17:11:05.308Z",
+  "updatedAt": "2026-10-29T17:26:25.205Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 24,
+    "totalItems": 26,
     "newsItems": 0,
-    "researchItems": 14,
+    "researchItems": 16,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-lerxyf",
+      "category": "research",
+      "region": "Western Kentucky",
+      "title": "Artificial Intelligence in the Newsgathering Process and Safeguarding Media Consumers from Misinformation",
+      "body": "Research signal connected to Murray State University.",
+      "source": "Murray State's Digital Commons (Murray State University)",
+      "sourceUrl": null,
+      "url": "https://digitalcommons.murraystate.edu/scholarsweek/Fall2026/hon/8",
+      "publishedAt": "2026-10-27T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Murray State University",
+      "people": [
+        "Ethan T Fowler"
+      ],
+      "institutions": [
+        "Murray State University"
+      ]
+    },
     {
       "id": "kyai-4zz392",
       "category": "research",
@@ -50,8 +72,32 @@
         "Gregory J. Davis"
       ],
       "institutions": [
-        "American Board of Internal Medicine",
-        "American Board of Emergency Medicine",
+        "American Board of Family Medicine",
+        "University of Kentucky"
+      ]
+    },
+    {
+      "id": "kyai-a4zpmz",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Rise of AI-assisted personal statements and letters of recommendation in pain medicine fellowship applications",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Regional Anesthesia & Pain Medicine",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1136/rapm-2026-108629",
+      "publishedAt": "2026-10-27T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Sebastián Encalada"
+      ],
+      "institutions": [
+        "Mayo Clinic in Florida",
+        "University of Florida",
+        "University of Florida Health",
         "University of Kentucky"
       ]
     },
