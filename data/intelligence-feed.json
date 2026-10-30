@@ -1,13 +1,38 @@
 {
-  "updatedAt": "2026-10-29T17:26:25.205Z",
+  "updatedAt": "2026-10-30T17:01:42.685Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 26,
+    "totalItems": 27,
     "newsItems": 0,
-    "researchItems": 16,
+    "researchItems": 17,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-srjo5n",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "AI-based model for optimizing backoff parameters in industrial 802.11 g wireless networks",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Cluster Computing",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1007/s10586-026-06735-0",
+      "publishedAt": "2026-10-28T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Sherali Zeadally"
+      ],
+      "institutions": [
+        "Islamic University of Lebanon",
+        "Lebanese University",
+        "University of Kentucky",
+        "Kyung Hee University"
+      ]
+    },
     {
       "id": "kyai-lerxyf",
       "category": "research",
