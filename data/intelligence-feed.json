@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T17:01:42.685Z",
+  "updatedAt": "2026-10-31T16:05:43.351Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
     "totalItems": 27,
@@ -8,6 +8,53 @@
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-6sws6",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "From Theory to Evaluation: Deriving the Transcultural Nurse-AI Synergy Model for Systematic Assessment of AI Outputs",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Journal of Transcultural Nursing",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1177/10436596261495078",
+      "publishedAt": "2026-10-30T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Ratchneewan Ross"
+      ],
+      "institutions": [
+        "University of Louisville"
+      ]
+    },
+    {
+      "id": "kyai-mni7t4",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "The Proliferation of AI among College Students: A Replication and 2-Year Follow-Up",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Teaching of Psychology",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1177/00986283261502343",
+      "publishedAt": "2026-10-30T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Jonathan M. Golding"
+      ],
+      "institutions": [
+        "Texas Christian University",
+        "Prairie View A&M University",
+        "Elon University",
+        "Fielding Graduate University"
+      ]
+    },
     {
       "id": "kyai-srjo5n",
       "category": "research",
@@ -31,6 +78,31 @@
         "Lebanese University",
         "University of Kentucky",
         "Kyung Hee University"
+      ]
+    },
+    {
+      "id": "kyai-3cggmc",
+      "category": "research",
+      "region": "Eastern Kentucky / Appalachia",
+      "title": "Preservice Teacher AI-Supported Collaborative Noticing for Asset-Based Mathematics Pedagogy",
+      "body": "Research signal connected to Morehead State University.",
+      "source": "Journal of Mathematics Teacher Education",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1007/s10857-026-09786-7",
+      "publishedAt": "2026-10-28T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Morehead State University",
+      "people": [
+        "Michele Cudd"
+      ],
+      "institutions": [
+        "Georgia Institute of Technology",
+        "Morehead State University",
+        "Tarleton State University",
+        "Northeastern Illinois University"
       ]
     },
     {
@@ -220,31 +292,6 @@
       ]
     },
     {
-      "id": "kyai-age74x",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Artificial Intelligence Use and Training in Residency: Results of a National Family Medicine Survey",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Family Medicine",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.22454/fammed.2026.0347",
-      "publishedAt": "2026-10-21T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Lars E. Peterson"
-      ],
-      "institutions": [
-        "Tufts University",
-        "Yale University",
-        "American Board of Family Medicine",
-        "University of Kentucky"
-      ]
-    },
-    {
       "id": "kyai-hrv48l",
       "category": "research",
       "region": "Lexington / Bluegrass",
@@ -290,55 +337,6 @@
       "institutions": [
         "Reichman University",
         "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-den0rm",
-      "category": "research",
-      "region": "South Central Kentucky",
-      "title": "Geology-aware, patch-based deep learning for flood susceptibility mapping in a confined Appalachian watershed, eastern Kentucky, USA: code, trained models and training data",
-      "body": "Research signal connected to Western Kentucky University.",
-      "source": "Zenodo (CERN European Organization for Nuclear Research)",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.5281/zenodo.23428873",
-      "publishedAt": "2026-10-17T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Western Kentucky University",
-      "people": [
-        "Samir Pahari",
-        "Nahid D. Gani",
-        "Manmeet Singh",
-        "Victor Aham"
-      ],
-      "institutions": [
-        "The Ohio State University",
-        "Western Kentucky University"
-      ]
-    },
-    {
-      "id": "kyai-hrp0nz",
-      "category": "research",
-      "region": "Northern Kentucky",
-      "title": "The AI Trust Gap: Consumer Perceptions of AI-Powered Digital Marketing",
-      "body": "Research signal connected to Northern Kentucky University.",
-      "source": "Marketing Management Journal",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.63963/001c.172170",
-      "publishedAt": "2026-10-16T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Northern Kentucky University",
-      "people": [
-        "Jennifer Wehr Holt",
-        "Linh Nguyen"
-      ],
-      "institutions": [
-        "Northern Kentucky University"
       ]
     },
     {
