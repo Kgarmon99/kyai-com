@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-01T17:07:47.184Z",
+  "updatedAt": "2026-11-02T20:46:14.469Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 29,
+    "totalItems": 27,
     "newsItems": 0,
-    "researchItems": 19,
+    "researchItems": 17,
     "curatedItems": 10
   },
   "items": [
@@ -263,54 +263,6 @@
       "institutions": [
         "Western Kentucky University",
         "Miami University"
-      ]
-    },
-    {
-      "id": "kyai-b0hwz8",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "AI and Intelligent Building Analytics for Energy Efficiency in Large Healthcare Campuses",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Journal of Engineering Research and Reports",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.9734/jerr/2026/v28i102031",
-      "publishedAt": "2026-10-24T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Nurudeen Gbadegesin"
-      ],
-      "institutions": [
-        "University of Nevada, Reno",
-        "University of Kentucky",
-        "Kwara State University"
-      ]
-    },
-    {
-      "id": "kyai-y6lpbx",
-      "category": "research",
-      "region": "Frankfort / Bluegrass",
-      "title": "Smart Food Systems: A Critical Review of Artificial Intelligence, Blockchain, and Digital Technologies for Food Safety and Nutrition",
-      "body": "Research signal connected to Kentucky State University.",
-      "source": "Journal of Advances in Food Science & Technology",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.56557/jafsat/2026/v13i411261",
-      "publishedAt": "2026-10-24T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Kentucky State University",
-      "people": [
-        "Toheeb Olaniyi Falakin",
-        "Sophia Amaka OKOH"
-      ],
-      "institutions": [
-        "Kentucky State University",
-        "Ball State University"
       ]
     },
     {
