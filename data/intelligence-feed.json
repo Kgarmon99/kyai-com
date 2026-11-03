@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T20:46:14.469Z",
+  "updatedAt": "2026-11-03T18:25:48.475Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
     "totalItems": 27,
@@ -8,6 +8,33 @@
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-6tl760",
+      "category": "research",
+      "region": "Northern Kentucky",
+      "title": "Identification and control of potential occupational safety and health hazards of artificial intelligence: a scoping review",
+      "body": "Research signal connected to Northern Kentucky University.",
+      "source": "Frontiers in Public Health",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3389/fpubh.2026.1999864",
+      "publishedAt": "2026-11-02T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Northern Kentucky University",
+      "people": [
+        "Joey Dean",
+        "Grace Riley",
+        "Valerie Mead"
+      ],
+      "institutions": [
+        "National Institute for Occupational Safety and Health",
+        "Northern Kentucky University",
+        "National Safety Council",
+        "The University of Texas Health Science Center at Houston"
+      ]
+    },
     {
       "id": "kyai-6sws6",
       "category": "research",
@@ -147,28 +174,6 @@
         "Morehead State University",
         "Tarleton State University",
         "Northeastern Illinois University"
-      ]
-    },
-    {
-      "id": "kyai-lerxyf",
-      "category": "research",
-      "region": "Western Kentucky",
-      "title": "Artificial Intelligence in the Newsgathering Process and Safeguarding Media Consumers from Misinformation",
-      "body": "Research signal connected to Murray State University.",
-      "source": "Murray State's Digital Commons (Murray State University)",
-      "sourceUrl": null,
-      "url": "https://digitalcommons.murraystate.edu/scholarsweek/Fall2026/hon/8",
-      "publishedAt": "2026-10-27T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Murray State University",
-      "people": [
-        "Ethan T Fowler"
-      ],
-      "institutions": [
-        "Murray State University"
       ]
     },
     {
