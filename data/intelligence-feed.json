@@ -1,13 +1,39 @@
 {
-  "updatedAt": "2026-11-03T18:25:48.475Z",
+  "updatedAt": "2026-11-04T18:39:16.211Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 27,
+    "totalItems": 25,
     "newsItems": 0,
-    "researchItems": 17,
+    "researchItems": 15,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-mfbax4",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Artificial Intelligence for Colorectal Cancer Diagnosis: A Comprehensive Survey of Modalities, Frameworks, and Clinical Tasks",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Cancers",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3390/cancers18213522",
+      "publishedAt": "2026-11-02T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Bassant El-Mosalamy",
+        "Hossam Magdy Balaha",
+        "Sohayla El-Moursi",
+        "Dibson Dibe Gondim"
+      ],
+      "institutions": [
+        "University of Louisville",
+        "Abu Dhabi University"
+      ]
+    },
     {
       "id": "kyai-6tl760",
       "category": "research",
@@ -33,6 +59,30 @@
         "Northern Kentucky University",
         "National Safety Council",
         "The University of Texas Health Science Center at Houston"
+      ]
+    },
+    {
+      "id": "kyai-3dmsmf",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Metaheuristic Optimization and Artificial Intelligence for Lithium-Ion Battery Modelling, Parameter Identification, and State Estimation: A Critical Review",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Batteries",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3390/batteries12110451",
+      "publishedAt": "2026-11-02T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Hossam Magdy Balaha"
+      ],
+      "institutions": [
+        "Prince Sattam Bin Abdulaziz University",
+        "University of Louisville",
+        "Mansoura University"
       ]
     },
     {
@@ -200,29 +250,6 @@
       ]
     },
     {
-      "id": "kyai-ejbrmp",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Remaining Skeptical of Artificial Intelligence in Medicine",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Archives of Pathology & Laboratory Medicine",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.5858/arpa.2026-0178-le",
-      "publishedAt": "2026-10-27T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Gregory J. Davis"
-      ],
-      "institutions": [
-        "American Board of Family Medicine",
-        "University of Kentucky"
-      ]
-    },
-    {
       "id": "kyai-a4zpmz",
       "category": "research",
       "region": "Lexington / Bluegrass",
@@ -244,51 +271,6 @@
         "Mayo Clinic in Florida",
         "University of Florida",
         "University of Florida Health",
-        "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-lqrk02",
-      "category": "research",
-      "region": "South Central Kentucky",
-      "title": "Teaching in the Age of AI: Perspectives From Public Affairs Faculty",
-      "body": "Research signal connected to Western Kentucky University.",
-      "source": "Journal of Public Affairs Education",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1177/15236803261495764",
-      "publishedAt": "2026-10-27T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Western Kentucky University",
-      "people": [
-        "Michael Blair Thomas"
-      ],
-      "institutions": [
-        "Western Kentucky University",
-        "Miami University"
-      ]
-    },
-    {
-      "id": "kyai-8s68mj",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Quantifying Reproducibility of Common Laboratory Tests in a Tertiary Care Hospital for More Realistic Synthetic Data in Machine Learning",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "medRxiv",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.64898/2026.10.20.26366057",
-      "publishedAt": "2026-10-23T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Dawson F. Dean"
-      ],
-      "institutions": [
         "University of Kentucky"
       ]
     },
@@ -386,31 +368,6 @@
       "institutions": [
         "University of Kentucky",
         "Medical University of South Carolina"
-      ]
-    },
-    {
-      "id": "kyai-5ii8ul",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Artificial intelligence in breast cancer research: a systematic review and bibliometric analysis of emerging trends and future directions",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Frontiers in Oncology",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3389/fonc.2026.1800218",
-      "publishedAt": "2026-09-28T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Yathreb Bayan Mohamed"
-      ],
-      "institutions": [
-        "University of Louisville",
-        "Mansoura University",
-        "Taibah University",
-        "Assiut University"
       ]
     },
     {
