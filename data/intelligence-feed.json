@@ -1,13 +1,88 @@
 {
-  "updatedAt": "2026-11-06T17:58:05.760Z",
+  "updatedAt": "2026-11-07T16:51:13.245Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 23,
+    "totalItems": 24,
     "newsItems": 0,
-    "researchItems": 13,
+    "researchItems": 14,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-3ha2bt",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Professional identity formation in pharmacy in the era of artificial intelligence",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Currents in Pharmacy Teaching and Learning",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.cptl.2026.102827",
+      "publishedAt": "2026-11-06T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Melody Ann Ryan"
+      ],
+      "institutions": [
+        "University of Ulster",
+        "St. John Fisher University",
+        "Donald & Barbara Zucker School of Medicine at Hofstra/Northwell",
+        "Marmara University"
+      ]
+    },
+    {
+      "id": "kyai-sz2677",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Abstract 14415: Opportunistic AI for Cardiovascular Risk Prediction Based on Chest X-Ray: An AI-CVD Study Within MIMIC",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Circulation",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1161/circ.154.suppl_1.14415",
+      "publishedAt": "2026-11-02T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Kim Allan Williams Sr."
+      ],
+      "institutions": [
+        "Cornell University",
+        "University Hospital of Basel",
+        "Mount Sinai Hospital",
+        "University of California, Los Angeles"
+      ]
+    },
+    {
+      "id": "kyai-sz0uk0",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Abstract 16690: Comparing AI-Enabled Opportunistic Detection of Lung Cancer in Coronary Artery Calcium Scans versus Full Lung CT Scans: An AutoLung AI study Within MESA and Framingham Heart Study",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Circulation",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1161/circ.154.suppl_1.16690",
+      "publishedAt": "2026-11-02T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Kim Allan Williams Sr."
+      ],
+      "institutions": [
+        "Cornell University",
+        "University of California, Irvine",
+        "Icahn School of Medicine at Mount Sinai",
+        "Mount Sinai Hospital"
+      ]
+    },
     {
       "id": "kyai-mfbax4",
       "category": "research",
@@ -105,50 +180,6 @@
       ],
       "institutions": [
         "University of Louisville"
-      ]
-    },
-    {
-      "id": "kyai-l12g24",
-      "category": "research",
-      "region": "Western Kentucky",
-      "title": "Real or Fake: Investigating the Relationship between Attitudes Towards Artificial Intelligence and Reactions to Disclosed AI-generated Political Advertisements",
-      "body": "Research signal connected to Murray State University.",
-      "source": "Murray State's Digital Commons (Murray State University)",
-      "sourceUrl": null,
-      "url": "https://digitalcommons.murraystate.edu/scholarsweek/Fall2026/PSS/4",
-      "publishedAt": "2026-10-30T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Murray State University",
-      "people": [
-        "Maggie M Drew"
-      ],
-      "institutions": [
-        "Murray State University"
-      ]
-    },
-    {
-      "id": "kyai-og1qr4",
-      "category": "research",
-      "region": "Western Kentucky",
-      "title": "Social Programs: An Investigation into Human Habits of Anthropomorphism in Artificial Intelligence",
-      "body": "Research signal connected to Murray State University.",
-      "source": "Murray State's Digital Commons (Murray State University)",
-      "sourceUrl": null,
-      "url": "https://digitalcommons.murraystate.edu/scholarsweek/Fall2026/hon/21",
-      "publishedAt": "2026-10-30T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Murray State University",
-      "people": [
-        "Rizwan Syed"
-      ],
-      "institutions": [
-        "Murray State University"
       ]
     },
     {
