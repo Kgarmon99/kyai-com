@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-07T16:51:13.245Z",
+  "updatedAt": "2026-11-08T17:03:06.158Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 24,
+    "totalItems": 23,
     "newsItems": 0,
-    "researchItems": 14,
+    "researchItems": 13,
     "curatedItems": 10
   },
   "items": [
@@ -81,6 +81,31 @@
         "University of California, Irvine",
         "Icahn School of Medicine at Mount Sinai",
         "Mount Sinai Hospital"
+      ]
+    },
+    {
+      "id": "kyai-sz07pi",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Abstract 17635: Agatston-2.0: AI-Derived Coronary Artery Calcium Burden and Density Profiling Improve Coronary Heart Disease Risk Stratification Within CAC Scores 1-99",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Circulation",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1161/circ.154.suppl_1.17635",
+      "publishedAt": "2026-11-02T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Kim A Williams"
+      ],
+      "institutions": [
+        "Cornell University",
+        "University Medical Center Groningen",
+        "Icahn School of Medicine at Mount Sinai",
+        "University of Louisville"
       ]
     },
     {
@@ -208,31 +233,6 @@
       ]
     },
     {
-      "id": "kyai-srjo5n",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "AI-based model for optimizing backoff parameters in industrial 802.11 g wireless networks",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Cluster Computing",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1007/s10586-026-06735-0",
-      "publishedAt": "2026-10-28T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Sherali Zeadally"
-      ],
-      "institutions": [
-        "Islamic University of Lebanon",
-        "Lebanese University",
-        "University of Kentucky",
-        "Kyung Hee University"
-      ]
-    },
-    {
       "id": "kyai-3cggmc",
       "category": "research",
       "region": "Eastern Kentucky / Appalachia",
@@ -328,29 +328,6 @@
         "University of Louisville",
         "Mansoura University",
         "Community College of Qatar"
-      ]
-    },
-    {
-      "id": "kyai-rvf994",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Single-image performance alone does not establish longitudinal technical performance: a paired-error framework for artificial intelligence-enabled quantitative imaging",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Frontiers in Imaging",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3389/fimag.2026.1976334",
-      "publishedAt": "2026-10-07T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Hunter Colson"
-      ],
-      "institutions": [
-        "University of Kentucky",
-        "Medical University of South Carolina"
       ]
     },
     {
