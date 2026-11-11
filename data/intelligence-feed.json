@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T18:41:39.414Z",
+  "updatedAt": "2026-11-11T18:41:52.091Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
     "totalItems": 23,
@@ -8,6 +8,29 @@
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-7dnpf2",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Machine Learning-Based Classification of Copper Recovery by Flotation: A Comparative Evaluation of Logistic Regression and Support Vector Machine Models",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Metals",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3390/met16111232",
+      "publishedAt": "2026-11-10T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Adel Said Elmaghraby"
+      ],
+      "institutions": [
+        "Universidad Católica del Norte",
+        "University of Louisville"
+      ]
+    },
     {
       "id": "kyai-5kp9a",
       "category": "research",
@@ -54,31 +77,6 @@
         "St. John Fisher University",
         "Donald & Barbara Zucker School of Medicine at Hofstra/Northwell",
         "Marmara University"
-      ]
-    },
-    {
-      "id": "kyai-sz2677",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Abstract 14415: Opportunistic AI for Cardiovascular Risk Prediction Based on Chest X-Ray: An AI-CVD Study Within MIMIC",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Circulation",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1161/circ.154.suppl_1.14415",
-      "publishedAt": "2026-11-02T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Kim Allan Williams Sr."
-      ],
-      "institutions": [
-        "Cornell University",
-        "University Hospital of Basel",
-        "Mount Sinai Hospital",
-        "University of California, Los Angeles"
       ]
     },
     {
@@ -209,27 +207,25 @@
       ]
     },
     {
-      "id": "kyai-4dxxij",
+      "id": "kyai-anjwhr",
       "category": "research",
-      "region": "Louisville / North Central",
-      "title": "From prediction to impact: The next frontier of perioperative artificial intelligence",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Journal of Clinical Anesthesia",
+      "region": "Lexington / Bluegrass",
+      "title": "Upper Limb Kinematics and Function in Degenerative Cervical Myelopathy: An Outpatient Application of Computer Vision",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "PM&R",
       "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.jclinane.2026.112368",
+      "url": "https://doi.org/10.1002/pmrj.188_70259",
       "publishedAt": "2026-11-01T12:00:00.000Z",
       "lane": "Kentucky research",
       "kind": "research",
       "reviewStatus": "Automated research match",
       "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
+      "kentuckyConnection": "University of Kentucky",
       "people": [
-        "Ozan Akça"
+        "Mohammad Hasan Darabi"
       ],
       "institutions": [
-        "Johns Hopkins University",
-        "University of Louisville",
-        "Johns Hopkins Medicine"
+        "University of Kentucky"
       ]
     },
     {
