@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-11T18:41:52.091Z",
+  "updatedAt": "2026-11-12T18:54:47.490Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 23,
+    "totalItems": 22,
     "newsItems": 0,
-    "researchItems": 13,
+    "researchItems": 12,
     "curatedItems": 10
   },
   "items": [
@@ -77,31 +77,6 @@
         "St. John Fisher University",
         "Donald & Barbara Zucker School of Medicine at Hofstra/Northwell",
         "Marmara University"
-      ]
-    },
-    {
-      "id": "kyai-sz0uk0",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Abstract 16690: Comparing AI-Enabled Opportunistic Detection of Lung Cancer in Coronary Artery Calcium Scans versus Full Lung CT Scans: An AutoLung AI study Within MESA and Framingham Heart Study",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Circulation",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1161/circ.154.suppl_1.16690",
-      "publishedAt": "2026-11-02T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Kim Allan Williams Sr."
-      ],
-      "institutions": [
-        "Cornell University",
-        "University of California, Irvine",
-        "Icahn School of Medicine at Mount Sinai",
-        "Mount Sinai Hospital"
       ]
     },
     {
