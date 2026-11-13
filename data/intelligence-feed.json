@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-12T18:54:47.490Z",
+  "updatedAt": "2026-11-13T18:31:35.174Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 22,
+    "totalItems": 18,
     "newsItems": 0,
-    "researchItems": 12,
+    "researchItems": 8,
     "curatedItems": 10
   },
   "items": [
@@ -80,57 +80,6 @@
       ]
     },
     {
-      "id": "kyai-sz07pi",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Abstract 17635: Agatston-2.0: AI-Derived Coronary Artery Calcium Burden and Density Profiling Improve Coronary Heart Disease Risk Stratification Within CAC Scores 1-99",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Circulation",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1161/circ.154.suppl_1.17635",
-      "publishedAt": "2026-11-02T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Kim A Williams"
-      ],
-      "institutions": [
-        "Cornell University",
-        "University Medical Center Groningen",
-        "Icahn School of Medicine at Mount Sinai",
-        "University of Louisville"
-      ]
-    },
-    {
-      "id": "kyai-mfbax4",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Artificial Intelligence for Colorectal Cancer Diagnosis: A Comprehensive Survey of Modalities, Frameworks, and Clinical Tasks",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Cancers",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3390/cancers18213522",
-      "publishedAt": "2026-11-02T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Bassant El-Mosalamy",
-        "Hossam Magdy Balaha",
-        "Sohayla El-Moursi",
-        "Dibson Dibe Gondim"
-      ],
-      "institutions": [
-        "University of Louisville",
-        "Abu Dhabi University"
-      ]
-    },
-    {
       "id": "kyai-6tl760",
       "category": "research",
       "region": "Northern Kentucky",
@@ -155,30 +104,6 @@
         "Northern Kentucky University",
         "National Safety Council",
         "The University of Texas Health Science Center at Houston"
-      ]
-    },
-    {
-      "id": "kyai-3dmsmf",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Metaheuristic Optimization and Artificial Intelligence for Lithium-Ion Battery Modelling, Parameter Identification, and State Estimation: A Critical Review",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Batteries",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3390/batteries12110451",
-      "publishedAt": "2026-11-02T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Hossam Magdy Balaha"
-      ],
-      "institutions": [
-        "Prince Sattam Bin Abdulaziz University",
-        "University of Louisville",
-        "Mansoura University"
       ]
     },
     {
@@ -274,31 +199,6 @@
       "institutions": [
         "Reichman University",
         "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-qjnv6i",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Attention-based and contrastive deep learning models for real-time anomaly detection in Edge-IIoT networks",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Scientific Reports",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1038/s41598-026-70891-x",
-      "publishedAt": "2026-10-14T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Hossam Magdy Balaha"
-      ],
-      "institutions": [
-        "Taibah University",
-        "University of Louisville",
-        "Mansoura University",
-        "Community College of Qatar"
       ]
     },
     {
