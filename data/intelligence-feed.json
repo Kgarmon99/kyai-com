@@ -1,13 +1,62 @@
 {
-  "updatedAt": "2026-11-16T21:01:35.453Z",
+  "updatedAt": "2026-11-17T19:50:50.227Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 17,
+    "totalItems": 18,
     "newsItems": 0,
-    "researchItems": 7,
+    "researchItems": 8,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-67scxt",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Artificial Intelligence for Automated Detection and Segmentation of Pulp Stones in Cone Beam Computed Tomography Scans.",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Research Square",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.21203/rs.3.rs-11554539/v1",
+      "publishedAt": "2026-11-16T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "William Scarfe",
+        "Mohamed El-Sharkawy"
+      ],
+      "institutions": [
+        "Cairo University",
+        "Al-Azhar University",
+        "Al Azhar University",
+        "University of Louisville"
+      ]
+    },
+    {
+      "id": "kyai-nbhalj",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Prompting, evaluating, and adapting AI-generated mathematical tasks: Secondary preservice teachers’ curricular decision-making with ChatGPT",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "International Electronic Journal of Mathematics Education",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.29333/iejme/19970",
+      "publishedAt": "2026-11-16T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Bima Sapkota"
+      ],
+      "institutions": [
+        "University of Kentucky",
+        "California State University Los Angeles"
+      ]
+    },
     {
       "id": "kyai-oqb64u",
       "category": "research",
@@ -125,10 +174,10 @@
         "Valerie Mead"
       ],
       "institutions": [
+        "Advanced Technologies and Laboratories International (United States)",
         "National Institute for Occupational Safety and Health",
         "Northern Kentucky University",
-        "National Safety Council",
-        "The University of Texas Health Science Center at Houston"
+        "National Safety Council"
       ]
     },
     {
@@ -151,31 +200,6 @@
       ],
       "institutions": [
         "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-3cggmc",
-      "category": "research",
-      "region": "Eastern Kentucky / Appalachia",
-      "title": "Preservice Teacher AI-Supported Collaborative Noticing for Asset-Based Mathematics Pedagogy",
-      "body": "Research signal connected to Morehead State University.",
-      "source": "Journal of Mathematics Teacher Education",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1007/s10857-026-09786-7",
-      "publishedAt": "2026-10-28T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "Morehead State University",
-      "people": [
-        "Michele Cudd"
-      ],
-      "institutions": [
-        "Georgia Institute of Technology",
-        "Morehead State University",
-        "Tarleton State University",
-        "Northeastern Illinois University"
       ]
     },
     {
