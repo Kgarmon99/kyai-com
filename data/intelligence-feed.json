@@ -1,13 +1,38 @@
 {
-  "updatedAt": "2026-11-17T19:50:50.227Z",
+  "updatedAt": "2026-11-18T19:24:52.711Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 18,
+    "totalItems": 20,
     "newsItems": 0,
-    "researchItems": 8,
+    "researchItems": 10,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-bx1bxt",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "PreVAP: an explainable machine learning model for early prediction of ventilator-associated pneumonia using electronic health records and near-real-time clinical dashboards",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Scientific Reports",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1038/s41598-026-80526-w",
+      "publishedAt": "2026-11-17T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Jose J. Guardiola"
+      ],
+      "institutions": [
+        "Hospital Universitari Joan XXIII de Tarragona",
+        "Universitat Rovira i Virgili",
+        "Institut de Recerca Biomèdica Catalunya Sud",
+        "University of Louisville"
+      ]
+    },
     {
       "id": "kyai-67scxt",
       "category": "research",
@@ -151,6 +176,32 @@
         "St. John Fisher University",
         "Donald & Barbara Zucker School of Medicine at Hofstra/Northwell",
         "Marmara University"
+      ]
+    },
+    {
+      "id": "kyai-mfbax4",
+      "category": "research",
+      "region": "Louisville / North Central",
+      "title": "Artificial Intelligence for Colorectal Cancer Diagnosis: A Comprehensive Survey of Modalities, Frameworks, and Clinical Tasks",
+      "body": "Research signal connected to University of Louisville.",
+      "source": "Cancers",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.3390/cancers18213522",
+      "publishedAt": "2026-11-02T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Louisville",
+      "people": [
+        "Bassant El-Mosalamy",
+        "Hossam Magdy Balaha",
+        "Sohayla El-Moursi",
+        "Dibson Dibe Gondim"
+      ],
+      "institutions": [
+        "University of Louisville",
+        "Abu Dhabi University"
       ]
     },
     {
