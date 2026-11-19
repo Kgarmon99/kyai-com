@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T19:24:52.711Z",
+  "updatedAt": "2026-11-19T19:30:02.401Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
     "totalItems": 20,
@@ -8,6 +8,31 @@
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-3wmfty",
+      "category": "research",
+      "region": "Frankfort / Bluegrass",
+      "title": "Genomic Determinants of Antimicrobial Resistance: Integrating Molecular Mechanisms, Diagnostic Technologies, and Artificial Intelligence for Precision Treatment",
+      "body": "Research signal connected to Kentucky State University.",
+      "source": "Asian Journal of Microbiology and Biotechnology",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.56557/ajmab/2026/v11i211389",
+      "publishedAt": "2026-11-18T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "Kentucky State University",
+      "people": [
+        "Toheeb Olaniyi Falakin"
+      ],
+      "institutions": [
+        "Kentucky State University",
+        "Bemidji State University",
+        "University of Cape Coast",
+        "University of Oklahoma Health Sciences Center"
+      ]
+    },
     {
       "id": "kyai-bx1bxt",
       "category": "research",
@@ -57,6 +82,29 @@
         "Al-Azhar University",
         "Al Azhar University",
         "University of Louisville"
+      ]
+    },
+    {
+      "id": "kyai-ig2y5q",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "Effects of human vs. AI sources on cognitive and affective trust and public responses in base crisis communication",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Public Relations Review",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1016/j.pubrev.2026.102788",
+      "publishedAt": "2026-11-16T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Hyungrok Jin"
+      ],
+      "institutions": [
+        "The University of Texas at Austin",
+        "University of Kentucky"
       ]
     },
     {
@@ -154,31 +202,6 @@
       ]
     },
     {
-      "id": "kyai-3ha2bt",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Professional identity formation in pharmacy in the era of artificial intelligence",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "Currents in Pharmacy Teaching and Learning",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1016/j.cptl.2026.102827",
-      "publishedAt": "2026-11-06T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Melody Ann Ryan"
-      ],
-      "institutions": [
-        "University of Ulster",
-        "St. John Fisher University",
-        "Donald & Barbara Zucker School of Medicine at Hofstra/Northwell",
-        "Marmara University"
-      ]
-    },
-    {
       "id": "kyai-mfbax4",
       "category": "research",
       "region": "Louisville / North Central",
@@ -229,28 +252,6 @@
         "National Institute for Occupational Safety and Health",
         "Northern Kentucky University",
         "National Safety Council"
-      ]
-    },
-    {
-      "id": "kyai-anjwhr",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Upper Limb Kinematics and Function in Degenerative Cervical Myelopathy: An Outpatient Application of Computer Vision",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "PM&R",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1002/pmrj.188_70259",
-      "publishedAt": "2026-11-01T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Mohammad Hasan Darabi"
-      ],
-      "institutions": [
-        "University of Kentucky"
       ]
     },
     {
