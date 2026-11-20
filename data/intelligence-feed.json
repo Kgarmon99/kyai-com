@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-19T19:30:02.401Z",
+  "updatedAt": "2026-11-20T19:06:39.457Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 20,
+    "totalItems": 18,
     "newsItems": 0,
-    "researchItems": 10,
+    "researchItems": 8,
     "curatedItems": 10
   },
   "items": [
@@ -30,7 +30,7 @@
         "Kentucky State University",
         "Bemidji State University",
         "University of Cape Coast",
-        "University of Oklahoma Health Sciences Center"
+        "OU Health"
       ]
     },
     {
@@ -156,29 +156,6 @@
       ]
     },
     {
-      "id": "kyai-7dnpf2",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Machine Learning-Based Classification of Copper Recovery by Flotation: A Comparative Evaluation of Logistic Regression and Support Vector Machine Models",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Metals",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3390/met16111232",
-      "publishedAt": "2026-11-10T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Adel Said Elmaghraby"
-      ],
-      "institutions": [
-        "Universidad Católica del Norte",
-        "University of Louisville"
-      ]
-    },
-    {
       "id": "kyai-5kp9a",
       "category": "research",
       "region": "Lexington / Bluegrass",
@@ -199,32 +176,6 @@
       ],
       "institutions": [
         "University of Kentucky"
-      ]
-    },
-    {
-      "id": "kyai-mfbax4",
-      "category": "research",
-      "region": "Louisville / North Central",
-      "title": "Artificial Intelligence for Colorectal Cancer Diagnosis: A Comprehensive Survey of Modalities, Frameworks, and Clinical Tasks",
-      "body": "Research signal connected to University of Louisville.",
-      "source": "Cancers",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.3390/cancers18213522",
-      "publishedAt": "2026-11-02T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Louisville",
-      "people": [
-        "Bassant El-Mosalamy",
-        "Hossam Magdy Balaha",
-        "Sohayla El-Moursi",
-        "Dibson Dibe Gondim"
-      ],
-      "institutions": [
-        "University of Louisville",
-        "Abu Dhabi University"
       ]
     },
     {
