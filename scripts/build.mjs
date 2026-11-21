@@ -74,7 +74,7 @@ function readJson(relativePath, fallback) {
 function siteHeader() {
   return `<header class="site-header">
       <a class="brand" href="/#top" aria-label="KYAI home">
-        <img src="/assets/kyai-mark.svg?v=kentucky-20260902" alt="" />
+        <img src="/assets/kyai-mark.svg?v=kyblue-20261121" alt="" />
         <span>
           KYAI
           <small>AI for Kentucky</small>
@@ -110,18 +110,18 @@ function pageShell({ title, description, url, body }) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="${escapeHtml(description)}" />
-    <meta name="theme-color" content="#050705" />
+    <meta name="theme-color" content="#04060d" />
     <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:image" content="/assets/kyai-hero.png" />
     <meta property="og:url" content="${escapeHtml(url)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>${escapeHtml(title)}</title>
-    <link rel="icon" href="/assets/kyai-mark.svg?v=kentucky-20260902" />
+    <link rel="icon" href="/assets/kyai-mark.svg?v=kyblue-20261121" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css?v=bold-20261121" />
+    <link rel="stylesheet" href="/styles.css?v=kyblue-20261121" />
   </head>
   <body>
     ${siteHeader()}
