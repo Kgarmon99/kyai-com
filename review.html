@@ -7,7 +7,7 @@
       name="description"
       content="KYAI review queue for editors and admins to approve, reject, or request changes on community submissions."
     />
-    <meta name="theme-color" content="#04060d" />
+    <meta name="theme-color" content="#050705" />
     <meta property="og:title" content="KYAI Review Queue" />
     <meta
       property="og:description"
@@ -19,17 +19,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=redesign-20261121" />
+    <link rel="stylesheet" href="./styles.css?v=bold-20261121" />
     <style>
       .review-section {
         min-height: calc(100svh - 72px);
         padding: 48px 56px 96px;
         background:
-          linear-gradient(135deg, rgba(69, 220, 255, 0.08), transparent 28%, rgba(168, 85, 255, 0.09) 72%, transparent),
-          linear-gradient(180deg, #050712 0%, #090d1b 100%);
+          linear-gradient(135deg, rgba(61, 255, 142, 0.07), transparent 28%, rgba(34, 229, 132, 0.06) 72%, transparent),
+          linear-gradient(180deg, #050705 0%, #070a08 100%);
         color: var(--ink);
       }
       .review-section h1 {
@@ -42,12 +42,12 @@
         margin: 0 auto;
       }
       .review-card {
-        border: 1px solid rgba(107, 142, 255, 0.22);
-        border-radius: 14px;
+        border: 1px solid rgba(120, 255, 170, 0.22);
+        border-radius: 4px;
         padding: 28px;
         background:
-          linear-gradient(138deg, rgba(69, 220, 255, 0.1), rgba(168, 85, 255, 0.06) 48%, rgba(255, 255, 255, 0.035)),
-          rgba(11, 16, 32, 0.78);
+          linear-gradient(138deg, rgba(61, 255, 142, 0.08), rgba(34, 229, 132, 0.05) 48%, rgba(255, 255, 255, 0.035)),
+          rgba(11, 18, 12, 0.85);
         box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.07);
         backdrop-filter: blur(18px) saturate(1.2);
       }
@@ -64,18 +64,18 @@
       .review-tabs button {
         min-height: 40px;
         padding: 0 16px;
-        border: 1px solid rgba(70, 216, 255, 0.32);
-        border-radius: 6px;
-        background: rgba(255, 253, 247, 0.08);
+        border: 1px solid rgba(61, 255, 142, 0.4);
+        border-radius: 3px;
+        background: rgba(61, 255, 142, 0.06);
         color: var(--ink);
         font-weight: 800;
         cursor: pointer;
         transition: background 180ms ease, border-color 180ms ease;
       }
       .review-tabs button[aria-selected="true"] {
-        background: var(--goldenrod);
-        border-color: var(--goldenrod);
-        color: #171717;
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--accent-ink);
       }
       .review-toolbar {
         display: flex;
@@ -102,10 +102,10 @@
         gap: 18px;
       }
       .submission-card {
-        border: 1px solid rgba(107, 142, 255, 0.18);
-        border-radius: 10px;
+        border: 1px solid rgba(120, 255, 170, 0.18);
+        border-radius: 4px;
         padding: 20px;
-        background: rgba(3, 5, 14, 0.42);
+        background: rgba(5, 7, 5, 0.5);
       }
       .submission-card .meta {
         display: flex;
@@ -118,11 +118,12 @@
         align-items: center;
         gap: 6px;
         padding: 4px 10px;
-        border-radius: 999px;
-        background: rgba(69, 220, 255, 0.1);
+        border-radius: 3px;
+        background: rgba(61, 255, 142, 0.08);
         color: var(--signal);
-        font-size: 0.76rem;
-        font-weight: 850;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 700;
         text-transform: uppercase;
       }
       .submission-card h3 {

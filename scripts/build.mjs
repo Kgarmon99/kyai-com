@@ -110,7 +110,7 @@ function pageShell({ title, description, url, body }) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="${escapeHtml(description)}" />
-    <meta name="theme-color" content="#04060d" />
+    <meta name="theme-color" content="#050705" />
     <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:image" content="/assets/kyai-hero.png" />
@@ -120,8 +120,8 @@ function pageShell({ title, description, url, body }) {
     <link rel="icon" href="/assets/kyai-mark.svg?v=kentucky-20260902" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css?v=redesign-20261121" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css?v=bold-20261121" />
   </head>
   <body>
     ${siteHeader()}
