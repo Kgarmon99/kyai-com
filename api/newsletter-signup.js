@@ -1,4 +1,4 @@
-import { query, now, upsertSql } from "../lib/db.mjs";
+import { query, upsertSql } from "../lib/db.mjs";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -7,6 +7,22 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 const DEFAULT_NOTIFY_TO = "kahlil@getmoneybot.com";
 const DEFAULT_GITHUB_REPO = "Kgarmon99/kyai-newsletter-signups";
+
+// A subscriber is durably recorded only when it lands in the Resend audience
+// or in Postgres. The local SQLite file and data/subscribers.json are
+// ephemeral on Vercel serverless, so they never count as durable storage.
+export function isPostgresDatabase() {
+  const url = process.env.DATABASE_URL || "";
+  return url.startsWith("postgres://") || url.startsWith("postgresql://");
+}
+
+export function splitName(name) {
+  const parts = String(name || "").trim().split(/\s+/).filter(Boolean);
+  return {
+    firstName: parts[0] || "",
+    lastName: parts.slice(1).join(" ") || "",
+  };
+}
 
 function setCors(response) {
   response.setHeader("Access-Control-Allow-Origin", "*");
@@ -74,8 +90,10 @@ async function readBody(request) {
   }
 }
 
-async function saveSubscriberLocally(entry) {
-  // 1. Save to SQLite / Postgres database
+async function saveSubscriberLocally(entry, welcomeSent) {
+  // 1. Save to SQLite / Postgres database. Returns true only when the insert
+  // succeeded against Postgres, the only durable database here.
+  let postgresStored = false;
   try {
     await query(
       upsertSql("subscribers", [
@@ -90,14 +108,16 @@ async function saveSubscriberLocally(entry) {
         JSON.stringify(entry.interests),
         entry.source,
         entry.createdAt,
-        1,
+        welcomeSent ? 1 : 0,
       ]
     );
+    postgresStored = isPostgresDatabase();
   } catch (err) {
     console.error("DB subscriber save warning:", err.message);
   }
 
-  // 2. Save to data/subscribers.json file in repo
+  // 2. Save to data/subscribers.json file in repo (best-effort record only;
+  // the file is ephemeral on Vercel, so this never counts as durable).
   try {
     const subPath = path.join(root, "data", "subscribers.json");
     let currentData = { subscribers: [] };
@@ -117,6 +137,8 @@ async function saveSubscriberLocally(entry) {
   } catch (err) {
     console.error("JSON subscriber save warning:", err.message);
   }
+
+  return postgresStored;
 }
 
 async function postJson(url, payload, headers = {}) {
@@ -137,13 +159,55 @@ async function postJson(url, payload, headers = {}) {
   return response;
 }
 
-async function sendSubscriberWelcomeEmail(entry) {
+// Add the subscriber to the Resend audience. This is the durable record that
+// the weekly broadcast sends to. Returns true when the contact is in the
+// audience, including when it was already there. The fetch implementation is
+// injectable so tests can stub it without network calls.
+// Note: Resend marks the audience-nested contacts endpoint as legacy in
+// favor of POST /contacts with segments, but the endpoint is still supported
+// by the current official SDK and is the shape confirmed to persist contacts
+// into an audience. If Resend removes it, switch to POST /contacts with
+// segments: [{ id: KYAI_RESEND_AUDIENCE_ID }].
+export async function addResendContact(entry, fetchImpl = fetch) {
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.log("RESEND_API_KEY not set; generated confirmation response for subscriber:", entry.email);
+  const audienceId = process.env.KYAI_RESEND_AUDIENCE_ID;
+  if (!apiKey || !audienceId) return false;
+
+  const { firstName, lastName } = splitName(entry.name);
+  try {
+    const response = await fetchImpl(
+      `https://api.resend.com/audiences/${encodeURIComponent(audienceId)}/contacts`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          email: entry.email,
+          first_name: firstName || undefined,
+          last_name: lastName || undefined,
+          unsubscribed: false,
+        }),
+      }
+    );
+
+    if (response.ok) return true;
+
+    // A contact that is already in the audience is still durably stored.
+    const text = await response.text().catch(() => "");
+    if (response.status === 409 || /already exists/i.test(text)) return true;
+
+    console.error("Resend contact add failed:", response.status, text.slice(0, 240));
+    return false;
+  } catch (err) {
+    console.error("Resend contact add failed:", err.message);
     return false;
   }
+}
 
+export function buildWelcomeEmail(entry) {
+  const subject = "Welcome to KYAI, the Kentucky AI Pulse";
   const html = `<!doctype html>
 <html lang="en">
   <head>
@@ -165,23 +229,23 @@ async function sendSubscriberWelcomeEmail(entry) {
     <div class="container">
       <a class="brand" href="https://ky-ai.vercel.app/">KYAI <span>AI for Kentucky</span></a>
       <h1>Welcome to KYAI${entry.name ? `, ${escapeHtml(entry.name)}` : ""}!</h1>
-      <p>Thank you for joining the <strong>Kentucky Artificial Intelligence Network</strong>. You are officially on the list to receive our local AI intelligence briefs, regional updates, and workshop alerts.</p>
+      <p>Thank you for joining the <strong>Kentucky AI Pulse</strong>. You are officially on the list to receive our local AI intelligence briefs, regional updates, and workshop alerts.</p>
 
       <div class="badge-box">
         <p style="margin:0 0 8px 0; font-weight:600; color:#ffffff;">Your Subscription Preferences:</p>
         <p style="margin:0; font-size:14px;">
-          Region: <strong>${escapeHtml(entry.region)}</strong> &bull; 
-          Role: <strong>${escapeHtml(entry.role)}</strong> &bull; 
+          Region: <strong>${escapeHtml(entry.region)}</strong> &bull;
+          Role: <strong>${escapeHtml(entry.role)}</strong> &bull;
           Topics: <strong>${escapeHtml(entry.interests.join(", "))}</strong>
         </p>
       </div>
 
       <p>Explore what is live on KYAI today:</p>
       <ul style="color:#cbd5e1; padding-left: 20px; line-height: 1.8;">
-        <li><a href="https://ky-ai.vercel.app/#near-me" style="color:#38bdf8; text-decoration:none;">AI Near Me Personalization</a></li>
-        <li><a href="https://ky-ai.vercel.app/#regions" style="color:#38bdf8; text-decoration:none;">Regional AI Intelligence Briefs</a></li>
-        <li><a href="https://ky-ai.vercel.app/#events" style="color:#38bdf8; text-decoration:none;">Kentucky AI Event Calendar & Rooms</a></li>
-        <li><a href="https://ky-ai.vercel.app/#toolkits" style="color:#38bdf8; text-decoration:none;">Practical Kentucky AI Toolkits</a></li>
+        <li><a href="https://ky-ai.vercel.app/#intelligence" style="color:#38bdf8; text-decoration:none;">Latest Kentucky AI signals</a></li>
+        <li><a href="https://ky-ai.vercel.app/#regions" style="color:#38bdf8; text-decoration:none;">Regional AI intelligence briefs</a></li>
+        <li><a href="https://ky-ai.vercel.app/#events" style="color:#38bdf8; text-decoration:none;">Kentucky AI event calendar and rooms</a></li>
+        <li><a href="https://ky-ai.vercel.app/#contribute" style="color:#38bdf8; text-decoration:none;">Share a lead or get involved</a></li>
       </ul>
 
       <a class="button" href="https://ky-ai.vercel.app/">Open KYAI Intelligence Feed &rarr;</a>
@@ -193,15 +257,40 @@ async function sendSubscriberWelcomeEmail(entry) {
     </div>
   </body>
 </html>`;
+  const text = [
+    `Welcome to KYAI${entry.name ? `, ${entry.name}` : ""}!`,
+    "",
+    "Thank you for subscribing to the Kentucky AI Pulse.",
+    "",
+    `Your Region: ${entry.region}`,
+    `Your Role: ${entry.role}`,
+    "",
+    "Explore what is live on KYAI today:",
+    "Latest Kentucky AI signals: https://ky-ai.vercel.app/#intelligence",
+    "Regional AI intelligence briefs: https://ky-ai.vercel.app/#regions",
+    "Kentucky AI event calendar and rooms: https://ky-ai.vercel.app/#events",
+    "Share a lead or get involved: https://ky-ai.vercel.app/#contribute",
+  ].join("\n");
 
+  return { subject, html, text };
+}
+
+async function sendSubscriberWelcomeEmail(entry) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.log("RESEND_API_KEY not set; generated confirmation response for subscriber:", entry.email);
+    return false;
+  }
+
+  const { subject, html, text } = buildWelcomeEmail(entry);
   await postJson(
     "https://api.resend.com/emails",
     {
       from: process.env.KYAI_NEWSLETTER_FROM || "KYAI <onboarding@resend.dev>",
       to: [entry.email],
-      subject: "Welcome to KYAI — Kentucky Artificial Intelligence Network",
+      subject,
       html,
-      text: `Welcome to KYAI!\n\nThank you for subscribing to Kentucky Artificial Intelligence updates.\n\nYour Region: ${entry.region}\nYour Role: ${entry.role}\n\nExplore live AI updates, events, and toolkits at: https://ky-ai.vercel.app/`,
+      text,
     },
     { Authorization: `Bearer ${apiKey}` }
   );
@@ -300,21 +389,27 @@ export default async function handler(request, response) {
   }
 
   if (process.env.KYAI_NEWSLETTER_DRY_RUN === "1") {
-    json(response, 200, { ok: true, savedRemotely: true, delivery: "dry-run" });
+    // Dry run simulates a durable save without side effects. No email is
+    // sent in this mode, so welcomeSent stays false.
+    json(response, 200, { ok: true, stored: true, welcomeSent: false, delivery: "dry-run" });
     return;
   }
 
   try {
-    // 1. Save locally to DB and data/subscribers.json
-    await saveSubscriberLocally(entry);
+    // 1. Durable subscriber record: add the contact to the Resend audience.
+    const resendStored = await addResendContact(entry);
 
-    // 2. Send Welcome Email to subscriber
+    // 2. Send the welcome email to the subscriber.
     const welcomeSent = await sendSubscriberWelcomeEmail(entry).catch((err) => {
       console.error("Welcome email notice:", err.message);
       return false;
     });
 
-    // 3. Deliver admin notifications (GitHub issue / Resend notification / Webhook)
+    // 3. Best-effort local records (DB + JSON). Only a Postgres insert is durable.
+    const postgresStored = await saveSubscriberLocally(entry, welcomeSent);
+    const stored = resendStored || postgresStored;
+
+    // 4. Deliver admin notifications (GitHub issue / Resend notification / Webhook)
     await Promise.allSettled([
       deliverWithGitHub(entry),
       deliverNotificationToAdmin(entry),
@@ -324,16 +419,17 @@ export default async function handler(request, response) {
     json(response, 200, {
       ok: true,
       email: entry.email,
+      stored,
       welcomeSent,
-      message: "🎉 Welcome to KYAI! Your subscription has been confirmed.",
     });
   } catch (error) {
     console.error("Newsletter signup processing:", error);
     json(response, 200, {
-      ok: true,
+      ok: false,
       email: entry.email,
+      stored: false,
       welcomeSent: false,
-      message: "🎉 Welcome to KYAI! Your subscription is registered.",
+      error: "Signup could not be completed.",
     });
   }
 }

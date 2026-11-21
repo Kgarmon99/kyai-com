@@ -604,7 +604,7 @@ function renderNewsletterCount() {
 }
 
 async function postNewsletterSignup(entry) {
-  if (!NEWSLETTER_ENDPOINT) return { savedRemotely: false };
+  if (!NEWSLETTER_ENDPOINT) throw new Error("Newsletter endpoint unavailable");
 
   const response = await fetch(NEWSLETTER_ENDPOINT, {
     method: "POST",
@@ -618,7 +618,9 @@ async function postNewsletterSignup(entry) {
     throw new Error("Newsletter endpoint rejected signup");
   }
 
-  return response.json().catch(() => ({ savedRemotely: true }));
+  return response.json().catch(() => {
+    throw new Error("Newsletter endpoint returned an unreadable response");
+  });
 }
 
 function saveNewsletterSignup(entry) {
@@ -751,11 +753,14 @@ newsletterForm.addEventListener("submit", async (event) => {
 
   try {
     const result = await postNewsletterSignup(entry);
-    saveNewsletterSignup(entry);
-    newsletterStatus.textContent = result.savedRemotely || result.ok
-      ? "You're on the KYAI update list."
-      : "Saved on this device. The email delivery connector is ready to plug in.";
-    newsletterForm.reset();
+    if (result.stored && result.welcomeSent) {
+      newsletterStatus.textContent = "You're in! A welcome email is on its way.";
+    } else if (result.stored) {
+      newsletterStatus.textContent = "You're on the list.";
+    } else {
+      newsletterStatus.textContent = "Something went wrong, please try again.";
+    }
+    if (result.stored) newsletterForm.reset();
   } catch {
     saveNewsletterSignup(entry);
     newsletterStatus.textContent = "Saved on this device. The email service did not respond yet.";

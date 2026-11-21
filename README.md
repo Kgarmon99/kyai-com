@@ -86,11 +86,34 @@ Public read and submit endpoints require no authentication. Review and ingest en
 
 ### Newsletter Signup
 
-The public newsletter form posts to `/api/newsletter-signup`.
+The public newsletter form posts to `/api/newsletter-signup`. Each signup is
+stored durably as a contact in a Resend audience and gets a welcome email. A
+weekly digest goes out every Monday at 8:00 AM CT through the
+`newsletter-weekly` GitHub Action, which broadcasts to the same audience.
 
-- Preferred durable backend: set `KYAI_NEWSLETTER_WEBHOOK_URL` to a private intake webhook.
-- Private GitHub intake: set `KYAI_NEWSLETTER_GITHUB_TOKEN` and optional `KYAI_NEWSLETTER_GITHUB_REPO`.
-- Email backend: set `RESEND_API_KEY`, plus optional `KYAI_NEWSLETTER_NOTIFY_TO` and `KYAI_NEWSLETTER_FROM`.
+Setup (all required before subscribers receive email):
+
+1. Create a free account at [resend.com](https://resend.com) and create an
+   audience (Audiences, Add audience). Copy the audience ID.
+2. Verify a sending domain in Resend (Domains, Add domain). This is required:
+   the default `onboarding@resend.dev` sender only delivers to the Resend
+   account owner's own address, so subscribers would never get email without it.
+3. In Vercel (Project Settings, Environment Variables), set:
+   - `RESEND_API_KEY` (starts with `re_`)
+   - `KYAI_RESEND_AUDIENCE_ID` (the audience ID from step 1)
+   - `KYAI_NEWSLETTER_FROM` (for example `KYAI <updates@kyai.com>`, using the verified domain)
+   - Optional: `KYAI_NEWSLETTER_NOTIFY_TO` (defaults to kahlil@getmoneybot.com)
+4. In GitHub (Settings, Secrets and variables, Actions), set repository secrets
+   `RESEND_API_KEY` and `KYAI_RESEND_AUDIENCE_ID` (same values as step 3), plus
+   `KYAI_NEWSLETTER_FROM` if you set one. The weekly Action reads them from there.
+
+To test the weekly send without emailing the audience, run the Action manually
+from the Actions tab and enter a test address, or run
+`KYAI_NEWSLETTER_TEST_TO=you@example.com npm run newsletter:send` locally.
+
+Optional intake paths (unchanged): set `KYAI_NEWSLETTER_WEBHOOK_URL` for a
+private intake webhook, or `KYAI_NEWSLETTER_GITHUB_TOKEN` and optional
+`KYAI_NEWSLETTER_GITHUB_REPO` for a private GitHub issue per signup.
 
 ## Current Surface
 
