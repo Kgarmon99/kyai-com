@@ -573,19 +573,22 @@ fieldset label {
     var(--bg-0);
 }
 
-/* Detailed Kentucky map behind the masthead: same state shape and
-   region bands as the tracker map, with city pins and a Frankfort star.
-   Muted and faded at the left edge so the headline stays readable. */
+/* Detailed Kentucky map in the hero: same state shape and region bands
+   as the tracker map, with city pins and a Frankfort star. It sits
+   BELOW the headline (top 456px clears the three-line H1, which ends
+   around 431px at the largest display size) in the free right zone
+   beside the left-aligned intro column, and ends above the bento. The
+   left edge fades out so the map never muddles the intro text. */
 .hero-ky-map {
   position: absolute;
-  top: 118px;
-  right: -60px;
+  top: 456px;
+  right: -32px;
   z-index: 0;
-  width: min(48vw, 660px);
+  width: min(42vw, 560px);
   height: auto;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 32%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 36%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 36%);
 }
 
 .hero-ky-map .ky-region-map {
@@ -2692,10 +2695,12 @@ fieldset label {
     --section-pad: 64px;
   }
 
+  /* Below 1040px the hero has no free zone wide enough for a legible
+     detailed map beside the intro column, so the hero map is hidden
+     here (the tracker section keeps the full map with regions and
+     cities). */
   .hero-ky-map {
-    top: 96px;
-    right: -140px;
-    width: 460px;
+    display: none;
   }
 
   .site-header,
