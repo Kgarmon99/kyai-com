@@ -1,6 +1,1 @@
-{
-  "buildCommand": "npm run build:vercel",
-  "outputDirectory": "dist/client",
-  "cleanUrls": true,
-  "trailingSlash": false
-}
+{"buildCommand":"npm run build:vercel","cleanUrls":true,"crons":[{"path":"/api/send-weekly-newsletter","schedule":"0 14 * * 1"}],"functions":{"api/send-weekly-newsletter.js":{"includeFiles":"data/intelligence-feed.json"}},"outputDirectory":"dist/client","trailingSlash":false}

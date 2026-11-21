@@ -88,8 +88,8 @@ Public read and submit endpoints require no authentication. Review and ingest en
 
 The public newsletter form posts to `/api/newsletter-signup`. Each signup is
 stored durably as a contact in a Resend audience and gets a welcome email. A
-weekly digest goes out every Monday at 8:00 AM CT through the
-`newsletter-weekly` GitHub Action, which broadcasts to the same audience.
+weekly digest goes out every Monday at 8:00 AM CT through a Vercel Cron job
+that calls `/api/send-weekly-newsletter`, which broadcasts to the same audience.
 
 Setup (all required before subscribers receive email):
 
@@ -102,14 +102,18 @@ Setup (all required before subscribers receive email):
    - `RESEND_API_KEY` (starts with `re_`)
    - `KYAI_RESEND_AUDIENCE_ID` (the audience ID from step 1)
    - `KYAI_NEWSLETTER_FROM` (for example `KYAI <updates@kyai.com>`, using the verified domain)
+   - `CRON_SECRET` (a random string of at least 16 characters, letters and
+     numbers only). Vercel sends this value automatically as a Bearer token
+     when the cron job runs; the route rejects every request without it.
+     Redeploy after adding or changing it.
    - Optional: `KYAI_NEWSLETTER_NOTIFY_TO` (defaults to kahlil@getmoneybot.com)
-4. In GitHub (Settings, Secrets and variables, Actions), set repository secrets
-   `RESEND_API_KEY` and `KYAI_RESEND_AUDIENCE_ID` (same values as step 3), plus
-   `KYAI_NEWSLETTER_FROM` if you set one. The weekly Action reads them from there.
 
-To test the weekly send without emailing the audience, run the Action manually
-from the Actions tab and enter a test address, or run
+To test the weekly send without emailing the audience, run
 `KYAI_NEWSLETTER_TEST_TO=you@example.com npm run newsletter:send` locally.
+
+To trigger a manual send in production, call the route with the secret (this
+broadcasts to the audience):
+`curl -H "Authorization: Bearer $CRON_SECRET" https://ky-ai.vercel.app/api/send-weekly-newsletter`
 
 Optional intake paths (unchanged): set `KYAI_NEWSLETTER_WEBHOOK_URL` for a
 private intake webhook, or `KYAI_NEWSLETTER_GITHUB_TOKEN` and optional
