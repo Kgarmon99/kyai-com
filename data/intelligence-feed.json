@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-20T19:06:39.457Z",
+  "updatedAt": "2026-11-21T17:58:41.261Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 18,
+    "totalItems": 17,
     "newsItems": 0,
-    "researchItems": 8,
+    "researchItems": 7,
     "curatedItems": 10
   },
   "items": [
@@ -153,29 +153,6 @@
         "Florida State University",
         "Kwame Nkrumah University of Science and Technology",
         "University of Energy and Natural Resources"
-      ]
-    },
-    {
-      "id": "kyai-5kp9a",
-      "category": "research",
-      "region": "Lexington / Bluegrass",
-      "title": "Temporal machine learning for predicting accidents and violations in the mining industry",
-      "body": "Research signal connected to University of Kentucky.",
-      "source": "International Journal of Coal Science & Technology",
-      "sourceUrl": null,
-      "url": "https://doi.org/10.1007/s40789-026-00943-0",
-      "publishedAt": "2026-11-09T12:00:00.000Z",
-      "lane": "Kentucky research",
-      "kind": "research",
-      "reviewStatus": "Automated research match",
-      "confidence": "medium",
-      "kentuckyConnection": "University of Kentucky",
-      "people": [
-        "Nathan Kelley",
-        "Pedram Roghanchi"
-      ],
-      "institutions": [
-        "University of Kentucky"
       ]
     },
     {
