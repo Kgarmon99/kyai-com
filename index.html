@@ -15,19 +15,19 @@
     />
     <meta property="og:image" content="./assets/kyai-hero.png" />
     <title>KYAI | Kentucky AI Pulse</title>
-    <link rel="icon" href="./assets/kyai-mark.svg?v=kyblue-20261121" />
+    <link rel="icon" href="./assets/kyai-mark.svg?v=kylogo-20261121" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=kyblue-20261121" />
+    <link rel="stylesheet" href="./styles.css?v=kylogo-20261121" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="KYAI home">
-        <img src="./assets/kyai-mark.svg?v=kyblue-20261121" alt="" />
+        <img src="./assets/kyai-mark.svg?v=kylogo-20261121" alt="" />
         <span>
           KYAI
           <small>AI for Kentucky</small>
@@ -47,7 +47,33 @@
 
     <main id="top">
       <section class="pulse-hero" id="pulse" aria-labelledby="pulse-title">
-        <svg class="hero-ky-outline" viewBox="0 0 640 300" aria-hidden="true" focusable="false"><path d="M436.2 59.3 L452.8 72.1 L464.5 65.4 L492.5 72.6 L500.6 63.4 L511.2 60.3 L514.4 76.2 L522.9 78.7 L533.0 91.6 L531.0 119.8 L539.9 137.7 L551.7 151.5 L555.3 162.3 L569.5 173.1 L579.3 174.6 L550.9 199.7 L523.7 213.6 L523.7 220.7 L512.8 226.9 L512.0 235.1 L497.8 238.7 L492.9 248.9 L453.2 262.3 L452.0 263.8 L388.7 262.8 L333.6 259.7 L319.0 260.7 L237.2 257.1 L143.9 259.2 L127.7 255.1 L128.9 272.0 L36.9 271.0 L28.0 272.0 L32.1 260.2 L43.0 264.3 L49.1 226.4 L45.4 221.3 L56.8 204.8 L65.3 203.8 L92.4 218.2 L101.8 210.5 L94.9 198.2 L97.7 188.4 L128.1 179.7 L121.2 163.3 L131.0 150.0 L137.8 141.3 L156.5 140.3 L162.6 133.6 L169.1 140.3 L178.8 137.2 L197.4 151.0 L203.5 141.3 L222.2 132.1 L227.0 141.3 L243.6 137.7 L242.4 127.4 L258.6 115.7 L261.5 126.4 L278.1 135.1 L286.6 129.0 L293.5 105.4 L306.5 100.8 L311.3 89.0 L323.9 81.3 L323.1 62.9 L342.1 67.0 L355.9 58.2 L368.9 57.7 L362.8 32.1 L368.5 28.0 L396.9 28.0 L411.9 47.5 L413.1 55.7 L436.2 59.3 Z" /></svg>
+        <svg class="hero-ky-map" viewBox="0 0 640 300" role="img" aria-labelledby="hero-ky-title" focusable="false">
+          <title id="hero-ky-title">Kentucky map with regions and cities</title>
+          <defs>
+            <path id="heroKyShape" d="M436.2 59.3 L452.8 72.1 L464.5 65.4 L492.5 72.6 L500.6 63.4 L511.2 60.3 L514.4 76.2 L522.9 78.7 L533.0 91.6 L531.0 119.8 L539.9 137.7 L551.7 151.5 L555.3 162.3 L569.5 173.1 L579.3 174.6 L550.9 199.7 L523.7 213.6 L523.7 220.7 L512.8 226.9 L512.0 235.1 L497.8 238.7 L492.9 248.9 L453.2 262.3 L452.0 263.8 L388.7 262.8 L333.6 259.7 L319.0 260.7 L237.2 257.1 L143.9 259.2 L127.7 255.1 L128.9 272.0 L36.9 271.0 L28.0 272.0 L32.1 260.2 L43.0 264.3 L49.1 226.4 L45.4 221.3 L56.8 204.8 L65.3 203.8 L92.4 218.2 L101.8 210.5 L94.9 198.2 L97.7 188.4 L128.1 179.7 L121.2 163.3 L131.0 150.0 L137.8 141.3 L156.5 140.3 L162.6 133.6 L169.1 140.3 L178.8 137.2 L197.4 151.0 L203.5 141.3 L222.2 132.1 L227.0 141.3 L243.6 137.7 L242.4 127.4 L258.6 115.7 L261.5 126.4 L278.1 135.1 L286.6 129.0 L293.5 105.4 L306.5 100.8 L311.3 89.0 L323.9 81.3 L323.1 62.9 L342.1 67.0 L355.9 58.2 L368.9 57.7 L362.8 32.1 L368.5 28.0 L396.9 28.0 L411.9 47.5 L413.1 55.7 L436.2 59.3 Z" />
+            <clipPath id="heroKyClip"><use href="#heroKyShape" /></clipPath>
+          </defs>
+          <g clip-path="url(#heroKyClip)">
+            <rect class="ky-region-map ky-western" x="28" y="28" width="155" height="244" />
+            <rect class="ky-region-map ky-southcentral" x="183" y="28" width="125" height="244" />
+            <rect class="ky-region-map ky-louisville" x="308" y="28" width="82" height="244" />
+            <rect class="ky-region-map ky-bluegrass" x="390" y="28" width="118" height="244" />
+            <rect class="ky-region-map ky-appalachia" x="508" y="28" width="80" height="244" />
+            <path class="ky-ridge-line" d="M56 212 C132 180 174 196 240 166 C310 134 367 150 436 116 C486 92 520 108 556 88" />
+            <path class="ky-river-line" d="M52 78 C128 92 181 66 246 86 C305 104 334 58 397 63 C451 68 497 73 543 94" />
+          </g>
+          <use class="ky-border" href="#heroKyShape" />
+          <g class="ky-pins hero-map-pins" aria-hidden="true">
+            <circle cx="298.9" cy="107.6" r="5.5" />
+            <text x="293" y="128">Louisville</text>
+            <circle cx="391.7" cy="127.5" r="5.5" />
+            <text x="402" y="132">Lexington</text>
+            <circle cx="248.2" cy="227.8" r="5.5" />
+            <text x="258" y="233">Bowling Green</text>
+            <path class="hero-map-star" d="M364 103 L367 109 L373 112 L367 115 L364 121 L361 115 L355 112 L361 109 Z" />
+            <text x="376" y="108">Frankfort</text>
+          </g>
+        </svg>
         <div class="hero-masthead">
           <p class="hero-ticker"><span>Kentucky AI Pulse <i>//</i></span><span>The Bluegrass State <i>//</i></span><span>Live signals <i>//</i></span><span>Open source <i>//</i></span><span>Built for the Commonwealth</span></p>
           <h1 id="pulse-title">Know what AI is doing in <span class="h1-accent">Kentucky</span> today.</h1>
@@ -123,6 +149,21 @@
             <dd id="regionPagesCount">Statewide</dd>
           </div>
         </dl>
+      </section>
+
+      <section class="ky-photo-strip" aria-label="Kentucky scenes">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1615825742158-5aac7849e4a4?q=80&amp;w=1200&amp;h=800&amp;auto=format&amp;fit=crop" alt="Louisville skyline and Ohio River bridges at sunset" loading="lazy" decoding="async" />
+          <figcaption><strong>Louisville</strong><span>Photo by Miles Manwaring on Unsplash</span></figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1657205059631-cb90c392f0c6?q=80&amp;w=1200&amp;h=800&amp;auto=format&amp;fit=crop" alt="Fenced horse farm lane in Bluegrass country at dusk" loading="lazy" decoding="async" />
+          <figcaption><strong>Bluegrass horse country</strong><span>Photo by Intricate Explorer on Unsplash</span></figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1730052157313-d0ba8850659b?q=80&amp;w=1200&amp;h=800&amp;auto=format&amp;fit=crop" alt="Sky Bridge natural arch over autumn forest in Red River Gorge" loading="lazy" decoding="async" />
+          <figcaption><strong>Red River Gorge</strong><span>Photo by Michaela Challies on Unsplash</span></figcaption>
+        </figure>
       </section>
 
       <section class="action-rail" aria-label="Contribution actions">
@@ -786,8 +827,24 @@
 
     <footer class="site-footer">
       <div>
-        <svg class="footer-ky" viewBox="0 0 640 300" aria-hidden="true" focusable="false"><path d="M436.2 59.3 L452.8 72.1 L464.5 65.4 L492.5 72.6 L500.6 63.4 L511.2 60.3 L514.4 76.2 L522.9 78.7 L533.0 91.6 L531.0 119.8 L539.9 137.7 L551.7 151.5 L555.3 162.3 L569.5 173.1 L579.3 174.6 L550.9 199.7 L523.7 213.6 L523.7 220.7 L512.8 226.9 L512.0 235.1 L497.8 238.7 L492.9 248.9 L453.2 262.3 L452.0 263.8 L388.7 262.8 L333.6 259.7 L319.0 260.7 L237.2 257.1 L143.9 259.2 L127.7 255.1 L128.9 272.0 L36.9 271.0 L28.0 272.0 L32.1 260.2 L43.0 264.3 L49.1 226.4 L45.4 221.3 L56.8 204.8 L65.3 203.8 L92.4 218.2 L101.8 210.5 L94.9 198.2 L97.7 188.4 L128.1 179.7 L121.2 163.3 L131.0 150.0 L137.8 141.3 L156.5 140.3 L162.6 133.6 L169.1 140.3 L178.8 137.2 L197.4 151.0 L203.5 141.3 L222.2 132.1 L227.0 141.3 L243.6 137.7 L242.4 127.4 L258.6 115.7 L261.5 126.4 L278.1 135.1 L286.6 129.0 L293.5 105.4 L306.5 100.8 L311.3 89.0 L323.9 81.3 L323.1 62.9 L342.1 67.0 L355.9 58.2 L368.9 57.7 L362.8 32.1 L368.5 28.0 L396.9 28.0 L411.9 47.5 L413.1 55.7 L436.2 59.3 Z" /></svg>
-        <strong>KYAI</strong>
+        <span class="footer-brand">
+          <img class="footer-mark" src="./assets/kyai-mark.svg?v=kylogo-20261121" alt="" />
+          <strong>KYAI</strong>
+        </span>
+        <svg class="footer-ky" viewBox="0 0 640 300" aria-hidden="true" focusable="false">
+          <defs>
+            <path id="footerKyShape" d="M436.2 59.3 L452.8 72.1 L464.5 65.4 L492.5 72.6 L500.6 63.4 L511.2 60.3 L514.4 76.2 L522.9 78.7 L533.0 91.6 L531.0 119.8 L539.9 137.7 L551.7 151.5 L555.3 162.3 L569.5 173.1 L579.3 174.6 L550.9 199.7 L523.7 213.6 L523.7 220.7 L512.8 226.9 L512.0 235.1 L497.8 238.7 L492.9 248.9 L453.2 262.3 L452.0 263.8 L388.7 262.8 L333.6 259.7 L319.0 260.7 L237.2 257.1 L143.9 259.2 L127.7 255.1 L128.9 272.0 L36.9 271.0 L28.0 272.0 L32.1 260.2 L43.0 264.3 L49.1 226.4 L45.4 221.3 L56.8 204.8 L65.3 203.8 L92.4 218.2 L101.8 210.5 L94.9 198.2 L97.7 188.4 L128.1 179.7 L121.2 163.3 L131.0 150.0 L137.8 141.3 L156.5 140.3 L162.6 133.6 L169.1 140.3 L178.8 137.2 L197.4 151.0 L203.5 141.3 L222.2 132.1 L227.0 141.3 L243.6 137.7 L242.4 127.4 L258.6 115.7 L261.5 126.4 L278.1 135.1 L286.6 129.0 L293.5 105.4 L306.5 100.8 L311.3 89.0 L323.9 81.3 L323.1 62.9 L342.1 67.0 L355.9 58.2 L368.9 57.7 L362.8 32.1 L368.5 28.0 L396.9 28.0 L411.9 47.5 L413.1 55.7 L436.2 59.3 Z" />
+            <clipPath id="footerKyClip"><use href="#footerKyShape" /></clipPath>
+          </defs>
+          <g clip-path="url(#footerKyClip)">
+            <rect class="ky-region-map ky-western" x="28" y="28" width="155" height="244" />
+            <rect class="ky-region-map ky-southcentral" x="183" y="28" width="125" height="244" />
+            <rect class="ky-region-map ky-louisville" x="308" y="28" width="82" height="244" />
+            <rect class="ky-region-map ky-bluegrass" x="390" y="28" width="118" height="244" />
+            <rect class="ky-region-map ky-appalachia" x="508" y="28" width="80" height="244" />
+          </g>
+          <use class="ky-border" href="#footerKyShape" />
+        </svg>
         <span>Open AI intelligence and education for Kentucky.</span>
         <span class="footer-motto">United we stand, divided we fall.</span>
         <span class="footer-copy">© 2026 KYAI. Built in the open for the Commonwealth.</span>
@@ -801,7 +858,7 @@
     </footer>
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script src="./app.js?v=kyblue-20261121"></script>
+    <script src="./app.js?v=kylogo-20261121"></script>
     <script type="module" src="./api-client.js?v=intel-platform-20260904"></script>
   </body>
 </html>
