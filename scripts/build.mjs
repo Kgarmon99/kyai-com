@@ -20,7 +20,7 @@ const { rowToSignal, rowToEvent, rowToProfile, rowToToolkit, rowToRegion } = awa
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const client = path.join(root, "dist", "client");
-const SITE_URL = "https://kyai-flax.vercel.app";
+const SITE_URL = "https://ky-ai.vercel.app";
 
 rmSync(path.join(root, "dist"), { force: true, recursive: true });
 mkdirSync(client, { recursive: true });

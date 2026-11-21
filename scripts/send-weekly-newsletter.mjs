@@ -41,7 +41,7 @@ const subject = `KYAI weekly Kentucky AI pulse - ${formatLocalDate()}`;
 const intro = [
   "Here is this week's KYAI update.",
   "",
-  `Live site: https://kyai-flax.vercel.app`,
+  `Live site: https://ky-ai.vercel.app`,
   `Tracked items: ${feed.summary?.totalItems || feed.items?.length || 0}`,
   "",
 ].join("\n");

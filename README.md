@@ -47,7 +47,7 @@ KYAI deploys on Vercel.
 
 - GitHub: `https://github.com/Kgarmon99/kyai-com`
 - Project: `kyai`
-- Production alias: `https://kyai-flax.vercel.app`
+- Production alias: `https://ky-ai.vercel.app`
 - Custom domains: `kyai.com`, `www.kyai.com`
 
 ### Vercel Postgres

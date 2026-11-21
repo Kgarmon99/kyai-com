@@ -163,7 +163,7 @@ async function sendSubscriberWelcomeEmail(entry) {
   </head>
   <body>
     <div class="container">
-      <a class="brand" href="https://kyai-flax.vercel.app/">KYAI <span>AI for Kentucky</span></a>
+      <a class="brand" href="https://ky-ai.vercel.app/">KYAI <span>AI for Kentucky</span></a>
       <h1>Welcome to KYAI${entry.name ? `, ${escapeHtml(entry.name)}` : ""}!</h1>
       <p>Thank you for joining the <strong>Kentucky Artificial Intelligence Network</strong>. You are officially on the list to receive our local AI intelligence briefs, regional updates, and workshop alerts.</p>
 
@@ -178,13 +178,13 @@ async function sendSubscriberWelcomeEmail(entry) {
 
       <p>Explore what is live on KYAI today:</p>
       <ul style="color:#cbd5e1; padding-left: 20px; line-height: 1.8;">
-        <li><a href="https://kyai-flax.vercel.app/#near-me" style="color:#38bdf8; text-decoration:none;">AI Near Me Personalization</a></li>
-        <li><a href="https://kyai-flax.vercel.app/#regions" style="color:#38bdf8; text-decoration:none;">Regional AI Intelligence Briefs</a></li>
-        <li><a href="https://kyai-flax.vercel.app/#events" style="color:#38bdf8; text-decoration:none;">Kentucky AI Event Calendar & Rooms</a></li>
-        <li><a href="https://kyai-flax.vercel.app/#toolkits" style="color:#38bdf8; text-decoration:none;">Practical Kentucky AI Toolkits</a></li>
+        <li><a href="https://ky-ai.vercel.app/#near-me" style="color:#38bdf8; text-decoration:none;">AI Near Me Personalization</a></li>
+        <li><a href="https://ky-ai.vercel.app/#regions" style="color:#38bdf8; text-decoration:none;">Regional AI Intelligence Briefs</a></li>
+        <li><a href="https://ky-ai.vercel.app/#events" style="color:#38bdf8; text-decoration:none;">Kentucky AI Event Calendar & Rooms</a></li>
+        <li><a href="https://ky-ai.vercel.app/#toolkits" style="color:#38bdf8; text-decoration:none;">Practical Kentucky AI Toolkits</a></li>
       </ul>
 
-      <a class="button" href="https://kyai-flax.vercel.app/">Open KYAI Intelligence Feed &rarr;</a>
+      <a class="button" href="https://ky-ai.vercel.app/">Open KYAI Intelligence Feed &rarr;</a>
 
       <div class="footer">
         KYAI &bull; Open AI intelligence and civic education for Kentucky.<br/>
@@ -201,7 +201,7 @@ async function sendSubscriberWelcomeEmail(entry) {
       to: [entry.email],
       subject: "Welcome to KYAI — Kentucky Artificial Intelligence Network",
       html,
-      text: `Welcome to KYAI!\n\nThank you for subscribing to Kentucky Artificial Intelligence updates.\n\nYour Region: ${entry.region}\nYour Role: ${entry.role}\n\nExplore live AI updates, events, and toolkits at: https://kyai-flax.vercel.app/`,
+      text: `Welcome to KYAI!\n\nThank you for subscribing to Kentucky Artificial Intelligence updates.\n\nYour Region: ${entry.region}\nYour Role: ${entry.role}\n\nExplore live AI updates, events, and toolkits at: https://ky-ai.vercel.app/`,
     },
     { Authorization: `Bearer ${apiKey}` }
   );

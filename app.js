@@ -374,7 +374,9 @@ let updates = fallbackUpdates;
 let contributorOs = fallbackContributorOs;
 let activeFilter = "all";
 let activeRegion = "statewide";
-let visibleUpdateCount = 6;
+const INITIAL_VISIBLE_COUNT = 12;
+let visibleUpdateCount = INITIAL_VISIBLE_COUNT;
+let searchQuery = "";
 
 const UPDATE_BATCH_SIZE = 6;
 const CATEGORY_PRIORITY = ["industry", "research", "education", "policy", "workforce", "events", "news"];
@@ -402,6 +404,7 @@ const regionPagesCount = document.querySelector("#regionPagesCount");
 const digestPreview = document.querySelector("#digestPreview");
 const trustDesk = document.querySelector("#trustDesk");
 const showMoreButton = document.querySelector("#showMoreUpdates");
+const intelSearch = document.querySelector("#intelSearch");
 const pulseLead = document.querySelector("#pulseLead");
 const pulseCards = document.querySelector("#pulseCards");
 const regionPanel = document.querySelector("#regionPanel");
@@ -450,14 +453,30 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function formatDate(value) {
+function formatDateOnly(value) {
   if (!value) return "Seed data";
   return new Intl.DateTimeFormat("en-US", {
     month: "short",
     day: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
+    year: "numeric",
   }).format(new Date(value));
+}
+
+function getItemDate(item) {
+  const parsed = Date.parse(item.publishedAt || "");
+  return Number.isNaN(parsed) ? 0 : parsed;
+}
+
+function getRecentUpdates(items) {
+  return [...items].sort((a, b) => getItemDate(b) - getItemDate(a));
+}
+
+function isPastEvent(event) {
+  const parsed = Date.parse(event.date || "");
+  if (Number.isNaN(parsed)) return false;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return parsed < today.getTime();
 }
 
 function normalizeRegion(value = "") {
@@ -476,7 +495,7 @@ function getRegionLabel(regionKey = "statewide") {
 }
 
 function getSiteUrl(path = "") {
-  const origin = window.location.origin && window.location.origin !== "null" ? window.location.origin : "https://kyai-flax.vercel.app";
+  const origin = window.location.origin && window.location.origin !== "null" ? window.location.origin : "https://ky-ai.vercel.app";
   return `${origin}${path}`;
 }
 
@@ -593,15 +612,25 @@ function getBalancedUpdates(items) {
 
 function getFilteredUpdates() {
   const laneItems = activeFilter === "all" ? updates : updates.filter((update) => update.category === activeFilter);
-  if (activeRegion === "statewide") return getBalancedUpdates(laneItems);
-  const regional = laneItems.filter((update) => normalizeRegion(update.region) === activeRegion);
-  return regional.length ? regional : getBalancedUpdates(laneItems).slice(0, 4);
+  const query = searchQuery.trim().toLowerCase();
+  const searched = query
+    ? laneItems.filter((update) =>
+        [update.title, update.body, update.region, update.source, update.category, update.kentuckyConnection]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase()
+          .includes(query),
+      )
+    : laneItems;
+  if (activeRegion === "statewide") return getRecentUpdates(searched);
+  const regional = searched.filter((update) => normalizeRegion(update.region) === activeRegion);
+  return regional.length ? getRecentUpdates(regional) : getRecentUpdates(searched).slice(0, 4);
 }
 
 function renderPulse(feed = {}) {
-  const balanced = getBalancedUpdates(feed.items?.length ? feed.items : updates);
-  const lead = balanced[0] || fallbackUpdates[0];
-  const supporting = balanced.slice(1, 4);
+  const recent = getRecentUpdates(feed.items?.length ? feed.items : updates);
+  const lead = recent[0] || fallbackUpdates[0];
+  const supporting = recent.slice(1, 4);
 
   pulseLead.innerHTML = `
     <span>${escapeHtml(lead.region || "Kentucky")} / ${escapeHtml(lead.category || "signal")}</span>
@@ -683,14 +712,18 @@ function renderUpdates() {
     .join("");
 
   if (!visibleUpdates.length) {
+    const emptyHeading = searchQuery.trim() ? "No signals match that search" : "No items in this lane yet";
+    const emptyBody = searchQuery.trim()
+      ? "Try a different word, or clear the search to see everything again."
+      : "The automation will add relevant public leads as they show up.";
     updateList.innerHTML = `
       <article class="update-card">
         <div class="update-meta">
           <span>Kentucky</span>
           <span>${escapeHtml(activeFilter)}</span>
         </div>
-        <h3>No items in this lane yet</h3>
-        <p>The automation will add relevant public leads as they show up.</p>
+        <h3>${emptyHeading}</h3>
+        <p>${emptyBody}</p>
       </article>
     `;
   }
@@ -699,15 +732,17 @@ function renderUpdates() {
 }
 
 function renderIntelligence(feed) {
-  intelUpdatedAt.textContent = formatDate(feed.updatedAt);
-  intelItemsCount.textContent = String(feed.items?.length || 0);
+  const items = feed.items || [];
+  const newest = getRecentUpdates(items)[0];
+  intelUpdatedAt.textContent = newest?.publishedAt ? formatDateOnly(newest.publishedAt) : "Seed data";
+  intelItemsCount.textContent = String(items.length || 0);
   intelSources.textContent = String(feed.sources?.length || 0);
   if (regionPagesCount) {
     regionPagesCount.textContent = `${regionalPages.length || 6} regions`;
   }
 
-  digestPreview.innerHTML = getBalancedUpdates(feed.items || [])
-    .slice(0, 5)
+  digestPreview.innerHTML = getRecentUpdates(items)
+    .slice(4, 9)
     .map(
       (item) => `
         <article>
@@ -718,7 +753,6 @@ function renderIntelligence(feed) {
     )
     .join("");
 
-  const items = feed.items || [];
   const reviewed = items.filter((item) => item.reviewStatus || item.kind === "curated").length;
   const sourceLinked = items.filter((item) => item.url).length;
   const needsReview = Math.max(items.length - reviewed, 0);
@@ -763,7 +797,7 @@ function renderRegion(regionKey = "statewide") {
     }
   `;
 
-  visibleUpdateCount = 6;
+  visibleUpdateCount = INITIAL_VISIBLE_COUNT;
   renderUpdates();
 }
 
@@ -794,6 +828,7 @@ function renderNearMe() {
   const regionLabel = place || getRegionLabel(regionKey);
   const matches = getRoleMatches(roleKey, regionKey);
   const eventMatches = publicEvents
+    .filter((event) => !isPastEvent(event))
     .filter((event) => regionKey === "statewide" || normalizeRegion(event.region) === regionKey || normalizeRegion(event.region) === "statewide")
     .slice(0, 2);
   const profileMatches = publicProfiles
@@ -927,19 +962,21 @@ function renderLeaderboard() {
     .join("");
 }
 
-function buildWeeklyShareText() {
-  const bullets = getBalancedUpdates(updates)
-    .slice(0, 5)
-    .map((item) => `- ${item.region || "Kentucky"}: ${item.title}`);
+function getCuratedShareItems() {
+  const curated = getRecentUpdates(updates.filter((item) => item.kind === "curated"));
+  return curated.length >= 5 ? curated.slice(0, 5) : getRecentUpdates(updates).slice(0, 5);
+}
 
-  return ["Kentucky AI week in 5 signals", ...bullets, "", "Follow KYAI: https://kyai-flax.vercel.app"].join("\n");
+function buildWeeklyShareText() {
+  const bullets = getCuratedShareItems().map((item) => `- ${item.region || "Kentucky"}: ${item.title}`);
+
+  return ["Kentucky AI week in 5 signals", ...bullets, "", `Follow KYAI: ${getSiteUrl("/#share")}`].join("\n");
 }
 
 function renderShareKit() {
   const weeklyPost = buildWeeklyShareText();
-  const balanced = getBalancedUpdates(updates);
-  weeklyShareBullets.innerHTML = balanced
-    .slice(0, 5)
+  const shareItems = getCuratedShareItems();
+  weeklyShareBullets.innerHTML = shareItems
     .map((item) => `<p><strong>${escapeHtml(item.region || "Kentucky")}</strong> ${escapeHtml(item.title)}</p>`)
     .join("");
 
@@ -950,7 +987,7 @@ function renderShareKit() {
   miniShareGrid.innerHTML = getRegionScores()
     .slice(0, 4)
     .map((region) => {
-      const topItem = updates.find((item) => normalizeRegion(item.region) === region.key) || balanced[0];
+      const topItem = getRecentUpdates(updates).find((item) => normalizeRegion(item.region) === region.key) || getRecentUpdates(updates)[0];
       const text = `${region.label} AI watch: ${topItem?.title || "new Kentucky AI signals"} via KYAI`;
       return `
         <article class="mini-share-card">
@@ -1015,50 +1052,45 @@ function renderRegionalPages() {
 function renderEventCalendar() {
   if (!eventCalendar) return;
 
-  eventCalendar.innerHTML = publicEvents
-    .map(
-      (event) => `
-        <article class="event-card">
-          <div class="event-date">
-            <strong>${escapeHtml(event.date)}</strong>
-            <span>${escapeHtml(event.time || event.type || "Event")}</span>
-          </div>
-          <div>
-            <div class="mission-meta">
-              <span>${escapeHtml(event.region || "Kentucky")}</span>
-              <span>${escapeHtml(event.status || "Submitted")}</span>
-              <span>${escapeHtml(event.type || "Event")}</span>
-            </div>
-            <h3>${escapeHtml(event.title)}</h3>
-            <p>${escapeHtml(event.whyItMatters || event.location || "")}</p>
-            <div class="event-foot">
-              <span>${escapeHtml(event.host || "Open host")}</span>
-              <span>${escapeHtml(event.location || "Kentucky")}</span>
-            </div>
-          </div>
-          <a class="button neutral small-button" href="${escapeHtml(event.sourceUrl || "#lead-form")}">
-            <span data-lucide="calendar-plus" aria-hidden="true"></span>
-            Open
-          </a>
-        </article>
-      `,
-    )
-    .join("");
+  const renderEventCard = (event, isPast) => `
+    <article class="event-card${isPast ? " is-past" : ""}">
+      <div class="event-date">
+        <strong>${escapeHtml(event.date)}</strong>
+        <span>${escapeHtml(event.time || event.type || "Event")}</span>
+      </div>
+      <div>
+        <div class="mission-meta">
+          <span>${escapeHtml(event.region || "Kentucky")}</span>
+          <span>${escapeHtml(event.status || "Submitted")}</span>
+          <span>${escapeHtml(event.type || "Event")}</span>
+        </div>
+        <h3>${escapeHtml(event.title)}</h3>
+        <p>${escapeHtml(event.whyItMatters || event.location || "")}</p>
+        <div class="event-foot">
+          <span>${escapeHtml(event.host || "Open host")}</span>
+          <span>${escapeHtml(event.location || "Kentucky")}</span>
+        </div>
+      </div>
+      <a class="button neutral small-button" href="${escapeHtml(event.sourceUrl || "#lead-form")}">
+        <span data-lucide="calendar-plus" aria-hidden="true"></span>
+        Open
+      </a>
+    </article>
+  `;
+
+  const upcoming = publicEvents.filter((event) => !isPastEvent(event));
+  const past = publicEvents.filter((event) => isPastEvent(event));
+  const pastHeading = past.length ? `<h3 class="past-events-heading">Past events</h3>` : "";
+
+  eventCalendar.innerHTML = [
+    ...upcoming.map((event) => renderEventCard(event, false)),
+    pastHeading,
+    ...past.map((event) => renderEventCard(event, true)),
+  ].join("");
 }
 
 function renderDirectory() {
-  const profileBackedItems = publicProfiles.map((profile) => ({
-    type: profile.type,
-    name: profile.name,
-    region: profile.region,
-    detail: profile.reason,
-    icon: profile.type?.toLowerCase().includes("workshop") ? "presentation" : "users-round",
-    status: profile.claimStatus,
-    action: "Claim or correct",
-    sourceUrl: profile.sourceUrl,
-  }));
-
-  directoryGrid.innerHTML = [...directoryItems, ...profileBackedItems.slice(0, 4)]
+  directoryGrid.innerHTML = directoryItems
     .map(
       (item) => `
         <article class="directory-card">
@@ -1432,9 +1464,15 @@ filterButtons.forEach((button) => {
     filterButtons.forEach((item) => item.classList.remove("is-active"));
     button.classList.add("is-active");
     activeFilter = button.dataset.filter;
-    visibleUpdateCount = 6;
+    visibleUpdateCount = INITIAL_VISIBLE_COUNT;
     renderUpdates();
   });
+});
+
+intelSearch?.addEventListener("input", () => {
+  searchQuery = intelSearch.value;
+  visibleUpdateCount = INITIAL_VISIBLE_COUNT;
+  renderUpdates();
 });
 
 regionButtons.forEach((button) => {
