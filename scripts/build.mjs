@@ -74,7 +74,7 @@ function readJson(relativePath, fallback) {
 function siteHeader() {
   return `<header class="site-header">
       <a class="brand" href="/#top" aria-label="KYAI home">
-        <img src="/assets/kyai-mark.svg?v=kycities-20261121" alt="" />
+        <img src="/assets/kyai-mark.svg?v=simple-20261121" alt="" />
         <span>
           KYAI
           <small>AI for Kentucky</small>
@@ -117,11 +117,11 @@ function pageShell({ title, description, url, body }) {
     <meta property="og:url" content="${escapeHtml(url)}" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>${escapeHtml(title)}</title>
-    <link rel="icon" href="/assets/kyai-mark.svg?v=kycities-20261121" />
+    <link rel="icon" href="/assets/kyai-mark.svg?v=simple-20261121" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css?v=kycities-20261121" />
+    <link rel="stylesheet" href="/styles.css?v=simple-20261121" />
   </head>
   <body>
     ${siteHeader()}

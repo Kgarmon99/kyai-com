@@ -50,21 +50,15 @@ const vercel = JSON.parse(readFileSync("vercel.json", "utf8"));
 
 for (const phrase of [
   "KYAI | Kentucky AI Pulse",
-  "AI near me",
+  "See the latest signals",
+  "Get updates",
   "Regional pages",
-  "Kentucky AI Tracker",
-  "Regional momentum",
   "Community board",
   "Latest Kentucky AI intelligence",
   "Kentucky AI calendar",
-  "Turn the pulse into posts people can pass around",
   "Get the Kentucky AI pulse in your inbox",
-  "People, places, and claimed listings",
-  "Resources people can use immediately",
-  "A public commons for Kentucky AI knowledge",
-  "Build with KYAI",
-  "Claim a real lane in Kentucky AI",
-  "Weekly missions people can claim",
+  "Make the Kentucky AI map smarter.",
+  "What happens next",
 ]) {
   if (!html.includes(phrase)) {
     throw new Error(`Missing page phrase: ${phrase}`);
@@ -73,15 +67,11 @@ for (const phrase of [
 
 for (const phrase of [
   "loadIntelligence",
-  "rolePlaybooks",
   "loadProductData",
+  "renderUpdates",
+  "renderNewestSignal",
   "renderRegionalPages",
   "renderEventCalendar",
-  "trustDesk",
-  "renderNearMe",
-  "renderShareKit",
-  "renderLeaderboard",
-  "renderToolkits",
   "getSignalUrl",
   "research",
   "events",
@@ -89,8 +79,6 @@ for (const phrase of [
   "kyai-threads",
   "kyai-newsletter-subscribers",
   "/api/newsletter-signup",
-  "loadContributorOs",
-  "renderContributorOs",
   "buildIssueUrl",
 ]) {
   if (!js.includes(phrase)) {

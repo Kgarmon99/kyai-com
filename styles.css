@@ -165,6 +165,7 @@ h3 {
 }
 
 /* Eyebrow labels: mono, blue, square marker. */
+
 .kicker {
   margin: 0 0 12px;
   color: var(--accent);
@@ -275,6 +276,7 @@ h3 {
 }
 
 /* Live pill in the sticky header. */
+
 .header-live {
   display: inline-flex;
   flex: 0 0 auto;
@@ -300,11 +302,10 @@ h3 {
   box-shadow: 0 0 10px rgba(91, 157, 255, 0.7);
 }
 
-
 /* ---------- Buttons ---------- */
-
 /* One button system: 50px primary/secondary/neutral, 44px filter
    and region controls, 40px card actions. Same 4px radius everywhere. */
+
 .button,
 .filter-button,
 .region-button {
@@ -354,6 +355,7 @@ h3 {
 }
 
 /* Primary: solid blue, dark ink. One accent, no rainbow. */
+
 .primary {
   background: var(--accent);
   color: var(--accent-ink);
@@ -366,6 +368,7 @@ h3 {
 }
 
 /* Secondary: quiet ghost with a hairline border. */
+
 .secondary {
   border-color: var(--line-strong);
   background: transparent;
@@ -378,6 +381,7 @@ h3 {
 }
 
 /* Neutral: raised surface, for card actions and in-page buttons. */
+
 .neutral {
   border-color: var(--line);
   background: var(--surface-2);
@@ -402,6 +406,7 @@ h3 {
 }
 
 /* Tertiary action: plain text link with an arrow, same rhythm as buttons. */
+
 .text-link {
   display: inline-flex;
   align-items: center;
@@ -575,13 +580,14 @@ fieldset label {
 
 /* Detailed Kentucky map in the hero: same state shape and region bands
    as the tracker map, with city pins and a Frankfort star. It sits
-   BELOW the headline (top 456px clears the three-line H1, which ends
-   around 431px at the largest display size) in the free right zone
-   beside the left-aligned intro column, and ends above the bento. The
-   left edge fades out so the map never muddles the intro text. */
+   BELOW the headline (top 430px clears the three-line H1, which ends
+   around 413px at the largest display size) in the free right zone
+   beside the left-aligned intro column. The left edge fades out so
+   the map never muddles the intro text. */
+
 .hero-ky-map {
   position: absolute;
-  top: 456px;
+  top: 430px;
   right: -32px;
   z-index: 0;
   width: min(42vw, 560px);
@@ -642,6 +648,7 @@ fieldset label {
 }
 
 /* Blue duotone: a blue color-blend layer over the grayscale photo. */
+
 .ky-photo-strip figure::before {
   position: absolute;
   inset: 0;
@@ -653,6 +660,7 @@ fieldset label {
 }
 
 /* Bottom gradient for caption legibility. */
+
 .ky-photo-strip figure::after {
   position: absolute;
   inset: 0;
@@ -715,6 +723,7 @@ fieldset label {
 
 /* Each ticker item carries its own separator, so wraps break cleanly
    between items and never leave a stray // at the start of a line. */
+
 .hero-ticker span {
   white-space: nowrap;
 }
@@ -741,6 +750,7 @@ fieldset label {
 
 /* Intro, status chips, and CTAs stack in one column, aligned to the
    left edge. No more floating 2x2 button block on the right. */
+
 .hero-intro {
   margin-top: 30px;
 }
@@ -753,42 +763,9 @@ fieldset label {
   line-height: 1.6;
 }
 
-.hero-status {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 22px;
-}
-
-.hero-status span,
-.panel-live-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  min-height: 30px;
-  padding: 5px 11px;
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-2);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.hero-status i,
-.panel-live-pill i {
-  width: 7px;
-  height: 7px;
-  border-radius: 2px;
-  background: var(--accent);
-  box-shadow: 0 0 10px rgba(91, 157, 255, 0.7);
-}
-
 /* Primary row: two main actions side by side. Secondary row: two
    text links, aligned to the same left edge. */
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -803,245 +780,8 @@ fieldset label {
   margin-top: 10px;
 }
 
-/* ---------- Bento: Commonwealth brief as tiles ---------- */
-
-.pulse-panel {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  max-width: var(--container);
-  margin: 48px auto 0;
-}
-
-.pulse-panel-heading {
-  display: flex;
-  grid-column: 1 / -1;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 14px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--line);
-}
-
 .pulse-panel-heading .kicker {
   margin-bottom: 6px;
-}
-
-.pulse-panel h2 {
-  margin-bottom: 0;
-  font-size: 1.7rem;
-}
-
-/* Lead story: the big bento tile, blue top edge. */
-.lead-story {
-  display: grid;
-  grid-column: span 2;
-  gap: 10px;
-  align-content: start;
-  min-height: 240px;
-  padding: 26px;
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--accent);
-  border-radius: var(--r-lg);
-  background: var(--surface);
-}
-
-.lead-story span,
-.pulse-cards span {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.lead-story h3 {
-  font-size: 1.55rem;
-  overflow-wrap: break-word;
-  text-wrap: pretty;
-}
-
-.lead-story h3 a {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.lead-story h3 a:hover {
-  color: var(--accent);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-}
-
-.lead-story p {
-  margin-bottom: 0;
-  color: var(--text-2);
-  font-size: 0.98rem;
-}
-
-/* The three supporting cards join the bento grid directly. */
-.pulse-cards {
-  display: contents;
-}
-
-.pulse-cards article {
-  display: grid;
-  gap: 8px;
-  align-content: start;
-  min-height: 190px;
-  padding: 22px;
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  background: var(--surface);
-  transition: border-color 160ms ease, transform 160ms ease;
-}
-
-.pulse-cards article:hover {
-  border-color: rgba(91, 157, 255, 0.45);
-  transform: translateY(-2px);
-}
-
-.pulse-cards strong {
-  display: block;
-  font-size: 0.98rem;
-  font-weight: 650;
-  line-height: 1.4;
-  overflow-wrap: break-word;
-  text-wrap: pretty;
-}
-
-.pulse-cards small {
-  align-self: end;
-  color: var(--text-3);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-/* Newsletter tile: one solid blue block in the bento. */
-.bento-newsletter {
-  display: grid;
-  gap: 10px;
-  align-content: start;
-  min-height: 190px;
-  padding: 22px;
-  border: 1px solid var(--accent);
-  border-radius: var(--r-lg);
-  background: var(--accent);
-  color: var(--accent-ink);
-  text-decoration: none;
-  transition: background 160ms ease, transform 160ms ease;
-}
-
-.bento-newsletter:hover {
-  background: #8ec2ff;
-  transform: translateY(-2px);
-}
-
-.bento-newsletter span {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.bento-newsletter strong {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-}
-
-.bento-newsletter small {
-  align-self: end;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-/* Metric tiles: four bordered tiles, mono labels, big numbers. */
-.pulse-metrics {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  max-width: var(--container);
-  margin: 12px auto 0;
-}
-
-.pulse-metrics div {
-  display: grid;
-  gap: 6px;
-  padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  background: var(--surface);
-}
-
-.pulse-metrics dt {
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.pulse-metrics dd {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-}
-
-
-/* ---------- Action rail ---------- */
-
-.action-rail {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  background: var(--bg-1);
-}
-
-.action-rail a {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 76px;
-  padding: 18px 24px;
-  border-right: 1px solid var(--line);
-  color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background 160ms ease;
-}
-
-.action-rail a:last-child {
-  border-right: 0;
-}
-
-.action-rail a:hover {
-  background: rgba(91, 157, 255, 0.05);
-}
-
-.action-rail svg {
-  flex: 0 0 auto;
-  width: 21px;
-  height: 21px;
-  color: var(--accent);
 }
 
 /* ---------- Sections ---------- */
@@ -1067,12 +807,12 @@ fieldset label {
 }
 
 /* Header actions line up with the H2 row, not the bottom of the block:
-   pushed down past the section number and kicker by exactly their height. */
+   pushed down past the kicker by exactly its height. */
+
 .section-heading > .button,
-.section-heading > .filter-controls,
-.section-heading > .region-controls {
+.section-heading > .filter-controls {
   flex: 0 0 auto;
-  margin-top: calc(clamp(2.4rem, 5vw, 3.4rem) + 42px);
+  margin-top: 42px;
 }
 
 .section-heading > div:first-child {
@@ -1085,31 +825,6 @@ fieldset label {
   color: var(--text-2);
   font-size: 1.05rem;
   line-height: 1.6;
-}
-
-/* Oversized ghost section numbers: 01, 02, 03... */
-.section-number {
-  display: block;
-  margin-bottom: 10px;
-  color: rgba(91, 157, 255, 0.3);
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5vw, 3.4rem);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-@supports ((-webkit-text-stroke: 1px black) or (text-stroke: 1px black)) {
-  .section-number {
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1.5px rgba(91, 157, 255, 0.55);
-  }
-}
-
-
-.section-intro {
-  max-width: 620px;
 }
 
 .section-intro.wide {
@@ -1161,6 +876,7 @@ fieldset label {
 }
 
 /* Quiet meta pills, used across cards. */
+
 .update-meta,
 .thread-meta,
 .mission-meta {
@@ -1208,92 +924,8 @@ fieldset label {
   margin-top: 16px;
 }
 
-/* ---------- AI near me ---------- */
-
-.near-me-command {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.55fr) minmax(300px, 0.75fr) minmax(320px, 1fr);
-  gap: 16px;
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
-.near-me-controls,
-.near-me-panel {
-  display: grid;
-  align-content: start;
-  gap: 16px;
-  padding: 24px;
-}
-
-.near-me-panel {
-  background: var(--surface-2);
-  border-color: var(--line-strong);
-}
-
-.near-me-panel h3 {
-  font-size: 1.7rem;
-}
-
-.near-me-panel p,
-.near-me-panel li {
-  color: var(--text-2);
-}
-
-.near-me-panel ul {
-  display: grid;
-  gap: 8px;
-  margin: 0;
-  padding-left: 20px;
-}
-
 .near-me-panel .button {
   margin-top: 6px;
-}
-
-.near-me-cards {
-  display: grid;
-  gap: 14px;
-  align-content: start;
-}
-
-.near-me-card {
-  padding: 20px;
-  transition: border-color 160ms ease, transform 160ms ease;
-}
-
-.near-me-card:hover {
-  border-color: var(--line-strong);
-  transform: translateY(-2px);
-}
-
-.near-me-card span {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.near-me-card h3 {
-  overflow-wrap: break-word;
-  text-wrap: pretty;
-}
-
-.near-me-card p {
-  margin-bottom: 12px;
-  color: var(--text-2);
-  font-size: 0.95rem;
-}
-
-.near-me-card a {
-  color: var(--accent);
-  font-size: 0.9rem;
-  font-weight: 650;
-  text-underline-offset: 3px;
 }
 
 /* ---------- Regional pages ---------- */
@@ -1392,31 +1024,6 @@ fieldset label {
   box-shadow: 0 6px 18px rgba(91, 157, 255, 0.2);
 }
 
-.map-command {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-  gap: 16px;
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
-.map-panel {
-  position: relative;
-  overflow: hidden;
-  min-height: 440px;
-  padding: 28px;
-  background:
-    radial-gradient(28rem 18rem at 50% 55%, rgba(91, 157, 255, 0.08), transparent 70%),
-    var(--surface);
-}
-
-.kentucky-map {
-  width: min(94%, 680px);
-  height: auto;
-  margin: 28px auto 0;
-  overflow: visible;
-}
-
 .ky-region-map {
   cursor: pointer;
   opacity: 0.85;
@@ -1432,10 +1039,15 @@ fieldset label {
 }
 
 /* One blue scale across regions, brightest in Appalachia. */
+
 .ky-western { fill: #1e3a8a; }
+
 .ky-southcentral { fill: #1d4ed8; }
+
 .ky-louisville { fill: #2563eb; }
+
 .ky-bluegrass { fill: #3b82f6; }
+
 .ky-appalachia { fill: #60a5fa; }
 
 .ky-ridge-line,
@@ -1483,87 +1095,6 @@ fieldset label {
   stroke-width: 5;
 }
 
-.region-panel {
-  display: grid;
-  align-content: start;
-  gap: 12px;
-  padding: 26px;
-}
-
-.region-panel h3 {
-  font-size: 1.6rem;
-}
-
-.region-panel strong {
-  width: fit-content;
-  padding: 6px 11px;
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.region-panel p,
-.region-panel li {
-  color: var(--text-2);
-  font-size: 0.95rem;
-}
-
-.region-panel ul {
-  display: grid;
-  gap: 8px;
-  margin: 4px 0 0;
-  padding-left: 20px;
-}
-
-/* ---------- Leaderboard ---------- */
-
-.leaderboard-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 14px;
-  align-items: start;
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
-.leaderboard-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 22px;
-  transition: border-color 160ms ease, transform 160ms ease;
-}
-
-.leaderboard-card:hover {
-  border-color: var(--line-strong);
-  transform: translateY(-2px);
-}
-
-.leaderboard-card > span {
-  color: var(--text-3);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-}
-
-.leaderboard-card h3 {
-  font-size: 1.15rem;
-}
-
-.leaderboard-card strong {
-  color: var(--accent);
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-
 .leaderboard-card dl,
 .signal-facts {
   display: grid;
@@ -1607,18 +1138,39 @@ fieldset label {
   margin-top: 0;
 }
 
-.lane-layout {
+.update-list {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
-  gap: 16px;
-  align-items: start;
+  gap: 14px;
   max-width: var(--container);
   margin: 0 auto;
 }
 
-.update-list {
-  display: grid;
-  gap: 14px;
+/* Two-column feed on desktop, one column below that. */
+
+@media (min-width: 900px) {.update-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Honest newest-signal line under the signals subhead. */
+
+.newest-signal-line {
+  margin: 12px 0 0;
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.feed-more {
+  display: flex;
+  justify-content: center;
+  max-width: var(--container);
+  margin: 24px auto 0;
+}
+
+.feed-more .show-more-button {
+  width: auto;
 }
 
 .update-card {
@@ -1662,96 +1214,6 @@ fieldset label {
 .source-line {
   margin-top: 10px;
   font-size: 0.85rem;
-}
-
-.brief-panel {
-  position: sticky;
-  top: 92px;
-  display: grid;
-  align-content: start;
-  gap: 14px;
-  padding: 24px;
-}
-
-.brief-panel h3 {
-  font-size: 1.45rem;
-}
-
-.brief-panel span {
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-#digestPreview {
-  display: grid;
-}
-
-#digestPreview article {
-  display: grid;
-  gap: 5px;
-  padding: 14px 0;
-  border-top: 1px solid var(--line);
-}
-
-#digestPreview article:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-#digestPreview a {
-  color: var(--text);
-  font-weight: 600;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  text-decoration: none;
-  overflow-wrap: break-word;
-  text-wrap: pretty;
-}
-
-#digestPreview a:hover {
-  color: var(--accent);
-}
-
-.trust-desk {
-  display: grid;
-  gap: 12px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-}
-
-.trust-desk dl {
-  display: grid;
-  gap: 8px;
-  margin: 0;
-}
-
-.trust-desk dl div {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.trust-desk dt {
-  color: var(--text-3);
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.trust-desk dd {
-  margin: 0;
-  color: var(--text);
-  font-weight: 700;
-}
-
-.trust-desk a {
-  color: var(--accent);
-  font-size: 0.9rem;
-  font-weight: 650;
-  text-underline-offset: 3px;
 }
 
 .show-more-button {
@@ -1830,6 +1292,7 @@ fieldset label {
 }
 
 /* Past events sit below upcoming ones, visibly quieter. */
+
 .past-events-heading {
   margin: 12px 0 2px;
   color: var(--text-3);
@@ -1844,25 +1307,10 @@ fieldset label {
   opacity: 0.85;
 }
 
-/* ---------- Share kit ---------- */
-
-.share-layout {
-  display: grid;
-  grid-template-columns: minmax(300px, 0.62fr) minmax(360px, 1fr);
-  gap: 16px;
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
 .share-card {
   position: relative;
   overflow: hidden;
   padding: 28px;
-}
-
-.primary-share-card {
-  background: var(--surface-2);
-  border-color: var(--line-strong);
 }
 
 .share-card h3,
@@ -1896,100 +1344,6 @@ fieldset label {
   font-weight: 700;
 }
 
-.mini-share-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  align-items: start;
-}
-
-.mini-share-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding: 22px;
-  transition: border-color 160ms ease, transform 160ms ease;
-}
-
-.mini-share-card:hover {
-  border-color: var(--line-strong);
-  transform: translateY(-2px);
-}
-
-.mini-share-card span {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.mini-share-card h3 {
-  overflow-wrap: break-word;
-  text-wrap: pretty;
-}
-
-.mini-share-card p {
-  margin-bottom: 0;
-  color: var(--text-2);
-  font-size: 0.9rem;
-}
-
-/* ---------- Newsletter ---------- */
-
-.newsletter-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.72fr);
-  gap: 48px;
-  align-items: center;
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
-.newsletter-copy {
-  max-width: 640px;
-}
-
-.newsletter-copy > p {
-  color: var(--text-2);
-  font-size: 1.08rem;
-  line-height: 1.6;
-}
-
-.newsletter-preview {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin: 28px 0 0;
-}
-
-.newsletter-preview div {
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--surface);
-}
-
-.newsletter-preview dt {
-  margin-bottom: 8px;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.newsletter-preview dd {
-  margin: 0;
-  color: var(--text-2);
-  font-size: 0.9rem;
-  line-height: 1.55;
-}
-
 .newsletter-form {
   display: grid;
   gap: 16px;
@@ -1999,137 +1353,10 @@ fieldset label {
   box-shadow: var(--shadow-md);
 }
 
-/* ---------- Network directory ---------- */
-
-.directory-grid,
-.workshop-grid,
-.source-steps {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  align-items: start;
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
-/* Cards size to their content: no stretched equal heights, no big
-   empty bottoms. Footers pin to the bottom with margin-top: auto. */
-.directory-card,
-.workshop-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 22px;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-}
-
-.directory-card:hover,
-.workshop-card:hover {
-  border-color: var(--line-strong);
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
-}
-
-.directory-card svg,
-.workshop-card svg {
-  width: 28px;
-  height: 28px;
-  color: var(--accent);
-}
-
-.directory-card p,
-.workshop-card p {
-  margin-bottom: 0;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.directory-card span,
-.workshop-card strong {
-  color: var(--text-2);
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.55;
-}
-
 .profile-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: start;
   margin-top: 16px;
-}
-
-.profile-status {
-  display: grid;
-  gap: 6px;
-  margin-top: auto;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-}
-
-.profile-status strong {
-  color: var(--text);
-  font-size: 0.88rem;
-}
-
-.profile-status a {
-  color: var(--accent);
-  font-size: 0.88rem;
-  font-weight: 650;
-  text-underline-offset: 3px;
-}
-
-/* ---------- Workshops and toolkits ---------- */
-
-.toolkit-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  align-items: start;
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
-.toolkit-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 22px;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-}
-
-.toolkit-card:hover {
-  border-color: var(--line-strong);
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
-}
-
-.toolkit-card svg {
-  width: 28px;
-  height: 28px;
-  color: var(--accent);
-}
-
-.toolkit-card p {
-  margin-bottom: 0;
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.toolkit-card strong {
-  color: var(--text-2);
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.55;
 }
 
 .toolkit-card .card-actions {
@@ -2137,208 +1364,12 @@ fieldset label {
   padding-top: 8px;
 }
 
-/* ---------- Open source commons ---------- */
-
-.source-steps {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 40px;
-}
-
-.source-steps article {
-  position: relative;
-  padding: 24px 0 0;
-  border-top: 1px solid var(--line-strong);
-}
-
-.source-steps span {
-  display: block;
-  margin-bottom: 14px;
-  color: var(--accent);
-  font-family: var(--font-display);
-  font-size: 2.4rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-
-.source-steps h3 {
-  font-size: 1.35rem;
-}
-
-.source-steps p {
-  margin-bottom: 0;
-  color: var(--text-2);
-  font-size: 0.95rem;
-}
-
-/* ---------- Build with KYAI ---------- */
-
-.build-layout,
-.build-subgrid {
-  display: grid;
-  gap: 16px;
-  max-width: var(--container);
-  margin: 0 auto;
-}
-
-.build-layout {
-  grid-template-columns: minmax(300px, 0.44fr) minmax(0, 1fr);
-}
-
-.build-subgrid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 16px;
-}
-
-.contributor-picker,
-.mission-board {
-  display: grid;
-  align-content: start;
-  gap: 18px;
-  padding: 26px;
-}
-
-.contributor-picker h3 {
-  max-width: 460px;
-  font-size: 1.55rem;
-}
-
-.contributor-match-panel {
-  display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 14px;
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--bg-2);
-}
-
-.contributor-match-panel > span,
-.role-card > span,
-.badge-card > span {
-  color: var(--accent);
-}
-
-.contributor-match-panel svg,
-.role-card svg,
-.badge-card svg {
-  width: 26px;
-  height: 26px;
-}
-
-.contributor-match-panel h4,
-.mission-card h3,
-.role-card h3,
-.region-maintainer-card h3,
-.pipeline-card h3,
-.badge-card h3 {
-  margin: 0;
-}
-
-.contributor-match-panel p,
-.mission-card p,
-.region-maintainer-card p,
-.pipeline-card p,
-.badge-card p,
-.role-card strong {
-  color: var(--text-2);
-  font-size: 0.93rem;
-  font-weight: 500;
-}
-
-.contributor-match-panel strong,
-.mission-card strong,
-.region-maintainer-card strong {
-  display: block;
-  margin-top: 10px;
-  color: var(--mint);
-  font-size: 0.9rem;
-  font-weight: 650;
-}
-
 .contributor-match-panel .button {
   margin-top: 14px;
 }
 
-.board-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 4px;
-}
-
 .board-heading .kicker {
   margin-bottom: 0;
-}
-
-.board-heading a {
-  color: var(--accent);
-  font-size: 0.86rem;
-  font-weight: 650;
-  text-underline-offset: 3px;
-  white-space: nowrap;
-}
-
-.mission-grid,
-.role-grid,
-.region-maintainer-grid,
-.pipeline-grid,
-.badge-grid {
-  display: grid;
-  gap: 14px;
-  align-items: start;
-}
-
-.mission-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.role-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  max-width: var(--container);
-  margin: 16px auto 0;
-}
-
-.mission-card,
-.role-card,
-.region-maintainer-card,
-.pipeline-card,
-.badge-card {
-  display: grid;
-  align-content: start;
-  gap: 10px;
-  padding: 22px;
-  transition: border-color 160ms ease, transform 160ms ease;
-}
-
-.mission-card:hover,
-.role-card:hover,
-.region-maintainer-card:hover,
-.pipeline-card:hover,
-.badge-card:hover {
-  border-color: var(--line-strong);
-  transform: translateY(-2px);
-}
-
-.mission-card p,
-.role-card p,
-.region-maintainer-card p,
-.pipeline-card p,
-.badge-card p {
-  margin-bottom: 0;
-}
-
-.pipeline-card > span {
-  width: fit-content;
-  padding: 5px 10px;
-  border: 1px solid var(--line);
-  border-radius: 3px;
-  color: var(--accent);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 /* ---------- Contribute ---------- */
@@ -2379,6 +1410,7 @@ fieldset label {
 }
 
 /* Review path panel under the community board. */
+
 .review-path {
   margin-top: 28px;
   padding: 26px;
@@ -2526,6 +1558,7 @@ fieldset label {
 }
 
 /* Footer brand row: new logo mark at display size beside the wordmark. */
+
 .footer-brand {
   display: flex;
   align-items: center;
@@ -2539,6 +1572,7 @@ fieldset label {
 
 /* Detailed Kentucky mini map under the footer wordmark, same region
    bands as the tracker map. */
+
 .footer-ky {
   width: 120px;
   height: auto;
@@ -2666,8 +1700,8 @@ fieldset label {
   margin-top: 32px;
 }
 
-
 /* Blue edge on hover, one consistent signal across card types. */
+
 .update-card:hover,
 .directory-card:hover,
 .workshop-card:hover,
@@ -2690,20 +1724,20 @@ fieldset label {
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 1040px) {
-  :root {
+@media (max-width: 1040px) {:root {
     --section-pad: 64px;
   }
 
-  /* Below 1040px the hero has no free zone wide enough for a legible
+/* Below 1040px the hero has no free zone wide enough for a legible
      detailed map beside the intro column, so the hero map is hidden
      here (the tracker section keeps the full map with regions and
      cities). */
-  .hero-ky-map {
+
+.hero-ky-map {
     display: none;
   }
 
-  .site-header,
+.site-header,
   .pulse-hero,
   .section,
   .site-footer,
@@ -2712,7 +1746,7 @@ fieldset label {
     padding-left: 24px;
   }
 
-  .map-command,
+.map-command,
   .lane-layout,
   .newsletter-layout,
   .contribute-layout,
@@ -2723,31 +1757,7 @@ fieldset label {
     grid-template-columns: 1fr;
   }
 
-  .pulse-panel {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .lead-story {
-    grid-column: span 2;
-  }
-
-  .pulse-metrics {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .action-rail {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .action-rail a:nth-child(even) {
-    border-right: 0;
-  }
-
-  .action-rail a:nth-child(n + 3) {
-    border-top: 1px solid var(--line);
-  }
-
-  .directory-grid,
+.directory-grid,
   .workshop-grid,
   .newsletter-preview,
   .leaderboard-grid,
@@ -2758,22 +1768,17 @@ fieldset label {
   .mission-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .brief-panel {
-    position: static;
-  }
 }
 
-@media (max-width: 720px) {
-  section {
+@media (max-width: 720px) {section {
     scroll-margin-top: 138px;
   }
 
-  :root {
+:root {
     --section-pad: 52px;
   }
 
-  .site-header {
+.site-header {
     align-items: flex-start;
     flex-direction: column;
     gap: 8px;
@@ -2781,9 +1786,10 @@ fieldset label {
     padding-bottom: 10px;
   }
 
-  /* Horizontal scroll nav fades at the right edge, so a half-visible
+/* Horizontal scroll nav fades at the right edge, so a half-visible
      item reads as "swipe for more" instead of a cut-off mistake. */
-  .nav-links {
+
+.nav-links {
     flex-wrap: nowrap;
     justify-content: flex-start;
     width: 100%;
@@ -2795,86 +1801,53 @@ fieldset label {
     mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 32px), transparent 100%);
   }
 
-  .nav-links::-webkit-scrollbar {
+.nav-links::-webkit-scrollbar {
     display: none;
   }
 
-  .nav-links a {
+.nav-links a {
     flex: 0 0 auto;
   }
 
-  .pulse-hero {
+.pulse-hero {
     padding-top: 44px;
   }
 
-  .hero-ky-map {
+.hero-ky-map {
     display: none;
   }
 
-  .ky-photo-strip {
+.ky-photo-strip {
     grid-template-columns: 1fr;
   }
 
-  .ky-photo-strip figure {
+.ky-photo-strip figure {
     height: 180px;
   }
 
-  .hero-ticker {
+.hero-ticker {
     font-size: 0.66rem;
     letter-spacing: 0.12em;
   }
 
-  .pulse-panel {
-    grid-template-columns: 1fr;
-    margin-top: 36px;
-  }
-
-  .lead-story {
-    grid-column: span 1;
-    min-height: 0;
-  }
-
-  .pulse-cards article,
-  .bento-newsletter {
-    min-height: 0;
-  }
-
-  .pulse-metrics {
-    grid-template-columns: 1fr;
-  }
-
-  .header-live {
+.header-live {
     display: none;
   }
 
-  .action-rail {
-    grid-template-columns: 1fr;
-  }
-
-  .action-rail a {
-    min-height: 64px;
-    border-right: 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .action-rail a:first-child {
-    border-top: 0;
-  }
-
-  .section-heading {
+.section-heading {
     align-items: flex-start;
     flex-direction: column;
     gap: 16px;
     margin-bottom: 28px;
   }
 
-  .section-heading > .button,
+.section-heading > .button,
   .section-heading > .filter-controls,
   .section-heading > .region-controls {
     margin-top: 0;
   }
 
-  .directory-grid,
+.directory-grid,
   .workshop-grid,
   .newsletter-preview,
   .source-steps,
@@ -2890,50 +1863,35 @@ fieldset label {
     grid-template-columns: 1fr;
   }
 
-  .event-card {
+.event-card {
     grid-template-columns: 1fr;
     align-items: stretch;
   }
 
-  .event-date {
+.event-date {
     min-height: 0;
     text-align: left;
   }
 
-  .map-panel {
-    min-height: 300px;
-    padding: 18px;
-  }
-
-  .kentucky-map {
-    width: 100%;
-    margin-top: 12px;
-  }
-
-  .ky-pins text {
+.ky-pins text {
     font-size: 19px;
   }
 
-  .newsletter-layout {
+.contribute-layout {
     gap: 32px;
   }
 
-  .contribute-layout {
-    gap: 32px;
-  }
-
-  .site-footer {
+.site-footer {
     flex-direction: column;
     padding: 36px 24px 44px;
   }
 
-  .signal-detail-card {
+.signal-detail-card {
     padding: 26px;
   }
 }
 
-@media (max-width: 460px) {
-  .site-header,
+@media (max-width: 460px) {.site-header,
   .pulse-hero,
   .section,
   .site-footer,
@@ -2942,23 +1900,23 @@ fieldset label {
     padding-left: 18px;
   }
 
-  h1 {
+h1 {
     font-size: 2.7rem;
   }
 
-  .hero-intro > div:first-child > p {
+.hero-intro > div:first-child > p {
     font-size: 1.05rem;
   }
 
-  .hero-actions {
+.hero-actions {
     flex-direction: column;
   }
 
-  .hero-actions .button {
+.hero-actions .button {
     width: 100%;
   }
 
-  .lead-story,
+.lead-story,
   .directory-card,
   .workshop-card,
   .thread-card,
@@ -2988,26 +1946,24 @@ fieldset label {
     padding: 20px;
   }
 
-  .share-card h3,
+.share-card h3,
   .signal-share-card h2 {
     font-size: 1.7rem;
   }
 
-  .signal-detail-card h1 {
+.signal-detail-card h1 {
     font-size: 2rem;
   }
 }
 
-@media (min-width: 1041px) {
-  .join-copy {
+@media (min-width: 1041px) {.join-copy {
     position: sticky;
     top: 92px;
     align-self: start;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
+@media (prefers-reduced-motion: reduce) {*,
   *::before,
   *::after {
     scroll-behavior: auto !important;

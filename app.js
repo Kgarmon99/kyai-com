@@ -88,166 +88,6 @@ let regions = {
   },
 };
 
-const directoryItems = [
-  {
-    type: "Research",
-    name: "University research watch",
-    region: "Bluegrass / Louisville",
-    detail: "Track AI papers, grants, labs, student work, public datasets, and faculty projects.",
-    icon: "microscope",
-    status: "Needs maintainers",
-    action: "Claim a research lane",
-  },
-  {
-    type: "Workforce",
-    name: "AI degree and pathway programs",
-    region: "Statewide",
-    detail: "Follow public university AI degrees, K-12 pathways, IBM certificates, and employer training.",
-    icon: "graduation-cap",
-    status: "Open profile",
-    action: "Add a program",
-  },
-  {
-    type: "Infrastructure",
-    name: "Data center and energy corridor",
-    region: "Eastern / Western KY",
-    detail: "Watch site selection, local moratoriums, power use, water impact, taxes, and public meetings.",
-    icon: "server",
-    status: "Source watch",
-    action: "Submit context",
-  },
-  {
-    type: "Community",
-    name: "Local workshop hosts",
-    region: "County-level",
-    detail: "Libraries, schools, chambers, churches, nonprofits, and civic groups that can host practical AI sessions.",
-    icon: "map-pin",
-    status: "Claimable",
-    action: "List an org",
-  },
-];
-
-const workshops = [
-  {
-    title: "AI Basics for County Libraries",
-    audience: "Libraries, adult learners, seniors, students",
-    outcome: "Prompts, privacy, citations, hallucinations, scams, and useful everyday tasks.",
-    duration: "75 min",
-    icon: "library",
-  },
-  {
-    title: "AI for Main Street Business",
-    audience: "Small businesses, chambers, local teams",
-    outcome: "Customer messages, operations notes, marketing drafts, grant research, and fraud-aware workflows.",
-    duration: "90 min",
-    icon: "store",
-  },
-  {
-    title: "AI for Teachers and Schools",
-    audience: "Educators, principals, school boards",
-    outcome: "Classroom policy, lesson support, academic integrity, accessibility, and student readiness.",
-    duration: "90 min",
-    icon: "school",
-  },
-  {
-    title: "Civic AI and Public Trust",
-    audience: "Cities, counties, agencies, nonprofits",
-    outcome: "Procurement, transparency, public meetings, risk, data rights, and community benefit.",
-    duration: "60 min",
-    icon: "landmark",
-  },
-];
-
-const rolePlaybooks = {
-  business: {
-    label: "Business owner",
-    headline: "Local AI moves that affect customers, operations, hiring, and trust.",
-    priorities: ["Main Street workflow clinics", "Fraud-aware AI guides", "Local chambers and workshop hosts"],
-    nextStep: "Request a practical AI clinic for your chamber or team.",
-  },
-  teacher: {
-    label: "Teacher or school leader",
-    headline: "School policy, classroom use, academic integrity, and student readiness.",
-    priorities: ["K-12 AI guidance", "Teacher workshop decks", "Student pathway programs"],
-    nextStep: "Follow education signals and request a school-facing session.",
-  },
-  student: {
-    label: "Student",
-    headline: "Programs, scholarships, workshops, projects, and people building nearby.",
-    priorities: ["AI degree pathways", "University research", "Beginner project ideas"],
-    nextStep: "Find nearby programs and add a student project to the map.",
-  },
-  founder: {
-    label: "Founder or builder",
-    headline: "Customers, talent, infrastructure, policy, and organizations to know.",
-    priorities: ["Startup ecosystem signals", "Research collaborators", "Data center and compute activity"],
-    nextStep: "Share what you are building or claim a founder profile.",
-  },
-  civic: {
-    label: "Public leader",
-    headline: "Public trust, procurement, transparency, workforce, and community access.",
-    priorities: ["Policy watch", "Public meeting checklist", "County workshop demand"],
-    nextStep: "Submit public meetings and request a civic AI briefing.",
-  },
-  journalist: {
-    label: "Journalist or researcher",
-    headline: "Sourced, regional AI leads with people, institutions, and follow-up threads.",
-    priorities: ["Verified source links", "Regional momentum", "People and institution graph"],
-    nextStep: "Use signal pages as a reporting queue and add missing context.",
-  },
-};
-
-let toolkits = [
-  {
-    title: "AI Policy Starter Kit for Schools",
-    id: "school-ai-policy-starter-kit",
-    audience: "Districts, principals, teachers, board members",
-    detail: "A practical outline for classroom use, privacy, academic integrity, parent communication, and staff training.",
-    icon: "school",
-    status: "Priority",
-  },
-  {
-    title: "Library AI Basics Deck",
-    id: "library-ai-basics-deck",
-    audience: "Libraries, seniors, adult learners, students",
-    detail: "A community-session deck covering prompting, citations, hallucinations, scams, privacy, and daily tasks.",
-    icon: "library",
-    status: "Shareable",
-  },
-  {
-    title: "Main Street AI Workflow Templates",
-    id: "main-street-ai-workflows",
-    audience: "Small business owners and local teams",
-    detail: "Reusable templates for customer replies, estimates, inventory notes, hiring drafts, grant research, and SOPs.",
-    icon: "store",
-    status: "Useful now",
-  },
-  {
-    title: "Public Meeting AI Checklist",
-    id: "public-meeting-ai-checklist",
-    audience: "Cities, counties, nonprofits, reporters",
-    detail: "Questions for procurement, public records, explainability, data rights, bias review, and resident impact.",
-    icon: "landmark",
-    status: "Civic",
-  },
-  {
-    title: "AI Scam and Fraud Guide",
-    id: "ai-scam-fraud-guide",
-    audience: "Families, churches, banks, schools, local media",
-    detail: "A plain-language guide to voice scams, fake invoices, phishing, deepfakes, and verification habits.",
-    icon: "shield-alert",
-    status: "High trust",
-  },
-  {
-    title: "Kentucky AI Opportunity Map",
-    id: "ai-opportunity-map",
-    audience: "Students, founders, workforce groups, funders",
-    detail: "A region-by-region view of programs, labs, employers, workshops, events, and gaps worth filling.",
-    icon: "map",
-    status: "Network fuel",
-  },
-];
-
 const seedThreads = [
   {
     type: "News lead",
@@ -277,63 +117,6 @@ const seedThreads = [
       "A practical workshop on using AI for quotes, inventory notes, customer messages, grant drafts, and fraud-aware research would be useful.",
   },
 ];
-
-const fallbackContributorOs = {
-  roles: [
-    {
-      id: "signal-scout",
-      title: "Signal scout",
-      focus: "News, grants, policy, research, events",
-      impact: "Find local AI movement before it disappears into disconnected feeds.",
-      firstAction: "Submit one sourced Kentucky AI signal with region, date, and why it matters.",
-      template: "signal.yml",
-      icon: "radar",
-    },
-    {
-      id: "toolkit-builder",
-      title: "Toolkit builder",
-      focus: "Guides, checklists, decks, templates",
-      impact: "Turn the pulse into useful artifacts people can apply the same day.",
-      firstAction: "Improve one checklist for a school, library, small business, or civic group.",
-      template: "toolkit.yml",
-      icon: "file-pen-line",
-    },
-    {
-      id: "developer",
-      title: "Developer",
-      focus: "Site, automation, data validation, search, APIs",
-      impact: "Make contribution intake, review, publishing, and sharing easier every week.",
-      firstAction: "Claim a scoped issue and keep the pull request small enough to review.",
-      template: "mission.yml",
-      icon: "code-2",
-    },
-  ],
-  missions: [
-    {
-      id: "events-30-days",
-      title: "Find the next 30 days of Kentucky AI events",
-      region: "Statewide",
-      difficulty: "Starter",
-      status: "Open",
-      needed: "Signal scouts in every region",
-      outcome: "A living event rail people can plan around.",
-      template: "event.yml",
-    },
-    {
-      id: "who-builds-ai",
-      title: "Add 25 Kentucky people and organizations building with AI",
-      region: "Statewide",
-      difficulty: "Starter",
-      status: "Open",
-      needed: "Profile maintainers and local connectors",
-      outcome: "A network directory people can claim, correct, and share.",
-      template: "profile.yml",
-    },
-  ],
-  regions: [],
-  pipeline: [],
-  badges: [],
-};
 
 let regionalPages = Object.entries(regions)
   .filter(([key]) => key !== "statewide")
@@ -371,15 +154,12 @@ let publicEvents = [
 ];
 
 let updates = fallbackUpdates;
-let contributorOs = fallbackContributorOs;
 let activeFilter = "all";
-let activeRegion = "statewide";
 const INITIAL_VISIBLE_COUNT = 12;
 let visibleUpdateCount = INITIAL_VISIBLE_COUNT;
 let searchQuery = "";
 
 const UPDATE_BATCH_SIZE = 6;
-const CATEGORY_PRIORITY = ["industry", "research", "education", "policy", "workforce", "events", "news"];
 const NEWSLETTER_STORAGE_KEY = "kyai-newsletter-subscribers";
 const NEWSLETTER_ENDPOINT =
   window.KYAI_NEWSLETTER_ENDPOINT ||
@@ -387,8 +167,6 @@ const NEWSLETTER_ENDPOINT =
 
 const updateList = document.querySelector("#updateList");
 const filterButtons = document.querySelectorAll(".filter-button");
-const regionButtons = document.querySelectorAll(".region-button");
-const mapRegions = document.querySelectorAll(".ky-region-map");
 const newsletterForm = document.querySelector("#newsletterForm");
 const newsletterStatus = document.querySelector("#newsletterStatus");
 const newsletterCount = document.querySelector("#newsletterCount");
@@ -397,42 +175,11 @@ const formStatus = document.querySelector("#formStatus");
 const threadList = document.querySelector("#threadList");
 const threadForm = document.querySelector("#threadForm");
 const threadStatus = document.querySelector("#threadStatus");
-const intelUpdatedAt = document.querySelector("#intelUpdatedAt");
-const intelItemsCount = document.querySelector("#intelItemsCount");
-const intelSources = document.querySelector("#intelSources");
-const regionPagesCount = document.querySelector("#regionPagesCount");
-const digestPreview = document.querySelector("#digestPreview");
-const trustDesk = document.querySelector("#trustDesk");
+const newestSignalLine = document.querySelector("#newestSignalLine");
 const showMoreButton = document.querySelector("#showMoreUpdates");
 const intelSearch = document.querySelector("#intelSearch");
-const pulseLead = document.querySelector("#pulseLead");
-const pulseCards = document.querySelector("#pulseCards");
-const regionPanel = document.querySelector("#regionPanel");
-const directoryGrid = document.querySelector("#directoryGrid");
-const profileGrid = document.querySelector("#profileGrid");
-const workshopGrid = document.querySelector("#workshopGrid");
 const regionalPageGrid = document.querySelector("#regionalPageGrid");
 const eventCalendar = document.querySelector("#eventCalendar");
-const nearMeForm = document.querySelector("#nearMeForm");
-const roleSelect = document.querySelector("#roleSelect");
-const nearRegionSelect = document.querySelector("#nearRegionSelect");
-const placeInput = document.querySelector("#placeInput");
-const nearMePanel = document.querySelector("#nearMePanel");
-const nearMeCards = document.querySelector("#nearMeCards");
-const leaderboardGrid = document.querySelector("#leaderboardGrid");
-const weeklyShareBullets = document.querySelector("#weeklyShareBullets");
-const weeklyLinkedIn = document.querySelector("#weeklyLinkedIn");
-const weeklyText = document.querySelector("#weeklyText");
-const copyDigestButton = document.querySelector("#copyDigestButton");
-const miniShareGrid = document.querySelector("#miniShareGrid");
-const toolkitGrid = document.querySelector("#toolkitGrid");
-const contributorRoleSelect = document.querySelector("#contributorRoleSelect");
-const contributorMatchPanel = document.querySelector("#contributorMatchPanel");
-const buildRoleGrid = document.querySelector("#buildRoleGrid");
-const missionBoard = document.querySelector("#missionBoard");
-const regionMaintainerGrid = document.querySelector("#regionMaintainerGrid");
-const pipelineGrid = document.querySelector("#pipelineGrid");
-const badgeGrid = document.querySelector("#badgeGrid");
 
 function iconize() {
   if (window.lucide) {
@@ -488,10 +235,6 @@ function normalizeRegion(value = "") {
   if (text.includes("northern")) return "northern";
   if (text.includes("south") || text.includes("bowling")) return "southcentral";
   return "statewide";
-}
-
-function getRegionLabel(regionKey = "statewide") {
-  return regions[regionKey]?.label || "Statewide";
 }
 
 function getSiteUrl(path = "") {
@@ -584,32 +327,6 @@ function getRegionUrl(regionKey) {
   return region?.slug ? `/regions/${region.slug}/` : "/#regions";
 }
 
-function getToolkitUrl(toolkit) {
-  return toolkit?.id ? `/toolkits/${encodeURIComponent(toolkit.id)}/` : "/#toolkits";
-}
-
-function getBalancedUpdates(items) {
-  const selected = [];
-  const selectedIds = new Set();
-
-  for (const category of CATEGORY_PRIORITY) {
-    const item = items.find((candidate) => candidate.category === category && !selectedIds.has(candidate.id || candidate.title));
-    if (item) {
-      selected.push(item);
-      selectedIds.add(item.id || item.title);
-    }
-  }
-
-  for (const item of items) {
-    const key = item.id || item.title;
-    if (selectedIds.has(key)) continue;
-    selected.push(item);
-    selectedIds.add(key);
-  }
-
-  return selected;
-}
-
 function getFilteredUpdates() {
   const laneItems = activeFilter === "all" ? updates : updates.filter((update) => update.category === activeFilter);
   const query = searchQuery.trim().toLowerCase();
@@ -622,33 +339,7 @@ function getFilteredUpdates() {
           .includes(query),
       )
     : laneItems;
-  if (activeRegion === "statewide") return getRecentUpdates(searched);
-  const regional = searched.filter((update) => normalizeRegion(update.region) === activeRegion);
-  return regional.length ? getRecentUpdates(regional) : getRecentUpdates(searched).slice(0, 4);
-}
-
-function renderPulse(feed = {}) {
-  const recent = getRecentUpdates(feed.items?.length ? feed.items : updates);
-  const lead = recent[0] || fallbackUpdates[0];
-  const supporting = recent.slice(1, 4);
-
-  pulseLead.innerHTML = `
-    <span>${escapeHtml(lead.region || "Kentucky")} / ${escapeHtml(lead.category || "signal")}</span>
-    <h3>${lead.url ? `<a href="${escapeHtml(lead.url)}" target="_blank" rel="noreferrer">${escapeHtml(lead.title)}</a>` : escapeHtml(lead.title)}</h3>
-    <p>${escapeHtml(lead.body)}</p>
-  `;
-
-  pulseCards.innerHTML = supporting
-    .map(
-      (item) => `
-        <article>
-          <span>${escapeHtml(item.category)}</span>
-          <strong>${escapeHtml(item.title)}</strong>
-          <small>${escapeHtml(item.region || "Kentucky")}</small>
-        </article>
-      `,
-    )
-    .join("");
+  return getRecentUpdates(searched);
 }
 
 function renderUpdates() {
@@ -731,277 +422,13 @@ function renderUpdates() {
   showMoreButton.hidden = visibleUpdateCount >= filteredUpdates.length;
 }
 
-function renderIntelligence(feed) {
+function renderNewestSignal(feed) {
+  if (!newestSignalLine) return;
   const items = feed.items || [];
   const newest = getRecentUpdates(items)[0];
-  intelUpdatedAt.textContent = newest?.publishedAt ? formatDateOnly(newest.publishedAt) : "Seed data";
-  intelItemsCount.textContent = String(items.length || 0);
-  intelSources.textContent = String(feed.sources?.length || 0);
-  if (regionPagesCount) {
-    regionPagesCount.textContent = `${regionalPages.length || 6} regions`;
-  }
-
-  digestPreview.innerHTML = getRecentUpdates(items)
-    .slice(4, 9)
-    .map(
-      (item) => `
-        <article>
-          <span>${escapeHtml(item.category)}</span>
-          <a href="${escapeHtml(item.url || "#")}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a>
-        </article>
-      `,
-    )
-    .join("");
-
-  const reviewed = items.filter((item) => item.reviewStatus || item.kind === "curated").length;
-  const sourceLinked = items.filter((item) => item.url).length;
-  const needsReview = Math.max(items.length - reviewed, 0);
-  trustDesk.innerHTML = `
-    <p class="kicker">Trust desk</p>
-    <dl>
-      <div><dt>Source linked</dt><dd>${sourceLinked}/${items.length || 0}</dd></div>
-      <div><dt>Reviewed or curated</dt><dd>${reviewed}</dd></div>
-      <div><dt>Needs editor pass</dt><dd>${needsReview}</dd></div>
-    </dl>
-    <a href="${escapeHtml(buildIssueUrl("signal.yml", "[Correction]: KYAI signal correction"))}">Submit a correction</a>
-  `;
-}
-
-function renderRegion(regionKey = "statewide") {
-  const region = regions[regionKey] || regions.statewide;
-  activeRegion = regionKey;
-  const regionPage = regionalPages.find((item) => item.id === regionKey);
-
-  regionButtons.forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.region === regionKey);
-  });
-  mapRegions.forEach((regionShape) => {
-    regionShape.classList.toggle("is-active", regionShape.dataset.region === regionKey);
-  });
-
-  regionPanel.innerHTML = `
-    <p class="kicker">Regional lens</p>
-    <h3>${escapeHtml(region.label)}</h3>
-    <strong>${escapeHtml(region.metric)}</strong>
-    <p>${escapeHtml(region.focus)}</p>
-    <ul>
-      ${region.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-    </ul>
-    ${
-      regionPage
-        ? `<a class="button primary small-button" href="${escapeHtml(getRegionUrl(regionKey))}">
-            <span data-lucide="arrow-up-right" aria-hidden="true"></span>
-            Open regional page
-          </a>`
-        : ""
-    }
-  `;
-
-  visibleUpdateCount = INITIAL_VISIBLE_COUNT;
-  renderUpdates();
-}
-
-function getRoleMatches(roleKey, regionKey) {
-  const categoryMap = {
-    business: ["workforce", "industry", "events"],
-    teacher: ["education", "policy", "events"],
-    student: ["education", "research", "events"],
-    founder: ["industry", "research", "workforce"],
-    civic: ["policy", "workforce", "education"],
-    journalist: ["policy", "industry", "research"],
-  };
-  const categories = categoryMap[roleKey] || CATEGORY_PRIORITY;
-  const matchingRegion = updates.filter((item) => regionKey === "statewide" || normalizeRegion(item.region) === regionKey);
-  const source = matchingRegion.length ? matchingRegion : updates;
-  const ranked = source
-    .filter((item) => categories.includes(item.category))
-    .concat(source.filter((item) => !categories.includes(item.category)));
-
-  return getBalancedUpdates(ranked).slice(0, 3);
-}
-
-function renderNearMe() {
-  const roleKey = roleSelect?.value || "business";
-  const regionKey = nearRegionSelect?.value || "statewide";
-  const place = placeInput?.value?.trim();
-  const role = rolePlaybooks[roleKey] || rolePlaybooks.business;
-  const regionLabel = place || getRegionLabel(regionKey);
-  const matches = getRoleMatches(roleKey, regionKey);
-  const eventMatches = publicEvents
-    .filter((event) => !isPastEvent(event))
-    .filter((event) => regionKey === "statewide" || normalizeRegion(event.region) === regionKey || normalizeRegion(event.region) === "statewide")
-    .slice(0, 2);
-  const profileMatches = publicProfiles
-    .filter((profile) => regionKey === "statewide" || normalizeRegion(profile.region) === regionKey || normalizeRegion(profile.region) === "statewide")
-    .slice(0, 2);
-  const toolkitMatches = toolkits
-    .filter((toolkit) => role.priorities.some((priority) => `${toolkit.title} ${toolkit.useCase || toolkit.detail}`.toLowerCase().includes(priority.toLowerCase().split(" ")[0])))
-    .slice(0, 2);
-  const fallbackToolkits = toolkitMatches.length ? toolkitMatches : toolkits.slice(0, 2);
-
-  nearMePanel.innerHTML = `
-    <p class="kicker">${escapeHtml(role.label)} lens</p>
-    <h3>${escapeHtml(regionLabel)} AI watch</h3>
-    <p>${escapeHtml(role.headline)}</p>
-    <ul>
-      ${role.priorities.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-    </ul>
-    <a class="button primary" href="#lead-form">
-      <span data-lucide="send" aria-hidden="true"></span>
-      ${escapeHtml(role.nextStep)}
-    </a>
-    ${
-      regionKey !== "statewide"
-        ? `<a class="button secondary" href="${escapeHtml(getRegionUrl(regionKey))}">
-            <span data-lucide="map-pin" aria-hidden="true"></span>
-            Open ${escapeHtml(getRegionLabel(regionKey))} page
-          </a>`
-        : ""
-    }
-  `;
-
-  nearMeCards.innerHTML = [
-    ...matches.map(
-      (item) => `
-        <article class="near-me-card">
-          <span>${escapeHtml(item.region || "Kentucky")} / ${escapeHtml(item.category)}</span>
-          <h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.body)}</p>
-          <a href="${escapeHtml(getSignalUrl(item))}">Open signal</a>
-        </article>
-      `,
-    ),
-    ...eventMatches.map(
-      (event) => `
-        <article class="near-me-card">
-          <span>${escapeHtml(event.region)} / ${escapeHtml(event.type || "Event")}</span>
-          <h3>${escapeHtml(event.title)}</h3>
-          <p>${escapeHtml(event.date)} ${event.time ? `/ ${escapeHtml(event.time)}` : ""} - ${escapeHtml(event.whyItMatters)}</p>
-          <a href="${escapeHtml(event.sourceUrl || "#events")}">Open event</a>
-        </article>
-      `,
-    ),
-    ...profileMatches.map(
-      (profile) => `
-        <article class="near-me-card">
-          <span>${escapeHtml(profile.region)} / ${escapeHtml(profile.type)}</span>
-          <h3>${escapeHtml(profile.name)}</h3>
-          <p>${escapeHtml(profile.reason)}</p>
-          <a href="${escapeHtml(profile.sourceUrl || "#network")}">Open profile</a>
-        </article>
-      `,
-    ),
-    ...fallbackToolkits.map(
-      (toolkit) => `
-        <article class="near-me-card">
-          <span>${escapeHtml(toolkit.status || "Toolkit")} / ${escapeHtml(toolkit.audience)}</span>
-          <h3>${escapeHtml(toolkit.title)}</h3>
-          <p>${escapeHtml(toolkit.useCase || toolkit.detail)}</p>
-          <a href="${escapeHtml(getToolkitUrl(toolkit))}">${escapeHtml(toolkit.downloadLabel || "Open toolkit")}</a>
-        </article>
-      `,
-    ),
-  ]
-    .join("");
-}
-
-function getRegionScores() {
-  const scoreMap = new Map();
-  const communityThreads = getThreads();
-
-  for (const key of Object.keys(regions)) {
-    scoreMap.set(key, {
-      key,
-      label: getRegionLabel(key),
-      signals: 0,
-      events: 0,
-      people: 0,
-      threads: 0,
-    });
-  }
-
-  for (const item of updates) {
-    const key = normalizeRegion(item.region);
-    const bucket = scoreMap.get(key) || scoreMap.get("statewide");
-    bucket.signals += 1;
-    if (item.category === "events") bucket.events += 1;
-    bucket.people += (item.people || []).length + (item.institutions || []).length;
-  }
-
-  for (const thread of communityThreads) {
-    const key = normalizeRegion(thread.place);
-    const bucket = scoreMap.get(key) || scoreMap.get("statewide");
-    bucket.threads += 1;
-  }
-
-  return [...scoreMap.values()]
-    .map((item) => ({
-      ...item,
-      score: item.signals * 3 + item.events * 4 + item.people + item.threads * 5,
-    }))
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 6);
-}
-
-function renderLeaderboard() {
-  leaderboardGrid.innerHTML = getRegionScores()
-    .map(
-      (region, index) => `
-        <article class="leaderboard-card">
-          <span>${String(index + 1).padStart(2, "0")}</span>
-          <h3>${escapeHtml(region.label)}</h3>
-          <strong>${region.score} momentum pts</strong>
-          <dl>
-            <div><dt>Signals</dt><dd>${region.signals}</dd></div>
-            <div><dt>Threads</dt><dd>${region.threads}</dd></div>
-            <div><dt>People/orgs</dt><dd>${region.people}</dd></div>
-          </dl>
-        </article>
-      `,
-    )
-    .join("");
-}
-
-function getCuratedShareItems() {
-  const curated = getRecentUpdates(updates.filter((item) => item.kind === "curated"));
-  return curated.length >= 5 ? curated.slice(0, 5) : getRecentUpdates(updates).slice(0, 5);
-}
-
-function buildWeeklyShareText() {
-  const bullets = getCuratedShareItems().map((item) => `- ${item.region || "Kentucky"}: ${item.title}`);
-
-  return ["Kentucky AI week in 5 signals", ...bullets, "", `Follow KYAI: ${getSiteUrl("/#share")}`].join("\n");
-}
-
-function renderShareKit() {
-  const weeklyPost = buildWeeklyShareText();
-  const shareItems = getCuratedShareItems();
-  weeklyShareBullets.innerHTML = shareItems
-    .map((item) => `<p><strong>${escapeHtml(item.region || "Kentucky")}</strong> ${escapeHtml(item.title)}</p>`)
-    .join("");
-
-  const encodedWeekly = encodeURIComponent(weeklyPost);
-  weeklyLinkedIn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(getSiteUrl("/#share"))}`;
-  weeklyText.href = `sms:?&body=${encodedWeekly}`;
-
-  miniShareGrid.innerHTML = getRegionScores()
-    .slice(0, 4)
-    .map((region) => {
-      const topItem = getRecentUpdates(updates).find((item) => normalizeRegion(item.region) === region.key) || getRecentUpdates(updates)[0];
-      const text = `${region.label} AI watch: ${topItem?.title || "new Kentucky AI signals"} via KYAI`;
-      return `
-        <article class="mini-share-card">
-          <span>${escapeHtml(region.label)}</span>
-          <h3>${escapeHtml(topItem?.title || "Kentucky AI signal")}</h3>
-          <p>${region.signals} tracked signals / ${region.threads} community threads</p>
-          <div class="card-actions">
-            <button class="button neutral small-button" data-copy="${escapeHtml(`${text} ${getSiteUrl("/#share")}`)}" type="button">Copy</button>
-            <button class="button neutral small-button" data-share-url="${escapeHtml(getSiteUrl("/#share"))}" data-share-title="${escapeHtml(`${region.label} AI watch`)}" data-share-text="${escapeHtml(text)}" type="button">Share</button>
-          </div>
-        </article>
-      `;
-    })
-    .join("");
+  newestSignalLine.textContent = newest?.publishedAt
+    ? `Newest signal: ${formatDateOnly(newest.publishedAt)}`
+    : "Newest signal: seed data";
 }
 
 function renderRegionalPages() {
@@ -1089,269 +516,20 @@ function renderEventCalendar() {
   ].join("");
 }
 
-function renderDirectory() {
-  directoryGrid.innerHTML = directoryItems
-    .map(
-      (item) => `
-        <article class="directory-card">
-          <span data-lucide="${escapeHtml(item.icon)}" aria-hidden="true"></span>
-          <div>
-            <p>${escapeHtml(item.type)} / ${escapeHtml(item.region)}</p>
-            <h3>${escapeHtml(item.name)}</h3>
-            <span>${escapeHtml(item.detail)}</span>
-          </div>
-          <div class="profile-status">
-            <strong>${escapeHtml(item.status)}</strong>
-            <a href="${escapeHtml(
-              item.sourceUrl ||
-                buildIssueUrl(
-                  "profile.yml",
-                  `[Profile]: ${item.name}`,
-                  `Profile: ${item.name}\nType: ${item.type}\nRegion: ${item.region}\nContext: ${item.detail}`,
-                ),
-            )}">${escapeHtml(item.action)}</a>
-          </div>
-        </article>
-      `,
-    )
-    .join("");
-
-  if (profileGrid) {
-    profileGrid.innerHTML = publicProfiles
-      .map(
-        (profile) => `
-          <article class="profile-card">
-            <div class="mission-meta">
-              <span>${escapeHtml(profile.region || "Kentucky")}</span>
-              <span>${escapeHtml(profile.type || "Profile")}</span>
-              <span>${escapeHtml(profile.claimStatus || "Open profile")}</span>
-            </div>
-            <h3>${escapeHtml(profile.name)}</h3>
-            <p>${escapeHtml(profile.reason)}</p>
-            <div class="card-actions">
-              <a class="button neutral small-button" href="${escapeHtml(profile.sourceUrl || "#network")}">
-                <span data-lucide="external-link" aria-hidden="true"></span>
-                Source
-              </a>
-              <a class="button neutral small-button" href="${escapeHtml(
-                buildIssueUrl(
-                  "profile.yml",
-                  `[Profile]: ${profile.name}`,
-                  `Profile: ${profile.name}\nType: ${profile.type}\nRegion: ${profile.region}\nCorrection or context:`,
-                ),
-              )}">
-                <span data-lucide="badge-check" aria-hidden="true"></span>
-                Correct
-              </a>
-            </div>
-          </article>
-        `,
-      )
-      .join("");
-  }
-}
-
-function renderWorkshops() {
-  workshopGrid.innerHTML = workshops
-    .map(
-      (workshop) => `
-        <article class="workshop-card">
-          <span data-lucide="${escapeHtml(workshop.icon)}" aria-hidden="true"></span>
-          <p>${escapeHtml(workshop.duration)} / ${escapeHtml(workshop.audience)}</p>
-          <h3>${escapeHtml(workshop.title)}</h3>
-          <strong>${escapeHtml(workshop.outcome)}</strong>
-        </article>
-      `,
-    )
-    .join("");
-}
-
-function renderToolkits() {
-  toolkitGrid.innerHTML = toolkits
-    .map(
-      (toolkit) => `
-        <article class="toolkit-card">
-          <span data-lucide="${escapeHtml(toolkit.icon)}" aria-hidden="true"></span>
-          <p>${escapeHtml(toolkit.status)} / ${escapeHtml(toolkit.audience)}</p>
-          <h3>${escapeHtml(toolkit.title)}</h3>
-          <strong>${escapeHtml(toolkit.useCase || toolkit.detail)}</strong>
-          ${
-            toolkit.sections?.length
-              ? `<div class="toolkit-section-list">${toolkit.sections
-                  .slice(0, 4)
-                  .map((section) => `<span>${escapeHtml(section)}</span>`)
-                  .join("")}</div>`
-              : ""
-          }
-          <div class="card-actions">
-            <a class="button primary small-button" href="${escapeHtml(getToolkitUrl(toolkit))}">
-              <span data-lucide="file-text" aria-hidden="true"></span>
-              ${escapeHtml(toolkit.downloadLabel || "Open toolkit")}
-            </a>
-            <button class="button neutral small-button" data-copy="${escapeHtml(`${toolkit.title}: ${toolkit.useCase || toolkit.detail} ${getSiteUrl(getToolkitUrl(toolkit))}`)}" type="button">
-              <span data-lucide="copy" aria-hidden="true"></span>
-              Copy
-            </button>
-            <a class="button neutral small-button" href="${escapeHtml(
-              buildIssueUrl(
-                "toolkit.yml",
-                `[Toolkit]: ${toolkit.title}`,
-                `Toolkit: ${toolkit.title}\nAudience: ${toolkit.audience}\nUse case: ${toolkit.useCase || toolkit.detail}`,
-              ),
-            )}">
-              <span data-lucide="send" aria-hidden="true"></span>
-              Request
-            </a>
-          </div>
-        </article>
-      `,
-    )
-    .join("");
-}
-
-function renderContributorMatch() {
-  const selectedRole =
-    contributorOs.roles.find((role) => role.id === contributorRoleSelect.value) || contributorOs.roles[0];
-  if (!selectedRole) return;
-
-  contributorMatchPanel.innerHTML = `
-    <span data-lucide="${escapeHtml(selectedRole.icon)}" aria-hidden="true"></span>
-    <div>
-      <h4>${escapeHtml(selectedRole.title)}</h4>
-      <p>${escapeHtml(selectedRole.impact)}</p>
-      <strong>${escapeHtml(selectedRole.firstAction)}</strong>
-      <a class="button primary small-button" href="${escapeHtml(
-        buildIssueUrl(
-          selectedRole.template,
-          `[${selectedRole.title}]: ${selectedRole.firstAction}`,
-          `Contributor lane: ${selectedRole.title}\nFocus: ${selectedRole.focus}\nFirst action: ${selectedRole.firstAction}`,
-        ),
-      )}">
-        <span data-lucide="arrow-up-right" aria-hidden="true"></span>
-        Start this lane
-      </a>
-    </div>
-  `;
-  iconize();
-}
-
-function renderContributorOs() {
-  contributorRoleSelect.innerHTML = contributorOs.roles
-    .map((role) => `<option value="${escapeHtml(role.id)}">${escapeHtml(role.title)}</option>`)
-    .join("");
-
-  buildRoleGrid.innerHTML = contributorOs.roles
-    .map(
-      (role) => `
-        <article class="role-card">
-          <span data-lucide="${escapeHtml(role.icon)}" aria-hidden="true"></span>
-          <p>${escapeHtml(role.focus)}</p>
-          <h3>${escapeHtml(role.title)}</h3>
-          <strong>${escapeHtml(role.impact)}</strong>
-        </article>
-      `,
-    )
-    .join("");
-
-  missionBoard.innerHTML = contributorOs.missions
-    .map(
-      (mission) => `
-        <article class="mission-card">
-          <div class="mission-meta">
-            <span>${escapeHtml(mission.status)}</span>
-            <span>${escapeHtml(mission.difficulty)}</span>
-            <span>${escapeHtml(mission.region)}</span>
-          </div>
-          <h3>${escapeHtml(mission.title)}</h3>
-          <p>${escapeHtml(mission.outcome)}</p>
-          <strong>${escapeHtml(mission.needed)}</strong>
-          <a class="button neutral small-button" href="${escapeHtml(
-            buildIssueUrl(
-              mission.template,
-              `[Mission]: ${mission.title}`,
-              `Mission: ${mission.title}\nRegion: ${mission.region}\nNeeded: ${mission.needed}\nOutcome: ${mission.outcome}`,
-            ),
-          )}">
-            <span data-lucide="target" aria-hidden="true"></span>
-            Claim or help
-          </a>
-        </article>
-      `,
-    )
-    .join("");
-
-  regionMaintainerGrid.innerHTML = contributorOs.regions
-    .map(
-      (region) => `
-        <article class="region-maintainer-card">
-          <h3>${escapeHtml(region.name)}</h3>
-          <p>${escapeHtml(region.nextWin)}</p>
-          <strong>${escapeHtml(region.openRoles.join(" / "))}</strong>
-        </article>
-      `,
-    )
-    .join("");
-
-  pipelineGrid.innerHTML = contributorOs.pipeline
-    .map(
-      (step, index) => `
-        <article class="pipeline-card">
-          <span>${String(index + 1).padStart(2, "0")}</span>
-          <h3>${escapeHtml(step.status)}</h3>
-          <p>${escapeHtml(step.description)}</p>
-        </article>
-      `,
-    )
-    .join("");
-
-  badgeGrid.innerHTML = contributorOs.badges
-    .map(
-      (badge) => `
-        <article class="badge-card">
-          <span data-lucide="badge" aria-hidden="true"></span>
-          <h3>${escapeHtml(badge.name)}</h3>
-          <p>${escapeHtml(badge.description)}</p>
-        </article>
-      `,
-    )
-    .join("");
-
-  renderContributorMatch();
-  iconize();
-}
-
 async function loadProductData() {
-  const [regionData, profileData, eventData, toolkitData] = await Promise.all([
+  const [regionData, profileData, eventData] = await Promise.all([
     fetchLocalJson("./data/regions.json", { regions: regionalPages }),
     fetchLocalJson("./data/profiles.json", { profiles: publicProfiles }),
     fetchLocalJson("./data/events.json", { events: publicEvents }),
-    fetchLocalJson("./data/toolkits.json", { toolkits }),
   ]);
 
   syncRegionPages(regionData.regions || []);
   publicProfiles = profileData.profiles || publicProfiles;
   publicEvents = eventData.events || publicEvents;
-  toolkits = toolkitData.toolkits || toolkits;
 
   renderRegionalPages();
   renderEventCalendar();
-  renderDirectory();
-  renderToolkits();
-  renderNearMe();
-  renderLeaderboard();
   iconize();
-}
-
-async function loadContributorOs() {
-  try {
-    const response = await fetch("./data/contributor-os.json", { cache: "no-cache" });
-    if (!response.ok) throw new Error("Contributor OS unavailable");
-    contributorOs = await response.json();
-  } catch {
-    contributorOs = fallbackContributorOs;
-  }
-  renderContributorOs();
-  restoreHashScroll();
 }
 
 async function loadIntelligence() {
@@ -1362,12 +540,8 @@ async function loadIntelligence() {
     if (feed.items?.length) {
       updates = feed.items;
     }
-    renderPulse(feed);
-    renderIntelligence(feed);
-    renderRegion(activeRegion);
-    renderNearMe();
-    renderLeaderboard();
-    renderShareKit();
+    renderNewestSignal(feed);
+    renderUpdates();
     renderRegionalPages();
     renderEventCalendar();
   } catch {
@@ -1376,12 +550,8 @@ async function loadIntelligence() {
       items: fallbackUpdates,
       sources: [],
     };
-    renderPulse(fallbackFeed);
-    renderIntelligence(fallbackFeed);
-    renderRegion(activeRegion);
-    renderNearMe();
-    renderLeaderboard();
-    renderShareKit();
+    renderNewestSignal(fallbackFeed);
+    renderUpdates();
     renderRegionalPages();
     renderEventCalendar();
   }
@@ -1475,29 +645,9 @@ intelSearch?.addEventListener("input", () => {
   renderUpdates();
 });
 
-regionButtons.forEach((button) => {
-  button.addEventListener("click", () => renderRegion(button.dataset.region));
-});
-
-mapRegions.forEach((regionShape) => {
-  const selectRegion = () => renderRegion(regionShape.dataset.region);
-  regionShape.addEventListener("click", selectRegion);
-  regionShape.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      selectRegion();
-    }
-  });
-});
-
 showMoreButton.addEventListener("click", () => {
   visibleUpdateCount += UPDATE_BATCH_SIZE;
   renderUpdates();
-  iconize();
-});
-
-nearMeForm.addEventListener("input", () => {
-  renderNearMe();
   iconize();
 });
 
@@ -1511,8 +661,6 @@ document.addEventListener("click", async (event) => {
       setTimeout(() => {
         copyButton.classList.remove("is-copied");
         renderUpdates();
-        renderShareKit();
-        renderToolkits();
         iconize();
       }, 1100);
     } catch {
@@ -1539,22 +687,6 @@ document.addEventListener("click", async (event) => {
     }
   }
 
-  const weeklyShareButton = event.target.closest("[data-share='weekly']");
-  if (weeklyShareButton) {
-    const text = buildWeeklyShareText();
-    const url = getSiteUrl("/#share");
-    if (navigator.share) {
-      try {
-        await navigator.share({ title: "Kentucky AI week in 5 signals", text, url });
-      } catch {
-        await copyText(text);
-      }
-    } else {
-      await copyText(text);
-      weeklyShareButton.textContent = "Copied";
-    }
-  }
-
   const voteButton = event.target.closest("[data-thread-vote]");
   if (voteButton) {
     const threads = getThreads();
@@ -1563,7 +695,6 @@ document.addEventListener("click", async (event) => {
       threads[index].votes = Number(threads[index].votes || 0) + 1;
       localStorage.setItem("kyai-threads", JSON.stringify(threads));
       renderThreads();
-      renderLeaderboard();
     }
   }
 
@@ -1576,19 +707,6 @@ document.addEventListener("click", async (event) => {
       localStorage.setItem("kyai-threads", JSON.stringify(threads));
       renderThreads();
     }
-  }
-});
-
-copyDigestButton.addEventListener("click", async () => {
-  try {
-    await copyText(buildWeeklyShareText());
-    copyDigestButton.textContent = "Copied weekly post";
-    setTimeout(() => {
-      copyDigestButton.innerHTML = '<span data-lucide="copy" aria-hidden="true"></span>Copy weekly post';
-      iconize();
-    }, 1200);
-  } catch {
-    copyDigestButton.textContent = "Copy failed";
   }
 });
 
@@ -1612,7 +730,6 @@ threadForm.addEventListener("submit", (event) => {
   threadStatus.innerHTML = `Signal saved locally. <a href="${escapeHtml(reviewUrl)}">Open the editor review issue</a>.`;
   threadForm.reset();
   renderThreads();
-  renderLeaderboard();
 });
 
 newsletterForm.addEventListener("submit", async (event) => {
@@ -1678,14 +795,11 @@ joinForm.addEventListener("submit", (event) => {
   joinForm.reset();
 });
 
-contributorRoleSelect.addEventListener("change", renderContributorMatch);
-
 async function init() {
-  renderWorkshops();
   renderThreads();
   renderNewsletterCount();
   await loadProductData();
-  await Promise.all([loadContributorOs(), loadIntelligence()]);
+  await loadIntelligence();
   iconize();
 }
 
