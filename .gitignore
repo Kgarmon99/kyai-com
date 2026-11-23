@@ -10,3 +10,8 @@ kyai.db-*
 kyai-test-*.db
 kyai-test-*.db-*
 node_modules/
+
+# Subscriber records are personal data and must never be committed.
+# The live site is built from this repo, so anything tracked here is published.
+data/subscribers.json
+.local/

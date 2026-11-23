@@ -29,8 +29,28 @@ for (const entry of ["index.html", "review.html", "styles.css", "app.js", "api-c
   cpSync(path.join(root, entry), path.join(client, entry), { recursive: true });
 }
 
-if (existsSync(path.join(root, "data"))) {
-  cpSync(path.join(root, "data"), path.join(client, "data"), { recursive: true });
+// Publish data files by explicit allowlist, never by copying the whole folder.
+// Anything in data/ that is not named here stays off the public site, so adding
+// a new or private dataset can't accidentally deploy it. Subscriber records in
+// particular must never be published.
+const PUBLIC_DATA_FILES = [
+  "LICENSE",
+  "contributor-os.json",
+  "editorial-items.json",
+  "events.json",
+  "intelligence-feed.json",
+  "intelligence-sources.json",
+  "profiles.json",
+  "regions.json",
+  "toolkits.json",
+];
+
+mkdirSync(path.join(client, "data"), { recursive: true });
+for (const file of PUBLIC_DATA_FILES) {
+  const source = path.join(root, "data", file);
+  if (existsSync(source)) {
+    cpSync(source, path.join(client, "data", file));
+  }
 }
 
 function escapeHtml(value) {

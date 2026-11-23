@@ -4,6 +4,31 @@ Open-source website for KYAI, a Kentucky nonprofit initiative for free AI worksh
 
 KYAI is also a contributor-driven civic intelligence project. Start with [CONTRIBUTING.md](CONTRIBUTING.md), the GitHub issue forms, and the public `Build with KYAI` section on the site.
 
+## License
+
+This project is deliberately split into two licenses:
+
+| What | License | Notes |
+|------|---------|-------|
+| Code — `app.js`, `scripts/`, `lib/`, `api/`, styles, templates | [MIT](LICENSE) | Reuse freely, including commercially. |
+| Data — everything in [`data/`](data/LICENSE) and the public JSON feeds | [CC BY 4.0](data/LICENSE) | Reuse with attribution to KYAI. |
+
+The KYAI name, wordmark, and logo files in `assets/` are not covered by either
+license. Third-party sources that records link to remain the property of their
+publishers — KYAI stores a title, a link, and its own summary, never the source
+work itself.
+
+By contributing, you agree to publish your contribution under these terms.
+
+## Subscriber data
+
+Subscriber records are personal data. They are stored in the database and in
+the Resend audience, and never committed to this repository:
+`data/subscribers.json` is gitignored for that reason. `scripts/build.mjs`
+copies only an explicit allowlist of public datasets into the built site, and
+`scripts/smoke-test.mjs` fails the build if any email field reaches the
+published output. See [SECURITY.md](SECURITY.md).
+
 ## Local Development
 
 ```bash
@@ -48,7 +73,8 @@ KYAI deploys on Vercel.
 - GitHub: `https://github.com/Kgarmon99/kyai-com`
 - Project: `kyai`
 - Production alias: `https://ky-ai.vercel.app`
-- Custom domains: `kyai.com`, `www.kyai.com`
+- Custom domain: none yet. `kyai.com` is held by a third-party seller and is
+  not KYAI's.
 
 ### Vercel Postgres
 

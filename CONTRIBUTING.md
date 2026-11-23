@@ -19,6 +19,8 @@ Good first contributions:
 
 ## Local Setup
 
+Node.js 24 is the pinned version (see `.nvmrc`); 20 or newer works.
+
 ```bash
 npm install
 npm run build
@@ -26,6 +28,24 @@ npm test
 ```
 
 This is a static Vercel site. The build output lives in `dist/client`.
+
+`npm install` may warn that the optional `better-sqlite3` dependency failed to
+build. That is expected without a C++ toolchain and does not block you: the
+build, data validation, and smoke tests all run, and the API suite reports that
+it is skipping rather than failing. To run the API tests locally, add the driver
+with `npm install --no-save better-sqlite3`. CI installs it explicitly, so that
+coverage always runs there.
+
+## Licensing your contribution
+
+Code contributions are published under the [MIT License](LICENSE). Data
+contributions — anything in `data/`, including records submitted through the
+issue forms — are published under [CC BY 4.0](data/LICENSE). Opening a pull
+request or submitting a record means you agree to those terms and confirm you
+have the right to contribute the material.
+
+Do not paste source article text into a record. KYAI stores a title, a link, and
+your own short summary.
 
 ## Data Standards
 
@@ -53,5 +73,18 @@ Corrections are welcome. Add a source and be specific about what should change.
 
 ## Pull Requests
 
-Keep pull requests small and reviewable. Include screenshots for UI changes, explain data changes, and run `npm test` before opening the PR.
+Keep pull requests small and reviewable. Include screenshots for UI changes and explain data changes.
 
+Before opening a pull request:
+
+```bash
+npm run format
+npm test
+```
+
+CI runs `npm ci`, `npm run format:check`, `npm run build`, and `npm test`. The
+formatter is Prettier, configured in `.prettierrc.json`. The `data/` directory
+is excluded from it because scripts write those files.
+
+Security issues go through the private channel in [SECURITY.md](SECURITY.md),
+never a public issue or pull request.
