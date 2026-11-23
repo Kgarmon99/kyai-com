@@ -1,13 +1,36 @@
 {
-  "updatedAt": "2026-11-22T18:33:11.280Z",
+  "updatedAt": "2026-11-23T22:38:59.547Z",
   "generatedBy": "KYAI intelligence automation",
   "summary": {
-    "totalItems": 17,
+    "totalItems": 18,
     "newsItems": 0,
-    "researchItems": 7,
+    "researchItems": 8,
     "curatedItems": 10
   },
   "items": [
+    {
+      "id": "kyai-5b4lf5",
+      "category": "research",
+      "region": "Lexington / Bluegrass",
+      "title": "The arc of uncertainty across clinicians’ interactions with AI",
+      "body": "Research signal connected to University of Kentucky.",
+      "source": "Discover Artificial Intelligence",
+      "sourceUrl": null,
+      "url": "https://doi.org/10.1007/s44163-026-02851-3",
+      "publishedAt": "2026-11-21T12:00:00.000Z",
+      "lane": "Kentucky research",
+      "kind": "research",
+      "reviewStatus": "Automated research match",
+      "confidence": "medium",
+      "kentuckyConnection": "University of Kentucky",
+      "people": [
+        "Ryan W. Hunton",
+        "Tama Thé"
+      ],
+      "institutions": [
+        "University of Kentucky"
+      ]
+    },
     {
       "id": "kyai-3wmfty",
       "category": "research",
