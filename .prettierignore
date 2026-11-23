@@ -1,0 +1,8 @@
+node_modules/
+dist/
+package-lock.json
+
+# Data files are written by scripts (refresh:intel, newsletter intake) with
+# JSON.stringify, so Prettier would fight the automation and break the daily
+# refresh commit. Their shape is enforced by scripts/validate-collaboration.mjs.
+data/

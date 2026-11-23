@@ -1,0 +1,16 @@
+{
+  "_comment": "Shape reference only. Real subscriber records are never committed to this repository and are never published by the build. See data/README.md.",
+  "updatedAt": "2026-01-01T00:00:00.000Z",
+  "subscribers": [
+    {
+      "id": "kyai-sub-example",
+      "email": "contributor@example.com",
+      "name": "Example Contributor",
+      "region": "Louisville / North Central",
+      "role": "business",
+      "interests": ["weekly-pulse", "events"],
+      "source": "website",
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    }
+  ]
+}

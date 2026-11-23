@@ -1,0 +1,28 @@
+# KYAI code owners
+#
+# Listed owners are requested for review automatically on matching pull
+# requests. This file is also the contact list referenced by
+# CODE_OF_CONDUCT.md.
+#
+# As regional maintainers take on data ownership (see data/contributor-os.json),
+# add them against the paths they own rather than widening the catch-all.
+
+# Catch-all: every file, unless a later rule overrides it.
+*                           @Kgarmon99
+
+# Licensing, governance, and anything that changes how the project is run.
+/LICENSE                    @Kgarmon99
+/data/LICENSE               @Kgarmon99
+/CODE_OF_CONDUCT.md         @Kgarmon99
+/SECURITY.md                @Kgarmon99
+/EDITORIAL_POLICY.md        @Kgarmon99
+/.github/CODEOWNERS         @Kgarmon99
+
+# Build, deploy, and CI: a change here affects what reaches the public site.
+/.github/workflows/         @Kgarmon99
+/scripts/build.mjs          @Kgarmon99
+/vercel.json                @Kgarmon99
+
+# Privacy-sensitive paths: subscriber handling and the database layer.
+/api/newsletter-signup.js   @Kgarmon99
+/lib/db.mjs                 @Kgarmon99

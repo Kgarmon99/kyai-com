@@ -1,12 +1,10 @@
 import { query, upsertSql } from "../lib/db.mjs";
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-const DEFAULT_NOTIFY_TO = "kahlil@getmoneybot.com";
-const DEFAULT_GITHUB_REPO = "Kgarmon99/kyai-newsletter-signups";
 
 // A subscriber is durably recorded only when it lands in the Resend audience
 // or in Postgres. The local SQLite file and data/subscribers.json are
@@ -116,10 +114,21 @@ async function saveSubscriberLocally(entry, welcomeSent) {
     console.error("DB subscriber save warning:", err.message);
   }
 
-  // 2. Save to data/subscribers.json file in repo (best-effort record only;
-  // the file is ephemeral on Vercel, so this never counts as durable).
+  // 2. Optional local-only mirror, for development without a database.
+  //
+  //    This must never write into a tracked path. This repository is public and
+  //    the live site is built from it, so writing real subscriber emails under
+  //    data/ would publish them. The default target is .local/, which is
+  //    gitignored. Set KYAI_SUBSCRIBER_FILE to another path to move it, or
+  //    KYAI_SUBSCRIBER_FILE=off to disable the mirror entirely.
+  const mirrorTarget = (process.env.KYAI_SUBSCRIBER_FILE || "").trim();
+  if (mirrorTarget.toLowerCase() === "off") return postgresStored;
+
   try {
-    const subPath = path.join(root, "data", "subscribers.json");
+    const subPath = mirrorTarget
+      ? path.resolve(mirrorTarget)
+      : path.join(root, ".local", "subscribers.json");
+    mkdirSync(path.dirname(subPath), { recursive: true });
     let currentData = { subscribers: [] };
     if (existsSync(subPath)) {
       try {
@@ -310,8 +319,16 @@ async function deliverWithWebhook(entry) {
 
 async function deliverWithGitHub(entry) {
   const token = process.env.KYAI_NEWSLETTER_GITHUB_TOKEN || process.env.GITHUB_TOKEN;
-  const repo = process.env.KYAI_NEWSLETTER_GITHUB_REPO || DEFAULT_GITHUB_REPO;
+  const repo = process.env.KYAI_NEWSLETTER_GITHUB_REPO;
   if (!token) return false;
+  // No upstream default: a fork must name its own intake repo, so signups can
+  // never be filed into someone else's issue tracker by accident.
+  if (!repo) {
+    console.error(
+      "GitHub intake skipped: set KYAI_NEWSLETTER_GITHUB_REPO to your own private intake repo.",
+    );
+    return false;
+  }
 
   await postJson(
     `https://api.github.com/repos/${repo}/issues`,
@@ -341,9 +358,17 @@ async function deliverWithGitHub(entry) {
 
 async function deliverNotificationToAdmin(entry) {
   const apiKey = process.env.RESEND_API_KEY;
-  const notifyTo = process.env.KYAI_NEWSLETTER_NOTIFY_TO || DEFAULT_NOTIFY_TO;
+  const notifyTo = process.env.KYAI_NEWSLETTER_NOTIFY_TO;
   const from = process.env.KYAI_NEWSLETTER_FROM || "KYAI <onboarding@resend.dev>";
   if (!apiKey) return false;
+  // No upstream default: a fork must name its own recipient, so subscriber
+  // emails can never be delivered to the upstream maintainers by accident.
+  if (!notifyTo) {
+    console.error(
+      "Admin notification skipped: set KYAI_NEWSLETTER_NOTIFY_TO to your own address.",
+    );
+    return false;
+  }
 
   await postJson(
     "https://api.resend.com/emails",

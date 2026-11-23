@@ -8,6 +8,12 @@ on:
 permissions:
   contents: write
 
+# Only one refresh may run at a time. Two overlapping runs would both commit to
+# main and race each other's push.
+concurrency:
+  group: intelligence-refresh
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -18,10 +24,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version-file: .nvmrc
+          cache: npm
 
       - name: Install
-        run: npm install
+        run: npm ci
+
+      - name: Install database driver for API tests
+        run: npm install --no-save better-sqlite3
 
       - name: Refresh Kentucky AI feed
         run: npm run refresh:intel
@@ -31,13 +41,20 @@ jobs:
       - name: Build
         run: npm run build
 
+      # The build and tests run before the commit on purpose: a bad upstream
+      # feed should fail here rather than get committed to main and deployed.
       - name: Test
         run: npm test
+        env:
+          KYAI_REQUIRE_DB: "1"
 
       - name: Commit refreshed feed
         run: |
           git config user.name "kyai-intelligence-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/intelligence-feed.json
-          git diff --cached --quiet || git commit -m "Refresh Kentucky AI intelligence feed"
+          git diff --cached --quiet && echo "No feed changes to commit." && exit 0
+          git commit -m "Refresh Kentucky AI intelligence feed"
+          # Rebase before pushing in case a human merged while this job ran.
+          git pull --rebase --autostash origin main
           git push

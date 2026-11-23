@@ -1,8 +1,20 @@
 {
   "name": "kyai-com",
   "version": "0.2.0",
-  "private": true,
+  "description": "Open-source website and civic AI intelligence platform for KYAI, a Kentucky nonprofit initiative.",
+  "license": "MIT",
+  "homepage": "https://ky-ai.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kgarmon99/kyai-com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kgarmon99/kyai-com/issues"
+  },
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "node scripts/build.mjs",
     "build:vercel": "node scripts/build.mjs",
@@ -14,12 +26,18 @@
     "refresh:intel": "node scripts/refresh-intelligence.mjs",
     "validate:collab": "node scripts/validate-collaboration.mjs",
     "vercel-build": "node scripts/build.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "test": "node scripts/validate-collaboration.mjs && node scripts/smoke-test.mjs && node scripts/test-newsletter-api.mjs && node scripts/test-newsletter-cron.mjs && node scripts/test-api.mjs && node scripts/test-api-client.mjs",
     "test:api": "node scripts/test-api.mjs"
   },
   "dependencies": {
-    "@vercel/postgres": "^0.10.0",
+    "@vercel/postgres": "^0.10.0"
+  },
+  "optionalDependencies": {
     "better-sqlite3": "^13.0.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
 }

@@ -1,9 +1,32 @@
 #!/usr/bin/env node
 import { unlinkSync, existsSync } from "node:fs";
 import path from "node:path";
+import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { initSchema, seedFromStaticData, query } from "../lib/db.mjs";
 import { hashApiKey, generateApiKey } from "../lib/api-utils.mjs";
+
+// This suite needs a local SQLite database, and better-sqlite3 is an optional
+// dependency because its native build can fail on a contributor's machine.
+// Someone working on the site, styles, or data should still get a green
+// `npm test`, so a missing driver skips this suite rather than failing it.
+//
+// CI sets KYAI_REQUIRE_DB=1, which turns the skip into a failure. Without that,
+// a broken install on the runner would quietly drop API coverage instead of
+// reporting it.
+const requireFromHere = createRequire(import.meta.url);
+try {
+  requireFromHere.resolve("better-sqlite3");
+} catch {
+  const reason = "better-sqlite3 is not installed, so the API suite cannot run.";
+  const remedy = "Run `npm install --no-save better-sqlite3` to include these tests.";
+  if (process.env.KYAI_REQUIRE_DB === "1") {
+    console.error(`${reason}\nKYAI_REQUIRE_DB=1 is set, so this counts as a failure.\n${remedy}`);
+    process.exit(1);
+  }
+  console.log(`${reason}\nSkipping ${path.basename(fileURLToPath(import.meta.url))}. ${remedy}`);
+  process.exit(0);
+}
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const testDb = path.join(root, "kyai-test-run.db");
@@ -86,7 +109,16 @@ async function main() {
   const apiKeyHash = hashApiKey(apiKey);
   await query(
     "INSERT INTO users (id, email, role, region, name, api_key_hash, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-    ["kyai-test-admin", "test@kyai.com", "admin", "Statewide", "Test Admin", apiKeyHash, new Date().toISOString(), new Date().toISOString()],
+    [
+      "kyai-test-admin",
+      "test@kyai.com",
+      "admin",
+      "Statewide",
+      "Test Admin",
+      apiKeyHash,
+      new Date().toISOString(),
+      new Date().toISOString(),
+    ],
   );
 
   const signalsList = (await import("../api/v1/signals.js")).default;
@@ -103,7 +135,10 @@ async function main() {
   const ingest = (await import("../api/v1/ingest.js")).default;
 
   await test("GET /api/v1/signals returns 200 with items", async () => {
-    const { response, json } = await runHandler(signalsList, createRequest({ url: "/api/v1/signals" }));
+    const { response, json } = await runHandler(
+      signalsList,
+      createRequest({ url: "/api/v1/signals" }),
+    );
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.ok === true, "ok flag");
     assert(Array.isArray(json.items), "items array");
@@ -111,27 +146,42 @@ async function main() {
   });
 
   await test("GET /api/v1/signals/:id returns a signal", async () => {
-    const { json: listJson } = await runHandler(signalsList, createRequest({ url: "/api/v1/signals?limit=1" }));
+    const { json: listJson } = await runHandler(
+      signalsList,
+      createRequest({ url: "/api/v1/signals?limit=1" }),
+    );
     const id = listJson.items[0].id;
-    const { response, json } = await runHandler(signalDetail, createRequest({ url: `/api/v1/signals/${id}` }));
+    const { response, json } = await runHandler(
+      signalDetail,
+      createRequest({ url: `/api/v1/signals/${id}` }),
+    );
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.signal.id === id, "signal id match");
   });
 
   await test("GET /api/v1/events returns events", async () => {
-    const { response, json } = await runHandler(eventsList, createRequest({ url: "/api/v1/events" }));
+    const { response, json } = await runHandler(
+      eventsList,
+      createRequest({ url: "/api/v1/events" }),
+    );
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.items.length > 0, "has events");
   });
 
   await test("GET /api/v1/regions returns regions", async () => {
-    const { response, json } = await runHandler(regionsList, createRequest({ url: "/api/v1/regions" }));
+    const { response, json } = await runHandler(
+      regionsList,
+      createRequest({ url: "/api/v1/regions" }),
+    );
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.items.length > 0, "has regions");
   });
 
   await test("GET /api/v1/regions/:id returns a region", async () => {
-    const { response, json } = await runHandler(regionDetail, createRequest({ url: "/api/v1/regions/louisville" }));
+    const { response, json } = await runHandler(
+      regionDetail,
+      createRequest({ url: "/api/v1/regions/louisville" }),
+    );
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.region.id === "louisville", "louisville region");
   });
@@ -148,7 +198,10 @@ async function main() {
         sourceUrl: "https://example.com/test",
       },
     };
-    const { response, json } = await runHandler(submit, createRequest({ method: "POST", url: "/api/v1/submit", body: payload }));
+    const { response, json } = await runHandler(
+      submit,
+      createRequest({ method: "POST", url: "/api/v1/submit", body: payload }),
+    );
     assert(response.statusCode === 201, `status ${response.statusCode}`);
     assert(json.status === "pending", "pending status");
     assert(json.id, "submission id");
@@ -156,83 +209,116 @@ async function main() {
 
   let submissionId;
   await test("Review endpoint rejects missing API key", async () => {
-    const { json: submitJson } = await runHandler(submit, createRequest({
-      method: "POST",
-      url: "/api/v1/submit",
-      body: { type: "signal", payload: { title: "Review test signal", category: "policy" } },
-    }));
+    const { json: submitJson } = await runHandler(
+      submit,
+      createRequest({
+        method: "POST",
+        url: "/api/v1/submit",
+        body: { type: "signal", payload: { title: "Review test signal", category: "policy" } },
+      }),
+    );
     submissionId = submitJson.id;
-    const { response, json } = await runHandler(review, createRequest({
-      method: "POST",
-      url: `/api/v1/review/signal/${submissionId}/approve`,
-      body: {},
-    }));
+    const { response, json } = await runHandler(
+      review,
+      createRequest({
+        method: "POST",
+        url: `/api/v1/review/signal/${submissionId}/approve`,
+        body: {},
+      }),
+    );
     assert(response.statusCode === 401, `expected 401, got ${response.statusCode}`);
   });
 
   await test("Review endpoint rejects invalid API key", async () => {
-    const { response } = await runHandler(review, createRequest({
-      method: "POST",
-      url: `/api/v1/review/signal/${submissionId}/approve`,
-      headers: { "x-kyai-api-key": "invalid" },
-      body: {},
-    }));
+    const { response } = await runHandler(
+      review,
+      createRequest({
+        method: "POST",
+        url: `/api/v1/review/signal/${submissionId}/approve`,
+        headers: { "x-kyai-api-key": "invalid" },
+        body: {},
+      }),
+    );
     assert(response.statusCode === 403, `expected 403, got ${response.statusCode}`);
   });
 
   await test("Review endpoint approves submission with valid API key", async () => {
-    const { response, json } = await runHandler(review, createRequest({
-      method: "POST",
-      url: `/api/v1/review/signal/${submissionId}/approve`,
-      headers: { "x-kyai-api-key": apiKey },
-      body: { reviewerNotes: "Looks good" },
-    }));
+    const { response, json } = await runHandler(
+      review,
+      createRequest({
+        method: "POST",
+        url: `/api/v1/review/signal/${submissionId}/approve`,
+        headers: { "x-kyai-api-key": apiKey },
+        body: { reviewerNotes: "Looks good" },
+      }),
+    );
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.action === "approve", "approve action");
     assert(json.publishedId, "published id");
   });
 
   await test("GET /api/v1/submissions requires authentication", async () => {
-    const { response } = await runHandler(submissionsList, createRequest({ url: "/api/v1/submissions" }));
+    const { response } = await runHandler(
+      submissionsList,
+      createRequest({ url: "/api/v1/submissions" }),
+    );
     assert(response.statusCode === 401, `expected 401, got ${response.statusCode}`);
   });
 
   await test("GET /api/v1/submissions returns submissions for editors", async () => {
-    const { response, json } = await runHandler(submissionsList, createRequest({
-      url: "/api/v1/submissions",
-      headers: { "x-kyai-api-key": apiKey },
-    }));
+    const { response, json } = await runHandler(
+      submissionsList,
+      createRequest({
+        url: "/api/v1/submissions",
+        headers: { "x-kyai-api-key": apiKey },
+      }),
+    );
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.ok === true, "ok flag");
     assert(json.type === "submissions", "type");
     assert(Array.isArray(json.items), "items array");
-    assert(json.items.some((item) => item.id === submissionId), "includes test submission");
+    assert(
+      json.items.some((item) => item.id === submissionId),
+      "includes test submission",
+    );
   });
 
   await test("GET /api/v1/submissions filters by status", async () => {
-    const { response, json } = await runHandler(submissionsList, createRequest({
-      url: "/api/v1/submissions?status=pending",
-      headers: { "x-kyai-api-key": apiKey },
-    }));
+    const { response, json } = await runHandler(
+      submissionsList,
+      createRequest({
+        url: "/api/v1/submissions?status=pending",
+        headers: { "x-kyai-api-key": apiKey },
+      }),
+    );
     assert(response.statusCode === 200, `status ${response.statusCode}`);
-    assert(json.items.every((item) => item.status === "pending"), "only pending");
+    assert(
+      json.items.every((item) => item.status === "pending"),
+      "only pending",
+    );
   });
 
   await test("GET /api/v1/subscribers requires authentication and returns subscribers", async () => {
     const unauth = await runHandler(subscribersList, createRequest({ url: "/api/v1/subscribers" }));
     assert(unauth.response.statusCode === 401, `unauth status ${unauth.response.statusCode}`);
 
-    const { response, json } = await runHandler(subscribersList, createRequest({
-      url: "/api/v1/subscribers",
-      headers: { "x-kyai-api-key": apiKey },
-    }));
+    const { response, json } = await runHandler(
+      subscribersList,
+      createRequest({
+        url: "/api/v1/subscribers",
+        headers: { "x-kyai-api-key": apiKey },
+      }),
+    );
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.ok === true, "ok flag");
     assert(Array.isArray(json.subscribers), "subscribers array");
   });
 
   await test("GET /api/v1/personalized returns a tailored brief", async () => {
-    const { response, json } = await runHandler(personalized, createRequest({ url: "/api/v1/personalized?role=founder&region=louisville" }));
+    const { response, json } = await runHandler(
+      personalized,
+      createRequest({ url: "/api/v1/personalized?role=founder&region=louisville" }),
+    );
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.ok === true, "ok flag");
     assert(json.role === "founder", "role");
@@ -241,18 +327,24 @@ async function main() {
   });
 
   await test("GET /api/v1/feed/signals.json returns public feed", async () => {
-    const { response, json } = await runHandler(feed, createRequest({ url: "/api/v1/feed/signals.json" }));
+    const { response, json } = await runHandler(
+      feed,
+      createRequest({ url: "/api/v1/feed/signals.json" }),
+    );
     assert(response.statusCode === 200, `status ${response.statusCode}`);
     assert(json.type === "signals", "feed type");
     assert(Array.isArray(json.items), "items array");
   });
 
   await test("POST /api/v1/ingest requires authentication", async () => {
-    const { response } = await runHandler(ingest, createRequest({
-      method: "POST",
-      url: "/api/v1/ingest",
-      body: { url: "https://example.com" },
-    }));
+    const { response } = await runHandler(
+      ingest,
+      createRequest({
+        method: "POST",
+        url: "/api/v1/ingest",
+        body: { url: "https://example.com" },
+      }),
+    );
     assert(response.statusCode === 401, `expected 401, got ${response.statusCode}`);
   });
 

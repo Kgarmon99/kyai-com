@@ -6,6 +6,15 @@ on:
   pull_request:
     branches: [main]
 
+# A new push to the same branch cancels the previous run, so a busy PR does not
+# queue up stale builds.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,13 +25,33 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          # Single source of truth, so contributors and CI run the same version.
+          node-version-file: .nvmrc
+          cache: npm
 
+      # npm ci installs exactly what package-lock.json specifies, so a CI pass
+      # means the committed lockfile builds. npm install can silently resolve
+      # newer versions and hide a broken lockfile.
       - name: Install
-        run: npm install
+        run: npm ci
+
+      # better-sqlite3 is an optional dependency, so npm ci succeeds even when
+      # its native build fails. The API suite needs it, so install it explicitly
+      # here: CI must never silently drop that coverage.
+      - name: Install database driver for API tests
+        run: npm install --no-save better-sqlite3
+
+      # No format check yet. Prettier is configured (.prettierrc.json) and
+      # `npm run format` works, but the existing files are not formatted and
+      # reformatting them now would bury the current homepage work in churn.
+      # Run `npm run format` on a quiet day, then add a format:check step here.
 
       - name: Build
         run: npm run build
 
       - name: Test
+        # KYAI_REQUIRE_DB makes the API suite fail rather than skip if the
+        # driver is missing.
         run: npm test
+        env:
+          KYAI_REQUIRE_DB: "1"
