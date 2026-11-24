@@ -3,32 +3,52 @@
     {
       "label": "Kentucky AI news",
       "category": "news",
-      "query": "(\"artificial intelligence\" OR \"machine learning\" OR AI) Kentucky"
+      "query": "(\"artificial intelligence\" OR \"machine learning\" OR ChatGPT OR AI) Kentucky"
     },
     {
       "label": "Research and universities",
       "category": "research",
-      "query": "(\"artificial intelligence\" OR \"machine learning\" OR AI) (\"University of Kentucky\" OR \"University of Louisville\" OR \"Western Kentucky University\" OR \"Northern Kentucky University\")"
+      "query": "(\"artificial intelligence\" OR \"machine learning\" OR AI) (\"University of Kentucky\" OR \"University of Louisville\" OR \"Western Kentucky University\" OR \"Northern Kentucky University\" OR \"Eastern Kentucky University\" OR \"Murray State\")"
     },
     {
       "label": "Policy and public sector",
       "category": "policy",
-      "query": "Kentucky (\"artificial intelligence\" OR AI) (policy OR law OR regulation OR government OR schools OR public)"
+      "query": "Kentucky (\"artificial intelligence\" OR AI) (policy OR law OR regulation OR government OR schools OR \"board of education\" OR Frankfort)"
     },
     {
       "label": "Workforce and business",
       "category": "workforce",
-      "query": "Kentucky (\"artificial intelligence\" OR AI) (jobs OR workforce OR business OR training OR startup OR economic)"
+      "query": "Kentucky (\"artificial intelligence\" OR AI) (jobs OR workforce OR business OR training OR startup OR economic OR company)"
     },
     {
       "label": "Infrastructure and big movers",
       "category": "industry",
-      "query": "Kentucky (\"AI data center\" OR \"artificial intelligence company\" OR Anthropic OR \"data center\")"
+      "query": "Kentucky (\"AI data center\" OR \"artificial intelligence company\" OR Anthropic OR \"data center\" OR hyperscale)"
     },
     {
       "label": "Events and workshops",
       "category": "events",
-      "query": "Kentucky (\"artificial intelligence\" OR AI) (event OR workshop OR conference OR meetup OR training)"
+      "query": "Kentucky (\"artificial intelligence\" OR AI) (event OR workshop OR conference OR meetup OR training OR library)"
+    },
+    {
+      "label": "Louisville AI",
+      "category": "news",
+      "query": "Louisville (\"artificial intelligence\" OR \"machine learning\" OR ChatGPT OR AI)"
+    },
+    {
+      "label": "Lexington AI",
+      "category": "news",
+      "query": "Lexington (\"artificial intelligence\" OR \"machine learning\" OR ChatGPT OR AI) Kentucky"
+    },
+    {
+      "label": "Healthcare AI Kentucky",
+      "category": "research",
+      "query": "Kentucky (AI OR \"artificial intelligence\" OR \"machine learning\") (hospital OR healthcare OR clinic OR medical)"
+    },
+    {
+      "label": "Cyber meets AI",
+      "category": "news",
+      "query": "Kentucky (cybersecurity OR cyber) (AI OR \"artificial intelligence\" OR \"machine learning\")"
     }
   ],
   "openAlexInstitutions": [
@@ -71,6 +91,16 @@
       "name": "Morehead State University",
       "id": "I44206873",
       "region": "Eastern Kentucky / Appalachia"
+    },
+    {
+      "name": "Bellarmine University",
+      "id": "I133485288",
+      "region": "Louisville / North Central"
+    },
+    {
+      "name": "Centre College",
+      "id": "I4210124017",
+      "region": "Bluegrass"
     }
   ],
   "openAlexSearches": [
@@ -79,13 +109,108 @@
     "deep learning",
     "natural language processing",
     "computer vision",
-    "data science"
+    "data science",
+    "generative AI",
+    "large language model",
+    "robotics",
+    "bioinformatics"
+  ],
+  "rssFeeds": [
+    {
+      "name": "University of Kentucky News",
+      "url": "https://uknow.uky.edu/rss.xml",
+      "region": "Lexington / Bluegrass",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "UofL News",
+      "url": "https://www.uoflnews.com/feed/",
+      "region": "Louisville / North Central",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "WKU News",
+      "url": "https://www.wku.edu/news/rss.php",
+      "region": "South Central Kentucky",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "NKU News",
+      "url": "https://www.nku.edu/news/rss.xml",
+      "region": "Northern Kentucky",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "EKU News",
+      "url": "https://www.eku.edu/news/feed/",
+      "region": "Eastern Kentucky",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "Murray State News",
+      "url": "https://www.murraystate.edu/news/rss.xml",
+      "region": "Western Kentucky",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "Kentucky.gov newsroom",
+      "url": "https://kentucky.gov/Pages/feed.aspx",
+      "region": "Statewide",
+      "category": "policy",
+      "requireAi": true
+    },
+    {
+      "name": "Google News — Kentucky AI",
+      "url": "https://news.google.com/rss/search?q=Kentucky+(AI+OR+%22artificial+intelligence%22+OR+%22machine+learning%22+OR+%22data+center%22)&hl=en-US&gl=US&ceid=US:en",
+      "region": "Kentucky",
+      "category": "news",
+      "requireAi": false
+    },
+    {
+      "name": "Google News — Louisville AI",
+      "url": "https://news.google.com/rss/search?q=Louisville+(AI+OR+%22artificial+intelligence%22+OR+%22machine+learning%22)&hl=en-US&gl=US&ceid=US:en",
+      "region": "Louisville",
+      "category": "news",
+      "requireAi": false
+    },
+    {
+      "name": "Google News — Lexington AI",
+      "url": "https://news.google.com/rss/search?q=Lexington+Kentucky+(AI+OR+%22artificial+intelligence%22+OR+%22machine+learning%22)&hl=en-US&gl=US&ceid=US:en",
+      "region": "Lexington",
+      "category": "news",
+      "requireAi": false
+    },
+    {
+      "name": "Google News — KY data centers",
+      "url": "https://news.google.com/rss/search?q=Kentucky+(%22data+center%22+OR+hyperscale+OR+Anthropic)+AI&hl=en-US&gl=US&ceid=US:en",
+      "region": "Kentucky",
+      "category": "industry",
+      "requireAi": false
+    },
+    {
+      "name": "Google News — KY schools AI",
+      "url": "https://news.google.com/rss/search?q=Kentucky+(school+OR+K-12+OR+education)+(AI+OR+%22artificial+intelligence%22)&hl=en-US&gl=US&ceid=US:en",
+      "region": "Kentucky",
+      "category": "education",
+      "requireAi": false
+    }
   ],
   "watchlist": [
     {
       "name": "Kentucky university research",
       "type": "Researchers",
       "focus": "OpenAlex scans for AI-related papers connected to Kentucky institutions."
+    },
+    {
+      "name": "Campus and state RSS",
+      "type": "Press rooms",
+      "focus": "University and government feeds filtered for AI and tech keywords."
     },
     {
       "name": "AI infrastructure and data centers",

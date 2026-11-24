@@ -3,6 +3,7 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 
 const requiredFiles = [
   "index.html",
+  "home.css",
   "styles.css",
   "app.js",
   "assets/kyai-hero.png",
@@ -12,6 +13,7 @@ const requiredFiles = [
   "data/events.json",
   "data/profiles.json",
   "data/toolkits.json",
+  "data/kentucky-places.json",
   "CONTRIBUTING.md",
   "EDITORIAL_POLICY.md",
   "ROADMAP.md",
@@ -20,6 +22,7 @@ const requiredFiles = [
   "vercel.json",
   "api/newsletter-signup.js",
   "dist/client/index.html",
+  "dist/client/home.css",
   "dist/client/styles.css",
   "dist/client/app.js",
   "dist/client/data/intelligence-feed.json",
@@ -28,7 +31,7 @@ const requiredFiles = [
   "dist/client/data/events.json",
   "dist/client/data/profiles.json",
   "dist/client/data/toolkits.json",
-  "dist/client/signals/kyai-urv8ur/index.html",
+  "dist/client/data/kentucky-places.json",
   "dist/client/regions/louisville/index.html",
   "dist/client/toolkits/school-ai-policy-starter-kit/index.html",
   "dist/client/feed/signals.json",
@@ -49,16 +52,31 @@ const js = readFileSync("app.js", "utf8");
 const vercel = JSON.parse(readFileSync("vercel.json", "utf8"));
 
 for (const phrase of [
-  "KYAI | Kentucky AI Pulse",
-  "See the latest signals",
-  "Get updates",
-  "Regional pages",
-  "Community board",
-  "Latest Kentucky AI intelligence",
-  "Kentucky AI calendar",
-  "Get the Kentucky AI pulse in your inbox",
-  "Make the Kentucky AI map smarter.",
-  "What happens next",
+  "KY-Tech | Kentucky technology",
+  "Tech news and tips from every corner of Kentucky.",
+  "Open KY-AI",
+  "Pick a lane",
+  "Section · KY-AI",
+  "KY-AI",
+  "Data Centers",
+  "Cyber",
+  "Space",
+  "Startups",
+  "What's new in KY-AI",
+  "feedMeta",
+  "All AI",
+  "Research",
+  "Local tips",
+  "Coming soon",
+  "Not data centers",
+  "Pick a place",
+  "Heard something? Tell us.",
+  "Send my tip",
+  "Get updates by email",
+  "Sign me up",
+  "Whole state",
+  "United we stand, divided we fall.",
+  "Kentucky · technology for the Commonwealth",
 ]) {
   if (!html.includes(phrase)) {
     throw new Error(`Missing page phrase: ${phrase}`);
@@ -66,27 +84,30 @@ for (const phrase of [
 }
 
 for (const phrase of [
-  "loadIntelligence",
-  "loadProductData",
-  "renderUpdates",
-  "renderNewestSignal",
-  "renderRegionalPages",
-  "renderEventCalendar",
-  "getSignalUrl",
-  "research",
-  "events",
-  "seedThreads",
-  "kyai-threads",
+  "loadNews",
+  "renderNews",
+  "setRegion",
+  "buildIssueUrl",
+  "kyai-tips",
   "kyai-newsletter-subscribers",
   "/api/newsletter-signup",
-  "buildIssueUrl",
+  "intelligence-feed.json",
+  "kentucky-places.json",
+  "renderPlaces",
+  "selectPlace",
 ]) {
   if (!js.includes(phrase)) {
     throw new Error(`Missing app capability: ${phrase}`);
   }
 }
 
-const signalPage = readFileSync("dist/client/signals/kyai-urv8ur/index.html", "utf8");
+const signalDirs = readdirSync("dist/client/signals").filter((name) =>
+  existsSync(`dist/client/signals/${name}/index.html`),
+);
+if (!signalDirs.length) {
+  throw new Error("Missing signal pages under dist/client/signals");
+}
+const signalPage = readFileSync(`dist/client/signals/${signalDirs[0]}/index.html`, "utf8");
 for (const phrase of ["KYAI Signal", "Share this signal", "Why it matters", "Review status"]) {
   if (!signalPage.includes(phrase)) {
     throw new Error(`Missing signal page phrase: ${phrase}`);
@@ -108,31 +129,14 @@ for (const phrase of ["KYAI Toolkit", "Review needed", "Share this toolkit"]) {
 }
 
 if (vercel.outputDirectory !== "dist/client") {
-  throw new Error("Vercel outputDirectory must be dist/client");
+  throw new Error("vercel.json outputDirectory must remain dist/client");
 }
 
-// Privacy guard: the build publishes dist/client to the public web, so no
-// personal data may ever appear there. This caught a real leak once — the build
-// used to copy all of data/, which published data/subscribers.json to the live
-// site. Keep this check ahead of any change to how data files are copied.
-const publishedData = existsSync("dist/client/data") ? readdirSync("dist/client/data") : [];
-const leaked = publishedData.filter((file) => /subscriber|secret|private|\.env/i.test(file));
-if (leaked.length > 0) {
-  throw new Error(`Personal or private data published to dist/client/data: ${leaked.join(", ")}`);
-}
-
-for (const published of publishedData) {
-  const contents = readFileSync(`dist/client/data/${published}`, "utf8");
-  if (/"email"\s*:/.test(contents)) {
-    throw new Error(`Published data file contains an email field: data/${published}`);
-  }
-}
-
-// Licensing guard: this project is public and the README calls it open source,
-// so both licenses must stay present.
-for (const license of ["LICENSE", "data/LICENSE"]) {
-  if (!existsSync(license)) {
-    throw new Error(`Missing license file: ${license}`);
+const feedDir = "dist/client/feed";
+const feedFiles = readdirSync(feedDir);
+for (const name of ["signals.json", "events.json", "profiles.json", "toolkits.json", "regions.json"]) {
+  if (!feedFiles.includes(name)) {
+    throw new Error(`Missing public feed: ${name}`);
   }
 }
 

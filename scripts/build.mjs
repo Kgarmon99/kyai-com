@@ -25,7 +25,7 @@ const SITE_URL = "https://ky-ai.vercel.app";
 rmSync(path.join(root, "dist"), { force: true, recursive: true });
 mkdirSync(client, { recursive: true });
 
-for (const entry of ["index.html", "review.html", "styles.css", "app.js", "api-client.js", "assets"]) {
+for (const entry of ["index.html", "review.html", "styles.css", "home.css", "app.js", "api-client.js", "assets"]) {
   cpSync(path.join(root, entry), path.join(client, entry), { recursive: true });
 }
 
@@ -40,6 +40,7 @@ const PUBLIC_DATA_FILES = [
   "events.json",
   "intelligence-feed.json",
   "intelligence-sources.json",
+  "kentucky-places.json",
   "profiles.json",
   "regions.json",
   "toolkits.json",
@@ -166,7 +167,7 @@ function signalPage(item) {
     url,
     body: `<section class="signal-detail-section">
         <article class="signal-detail-card">
-          <a class="back-link" href="/#intelligence">Back to Kentucky AI Pulse</a>
+          <a class="back-link" href="/#news">Back to KYAI news</a>
           <div class="update-meta">
             <span>${escapeHtml(region)}</span>
             <span>${escapeHtml(item.category || "signal")}</span>

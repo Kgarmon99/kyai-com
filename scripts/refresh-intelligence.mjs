@@ -21,8 +21,25 @@ const AI_TERMS = [
   "generative",
   "chatbot",
   "data center",
+  "datacenter",
+  "hyperscale",
   "automation",
   "algorithm",
+  "chatgpt",
+  "llm",
+  "large language",
+  "robotics",
+  "neural",
+];
+
+const NOISE_TERMS = [
+  "robocall",
+  "lottery",
+  "sports score",
+  "obituary",
+  "horoscope",
+  "coupon",
+  "weather forecast",
 ];
 
 const KENTUCKY_TERMS = [
@@ -143,48 +160,65 @@ async function getGdeltItems() {
   const cutoff = new Date();
   cutoff.setMonth(cutoff.getMonth() - 9);
 
-  for (const query of sources.gdeltQueries) {
-    const params = new URLSearchParams({
-      query: query.query,
-      mode: "artlist",
-      format: "json",
-      maxrecords: "30",
-      sort: "datedesc",
-      timespan: "9m",
-    });
-    const url = `https://api.gdeltproject.org/api/v2/doc/doc?${params}`;
-
-    try {
-      const data = await fetchJson(url, 8000, { curlRetries: 0 });
-      for (const article of data.articles || []) {
-        const title = compact(article.title);
-        const body = stripHtml(article.description || "");
-        const haystack = `${title} ${body} ${article.domain || ""}`;
-        if (!title || !article.url || !hasTerm(haystack, AI_TERMS) || !hasTerm(haystack, KENTUCKY_TERMS)) {
-          continue;
-        }
-
-        const publishedAt = formatGdeltDate(article.seendate);
-        if (publishedAt && new Date(publishedAt) < cutoff) {
-          continue;
-        }
-
-        items.push({
-          id: stableId(article.url || title),
-          category: inferCategory({ title, body }, query.category),
-          region: inferRegion(haystack),
-          title,
-          body: `${article.domain || "Publisher"} surfaced in the ${query.label.toLowerCase()} lane.`,
-          source: article.domain || "GDELT",
-          sourceUrl: article.url ? new URL(article.url).origin : null,
-          url: article.url,
-          publishedAt,
-          lane: query.label,
-          kind: "news",
+  // GDELT rate-limits burst traffic; pull a few queries at a time.
+  const results = [];
+  const queue = 2;
+  for (let i = 0; i < sources.gdeltQueries.length; i += queue) {
+    const chunk = sources.gdeltQueries.slice(i, i + queue);
+    const chunkResults = await Promise.all(
+      chunk.map(async (query) => {
+        const params = new URLSearchParams({
+          query: query.query,
+          mode: "artlist",
+          format: "json",
+          maxrecords: "30",
+          sort: "datedesc",
+          timespan: "9m",
         });
+        const url = `https://api.gdeltproject.org/api/v2/doc/doc?${params}`;
+        try {
+          const data = await fetchJson(url, 20000, { curlRetries: 1 });
+          return { query, articles: data.articles || [] };
+        } catch (error) {
+          console.warn(`GDELT query failed for "${query.label}": ${error.message}`);
+          return { query, articles: [] };
+        }
+      }),
+    );
+    results.push(...chunkResults);
+    if (i + queue < sources.gdeltQueries.length) {
+      await new Promise((resolve) => setTimeout(resolve, 700));
+    }
+  }
+
+  for (const { query, articles } of results) {
+    for (const article of articles) {
+      const title = compact(article.title);
+      const body = stripHtml(article.description || "");
+      const haystack = `${title} ${body} ${article.domain || ""}`;
+      if (!title || !article.url || !hasTerm(haystack, AI_TERMS) || !hasTerm(haystack, KENTUCKY_TERMS)) {
+        continue;
       }
-    } catch (error) {
-      console.warn(`GDELT query failed for "${query.label}": ${error.message}`);
+      if (hasTerm(haystack, NOISE_TERMS)) continue;
+
+      const publishedAt = formatGdeltDate(article.seendate);
+      if (publishedAt && new Date(publishedAt) < cutoff) {
+        continue;
+      }
+
+      items.push({
+        id: stableId(article.url || title),
+        category: inferCategory({ title, body }, query.category),
+        region: inferRegion(haystack),
+        title,
+        body: `${article.domain || "Publisher"} surfaced in the ${query.label.toLowerCase()} lane.`,
+        source: article.domain || "GDELT",
+        sourceUrl: article.url ? new URL(article.url).origin : null,
+        url: article.url,
+        publishedAt,
+        lane: query.label,
+        kind: "news",
+      });
     }
   }
 
@@ -247,6 +281,107 @@ function getInstitutionNames(work) {
   ].slice(0, 4);
 }
 
+function parseRssItems(xml) {
+  const items = [];
+  const blocks = String(xml).match(/<item[\s\S]*?<\/item>/gi) || [];
+  for (const block of blocks) {
+    const title = stripHtml((block.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1] || "")
+      .replace(/^<!\[CDATA\[/i, "")
+      .replace(/\]\]>$/i, "")
+      .trim();
+    const link = stripHtml((block.match(/<link[^>]*>([\s\S]*?)<\/link>/i) || [])[1] || "")
+      .replace(/^<!\[CDATA\[/i, "")
+      .replace(/\]\]>$/i, "")
+      .trim();
+    const description = stripHtml((block.match(/<description[^>]*>([\s\S]*?)<\/description>/i) || [])[1] || "")
+      .replace(/^<!\[CDATA\[/i, "")
+      .replace(/\]\]>$/i, "")
+      .trim();
+    const pubDate = stripHtml((block.match(/<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i) || [])[1] || "");
+    if (!title || !link) continue;
+    const publishedAt = pubDate ? new Date(pubDate).toISOString() : null;
+    if (publishedAt && Number.isNaN(Date.parse(publishedAt))) continue;
+    items.push({ title, link, description, publishedAt });
+  }
+  return items;
+}
+
+async function fetchText(url, timeoutMs = 14000) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          "User-Agent": "KYAI intelligence refresh; contact=kahlil@getmoneybot.com",
+          Accept: "application/rss+xml, application/xml, text/xml, */*",
+        },
+        signal: controller.signal,
+      });
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      return await response.text();
+    } catch (error) {
+      const { stdout } = await execFileAsync("curl", [
+        "-sS",
+        "-L",
+        "--max-time",
+        String(Math.ceil(timeoutMs / 1000)),
+        "-H",
+        "User-Agent: KYAI intelligence refresh; contact=kahlil@getmoneybot.com",
+        url,
+      ]);
+      return stdout;
+    }
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+async function getRssItems() {
+  const feeds = sources.rssFeeds || [];
+  const batches = await Promise.all(
+    feeds.map(async (feed) => {
+      try {
+        const xml = await fetchText(feed.url);
+        const collected = [];
+        for (const entry of parseRssItems(xml).slice(0, 25)) {
+          const haystack = `${entry.title} ${entry.description}`;
+          if (hasTerm(haystack, NOISE_TERMS)) continue;
+          const aiHit = hasTerm(haystack, AI_TERMS);
+          if (feed.requireAi !== false && !aiHit) continue;
+          // Soft Google News lanes: keep AI hits, or KY + tech/infrastructure signals.
+          if (feed.requireAi === false && !aiHit) {
+            const techish = /data center|startup|university|research|workforce|cyber|tech|digital|software|compute/i.test(haystack);
+            const kyHit = hasTerm(haystack, KENTUCKY_TERMS);
+            if (!(kyHit && techish)) continue;
+          }
+          collected.push({
+            id: stableId(entry.link || entry.title),
+            category: inferCategory({ title: entry.title, body: entry.description }, feed.category || "news"),
+            region: inferRegion(haystack, feed.region || "Kentucky"),
+            title: entry.title,
+            body: entry.description || `Story from ${feed.name}.`,
+            source: feed.name,
+            sourceUrl: feed.url,
+            url: entry.link,
+            publishedAt: entry.publishedAt,
+            lane: feed.name,
+            kind: "news",
+            reviewStatus: "Automated RSS match",
+            confidence: aiHit ? "medium" : "needs review",
+          });
+        }
+        return collected;
+      } catch (error) {
+        console.warn(`RSS feed failed for "${feed.name}": ${error.message}`);
+        return [];
+      }
+    }),
+  );
+
+  return batches.flat();
+}
+
 async function getOpenAlexItems() {
   const items = [];
   const institutionIds = sources.openAlexInstitutions.map((institution) => openAlexId(institution.id)).join("|");
@@ -303,16 +438,29 @@ async function getOpenAlexItems() {
   return items;
 }
 
+function titleFingerprint(title) {
+  return compact(title)
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter((word) => word.length > 3)
+    .slice(0, 8)
+    .join(" ");
+}
+
 function dedupe(items) {
   const seen = new Set();
+  const fingerprints = new Set();
   const deduped = [];
 
   for (const item of items) {
     const key = compact(item.url || item.title).toLowerCase();
     const titleKey = compact(item.title).toLowerCase();
-    if (seen.has(key) || seen.has(titleKey)) continue;
+    const fingerprint = titleFingerprint(item.title);
+    if (seen.has(key) || seen.has(titleKey) || (fingerprint && fingerprints.has(fingerprint))) continue;
     seen.add(key);
     seen.add(titleKey);
+    if (fingerprint) fingerprints.add(fingerprint);
     deduped.push(item);
   }
 
@@ -321,6 +469,9 @@ function dedupe(items) {
 
 function sortItems(items) {
   return items.sort((a, b) => {
+    const curatedBoost = (x) => (x.kind === "curated" ? 1 : 0);
+    const curatedDelta = curatedBoost(b) - curatedBoost(a);
+    if (curatedDelta) return curatedDelta;
     const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
     const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
     return bTime - aTime || a.title.localeCompare(b.title);
@@ -330,8 +481,17 @@ function sortItems(items) {
 const curatedItems = editorialItems.map((item) => ({
   id: stableId(item.url || item.title),
   ...item,
+  kind: item.kind || "curated",
 }));
-const items = sortItems(dedupe([...curatedItems, ...(await getGdeltItems()), ...(await getOpenAlexItems())])).slice(0, 36);
+const [gdeltItems, openAlexItems, rssItems] = await Promise.all([
+  getGdeltItems(),
+  getOpenAlexItems(),
+  getRssItems(),
+]);
+const merged = dedupe([...curatedItems, ...gdeltItems, ...openAlexItems, ...rssItems]);
+const pinned = merged.filter((item) => item.kind === "curated");
+const rest = sortItems(merged.filter((item) => item.kind !== "curated"));
+const items = [...pinned, ...rest].slice(0, 100);
 const feed = {
   updatedAt: new Date().toISOString(),
   generatedBy: "KYAI intelligence automation",
@@ -340,6 +500,9 @@ const feed = {
     newsItems: items.filter((item) => item.kind === "news").length,
     researchItems: items.filter((item) => item.kind === "research").length,
     curatedItems: items.filter((item) => item.kind === "curated").length,
+    gdeltItems: gdeltItems.length,
+    openAlexItems: openAlexItems.length,
+    rssItems: rssItems.length,
   },
   items,
   watchlist: sources.watchlist,
@@ -354,6 +517,11 @@ const feed = {
       type: "OpenAlex",
       category: "research",
     },
+    ...(sources.rssFeeds || []).map((feedSource) => ({
+      name: feedSource.name,
+      type: "RSS",
+      category: feedSource.category || "news",
+    })),
   ],
 };
 

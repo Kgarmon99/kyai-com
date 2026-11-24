@@ -10,7 +10,7 @@
 
   /* --- Type --- */
   --font-display: "Archivo", Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* --- Color: near-black base, Kentucky blue primary --- */
@@ -300,6 +300,19 @@ h3 {
   border-radius: 2px;
   background: var(--accent);
   box-shadow: 0 0 10px rgba(91, 157, 255, 0.7);
+  animation: live-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.85);
+  }
 }
 
 /* ---------- Buttons ---------- */
@@ -563,52 +576,114 @@ fieldset label {
   font-weight: 500;
 }
 
-/* ---------- Hero: typographic masthead, no photo ---------- */
+/* ---------- Hero: brand-first masthead + map atmosphere ---------- */
 
 .pulse-hero {
   position: relative;
   overflow: hidden;
-  padding: 56px 32px 72px;
+  min-height: min(92vh, 920px);
+  padding: 64px 32px 88px;
   border-bottom: 1px solid var(--line);
   isolation: isolate;
+  display: flex;
+  align-items: flex-end;
   background:
-    repeating-linear-gradient(90deg, rgba(91, 157, 255, 0.035) 0 1px, transparent 1px 96px),
-    repeating-linear-gradient(0deg, rgba(91, 157, 255, 0.03) 0 1px, transparent 1px 96px),
-    radial-gradient(52rem 26rem at 88% -12rem, rgba(91, 157, 255, 0.09), transparent 70%),
+    repeating-linear-gradient(90deg, rgba(91, 157, 255, 0.03) 0 1px, transparent 1px 108px),
+    repeating-linear-gradient(0deg, rgba(91, 157, 255, 0.025) 0 1px, transparent 1px 108px),
+    radial-gradient(42rem 28rem at 12% 18%, rgba(91, 157, 255, 0.12), transparent 68%),
+    radial-gradient(48rem 30rem at 88% 8%, rgba(59, 130, 246, 0.1), transparent 72%),
     var(--bg-0);
 }
 
-/* Detailed Kentucky map in the hero: same state shape and region bands
-   as the tracker map, with city pins and a Frankfort star. It sits
-   BELOW the headline (top 430px clears the three-line H1, which ends
-   around 413px at the largest display size) in the free right zone
-   beside the left-aligned intro column. The left edge fades out so
-   the map never muddles the intro text. */
+.hero-glow {
+  position: absolute;
+  inset: auto -10% -30% 40%;
+  z-index: 0;
+  height: 70%;
+  background: radial-gradient(ellipse at center, rgba(91, 157, 255, 0.16), transparent 62%);
+  pointer-events: none;
+  animation: glow-drift 12s ease-in-out infinite alternate;
+}
+
+@keyframes glow-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: translate3d(-4%, -3%, 0) scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* Kentucky map as a large atmospheric plane on the right, faded so
+   the brand + headline stay sharp on the left. */
 
 .hero-ky-map {
   position: absolute;
-  top: 430px;
-  right: -32px;
+  top: 12%;
+  right: -6%;
   z-index: 0;
-  width: min(42vw, 560px);
+  width: min(58vw, 720px);
   height: auto;
+  opacity: 0.92;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 24%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 24%);
+  -webkit-mask-image: linear-gradient(100deg, transparent 0%, #000 18%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(100deg, transparent 0%, #000 18%, #000 78%, transparent 100%);
+  animation: map-rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes map-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(24px, 18px, 0) scale(0.98);
+  }
+  to {
+    opacity: 0.92;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 }
 
 .hero-ky-map .ky-region-map {
   cursor: default;
-  opacity: 0.5;
+  opacity: 0.55;
 }
 
 .hero-ky-map .ky-border {
-  stroke: rgba(124, 196, 255, 0.55);
-  stroke-width: 2;
+  fill: none;
+  stroke: rgba(124, 196, 255, 0.65);
+  stroke-width: 2.2;
+  stroke-dasharray: 1800;
+  stroke-dashoffset: 1800;
+  animation: border-draw 2.4s ease forwards 0.35s;
+}
+
+@keyframes border-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .hero-ky-map .ky-pins circle {
   fill: var(--accent-bright);
+}
+
+.hero-ky-map .ky-pins circle.pin-pulse {
+  animation: pin-pulse 2.6s ease-in-out infinite;
+}
+
+.hero-ky-map .ky-pins circle.pin-pulse:nth-of-type(2) {
+  animation-delay: 0.7s;
+}
+
+@keyframes pin-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
 }
 
 .hero-ky-map .ky-pins text {
@@ -617,6 +692,17 @@ fieldset label {
 
 .hero-map-star {
   fill: #ffffff;
+  animation: star-twinkle 2.2s ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
 }
 
 /* ---------- Kentucky photo strip: real scenes, blue duotone ---------- */
@@ -629,7 +715,7 @@ fieldset label {
 
 .ky-photo-strip figure {
   position: relative;
-  height: 220px;
+  height: clamp(220px, 28vw, 320px);
   margin: 0;
   overflow: hidden;
   background: var(--surface);
@@ -639,32 +725,29 @@ fieldset label {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.08) brightness(0.92);
-  transition: transform 300ms ease;
+  filter: grayscale(1) contrast(1.08) brightness(0.9);
+  transform: scale(1.02);
+  transition: transform 700ms ease;
 }
 
 .ky-photo-strip figure:hover img {
-  transform: scale(1.04);
+  transform: scale(1.07);
 }
-
-/* Blue duotone: a blue color-blend layer over the grayscale photo. */
 
 .ky-photo-strip figure::before {
   position: absolute;
   inset: 0;
   background: #1d4ed8;
   mix-blend-mode: color;
-  opacity: 0.6;
+  opacity: 0.58;
   content: "";
   pointer-events: none;
 }
 
-/* Bottom gradient for caption legibility. */
-
 .ky-photo-strip figure::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(4, 6, 13, 0.05) 40%, rgba(4, 6, 13, 0.72));
+  background: linear-gradient(180deg, rgba(4, 6, 13, 0.08) 35%, rgba(4, 6, 13, 0.78));
   content: "";
   pointer-events: none;
 }
@@ -672,16 +755,16 @@ fieldset label {
 .ky-photo-strip figcaption {
   position: absolute;
   z-index: 1;
-  right: 16px;
-  bottom: 14px;
-  left: 16px;
+  right: 18px;
+  bottom: 16px;
+  left: 18px;
   display: grid;
   gap: 2px;
 }
 
 .ky-photo-strip figcaption strong {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: 800;
   letter-spacing: -0.01em;
 }
@@ -702,15 +785,54 @@ fieldset label {
 
 .hero-masthead {
   max-width: var(--container);
+  width: 100%;
   margin: 0 auto;
+  animation: masthead-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes masthead-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Brand is the first hero-level signal — larger than the headline. */
+
+.hero-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 22px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 9vw, 7.5rem);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.hero-brand img {
+  width: clamp(48px, 7vw, 84px);
+  height: clamp(48px, 7vw, 84px);
+}
+
+.hero-brand span {
+  background: linear-gradient(180deg, #ffffff 30%, var(--accent-bright));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero-ticker {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 6px;
-  margin: 0 0 34px;
-  padding: 11px 0;
+  overflow: hidden;
+  margin: 0 0 28px;
+  padding: 12px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   color: var(--text-3);
@@ -719,52 +841,62 @@ fieldset label {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-/* Each ticker item carries its own separator, so wraps break cleanly
-   between items and never leave a stray // at the start of a line. */
+.hero-ticker-track {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  align-items: center;
+  animation: ticker-scroll 32s linear infinite;
+}
 
 .hero-ticker span {
   white-space: nowrap;
 }
 
 .hero-ticker i {
-  margin: 0 18px 0 16px;
+  margin: 0 18px;
   color: var(--accent);
   font-style: normal;
 }
 
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .pulse-hero h1 {
-  max-width: 1150px;
+  max-width: 18ch;
   margin-bottom: 0;
-  font-size: var(--fs-display);
-  font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 0.92;
-  text-transform: uppercase;
+  font-size: clamp(2.1rem, 4.6vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-transform: none;
 }
 
 .h1-accent {
   color: var(--accent-bright);
 }
 
-/* Intro, status chips, and CTAs stack in one column, aligned to the
-   left edge. No more floating 2x2 button block on the right. */
-
 .hero-intro {
-  margin-top: 30px;
+  margin-top: 26px;
+  max-width: 560px;
 }
 
-.hero-intro > div:first-child > p {
-  max-width: 640px;
+.hero-intro > p {
   margin-bottom: 0;
   color: var(--text-2);
-  font-size: 1.18rem;
+  font-size: 1.15rem;
   line-height: 1.6;
 }
-
-/* Primary row: two main actions side by side. Secondary row: two
-   text links, aligned to the same left edge. */
 
 .hero-actions {
   display: flex;
@@ -778,6 +910,26 @@ fieldset label {
   flex-wrap: wrap;
   gap: 8px 28px;
   margin-top: 10px;
+}
+
+/* Soft section entrance for below-the-fold blocks. */
+
+.section,
+.ky-photo-strip {
+  animation: section-fade 0.7s ease both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 18%;
+}
+
+@keyframes section-fade {
+  from {
+    opacity: 0.55;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .pulse-panel-heading .kicker {
@@ -1810,11 +1962,22 @@ fieldset label {
   }
 
 .pulse-hero {
+    min-height: auto;
+    align-items: flex-start;
     padding-top: 44px;
+    padding-bottom: 56px;
   }
 
 .hero-ky-map {
     display: none;
+  }
+
+.hero-glow {
+    inset: auto -20% -20% -10%;
+  }
+
+.hero-brand {
+    font-size: clamp(3rem, 16vw, 4.4rem);
   }
 
 .ky-photo-strip {
@@ -1822,7 +1985,7 @@ fieldset label {
   }
 
 .ky-photo-strip figure {
-    height: 180px;
+    height: 200px;
   }
 
 .hero-ticker {
@@ -1904,8 +2067,12 @@ h1 {
     font-size: 2.7rem;
   }
 
-.hero-intro > div:first-child > p {
+.hero-intro > p {
     font-size: 1.05rem;
+  }
+
+.pulse-hero h1 {
+    max-width: none;
   }
 
 .hero-actions {
@@ -1963,12 +2130,25 @@ h1 {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {*,
+@media (prefers-reduced-motion: reduce) {
+  *,
   *::before,
   *::after {
     scroll-behavior: auto !important;
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+
+  .hero-ticker-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    row-gap: 6px;
+  }
+
+  .section,
+  .ky-photo-strip {
+    animation: none;
   }
 }
