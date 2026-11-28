@@ -166,35 +166,35 @@
       "requireAi": true
     },
     {
-      "name": "Google News — Kentucky AI",
+      "name": "Google News - Kentucky AI",
       "url": "https://news.google.com/rss/search?q=Kentucky+(AI+OR+%22artificial+intelligence%22+OR+%22machine+learning%22+OR+%22data+center%22)&hl=en-US&gl=US&ceid=US:en",
       "region": "Kentucky",
       "category": "news",
       "requireAi": false
     },
     {
-      "name": "Google News — Louisville AI",
+      "name": "Google News - Louisville AI",
       "url": "https://news.google.com/rss/search?q=Louisville+(AI+OR+%22artificial+intelligence%22+OR+%22machine+learning%22)&hl=en-US&gl=US&ceid=US:en",
       "region": "Louisville",
       "category": "news",
       "requireAi": false
     },
     {
-      "name": "Google News — Lexington AI",
+      "name": "Google News - Lexington AI",
       "url": "https://news.google.com/rss/search?q=Lexington+Kentucky+(AI+OR+%22artificial+intelligence%22+OR+%22machine+learning%22)&hl=en-US&gl=US&ceid=US:en",
       "region": "Lexington",
       "category": "news",
       "requireAi": false
     },
     {
-      "name": "Google News — KY data centers",
+      "name": "Google News - KY data centers",
       "url": "https://news.google.com/rss/search?q=Kentucky+(%22data+center%22+OR+hyperscale+OR+Anthropic)+AI&hl=en-US&gl=US&ceid=US:en",
       "region": "Kentucky",
       "category": "industry",
       "requireAi": false
     },
     {
-      "name": "Google News — KY schools AI",
+      "name": "Google News - KY schools AI",
       "url": "https://news.google.com/rss/search?q=Kentucky+(school+OR+K-12+OR+education)+(AI+OR+%22artificial+intelligence%22)&hl=en-US&gl=US&ceid=US:en",
       "region": "Kentucky",
       "category": "education",
