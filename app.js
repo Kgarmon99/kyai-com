@@ -106,6 +106,8 @@ function formatRelative(value) {
   const parsed = Date.parse(value || "");
   if (Number.isNaN(parsed)) return formatDate(value);
   const deltaSec = Math.round((parsed - Date.now()) / 1000);
+  // Future publish dates (common on journals) shouldn't read as "in 3 days".
+  if (deltaSec > 60 * 60) return formatDate(value);
   const abs = Math.abs(deltaSec);
   const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
   if (abs < 60 * 60 * 24) return rtf.format(Math.round(deltaSec / 3600), "hour");
@@ -198,12 +200,14 @@ function matchesRegion(item) {
 }
 
 function itemTime(item) {
-  return (
+  const raw =
     Date.parse(item.publishedAt || "") ||
     Date.parse(item.updatedAt || "") ||
     Date.parse(item.capturedAt || "") ||
-    0
-  );
+    0;
+  if (!raw) return 0;
+  // Don't let future-dated papers jump the live news queue.
+  return Math.min(raw, Date.now() + 60 * 60 * 1000);
 }
 
 function filteredNews() {
@@ -231,12 +235,10 @@ function updateLaneChrome() {
     const label = ai ? "AI stories" : "tech stories";
     const age = feedAgeHours();
     const stale = age != null && age > 36;
-    const newest = items[0] ? formatRelative(items[0].publishedAt || items[0].updatedAt || feedUpdatedAt) : "";
+    // "updated" = when we last pulled stories, not a story's publish date.
     feedMeta.textContent = stale
-      ? `${items.length} ${label} · last update ${updated} · may be stale`
-      : newest
-        ? `${items.length} ${label} · newest ${newest} · feed ${updated}`
-        : `${items.length} ${label} · updated ${updated}`;
+      ? `${items.length} ${label} · last pulled ${updated} · may be stale`
+      : `${items.length} ${label} · updated ${updated}`;
     feedMeta.classList.toggle("is-stale", stale);
   }
 }
