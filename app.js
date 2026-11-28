@@ -140,13 +140,22 @@ function matchesLane(item) {
   return true;
 }
 
+function itemPlaceBlob(item) {
+  return `${item.region || ""} ${item.title || ""} ${item.body || ""} ${item.source || ""} ${item.lane || ""}`.toLowerCase();
+}
+
 function normalizeRegion(value = "") {
   const text = String(value).toLowerCase();
-  if (text.includes("western") || text.includes("west") || text.includes("paducah") || text.includes("murray")) {
+  if (text.includes("bowling green") || text.includes("warren county")) return "bowling-green";
+  if (text.includes("paducah") || text.includes("mccracken")) return "paducah";
+  if (text.includes("covington") || text.includes("kenton")) return "covington";
+  if (text.includes("western") || text.includes("west") || text.includes("murray") || text.includes("owensboro")) {
     return "western";
   }
   if (text.includes("louisville")) return "louisville";
-  if (text.includes("northern") || text.includes("covington") || text.includes("nky")) return "northern";
+  if (text.includes("northern") || text.includes("nky") || text.includes("florence") || text.includes("erlanger")) {
+    return "northern";
+  }
   if (text.includes("lexington") || text.includes("bluegrass") || text.includes("frankfort")) return "bluegrass";
   if (text.includes("eastern") || text.includes("appalachia") || text.includes("ashland") || text.includes("pikeville")) {
     return "appalachia";
@@ -155,9 +164,36 @@ function normalizeRegion(value = "") {
   return "statewide";
 }
 
+function matchesCityFilter(blob, city) {
+  if (city === "bowling-green") {
+    return /bowling green|warren county|\bwku\b/.test(blob);
+  }
+  if (city === "paducah") {
+    return /paducah|mccracken/.test(blob);
+  }
+  if (city === "covington") {
+    return /covington|kenton county|northern kentucky|\bnky\b|florence|erlanger/.test(blob);
+  }
+  return false;
+}
+
 function matchesRegion(item) {
   if (activeRegion === "all") return true;
+  const blob = itemPlaceBlob(item);
+  if (activeRegion === "bowling-green" || activeRegion === "paducah" || activeRegion === "covington") {
+    return matchesCityFilter(blob, activeRegion);
+  }
   const key = normalizeRegion(item.region || "");
+  // Also catch city-tagged stories inside broader regional chips.
+  if (activeRegion === "western" && (key === "paducah" || /paducah|murray|owensboro|hopkinsville/.test(blob))) {
+    return true;
+  }
+  if (activeRegion === "southcentral" && (key === "bowling-green" || /bowling green|warren|wku/.test(blob))) {
+    return true;
+  }
+  if (activeRegion === "northern" && (key === "covington" || /covington|nky|northern kentucky|florence|erlanger/.test(blob))) {
+    return true;
+  }
   return key === activeRegion || key === "statewide";
 }
 

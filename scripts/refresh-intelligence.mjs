@@ -130,10 +130,17 @@ async function fetchJson(url, timeoutMs = 18000, options = {}) {
 
 function inferRegion(text, fallback = "Kentucky") {
   const lower = text.toLowerCase();
+  if (lower.includes("bowling green") || lower.includes("warren county")) return "Bowling Green";
+  if (lower.includes("paducah") || lower.includes("mccracken")) return "Paducah";
+  if (lower.includes("covington") || lower.includes("kenton county")) return "Covington";
   if (lower.includes("louisville") || lower.includes("uofl")) return "Louisville";
   if (lower.includes("lexington") || lower.includes("uky") || lower.includes("university of kentucky")) return "Lexington";
-  if (lower.includes("northern kentucky") || lower.includes("nku")) return "Northern Kentucky";
-  if (lower.includes("western kentucky") || lower.includes("bowling green") || lower.includes("paducah") || lower.includes("murray")) return "Western Kentucky";
+  if (lower.includes("northern kentucky") || lower.includes("nku") || lower.includes("nky") || lower.includes("florence") || lower.includes("erlanger")) {
+    return "Northern Kentucky";
+  }
+  if (lower.includes("western kentucky") || lower.includes("murray") || lower.includes("owensboro") || lower.includes("hopkinsville")) {
+    return "Western Kentucky";
+  }
   if (lower.includes("eastern kentucky") || lower.includes("appalachia") || lower.includes("morehead") || lower.includes("richmond")) return "Eastern Kentucky";
   if (lower.includes("frankfort")) return "Frankfort";
   return fallback;

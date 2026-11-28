@@ -46,9 +46,24 @@
       "query": "(\"Northern Kentucky\" OR NKY OR Covington OR Florence OR Erlanger) (\"artificial intelligence\" OR AI OR \"machine learning\" OR startup OR cyber)"
     },
     {
+      "label": "Bowling Green tech",
+      "category": "news",
+      "query": "(\"Bowling Green\" OR WKU OR \"Warren County\") Kentucky (AI OR \"artificial intelligence\" OR \"data center\" OR tech OR startup)"
+    },
+    {
+      "label": "Paducah tech",
+      "category": "news",
+      "query": "(Paducah OR McCracken) Kentucky (AI OR \"artificial intelligence\" OR \"data center\" OR tech OR startup OR broadband)"
+    },
+    {
+      "label": "Covington and NKY tech",
+      "category": "news",
+      "query": "(Covington OR \"Kenton County\" OR \"Northern Kentucky\") (AI OR \"artificial intelligence\" OR tech OR startup OR cyber)"
+    },
+    {
       "label": "South and West Kentucky tech",
       "category": "news",
-      "query": "(\"Bowling Green\" OR Paducah OR Owensboro OR Hopkinsville OR Murray) Kentucky (AI OR \"artificial intelligence\" OR \"data center\" OR tech OR startup)"
+      "query": "(Owensboro OR Hopkinsville OR Murray) Kentucky (AI OR \"artificial intelligence\" OR \"data center\" OR tech OR startup)"
     },
     {
       "label": "Eastern Kentucky and Appalachia",
@@ -287,8 +302,22 @@
     },
     {
       "name": "Google News - Bowling Green tech",
-      "url": "https://news.google.com/rss/search?q=Bowling+Green+Kentucky+(tech+OR+AI+OR+%22data+center%22+OR+startup)&hl=en-US&gl=US&ceid=US:en",
-      "region": "South Central Kentucky",
+      "url": "https://news.google.com/rss/search?q=%22Bowling+Green%22+Kentucky+(tech+OR+AI+OR+%22data+center%22+OR+startup+OR+WKU)&hl=en-US&gl=US&ceid=US:en",
+      "region": "Bowling Green",
+      "category": "news",
+      "requireAi": false
+    },
+    {
+      "name": "Google News - Paducah tech",
+      "url": "https://news.google.com/rss/search?q=Paducah+Kentucky+(tech+OR+AI+OR+%22data+center%22+OR+startup+OR+broadband)&hl=en-US&gl=US&ceid=US:en",
+      "region": "Paducah",
+      "category": "news",
+      "requireAi": false
+    },
+    {
+      "name": "Google News - Covington tech",
+      "url": "https://news.google.com/rss/search?q=Covington+Kentucky+(AI+OR+tech+OR+startup+OR+cyber+OR+%22data+center%22)&hl=en-US&gl=US&ceid=US:en",
+      "region": "Covington",
       "category": "news",
       "requireAi": false
     },
