@@ -52,49 +52,43 @@ const js = readFileSync("app.js", "utf8");
 const vercel = JSON.parse(readFileSync("vercel.json", "utf8"));
 
 for (const phrase of [
-  "KY-Tech | Kentucky technology",
-  "Tech news and tips from every corner of Kentucky.",
-  "Open KY-AI",
-  "Pick a lane",
-  "Section · KY-AI",
-  "KY-AI",
-  "Data Centers",
-  "Cyber",
-  "Space",
-  "Startups",
-  "What's new in KY-AI",
+  "KY-Tech",
+  "What’s new",
   "feedMeta",
-  "All AI",
-  "Research",
-  "Local tips",
-  "Coming soon",
-  "Not data centers",
-  "Pick a place",
-  "Heard something? Tell us.",
-  "Send my tip",
-  "Get updates by email",
-  "Sign me up",
-  "Whole state",
-  "United we stand, divided we fall.",
-  "Kentucky · technology for the Commonwealth",
+  "newsList",
+  "Send a tip",
+  "Get the weekly note",
+  'data-view="tech"',
+  'data-view="ai"',
+  'data-view="help"',
+  'data-view="email"',
 ]) {
   if (!html.includes(phrase)) {
     throw new Error(`Missing page phrase: ${phrase}`);
   }
 }
 
+if (html.includes("Pick a lane") || html.includes("ky-map") || html.includes("lane-grid")) {
+  throw new Error("Homepage still has heavy hero/map/lane chrome");
+}
+
+const feedIndex = html.indexOf('id="feed"');
+const helpIndex = html.indexOf('id="help"');
+if (feedIndex < 0 || helpIndex < 0 || feedIndex > helpIndex) {
+  throw new Error("Feed panel must be the first main content on the page");
+}
+
 for (const phrase of [
   "loadNews",
   "renderNews",
   "setRegion",
+  "showView",
+  "isAiStory",
   "buildIssueUrl",
   "kyai-tips",
   "kyai-newsletter-subscribers",
   "/api/newsletter-signup",
   "intelligence-feed.json",
-  "kentucky-places.json",
-  "renderPlaces",
-  "selectPlace",
 ]) {
   if (!js.includes(phrase)) {
     throw new Error(`Missing app capability: ${phrase}`);

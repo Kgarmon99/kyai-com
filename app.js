@@ -3,140 +3,55 @@ const fallbackNews = [
     title: "Libraries teaching AI basics",
     body: "Some Kentucky libraries are teaching people how to use AI in safe, simple ways.",
     region: "Kentucky",
+    category: "education",
+    kind: "tip",
+    url: "",
+  },
+  {
+    title: "Data centers reshaping rural Kentucky",
+    body: "Big computing sites are moving into Kentucky towns, with questions about power, land, and jobs.",
+    region: "Kentucky",
+    category: "industry",
+    kind: "news",
     url: "",
   },
   {
     title: "Schools talking about AI rules",
     body: "Teachers and school leaders are writing clear rules for AI in class.",
     region: "Kentucky",
-    url: "",
-  },
-  {
-    title: "People building AI tools here",
-    body: "Students, teachers, and workers across Kentucky are trying AI for real jobs.",
-    region: "Kentucky",
+    category: "education",
+    kind: "tip",
     url: "",
   },
 ];
 
-const REGION_LABELS = {
-  all: "all of Kentucky",
-  western: "West Kentucky",
-  southcentral: "South Central Kentucky",
-  louisville: "Louisville",
-  bluegrass: "the Bluegrass",
-  appalachia: "East Kentucky",
-  northern: "North Kentucky",
-};
-
+const PAGE_SIZE = 12;
 const NEWSLETTER_ENDPOINT =
   window.KYAI_NEWSLETTER_ENDPOINT ||
   (window.location.protocol.startsWith("http") ? "/api/newsletter-signup" : "");
 const NEWSLETTER_STORAGE_KEY = "kyai-newsletter-subscribers";
 const TIP_STORAGE_KEY = "kyai-tips";
-const PAGE_SIZE = 10;
 
 const newsList = document.querySelector("#newsList");
-const newsSub = document.querySelector("#newsSub");
 const feedMeta = document.querySelector("#feedMeta");
+const laneTitle = document.querySelector("#laneTitle");
 const showMoreButton = document.querySelector("#showMore");
 const tipForm = document.querySelector("#tipForm");
 const tipStatus = document.querySelector("#tipStatus");
-const tipWhere = tipForm?.querySelector('input[name="where"]');
 const emailForm = document.querySelector("#emailForm");
 const emailStatus = document.querySelector("#emailStatus");
-const mapStatus = document.querySelector("#mapStatus");
-const placeCount = document.querySelector("#placeCount");
-const placeDots = document.querySelector("#placeDots");
-const placeLabels = document.querySelector("#placeLabels");
-const placeSearch = document.querySelector("#placeSearch");
-const placesList = document.querySelector("#kyPlaces");
-const mapRegions = document.querySelectorAll(".ky-map .region");
-const mapChips = document.querySelectorAll(".map-controls .chip");
-const aiFocusChips = document.querySelectorAll("[data-ai-focus]");
-const laneSelect = tipForm?.querySelector('select[name="lane"]');
-const aiFocusField = document.querySelector("#aiFocusField");
-
-const AI_FOCUS_LABELS = {
-  all: "all AI topics",
-  schools: "schools",
-  research: "research",
-  business: "business",
-  rules: "rules & policy",
-  tips: "local tips",
-};
-
-const MAJOR_LABELS = new Set([
-  "Louisville",
-  "Lexington",
-  "Bowling Green",
-  "Paducah",
-  "Ashland",
-  "Covington",
-  "Owensboro",
-  "Frankfort",
-  "Hopkinsville",
-  "Elizabethtown",
-  "Richmond",
-  "Florence",
-  "Georgetown",
-  "Nicholasville",
-  "Pikeville",
-  "Somerset",
-  "London",
-  "Murray",
-  "Danville",
-  "Newport",
-  "Madisonville",
-  "Winchester",
-  "Shelbyville",
-  "Bardstown",
-  "Morehead",
-  "Hazard",
-  "Mayfield",
-  "Maysville",
-  "Berea",
-  "Corbin",
-]);
+const filterChips = document.querySelectorAll(".filters .chip");
 
 let news = fallbackNews;
-let places = [];
+let feedUpdatedAt = "";
 let visibleCount = PAGE_SIZE;
 let activeRegion = "all";
-let activePlace = null;
-let activeAiFocus = "all";
+let activeLane = "tech";
 
-function getAiFocus(item) {
-  const category = String(item.category || "").toLowerCase();
-  const kind = String(item.kind || "").toLowerCase();
-  const text = `${item.title || ""} ${item.body || ""} ${item.lane || ""}`.toLowerCase();
-
-  // Data-center / hyperscaler stories belong in KY-Tech Data Centers, not AI focus.
-  if (
-    /data center|hyperscaler|anthropic.*site|power plant|substation/.test(text) &&
-    !/classroom|school|student|curriculum|teacher/.test(text)
-  ) {
-    return "infra";
-  }
-  if (kind === "tip" || item.aiFocus === "tips") return "tips";
-  if (category === "education" || item.aiFocus === "schools") return "schools";
-  if (category === "research" || kind === "research" || item.aiFocus === "research") return "research";
-  if (category === "policy" || item.aiFocus === "rules") return "rules";
-  if (
-    category === "workforce" ||
-    category === "industry" ||
-    category === "business" ||
-    item.aiFocus === "business"
-  ) {
-    return "business";
-  }
-  if (category === "events" && /workshop|class|training|library|school/.test(text)) return "schools";
-  return "business";
-}
-
-function isAiRelevant(item) {
-  return getAiFocus(item) !== "infra";
-}
+const AI_TERMS =
+  /\bai\b|artificial intelligence|machine learning|chatgpt|llm|generative|neural|deep learning|robotics|computer vision|data science|algorithm|automation|chatbot/;
+const INFRA_TERMS =
+  /data center|datacenter|hyperscale|terawulf|anthropic.*campus|power plant|substation|transmission line/;
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -148,27 +63,48 @@ function escapeHtml(value) {
 }
 
 function plainBody(item) {
-  const body = String(item.body || "").trim();
-  if (!body) return "A new AI tip from Kentucky.";
-  if (body.length <= 180) return body;
-  return `${body.slice(0, 177).trim()}…`;
+  let body = String(item.body || "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!body) return "Open the story for details.";
+  if (body.length <= 120) return body;
+  return `${body.slice(0, 117).trim()}…`;
+}
+
+function plainTitle(item) {
+  let title = String(item.title || "Kentucky story").replace(/\s+/g, " ").trim();
+  // Drop trailing " - Outlet" / " | Outlet" noise from aggregators.
+  title = title.replace(/\s+[-–—|]\s+[^-–—|]{2,48}$/u, "").trim();
+  if (title.length <= 96) return title;
+  return `${title.slice(0, 93).trim()}…`;
+}
+
+function plainSource(item) {
+  const raw = String(item.source || item.lane || "KY-Tech").trim();
+  try {
+    if (/^https?:\/\//i.test(raw)) return new URL(raw).hostname.replace(/^www\./, "");
+  } catch {
+    /* keep raw */
+  }
+  const cleaned = raw.replace(/^Google News\s*[—–-]\s*/i, "").trim() || raw;
+  if (cleaned.length <= 28) return cleaned;
+  return `${cleaned.slice(0, 25).trim()}…`;
 }
 
 function formatDate(value) {
-  if (!value) return "Date unknown";
+  if (!value) return "";
   const parsed = new Date(value);
-  if (Number.isNaN(parsed.getTime())) return "Date unknown";
+  if (Number.isNaN(parsed.getTime())) return "";
   return new Intl.DateTimeFormat("en-US", {
-    weekday: "short",
     month: "short",
     day: "numeric",
-    year: "numeric",
   }).format(parsed);
 }
 
 function formatRelative(value) {
   const parsed = Date.parse(value || "");
-  if (Number.isNaN(parsed)) return "";
+  if (Number.isNaN(parsed)) return formatDate(value);
   const deltaSec = Math.round((parsed - Date.now()) / 1000);
   const abs = Math.abs(deltaSec);
   const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
@@ -177,16 +113,31 @@ function formatRelative(value) {
   return formatDate(value);
 }
 
-function sourceLabel(item) {
-  return item.source || item.lane || (item.kind === "research" ? "Research" : "KY-Tech");
+function itemText(item) {
+  return `${item.title || ""} ${item.body || ""} ${item.lane || ""} ${item.category || ""} ${item.kind || ""}`.toLowerCase();
 }
 
-function sortNewest(items) {
-  return [...items].sort((a, b) => {
-    const aTime = Date.parse(a.publishedAt || "") || 0;
-    const bTime = Date.parse(b.publishedAt || "") || 0;
-    return bTime - aTime;
-  });
+function isInfraHeavy(item) {
+  const text = itemText(item);
+  return INFRA_TERMS.test(text) && !AI_TERMS.test(text);
+}
+
+function isAiStory(item) {
+  const text = itemText(item);
+  const title = String(item.title || "").toLowerCase();
+
+  // Pure (or mostly) data-center builds stay on Tech, not KY-AI.
+  if (/data center|datacenter|hyperscale|terawulf/.test(title) && !/school|student|classroom|research|chatbot|tool/.test(title)) {
+    return false;
+  }
+  if (isInfraHeavy(item)) return false;
+  if (item.kind === "research" || item.kind === "curated") return true;
+  return AI_TERMS.test(text);
+}
+
+function matchesLane(item) {
+  if (activeLane === "ai") return isAiStory(item);
+  return true;
 }
 
 function normalizeRegion(value = "") {
@@ -204,61 +155,65 @@ function normalizeRegion(value = "") {
   return "statewide";
 }
 
-function matchesActiveRegion(item) {
-  const regionText = String(item.region || "");
-  if (activePlace) {
-    const needle = activePlace.toLowerCase();
-    const hay = [regionText, item.title, item.body, item.kentuckyConnection]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
-    if (hay.includes(needle)) return true;
-    // Keep statewide tips visible so local picks never feel empty.
-    return normalizeRegion(regionText) === "statewide";
-  }
+function matchesRegion(item) {
   if (activeRegion === "all") return true;
-  const key = normalizeRegion(regionText);
-  if (key === activeRegion) return true;
-  return key === "statewide";
+  const key = normalizeRegion(item.region || "");
+  return key === activeRegion || key === "statewide";
 }
 
-function matchesAiFocus(item) {
-  if (!isAiRelevant(item)) return false;
-  if (activeAiFocus === "all") return true;
-  return getAiFocus(item) === activeAiFocus;
-}
-
-function buildIssueUrl(title, body) {
-  const url = new URL("https://github.com/Kgarmon99/kyai-com/issues/new");
-  url.searchParams.set("template", "signal.yml");
-  url.searchParams.set("title", title);
-  url.searchParams.set("body", body);
-  return url.toString();
+function itemTime(item) {
+  return (
+    Date.parse(item.publishedAt || "") ||
+    Date.parse(item.updatedAt || "") ||
+    Date.parse(item.capturedAt || "") ||
+    0
+  );
 }
 
 function filteredNews() {
-  return sortNewest(news.filter((item) => matchesActiveRegion(item) && matchesAiFocus(item)));
+  // Newest stories always float to the top of the first screen.
+  return [...news]
+    .filter((item) => matchesLane(item) && matchesRegion(item))
+    .sort((a, b) => itemTime(b) - itemTime(a));
+}
+
+function feedAgeHours() {
+  const parsed = Date.parse(feedUpdatedAt || "");
+  if (Number.isNaN(parsed)) return null;
+  return (Date.now() - parsed) / 36e5;
+}
+
+function updateLaneChrome() {
+  const ai = activeLane === "ai";
+  const eyebrow = document.querySelector("#laneEyebrow");
+  if (laneTitle) laneTitle.textContent = "What’s new";
+  if (eyebrow) eyebrow.textContent = ai ? "KY-AI live feed" : "KY-Tech live feed";
+  document.title = ai ? "KY-AI · What’s new" : "KY-Tech · What’s new";
+  const items = filteredNews();
+  if (feedMeta) {
+    const updated = feedUpdatedAt ? formatRelative(feedUpdatedAt) : "recently";
+    const label = ai ? "AI stories" : "tech stories";
+    const age = feedAgeHours();
+    const stale = age != null && age > 36;
+    const newest = items[0] ? formatRelative(items[0].publishedAt || items[0].updatedAt || feedUpdatedAt) : "";
+    feedMeta.textContent = stale
+      ? `${items.length} ${label} · last update ${updated} · may be stale`
+      : newest
+        ? `${items.length} ${label} · newest ${newest} · feed ${updated}`
+        : `${items.length} ${label} · updated ${updated}`;
+    feedMeta.classList.toggle("is-stale", stale);
+  }
 }
 
 function renderNews() {
   if (!newsList) return;
-
+  updateLaneChrome();
   const items = filteredNews().slice(0, visibleCount);
-  const place = REGION_LABELS[activeRegion] || "Kentucky";
-
-  if (newsSub) {
-    const focus = AI_FOCUS_LABELS[activeAiFocus] || "AI";
-    if (activePlace || activeRegion !== "all") {
-      newsSub.textContent = `${focus} near ${place}. Tap Whole state to see more of Kentucky.`;
-    } else if (activeAiFocus === "all") {
-      newsSub.textContent = "AI stories and tips from around Kentucky — schools, labs, and local use.";
-    } else {
-      newsSub.textContent = `Showing ${focus} only.`;
-    }
-  }
 
   if (!items.length) {
-    newsList.innerHTML = `<p class="empty">No news here yet. Add a tip for ${escapeHtml(place)}.</p>`;
+    newsList.innerHTML = `<p class="empty">${
+      activeLane === "ai" ? "No KY-AI stories here yet." : "No tech stories here yet."
+    }</p>`;
     if (showMoreButton) showMoreButton.hidden = true;
     return;
   }
@@ -266,31 +221,31 @@ function renderNews() {
   newsList.innerHTML = items
     .map((item, index) => {
       const where = item.region || "Kentucky";
-      const when = formatRelative(item.publishedAt) || formatDate(item.publishedAt);
-      const focus = AI_FOCUS_LABELS[getAiFocus(item)] || "AI";
-      const title = item.title || "Kentucky AI tip";
+      const when = formatRelative(item.publishedAt) || "Recently";
+      const title = plainTitle(item);
       const body = plainBody(item);
-      const source = sourceLabel(item);
+      const source = plainSource(item);
       const href = item.url || (item.id ? `./signals/${encodeURIComponent(item.id)}/` : "");
       const featured = index === 0 && visibleCount <= PAGE_SIZE ? " is-featured" : "";
+      const external = Boolean(item.url);
+      const badge = activeLane === "tech" && isAiStory(item) ? `<span class="badge">AI</span>` : "";
       const heading = href
-        ? `<h3><a href="${escapeHtml(href)}" ${item.url ? 'target="_blank" rel="noreferrer"' : ""}>${escapeHtml(title)}</a></h3>`
-        : `<h3>${escapeHtml(title)}</h3>`;
+        ? `<h2 class="news-title"><a href="${escapeHtml(href)}" ${external ? 'target="_blank" rel="noreferrer"' : ""}>${escapeHtml(title)}</a></h2>`
+        : `<h2 class="news-title">${escapeHtml(title)}</h2>`;
       const action = href
-        ? `<a class="news-read" href="${escapeHtml(href)}" ${item.url ? 'target="_blank" rel="noreferrer"' : ""}>Read story →</a>`
+        ? `<a class="news-read" href="${escapeHtml(href)}" ${external ? 'target="_blank" rel="noreferrer"' : ""}>Read</a>`
         : "";
 
       return `
         <article class="news-card${featured}">
-          <div class="news-rail" aria-hidden="true"></div>
-          <div class="news-body">
+          <div class="news-inner">
             <p class="meta">
-              <span class="pill">${escapeHtml(focus)}</span>
               <span class="where">${escapeHtml(where)}</span>
+              ${badge}
               <span class="when">${escapeHtml(when)}</span>
             </p>
             ${heading}
-            <p>${escapeHtml(body)}</p>
+            <p class="news-dek">${escapeHtml(body)}</p>
             <div class="news-foot">
               <span class="source">${escapeHtml(source)}</span>
               ${action}
@@ -306,169 +261,13 @@ function renderNews() {
   }
 }
 
-function clearPlaceDotActive() {
-  placeDots?.querySelectorAll(".place-dot.is-active").forEach((dot) => dot.classList.remove("is-active"));
-}
-
-function setRegion(regionKey, { scrollToNews = true } = {}) {
+function setRegion(regionKey) {
   activeRegion = regionKey || "all";
-  activePlace = null;
   visibleCount = PAGE_SIZE;
-  clearPlaceDotActive();
-  if (placeSearch) placeSearch.value = "";
-
-  mapChips.forEach((chip) => {
+  filterChips.forEach((chip) => {
     chip.classList.toggle("is-active", chip.dataset.region === activeRegion);
   });
-
-  mapRegions.forEach((region) => {
-    region.classList.toggle("is-active", region.dataset.region === activeRegion);
-  });
-
-  const label = REGION_LABELS[activeRegion] || "Kentucky";
-  if (mapStatus) {
-    mapStatus.textContent =
-      activeRegion === "all"
-        ? "Showing KY-AI news for all of Kentucky."
-        : `Showing KY-AI news for ${label}.`;
-  }
-
-  if (tipWhere && activeRegion !== "all") {
-    tipWhere.value = label;
-  }
-
   renderNews();
-
-  if (scrollToNews) {
-    document.querySelector("#news")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-}
-
-function selectPlace(place, { scrollToNews = true } = {}) {
-  if (!place) return;
-  activePlace = place.label;
-  activeRegion = "place";
-  visibleCount = PAGE_SIZE;
-
-  mapChips.forEach((chip) => chip.classList.remove("is-active"));
-  mapRegions.forEach((region) => region.classList.remove("is-active"));
-  clearPlaceDotActive();
-
-  const match = placeDots?.querySelector(`[data-place-id="${CSS.escape(place.id)}"]`);
-  match?.classList.add("is-active");
-
-  if (placeSearch) placeSearch.value = place.search || place.label;
-  if (tipWhere) tipWhere.value = place.search || place.label;
-  if (mapStatus) {
-    mapStatus.textContent = `Showing KY-AI news near ${place.search || place.label}.`;
-  }
-
-  renderNews();
-
-  if (scrollToNews) {
-    document.querySelector("#news")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-}
-
-function renderPlaces() {
-  if (!placeDots || !places.length) return;
-
-  placeDots.innerHTML = places
-    .map((place) => {
-      const major = MAJOR_LABELS.has(place.label);
-      const radius = major ? 3.4 : 2.2;
-      return `<circle class="place-dot${major ? " is-major" : ""}" data-place-id="${escapeHtml(place.id)}" data-label="${escapeHtml(place.label)}" cx="${place.x}" cy="${place.y}" r="${radius}" tabindex="0" role="button" aria-label="${escapeHtml(place.search || place.label)}"><title>${escapeHtml(place.search || place.label)}</title></circle>`;
-    })
-    .join("");
-
-  if (placeLabels) {
-    placeLabels.innerHTML = places
-      .filter((place) => MAJOR_LABELS.has(place.label))
-      .map((place) => {
-        const anchor = place.x > 480 ? "end" : "start";
-        const dx = place.x > 480 ? -6 : 6;
-        return `<text x="${place.x + dx}" y="${place.y + 4}" text-anchor="${anchor}">${escapeHtml(place.label)}</text>`;
-      })
-      .join("");
-  }
-
-  if (placesList) {
-    const options = [];
-    const seen = new Set();
-    for (const place of places) {
-      for (const value of [place.search, place.label, place.county ? `${place.county} County` : ""]) {
-        if (!value || seen.has(value)) continue;
-        seen.add(value);
-        options.push(`<option value="${escapeHtml(value)}"></option>`);
-      }
-    }
-    placesList.innerHTML = options.join("");
-  }
-
-  if (placeCount) {
-    const counties = places.filter((p) => p.kind === "county-seat").length;
-    const cities = places.filter((p) => p.kind === "city").length;
-    placeCount.textContent = `${counties} county seats · ${cities + counties} cities & towns on the map`;
-  }
-
-  placeDots.querySelectorAll(".place-dot").forEach((dot) => {
-    const activate = () => {
-      const place = places.find((item) => item.id === dot.dataset.placeId);
-      selectPlace(place);
-    };
-    dot.addEventListener("click", (event) => {
-      event.stopPropagation();
-      activate();
-    });
-    dot.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        activate();
-      }
-    });
-  });
-}
-
-function findPlace(query) {
-  const q = String(query || "").trim().toLowerCase();
-  if (!q) return null;
-  return (
-    places.find((place) => place.search.toLowerCase() === q) ||
-    places.find((place) => place.label.toLowerCase() === q) ||
-    places.find((place) => `${place.county} county`.toLowerCase() === q) ||
-    places.find((place) => place.search.toLowerCase().includes(q)) ||
-    places.find((place) => place.label.toLowerCase().includes(q))
-  );
-}
-
-async function loadPlaces() {
-  try {
-    const response = await fetch("./data/kentucky-places.json", { cache: "no-cache" });
-    if (!response.ok) throw new Error("Places unavailable");
-    const data = await response.json();
-    const seats = (data.counties || []).map((place) => ({
-      id: `seat-${place.county}`,
-      label: place.seat || place.label,
-      search: place.search,
-      county: place.county,
-      x: place.x,
-      y: place.y,
-      kind: "county-seat",
-    }));
-    const cities = (data.cities || []).map((place) => ({
-      id: `city-${place.county}-${place.city || place.label}`,
-      label: place.city || place.label,
-      search: place.search,
-      county: place.county,
-      x: place.x,
-      y: place.y,
-      kind: "city",
-    }));
-    places = [...seats, ...cities].filter((place) => Number.isFinite(place.x) && Number.isFinite(place.y));
-  } catch {
-    places = [];
-  }
-  renderPlaces();
 }
 
 async function loadNews() {
@@ -477,15 +276,10 @@ async function loadNews() {
     if (!response.ok) throw new Error("Feed unavailable");
     const feed = await response.json();
     if (feed.items?.length) news = feed.items;
-    if (feedMeta) {
-      const updated = feed.updatedAt ? formatRelative(feed.updatedAt) || formatDate(feed.updatedAt) : "recently";
-      const total = feed.summary?.totalItems || feed.items?.length || 0;
-      const sources = feed.sources?.length || 0;
-      feedMeta.textContent = `${total} stories · ${sources} sources · updated ${updated}`;
-    }
+    feedUpdatedAt = feed.updatedAt || "";
   } catch {
     news = fallbackNews;
-    if (feedMeta) feedMeta.textContent = "Showing starter stories while the live feed loads.";
+    feedUpdatedAt = "";
   }
   renderNews();
 }
@@ -500,56 +294,21 @@ function readLocalJson(key, fallback) {
   }
 }
 
+function buildIssueUrl(title, body) {
+  const url = new URL("https://github.com/Kgarmon99/kyai-com/issues/new");
+  url.searchParams.set("template", "signal.yml");
+  url.searchParams.set("title", title);
+  url.searchParams.set("body", body);
+  return url.toString();
+}
+
 showMoreButton?.addEventListener("click", () => {
   visibleCount += PAGE_SIZE;
   renderNews();
 });
 
-mapChips.forEach((chip) => {
+filterChips.forEach((chip) => {
   chip.addEventListener("click", () => setRegion(chip.dataset.region));
-});
-
-aiFocusChips.forEach((chip) => {
-  chip.addEventListener("click", () => {
-    activeAiFocus = chip.dataset.aiFocus || "all";
-    visibleCount = PAGE_SIZE;
-    aiFocusChips.forEach((item) => {
-      item.classList.toggle("is-active", item.dataset.aiFocus === activeAiFocus);
-    });
-    renderNews();
-    document.querySelector("#news")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-});
-
-function syncAiFocusField() {
-  if (!aiFocusField || !laneSelect) return;
-  aiFocusField.hidden = laneSelect.value !== "ai";
-}
-
-laneSelect?.addEventListener("change", syncAiFocusField);
-syncAiFocusField();
-
-mapRegions.forEach((region) => {
-  const activate = () => setRegion(region.dataset.region);
-  region.addEventListener("click", activate);
-  region.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      activate();
-    }
-  });
-});
-
-placeSearch?.addEventListener("change", () => {
-  const place = findPlace(placeSearch.value);
-  if (place) selectPlace(place);
-});
-
-placeSearch?.addEventListener("keydown", (event) => {
-  if (event.key !== "Enter") return;
-  event.preventDefault();
-  const place = findPlace(placeSearch.value);
-  if (place) selectPlace(place);
 });
 
 tipForm?.addEventListener("submit", (event) => {
@@ -558,43 +317,18 @@ tipForm?.addEventListener("submit", (event) => {
   const what = String(formData.get("what") || "").trim();
   const where = String(formData.get("where") || "").trim();
   const link = String(formData.get("link") || "").trim();
-  const email = String(formData.get("email") || "").trim();
-
   const lane = String(formData.get("lane") || "ai").trim();
-  const aiFocus = lane === "ai" ? String(formData.get("aiFocus") || "tips").trim() : "";
 
-  const tip = {
-    what,
-    where,
-    lane,
-    aiFocus,
-    category: aiFocus === "schools" ? "education" : aiFocus === "research" ? "research" : aiFocus === "rules" ? "policy" : "events",
-    kind: "tip",
-    link,
-    email,
-    createdAt: new Date().toISOString(),
-  };
-
+  const tip = { what, where, link, lane, createdAt: new Date().toISOString() };
   const tips = readLocalJson(TIP_STORAGE_KEY, []);
   tips.unshift(tip);
   localStorage.setItem(TIP_STORAGE_KEY, JSON.stringify(tips));
 
-  const issueBody = [
-    `Lane: ${lane}`,
-    aiFocus ? `AI focus: ${aiFocus}` : "",
-    `Where: ${where}`,
-    "",
-    "What happened?",
-    what,
-    "",
-    link ? `Link: ${link}` : "Link: (none)",
-    email ? `Email: ${email}` : "",
-  ]
-    .filter(Boolean)
-    .join("\n");
-
-  const reviewUrl = buildIssueUrl(`[${lane}] Tip: ${where}`, issueBody);
-  tipStatus.innerHTML = `Thanks! We saved your tip. <a href="${escapeHtml(reviewUrl)}">Open it for editors</a>.`;
+  const issueBody = [`Lane: ${lane}`, `Where: ${where}`, "", what, "", link ? `Link: ${link}` : "Link: (none)"].join(
+    "\n",
+  );
+  const reviewUrl = buildIssueUrl(`[${lane}] tip: ${where}`, issueBody);
+  tipStatus.innerHTML = `Saved. <a href="${escapeHtml(reviewUrl)}">Open for editors</a>.`;
   tipForm.reset();
 });
 
@@ -606,7 +340,7 @@ emailForm?.addEventListener("submit", async (event) => {
     email,
     name: "",
     region: "Statewide",
-    role: "student",
+    role: "reader",
     interests: ["weekly-pulse"],
     createdAt: new Date().toISOString(),
     source: "ky-tech-home",
@@ -623,17 +357,54 @@ emailForm?.addEventListener("submit", async (event) => {
     });
     if (!response.ok) throw new Error("Signup failed");
     const result = await response.json().catch(() => ({}));
-    emailStatus.textContent = result.stored
-      ? "You are on the list. Watch your inbox."
-      : "Something went wrong. Please try again.";
+    emailStatus.textContent = result.stored ? "You’re on the list." : "Something went wrong. Try again.";
     if (result.stored) emailForm.reset();
   } catch {
     const subscribers = readLocalJson(NEWSLETTER_STORAGE_KEY, []);
     const next = subscribers.filter((item) => item.email !== email);
     next.unshift(entry);
     localStorage.setItem(NEWSLETTER_STORAGE_KEY, JSON.stringify(next));
-    emailStatus.textContent = "Saved on this device. Email sending may be offline right now.";
+    emailStatus.textContent = "Saved on this device.";
   }
+});
+
+const VIEWS = new Set(["tech", "ai", "help", "email"]);
+const FEED_VIEWS = new Set(["tech", "ai"]);
+
+function showView(viewId) {
+  const id = VIEWS.has(viewId) ? viewId : "tech";
+  const feedMode = FEED_VIEWS.has(id);
+
+  if (feedMode) {
+    activeLane = id;
+    visibleCount = PAGE_SIZE;
+  }
+
+  document.querySelectorAll(".panel").forEach((panel) => {
+    const active = feedMode ? panel.id === "feed" : panel.id === id;
+    panel.classList.toggle("is-active", active);
+    panel.hidden = !active;
+  });
+
+  document.querySelectorAll(".nav-btn").forEach((btn) => {
+    const active = btn.dataset.view === id;
+    btn.classList.toggle("is-active", active);
+    btn.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+
+  history.replaceState(null, "", id === "tech" ? location.pathname + location.search : `#${id}`);
+  window.scrollTo(0, 0);
+
+  if (feedMode) renderNews();
+}
+
+document.querySelectorAll("[data-view]").forEach((el) => {
+  el.addEventListener("click", (event) => {
+    const view = el.dataset.view;
+    if (!VIEWS.has(view)) return;
+    event.preventDefault();
+    showView(view);
+  });
 });
 
 function startMatrixRain() {
@@ -644,52 +415,64 @@ function startMatrixRain() {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
-  const glyphs = "アイウエオカキクケコサシスセソKYAI01ネバーフォゲット青草";
-  const fontSize = 14;
+  // Soft KY Matrix: green rain + occasional bluegrass sparks.
+  const glyphs = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン01KY◆◇✦ブルーグラス";
+  const fontSize = 13;
   let columns = [];
   let width = 0;
   let height = 0;
   let frame = 0;
+  let raf = 0;
 
   function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-    const colCount = Math.ceil(width / fontSize);
-    columns = Array.from({ length: colCount }, () => Math.random() * -40);
+    const dpr = window.devicePixelRatio || 1;
+    width = canvas.width = Math.floor(window.innerWidth * dpr);
+    height = canvas.height = Math.floor(window.innerHeight * dpr);
+    canvas.style.width = `${window.innerWidth}px`;
+    canvas.style.height = `${window.innerHeight}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const colCount = Math.max(8, Math.ceil(window.innerWidth / fontSize));
+    columns = Array.from({ length: colCount }, () => Math.random() * -50);
   }
 
   function draw() {
     frame += 1;
-    ctx.fillStyle = "rgba(3, 8, 5, 0.08)";
-    ctx.fillRect(0, 0, width, height);
-    ctx.fillStyle = "rgba(57, 255, 120, 0.55)";
-    ctx.font = `${fontSize}px "IBM Plex Mono", monospace`;
+    ctx.fillStyle = "rgba(3, 8, 5, 0.085)";
+    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+    ctx.font = `${fontSize}px "IBM Plex Mono", "Public Sans", monospace`;
 
     for (let i = 0; i < columns.length; i += 1) {
       const x = i * fontSize;
       const y = columns[i] * fontSize;
       const char = glyphs[Math.floor(Math.random() * glyphs.length)];
+      const head = Math.random() > 0.92;
+      ctx.fillStyle = head ? "rgba(157, 255, 184, 0.55)" : "rgba(57, 255, 120, 0.28)";
       ctx.fillText(char, x, y);
-      if (y > height && Math.random() > 0.975) columns[i] = 0;
-      else columns[i] += 0.65;
+
+      if (y > window.innerHeight && Math.random() > 0.975) columns[i] = 0;
+      else columns[i] += 0.45 + Math.random() * 0.25;
     }
 
-    // Soft bluegrass spark every few frames
-    if (frame % 7 === 0) {
-      ctx.fillStyle = "rgba(110, 182, 255, 0.35)";
+    if (frame % 11 === 0) {
+      ctx.fillStyle = "rgba(110, 182, 255, 0.28)";
       const i = Math.floor(Math.random() * columns.length);
       ctx.fillText("◆", i * fontSize, columns[i] * fontSize);
     }
 
-    requestAnimationFrame(draw);
+    raf = requestAnimationFrame(draw);
   }
 
   resize();
-  window.addEventListener("resize", resize);
-  draw();
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(raf);
+    resize();
+    raf = requestAnimationFrame(draw);
+  });
+  raf = requestAnimationFrame(draw);
 }
 
-setRegion("all", { scrollToNews: false });
-loadPlaces();
+const startView = String(location.hash || "").replace(/^#/, "");
+showView(VIEWS.has(startView) ? startView : "tech");
+setRegion("all");
 loadNews();
 startMatrixRain();

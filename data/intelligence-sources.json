@@ -8,22 +8,22 @@
     {
       "label": "Research and universities",
       "category": "research",
-      "query": "(\"artificial intelligence\" OR \"machine learning\" OR AI) (\"University of Kentucky\" OR \"University of Louisville\" OR \"Western Kentucky University\" OR \"Northern Kentucky University\" OR \"Eastern Kentucky University\" OR \"Murray State\")"
+      "query": "(\"artificial intelligence\" OR \"machine learning\" OR AI) (\"University of Kentucky\" OR \"University of Louisville\" OR \"Western Kentucky University\" OR \"Northern Kentucky University\" OR \"Eastern Kentucky University\" OR \"Murray State\" OR \"Morehead State\" OR \"Kentucky State\")"
     },
     {
       "label": "Policy and public sector",
       "category": "policy",
-      "query": "Kentucky (\"artificial intelligence\" OR AI) (policy OR law OR regulation OR government OR schools OR \"board of education\" OR Frankfort)"
+      "query": "Kentucky (\"artificial intelligence\" OR AI) (policy OR law OR regulation OR government OR schools OR \"board of education\" OR Frankfort OR legislature)"
     },
     {
       "label": "Workforce and business",
       "category": "workforce",
-      "query": "Kentucky (\"artificial intelligence\" OR AI) (jobs OR workforce OR business OR training OR startup OR economic OR company)"
+      "query": "Kentucky (\"artificial intelligence\" OR AI) (jobs OR workforce OR business OR training OR startup OR economic OR company OR founder)"
     },
     {
       "label": "Infrastructure and big movers",
       "category": "industry",
-      "query": "Kentucky (\"AI data center\" OR \"artificial intelligence company\" OR Anthropic OR \"data center\" OR hyperscale)"
+      "query": "Kentucky (\"AI data center\" OR \"artificial intelligence company\" OR Anthropic OR \"data center\" OR hyperscale OR Terawulf OR compute)"
     },
     {
       "label": "Events and workshops",
@@ -41,14 +41,34 @@
       "query": "Lexington (\"artificial intelligence\" OR \"machine learning\" OR ChatGPT OR AI) Kentucky"
     },
     {
-      "label": "Healthcare AI Kentucky",
-      "category": "research",
-      "query": "Kentucky (AI OR \"artificial intelligence\" OR \"machine learning\") (hospital OR healthcare OR clinic OR medical)"
+      "label": "Northern Kentucky AI",
+      "category": "news",
+      "query": "(\"Northern Kentucky\" OR NKY OR Covington OR Florence OR Erlanger) (\"artificial intelligence\" OR AI OR \"machine learning\" OR startup OR cyber)"
     },
     {
-      "label": "Cyber meets AI",
+      "label": "South and West Kentucky tech",
       "category": "news",
-      "query": "Kentucky (cybersecurity OR cyber) (AI OR \"artificial intelligence\" OR \"machine learning\")"
+      "query": "(\"Bowling Green\" OR Paducah OR Owensboro OR Hopkinsville OR Murray) Kentucky (AI OR \"artificial intelligence\" OR \"data center\" OR tech OR startup)"
+    },
+    {
+      "label": "Eastern Kentucky and Appalachia",
+      "category": "news",
+      "query": "(Pikeville OR Ashland OR Hazard OR Morehead OR Appalachia OR \"Eastern Kentucky\") (AI OR \"artificial intelligence\" OR broadband OR tech OR \"data center\")"
+    },
+    {
+      "label": "Healthcare AI Kentucky",
+      "category": "research",
+      "query": "Kentucky (AI OR \"artificial intelligence\" OR \"machine learning\") (hospital OR healthcare OR clinic OR medical OR Norton OR UK Healthcare)"
+    },
+    {
+      "label": "Cyber and digital equity",
+      "category": "news",
+      "query": "Kentucky (cybersecurity OR cyber OR broadband OR \"digital equity\" OR \"digital literacy\") (AI OR tech OR grant OR network)"
+    },
+    {
+      "label": "Fintech and banking AI",
+      "category": "workforce",
+      "query": "Kentucky (fintech OR banking OR \"credit union\" OR payments) (AI OR \"artificial intelligence\" OR \"machine learning\")"
     }
   ],
   "openAlexInstitutions": [
@@ -113,7 +133,9 @@
     "generative AI",
     "large language model",
     "robotics",
-    "bioinformatics"
+    "bioinformatics",
+    "cybersecurity",
+    "human-computer interaction"
   ],
   "rssFeeds": [
     {
@@ -166,6 +188,83 @@
       "requireAi": true
     },
     {
+      "name": "Lane Report",
+      "url": "https://www.lanereport.com/feed/",
+      "region": "Kentucky",
+      "category": "workforce",
+      "requireAi": false
+    },
+    {
+      "name": "NKY Tribune",
+      "url": "https://nkytribune.com/feed/",
+      "region": "Northern Kentucky",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "LEO Weekly",
+      "url": "https://www.leoweekly.com/feed/",
+      "region": "Louisville",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "WFPL News",
+      "url": "https://wfpl.org/feed/",
+      "region": "Louisville",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "WUKY News",
+      "url": "https://www.wuky.org/news.rss",
+      "region": "Lexington",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "LEX18 News",
+      "url": "https://www.lex18.com/news.rss",
+      "region": "Lexington",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "Kentucky Teacher",
+      "url": "https://kentuckyteacher.org/feed/",
+      "region": "Statewide",
+      "category": "education",
+      "requireAi": true
+    },
+    {
+      "name": "Owensboro Times",
+      "url": "https://www.owensborotimes.com/feed/",
+      "region": "Western Kentucky",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "Paducah Sun",
+      "url": "https://www.paducahsun.com/search/?f=rss&t=article&c=news&l=50&s=start_time&sd=desc",
+      "region": "Western Kentucky",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "Richmond Register",
+      "url": "https://www.richmondregister.com/search/?f=rss&t=article&c=news&l=50&s=start_time&sd=desc",
+      "region": "Eastern Kentucky",
+      "category": "news",
+      "requireAi": true
+    },
+    {
+      "name": "TechCrunch Kentucky",
+      "url": "https://techcrunch.com/tag/kentucky/feed/",
+      "region": "Kentucky",
+      "category": "industry",
+      "requireAi": false
+    },
+    {
       "name": "Google News - Kentucky AI",
       "url": "https://news.google.com/rss/search?q=Kentucky+(AI+OR+%22artificial+intelligence%22+OR+%22machine+learning%22+OR+%22data+center%22)&hl=en-US&gl=US&ceid=US:en",
       "region": "Kentucky",
@@ -187,6 +286,20 @@
       "requireAi": false
     },
     {
+      "name": "Google News - Bowling Green tech",
+      "url": "https://news.google.com/rss/search?q=Bowling+Green+Kentucky+(tech+OR+AI+OR+%22data+center%22+OR+startup)&hl=en-US&gl=US&ceid=US:en",
+      "region": "South Central Kentucky",
+      "category": "news",
+      "requireAi": false
+    },
+    {
+      "name": "Google News - Northern Kentucky tech",
+      "url": "https://news.google.com/rss/search?q=%22Northern+Kentucky%22+(AI+OR+tech+OR+startup+OR+cyber)&hl=en-US&gl=US&ceid=US:en",
+      "region": "Northern Kentucky",
+      "category": "news",
+      "requireAi": false
+    },
+    {
       "name": "Google News - KY data centers",
       "url": "https://news.google.com/rss/search?q=Kentucky+(%22data+center%22+OR+hyperscale+OR+Anthropic)+AI&hl=en-US&gl=US&ceid=US:en",
       "region": "Kentucky",
@@ -199,6 +312,27 @@
       "region": "Kentucky",
       "category": "education",
       "requireAi": false
+    },
+    {
+      "name": "Google News - KY broadband and cyber",
+      "url": "https://news.google.com/rss/search?q=Kentucky+(broadband+OR+%22digital+equity%22+OR+cybersecurity)&hl=en-US&gl=US&ceid=US:en",
+      "region": "Kentucky",
+      "category": "news",
+      "requireAi": false
+    },
+    {
+      "name": "Google News - KY startups",
+      "url": "https://news.google.com/rss/search?q=Kentucky+(startup+OR+founder+OR+%22venture+capital%22+OR+fintech)+AI&hl=en-US&gl=US&ceid=US:en",
+      "region": "Kentucky",
+      "category": "workforce",
+      "requireAi": false
+    },
+    {
+      "name": "Google News - Eastern KY tech",
+      "url": "https://news.google.com/rss/search?q=(Pikeville+OR+Ashland+OR+Hazard+OR+Morehead+OR+Appalachia)+Kentucky+(AI+OR+tech+OR+broadband+OR+%22data+center%22)&hl=en-US&gl=US&ceid=US:en",
+      "region": "Eastern Kentucky",
+      "category": "news",
+      "requireAi": false
     }
   ],
   "watchlist": [
@@ -208,9 +342,9 @@
       "focus": "OpenAlex scans for AI-related papers connected to Kentucky institutions."
     },
     {
-      "name": "Campus and state RSS",
+      "name": "Campus, local, and state RSS",
       "type": "Press rooms",
-      "focus": "University and government feeds filtered for AI and tech keywords."
+      "focus": "University, public radio, business press, and local outlets filtered for AI and tech."
     },
     {
       "name": "AI infrastructure and data centers",
@@ -231,6 +365,11 @@
       "name": "Kentucky founders and companies",
       "type": "Industry",
       "focus": "Startups, small-business adoption, local pilots, and AI-enabled services."
+    },
+    {
+      "name": "Broadband, cyber, and digital equity",
+      "type": "Infrastructure",
+      "focus": "Connectivity grants, cybersecurity, and access programs that shape who can use AI tools."
     }
   ]
 }

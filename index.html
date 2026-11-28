@@ -3,273 +3,107 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="KY-Tech is Kentucky tech news and tips. KY-AI is the section for artificial intelligence across the Commonwealth."
-    />
+    <meta name="description" content="Kentucky tech news, plus KY-AI for artificial intelligence across the Commonwealth." />
     <meta name="theme-color" content="#030805" />
-    <meta property="og:title" content="KY-Tech | Kentucky technology" />
-    <meta
-      property="og:description"
-      content="Kentucky tech in plain words. Explore KY-AI for artificial intelligence news, maps, and tips."
-    />
+    <meta property="og:title" content="KY-Tech" />
+    <meta property="og:description" content="Kentucky tech news and KY-AI." />
     <meta property="og:image" content="./assets/kyai-hero.png" />
-    <title>KY-Tech | Kentucky technology</title>
-    <link rel="icon" href="./assets/kyai-mark.svg?v=ky-tech-20261123" />
+    <title>KY-Tech</title>
+    <link rel="icon" href="./assets/kyai-mark.svg?v=lanes-20261124" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Syne:wght@700;800&family=Public+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./home.css?v=feed-20261123" />
+    <link rel="stylesheet" href="./home.css?v=whats-new-20261127" />
   </head>
   <body>
     <canvas id="matrixRain" aria-hidden="true"></canvas>
     <header class="top">
-      <a class="logo" href="#top" aria-label="KY-Tech home">
-        <img src="./assets/kyai-mark.svg?v=ky-tech-20261123" alt="" width="36" height="36" />
-        KY-Tech
-      </a>
-      <nav aria-label="Main">
-        <a href="#lanes">Lanes</a>
-        <a href="#ky-ai">KY-AI</a>
-        <a href="#help">Add a tip</a>
-        <a href="#email">Email</a>
+      <a class="logo" href="#tech" data-view="tech">KY-Tech</a>
+      <nav class="tabs" aria-label="Main">
+        <button type="button" class="nav-btn is-active" data-view="tech" aria-pressed="true">Tech</button>
+        <button type="button" class="nav-btn" data-view="ai" aria-pressed="false">KY-AI</button>
+        <button type="button" class="nav-btn" data-view="help" aria-pressed="false">Tip</button>
+        <button type="button" class="nav-btn" data-view="email" aria-pressed="false">Email</button>
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero">
-        <p class="brand">KY-Tech</p>
-        <p class="brand-tag">Kentucky · technology for the Commonwealth</p>
-        <h1>Tech news and tips from every corner of Kentucky.</h1>
-        <p class="lead">
-          AI, cyber, space, data centers, startups, and more — explained in plain words.
-          Start with <strong>KY-AI</strong>, our live map of artificial intelligence.
-        </p>
-        <p class="motto">United we stand, divided we fall.</p>
-        <div class="actions">
-          <a class="btn primary" href="#ky-ai">Open KY-AI</a>
-          <a class="btn secondary" href="#lanes">See all lanes</a>
+    <main>
+      <section class="panel is-active" id="feed" aria-label="Feed">
+        <div class="toolbar">
+          <div class="lane-head">
+            <p class="eyebrow" id="laneEyebrow">Live feed</p>
+            <h1 id="laneTitle">What’s new</h1>
+            <p class="feed-meta" id="feedMeta">Loading…</p>
+          </div>
+          <div class="filters" aria-label="Place filter">
+            <button class="chip is-active" type="button" data-region="all">All</button>
+            <button class="chip" type="button" data-region="louisville">Louisville</button>
+            <button class="chip" type="button" data-region="bluegrass">Lexington</button>
+            <button class="chip" type="button" data-region="northern">North</button>
+            <button class="chip" type="button" data-region="western">West</button>
+            <button class="chip" type="button" data-region="southcentral">South</button>
+            <button class="chip" type="button" data-region="appalachia">East</button>
+          </div>
         </div>
+
+        <div class="news-list" id="newsList" aria-live="polite">
+          <p class="loading">Loading stories…</p>
+        </div>
+        <button class="more" id="showMore" type="button" hidden>More stories</button>
       </section>
 
-      <section class="block" id="lanes" aria-labelledby="lanes-title">
-        <h2 id="lanes-title">Pick a lane</h2>
-        <p class="sub">
-          KY-Tech covers AI, cyber, space, data centers, and more.
-          <strong>KY-AI</strong> is live today. The other lanes are coming next.
-        </p>
-        <div class="lane-grid">
-          <a class="lane-card is-live" href="#ky-ai">
-            <span class="lane-kicker">Live now</span>
-            <strong>AI</strong>
-            <span>Where Kentucky learns and uses AI — schools, labs, and local tips. Not data centers.</span>
-          </a>
-          <div class="lane-card is-soon" aria-disabled="true">
-            <span class="lane-kicker">Coming soon</span>
-            <strong>Cyber</strong>
-            <span>Security, scams, privacy, and how Kentucky stays safe online.</span>
-          </div>
-          <div class="lane-card is-soon" aria-disabled="true">
-            <span class="lane-kicker">Coming soon</span>
-            <strong>Space</strong>
-            <span>Aerospace, satellites, and Kentucky’s space and aviation tech.</span>
-          </div>
-          <div class="lane-card is-soon" aria-disabled="true">
-            <span class="lane-kicker">Coming soon</span>
-            <strong>Data Centers</strong>
-            <span>Big computing sites, power, land, and local jobs.</span>
-          </div>
-          <div class="lane-card is-soon" aria-disabled="true">
-            <span class="lane-kicker">Coming soon</span>
-            <strong>Startups</strong>
-            <span>Founders, funding, and new tech companies in Kentucky.</span>
-          </div>
-          <div class="lane-card is-soon" aria-disabled="true">
-            <span class="lane-kicker">Coming soon</span>
-            <strong>Schools &amp; Jobs</strong>
-            <span>Classes, training, and tech careers for students and workers.</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="ky-ai-section" id="ky-ai" aria-labelledby="ky-ai-title">
-        <div class="block ky-ai-intro">
-          <p class="section-badge">Section · KY-AI</p>
-          <h2 id="ky-ai-title">KY-AI</h2>
-          <p class="sub">
-            Focused on <strong>artificial intelligence in Kentucky</strong>:
-            school lessons, university research, local businesses trying AI,
-            and community tips. Power plants and data-center builds belong in
-            <em>Data Centers</em> — not here.
-          </p>
-          <div class="ai-focus" aria-label="AI focus">
-            <button class="chip is-active" type="button" data-ai-focus="all">All AI</button>
-            <button class="chip" type="button" data-ai-focus="research">Research</button>
-            <button class="chip" type="button" data-ai-focus="tips">Local tips</button>
-            <button class="chip is-soon" type="button" disabled aria-disabled="true" title="Coming soon">
-              Schools <small>soon</small>
-            </button>
-            <button class="chip is-soon" type="button" disabled aria-disabled="true" title="Coming soon">
-              Business <small>soon</small>
-            </button>
-            <button class="chip is-soon" type="button" disabled aria-disabled="true" title="Coming soon">
-              Rules <small>soon</small>
-            </button>
-            <button class="chip is-soon" type="button" disabled aria-disabled="true" title="Coming soon">
-              Tools <small>soon</small>
-            </button>
-          </div>
-        </div>
-
-        <div class="block map-block" id="map" aria-labelledby="map-title">
-          <h2 id="map-title">Pick a place</h2>
-          <p class="sub" id="mapHint">Tap a region, city, or county. Or type a place name below.</p>
-          <div class="map-shell">
-            <svg class="ky-map" viewBox="0 0 640 300" role="img" aria-labelledby="map-title mapHint">
-              <title>Map of Kentucky</title>
-              <defs>
-                <path id="kyShape" d="M436.2 59.3 L452.8 72.1 L464.5 65.4 L492.5 72.6 L500.6 63.4 L511.2 60.3 L514.4 76.2 L522.9 78.7 L533.0 91.6 L531.0 119.8 L539.9 137.7 L551.7 151.5 L555.3 162.3 L569.5 173.1 L579.3 174.6 L550.9 199.7 L523.7 213.6 L523.7 220.7 L512.8 226.9 L512.0 235.1 L497.8 238.7 L492.9 248.9 L453.2 262.3 L452.0 263.8 L388.7 262.8 L333.6 259.7 L319.0 260.7 L237.2 257.1 L143.9 259.2 L127.7 255.1 L128.9 272.0 L36.9 271.0 L28.0 272.0 L32.1 260.2 L43.0 264.3 L49.1 226.4 L45.4 221.3 L56.8 204.8 L65.3 203.8 L92.4 218.2 L101.8 210.5 L94.9 198.2 L97.7 188.4 L128.1 179.7 L121.2 163.3 L131.0 150.0 L137.8 141.3 L156.5 140.3 L162.6 133.6 L169.1 140.3 L178.8 137.2 L197.4 151.0 L203.5 141.3 L222.2 132.1 L227.0 141.3 L243.6 137.7 L242.4 127.4 L258.6 115.7 L261.5 126.4 L278.1 135.1 L286.6 129.0 L293.5 105.4 L306.5 100.8 L311.3 89.0 L323.9 81.3 L323.1 62.9 L342.1 67.0 L355.9 58.2 L368.9 57.7 L362.8 32.1 L368.5 28.0 L396.9 28.0 L411.9 47.5 L413.1 55.7 L436.2 59.3 Z" />
-                <clipPath id="kyClip"><use href="#kyShape" /></clipPath>
-              </defs>
-              <g clip-path="url(#kyClip)">
-                <rect class="region" data-region="western" data-label="West Kentucky" x="28" y="28" width="155" height="244" tabindex="0" role="button" aria-label="West Kentucky" />
-                <rect class="region" data-region="southcentral" data-label="South Central" x="183" y="28" width="125" height="244" tabindex="0" role="button" aria-label="South Central Kentucky" />
-                <rect class="region" data-region="louisville" data-label="Louisville" x="308" y="28" width="82" height="244" tabindex="0" role="button" aria-label="Louisville" />
-                <rect class="region" data-region="bluegrass" data-label="Bluegrass" x="390" y="28" width="118" height="244" tabindex="0" role="button" aria-label="Bluegrass / Lexington" />
-                <rect class="region" data-region="appalachia" data-label="East Kentucky" x="508" y="28" width="80" height="244" tabindex="0" role="button" aria-label="East Kentucky" />
-              </g>
-              <use class="ky-outline" href="#kyShape" />
-              <g class="place-dots" id="placeDots"></g>
-              <g class="place-labels" id="placeLabels" aria-hidden="true"></g>
-            </svg>
-            <label class="place-search">
-              Find a city or county
-              <input
-                id="placeSearch"
-                list="kyPlaces"
-                autocomplete="off"
-                placeholder="Try Pikeville, Shelby County, Paducah…"
-              />
-            </label>
-            <datalist id="kyPlaces"></datalist>
-            <div class="map-controls" aria-label="Map choices">
-              <button class="chip is-active" type="button" data-region="all">Whole state</button>
-              <button class="chip" type="button" data-region="louisville">Louisville</button>
-              <button class="chip" type="button" data-region="bluegrass">Bluegrass</button>
-              <button class="chip" type="button" data-region="western">West</button>
-              <button class="chip" type="button" data-region="southcentral">South Central</button>
-              <button class="chip" type="button" data-region="appalachia">East</button>
-              <button class="chip" type="button" data-region="northern">North</button>
-            </div>
-          </div>
-          <p class="map-status" id="mapStatus" role="status">Showing KY-AI news for all of Kentucky.</p>
-          <p class="place-count" id="placeCount"></p>
-        </div>
-
-        <div class="block" id="news" aria-labelledby="news-title">
-          <h2 id="news-title">What's new in KY-AI</h2>
-          <p class="sub" id="newsSub">AI stories and tips from around Kentucky.</p>
-          <p class="feed-meta" id="feedMeta"></p>
-          <div class="news-list" id="newsList" aria-live="polite">
-            <p class="loading">Loading news…</p>
-          </div>
-          <button class="btn secondary more" id="showMore" type="button" hidden>Show more</button>
-        </div>
-      </section>
-
-      <section class="block help" id="help" aria-labelledby="help-title">
-        <h2 id="help-title">Heard something? Tell us.</h2>
-        <p class="sub">
-          Saw a story? Went to a class? Know a person building tech or AI?
-          Write it in plain words. We will check it, then share it.
-        </p>
-        <form class="tip-form" id="tipForm">
+      <section class="panel" id="help" aria-labelledby="help-title" hidden>
+        <button type="button" class="back" data-view="tech">← Tech</button>
+        <h1 id="help-title">Send a tip</h1>
+        <p class="sub">One sentence is enough. Where it happened helps.</p>
+        <form id="tipForm">
           <label>
             What happened?
-            <textarea
-              name="what"
-              rows="4"
-              maxlength="400"
-              required
-              placeholder="Example: My library had a free AI class last night."
-            ></textarea>
+            <textarea name="what" rows="4" maxlength="400" required placeholder="Library AI class in Paducah…"></textarea>
           </label>
           <label>
-            Where in Kentucky?
-            <input
-              name="where"
-              list="kyPlaces"
-              maxlength="120"
-              required
-              placeholder="City or county — try your town"
-            />
+            Where?
+            <input name="where" maxlength="120" required placeholder="City or county" />
           </label>
           <label>
             Lane
-            <select name="lane" required>
-              <option value="ai" selected>AI</option>
-              <option value="cyber">Cyber</option>
-              <option value="space">Space</option>
-              <option value="data-centers">Data Centers</option>
-              <option value="startups">Startups</option>
-              <option value="schools-jobs">Schools &amp; Jobs</option>
-              <option value="other">Other KY-Tech</option>
-            </select>
-          </label>
-          <label id="aiFocusField">
-            AI focus
-            <select name="aiFocus">
-              <option value="tips" selected>Local tip</option>
-              <option value="schools">Schools</option>
-              <option value="research">Research</option>
-              <option value="business">Business</option>
-              <option value="rules">Rules / policy</option>
+            <select name="lane">
+              <option value="tech">Tech</option>
+              <option value="ai" selected>KY-AI</option>
             </select>
           </label>
           <label>
-            Link (optional)
+            Link <span class="optional">optional</span>
             <input name="link" type="url" placeholder="https://" />
           </label>
-          <label>
-            Your email (optional)
-            <input name="email" type="email" autocomplete="email" placeholder="so we can say thanks" />
-          </label>
-          <button class="btn primary" type="submit">Send my tip</button>
+          <button class="btn" type="submit">Send</button>
           <p class="status" id="tipStatus" role="status"></p>
         </form>
-        <p class="hint">
-          Grown-ups can also open a
-          <a href="https://github.com/Kgarmon99/kyai-com/issues/new?template=signal.yml">GitHub tip form</a>.
-        </p>
       </section>
 
-      <section class="block email-block" id="email" aria-labelledby="email-title">
-        <h2 id="email-title">Get updates by email</h2>
-        <p class="sub">One short KY-Tech note each week. Easy words. No spam.</p>
-        <form class="email-form" id="emailForm">
+      <section class="panel" id="email" aria-labelledby="email-title" hidden>
+        <button type="button" class="back" data-view="tech">← Tech</button>
+        <h1 id="email-title">Get the weekly note</h1>
+        <p class="sub">One short email. Easy to leave.</p>
+        <form id="emailForm">
           <label>
-            Your email
+            Email
             <input name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
           </label>
-          <button class="btn primary" type="submit">Sign me up</button>
+          <button class="btn" type="submit">Sign up</button>
           <p class="status" id="emailStatus" role="status"></p>
         </form>
       </section>
     </main>
 
     <footer class="foot">
-      <p><strong>KY-Tech</strong> — technology for Kentucky. <strong>KY-AI</strong> is our AI section.</p>
-      <p class="motto">United we stand, divided we fall.</p>
-      <p>
-        <a href="https://github.com/Kgarmon99/kyai-com">Open source</a>
-        ·
-        <a href="./review.html">Editor desk</a>
-      </p>
+      <a href="https://github.com/Kgarmon99/kyai-com">Source</a>
+      <a href="./review.html">Editors</a>
     </footer>
 
-    <script src="./app.js?v=feed-20261123"></script>
+    <script src="./app.js?v=whats-new-20261127"></script>
   </body>
 </html>
